@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "hono": "jsr:@hono/hono@^4.6.16",
+    "@saleor/app-sdk": "npm:@saleor/app-sdk",
+    "@graphql-typed-document-node/core": "npm:@graphql-typed-document-node/core"
+  },
+  "tasks": {
+    "start": "APL=deno deno run --allow-net --allow-env --unstable-kv src/main.tsx",
+    "fetch-schema": "curl https://raw.githubusercontent.com/saleor/saleor/3.20/saleor/graphql/schema.graphql > graphql/schema.graphql",
+    "generate": "graphql-codegen"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "hono/jsx"
+  }
+}
