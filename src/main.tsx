@@ -51,4 +51,4 @@ app.notFound((c) => {
 
 app.route("/api", apiRoutes);
 
-Deno.serve(app.fetch);
+Deno.serve({ port: 3000 }, app.fetch);
