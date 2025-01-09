@@ -1,10 +1,13 @@
 # Saleor App Hono Deno Example
 
+> [!CAUTION]
+> This template is a work in progress
+
 A lightweight Saleor app template leveraging Hono's ultrafast routing capabilities (under 14kB) and Deno for deployment.
 
 ## Demo
 
-Experience the live demo at: *Add your live demo URL here*
+Experience the live demo at: Work in progress
 
 ## Overview
 
