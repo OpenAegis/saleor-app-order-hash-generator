@@ -13,7 +13,28 @@ const app = new Hono();
 app.get(
   "/manifest",
   unpackHonoRequest(createManifestHandler({
-    async manifestFactory({ appBaseUrl }) {
+    manifestFactory({ appBaseUrl, request }) {
+      const host = request.headers.get("host");
+      const xForwardedProto = request.headers.get("x-forwarded-proto") ||
+        "http";
+
+      const protocols = xForwardedProto.split(",").map((value) =>
+        value.trimStart()
+      );
+      const protocol = protocols.find((el) => el === "https") || protocols[0];
+
+      const baseUrlRaw = `${protocol}://${host}`;
+
+      console.log(
+        {
+          host,
+          xForwardedProto,
+          protocols,
+          protocol,
+          baseUrlRaw,
+        },
+      );
+
       return {
         name: "Saleor App Template",
         tokenTargetUrl: `${appBaseUrl}/api/register`,
