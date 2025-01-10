@@ -12,47 +12,70 @@ const app = new Hono();
 
 app.get(
   "/manifest",
-  unpackHonoRequest(createManifestHandler({
-    manifestFactory({ appBaseUrl, request }) {
-      const host = request.headers.get("host");
-      const xForwardedProto = request.headers.get("x-forwarded-proto") ||
-        "http";
+  (c) => {
+    const host2 = c.req.header("host");
+    const request = c.req.raw;
+    const host = request.headers.get("host");
+    const xForwardedProto = request.headers.get("x-forwarded-proto") ||
+      "http";
+    const forwarded = request.headers.get("forwarded");
 
-      const protocols = xForwardedProto.split(",").map((value) =>
-        value.trimStart()
-      );
-      const protocol = protocols.find((el) => el === "https") || protocols[0];
+    const protocols = xForwardedProto.split(",").map((value) =>
+      value.trimStart()
+    );
+    const protocol = protocols.find((el) => el === "https") || protocols[0];
 
-      const baseUrlRaw = `${protocol}://${host}`;
+    const baseUrlRaw = `${protocol}://${host}`;
 
-      console.log(
-        {
-          host,
-          xForwardedProto,
-          protocols,
-          protocol,
-          baseUrlRaw,
-          headers: JSON.stringify(request.headers.entries()),
-        },
-      );
+    console.warn(
+      {
+        host,
+        host2,
+        xForwardedProto,
+        protocols,
+        protocol,
+        baseUrlRaw,
+        forwarded,
+        url: c.req.url,
+      },
+    );
 
-      return {
-        name: "Saleor App Template",
-        tokenTargetUrl: `${appBaseUrl}/api/register`,
-        appUrl: `${appBaseUrl}/app`,
-        permissions: [
-          "MANAGE_ORDERS",
-        ],
-        id: "saleor.app.hono-deno",
-        version: "0.0.1",
-        webhooks: [
-          orderCreatedWebhook.getWebhookManifest(appBaseUrl),
-        ],
-        extensions: [],
-        author: "Jonatan Witoszek",
-      };
-    },
-  })),
+    request.headers.entries().forEach(([key, value]) => {
+      console.log("header", key, value);
+    });
+
+    return c.json({
+      host,
+      host2,
+      xForwardedProto,
+      protocols,
+      protocol,
+      baseUrlRaw,
+      forwarded,
+      headers: request.headers.entries(),
+      url: c.req.url,
+    });
+
+    // createManifestHandler({
+    //   manifestFactory({ appBaseUrl, request }) {
+    //     return {
+    //       name: "Saleor App Template",
+    //       tokenTargetUrl: `${appBaseUrl}/api/register`,
+    //       appUrl: `${appBaseUrl}/app`,
+    //       permissions: [
+    //         "MANAGE_ORDERS",
+    //       ],
+    //       id: "saleor.app.hono-deno",
+    //       version: "0.0.1",
+    //       webhooks: [
+    //         orderCreatedWebhook.getWebhookManifest(appBaseUrl),
+    //       ],
+    //       extensions: [],
+    //       author: "Jonatan Witoszek",
+    //     };
+    //   },
+    // })(c.req.raw);
+  },
 );
 
 app.post(
