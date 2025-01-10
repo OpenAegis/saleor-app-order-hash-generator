@@ -22,35 +22,30 @@ app.get("/", (c) => {
   );
 });
 
-// app.get("/app", async (c) => {
-//   const file = await Deno.open(`${Deno.cwd()}/client/dist/index.html`);
-//   return c.body(file.readable);
-// });
-
-// app.use(
-//   "/app/assets/*",
-//   serveStatic({ root: `${Deno.cwd()}/client/dist/assets` }),
-// );
-
-app.get(
-  "/app",
-  serveStatic({ path: `${Deno.cwd()}/client/dist/index.html` }),
+app.use(
+  "/app/*",
+  serveStatic({
+    root: `${Deno.cwd()}/server/dist`,
+    mimes: {
+      js: "application/javascript", // Explicitly set the MIME type for .js files
+    },
+    precompressed: true,
+    rewriteRequestPath: (path) => {
+      return path.replace(/^\/app/, "");
+    },
+  }),
 );
 
-// app.get("/app", (c) => {
-//   return c.html(
-//     <html>
-//       <head>
-//         {import.meta.env.PROD
-//           ? <script type="module" src="/static/client.js"></script>
-//           : <script type="module" src="/client/index.tsx"></script>}
-//       </head>
-//       <body>
-//         <div id="root"></div>
-//       </body>
-//     </html>,
-//   );
-// });
+app.use(
+  "/assets/*",
+  serveStatic({
+    root: `${Deno.cwd()}/server/dist`,
+    mimes: {
+      js: "application/javascript", // Explicitly set the MIME type for .js files
+    },
+    precompressed: true,
+  }),
+);
 
 app.notFound((c) => {
   return c.html(

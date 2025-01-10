@@ -6,11 +6,13 @@ import { Hono } from "hono";
 import { saleorApp } from "../saleor-app.ts";
 import webhookRotues from "./webhooks/index.ts";
 import { orderCreatedWebhook } from "./webhooks/order-created.ts";
+import { unpackHonoRequest } from "./utils.ts";
 
 const app = new Hono();
 
-app.get("/manifest", (c) =>
-  createManifestHandler({
+app.get(
+  "/manifest",
+  unpackHonoRequest(createManifestHandler({
     async manifestFactory({ appBaseUrl }) {
       return {
         name: "Saleor App Template",
@@ -19,7 +21,7 @@ app.get("/manifest", (c) =>
         permissions: [
           "MANAGE_ORDERS",
         ],
-        id: "saleor.app.hono",
+        id: "saleor.app.hono-deno",
         version: "0.0.1",
         webhooks: [
           orderCreatedWebhook.getWebhookManifest(appBaseUrl),
@@ -28,12 +30,15 @@ app.get("/manifest", (c) =>
         author: "Jonatan Witoszek",
       };
     },
-  })(c.req.raw));
+  })),
+);
 
-app.post("/register", (c) =>
-  createAppRegisterHandler({
+app.post(
+  "/register",
+  unpackHonoRequest(createAppRegisterHandler({
     apl: saleorApp.apl,
-  })(c.req.raw));
+  })),
+);
 
 app.route("/webhooks", webhookRotues);
 
