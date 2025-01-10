@@ -1,5 +1,5 @@
 schema: graphql/schema.graphql
-documents: [graphql/**/*.graphql, src/**/*.ts, src/**/*.tsx]
+documents: ['graphql/**/*.graphql', 'client/**/*.{ts,tsx}', 'server/**/*.{ts,tsx}']
 extensions:
   codegen:
     overwrite: true
@@ -9,6 +9,7 @@ extensions:
           dedupeFragments: true
           # Reduces bundle size
           enumsAsTypes: true
+          gqlTagName: gql # Specify custom gql tag name
         plugins:
           - typescript
           - typescript-operations

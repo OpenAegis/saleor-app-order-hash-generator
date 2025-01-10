@@ -1,47 +1,45 @@
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
   /**
    * The `Date` scalar type represents a Date
    * value as specified by
    * [iso8601](https://en.wikipedia.org/wiki/ISO_8601).
    */
-  Date: { input: any; output: any; }
+  Date: any;
   /**
    * The `DateTime` scalar type represents a DateTime
    * value as specified by
    * [iso8601](https://en.wikipedia.org/wiki/ISO_8601).
    */
-  DateTime: { input: any; output: any; }
+  DateTime: any;
   /** The `Day` scalar type represents number of days by integer value. */
-  Day: { input: any; output: any; }
+  Day: any;
   /**
    * Custom Decimal implementation.
    *
    * Returns Decimal as a float in the API,
    * parses float to the Decimal on the way back.
    */
-  Decimal: { input: any; output: any; }
+  Decimal: any;
   /**
    * The `GenericScalar` scalar type represents a generic
    * GraphQL scalar value that could be:
    * String, Boolean, Int, Float, List or Object.
    */
-  GenericScalar: { input: any; output: any; }
-  JSON: { input: any; output: any; }
-  JSONString: { input: any; output: any; }
+  GenericScalar: any;
+  JSON: any;
+  JSONString: any;
   /**
    * Metadata is a map of key-value pairs, both keys and values are `String`.
    *
@@ -53,21 +51,21 @@ export type Scalars = {
    * }
    * ```
    */
-  Metadata: { input: any; output: any; }
+  Metadata: any;
   /** The `Minute` scalar type represents number of minutes by integer value. */
-  Minute: { input: any; output: any; }
+  Minute: any;
   /**
    * Nonnegative Decimal scalar implementation.
    *
    * Should be used in places where value must be nonnegative (0 or greater).
    */
-  PositiveDecimal: { input: any; output: any; }
-  UUID: { input: any; output: any; }
+  PositiveDecimal: any;
+  UUID: any;
   /** Variables of this type must be set to null in mutations. They will be replaced with a filename from a following multipart part containing a binary file. See: https://github.com/jaydenseric/graphql-multipart-request-spec. */
-  Upload: { input: any; output: any; }
-  WeightScalar: { input: any; output: any; }
+  Upload: any;
+  WeightScalar: any;
   /** _Any value scalar as defined by Federation spec. */
-  _Any: { input: any; output: any; }
+  _Any: any;
 };
 
 /**
@@ -131,23 +129,23 @@ export type AccountChangeEmailRequested = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The new email address the user wants to change to. */
-  newEmail?: Maybe<Scalars['String']['output']>;
+  newEmail?: Maybe<Scalars['String']>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -160,21 +158,21 @@ export type AccountConfirmationRequested = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -187,21 +185,21 @@ export type AccountConfirmed = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -230,21 +228,21 @@ export type AccountDeleteRequested = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -257,21 +255,21 @@ export type AccountDeleted = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -284,23 +282,23 @@ export type AccountEmailChanged = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The new email address. */
-  newEmail?: Maybe<Scalars['String']['output']>;
+  newEmail?: Maybe<Scalars['String']>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents errors in account mutations. */
@@ -311,9 +309,9 @@ export type AccountError = {
   /** The error code. */
   code: AccountErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type AccountErrorCode =
@@ -361,11 +359,11 @@ export type AccountInput = {
   /** Shipping address of the customer. */
   defaultShippingAddress?: InputMaybe<AddressInput>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User language code. */
   languageCode?: InputMaybe<LanguageCodeEnum>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user metadata.
    *
@@ -388,28 +386,28 @@ export type AccountRegister = {
   accountErrors: Array<AccountError>;
   errors: Array<AccountError>;
   /** Informs whether users need to confirm their email address. */
-  requiresConfirmation?: Maybe<Scalars['Boolean']['output']>;
+  requiresConfirmation?: Maybe<Scalars['Boolean']>;
   user?: Maybe<User>;
 };
 
 /** Fields required to create a user. */
 export type AccountRegisterInput = {
   /** Slug of a channel which will be used to notify users. Optional when only one channel exists. */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** The email address of the user. */
-  email: Scalars['String']['input'];
+  email: Scalars['String'];
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User language code. */
   languageCode?: InputMaybe<LanguageCodeEnum>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /** User public metadata. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Password. */
-  password: Scalars['String']['input'];
+  password: Scalars['String'];
   /** Base of frontend URL that will be needed to create confirmation URL. Required when account confirmation is enabled. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -455,21 +453,21 @@ export type AccountSetPasswordRequested = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -493,25 +491,25 @@ export type AccountUpdate = {
 export type Address = Node & ObjectWithMetadata & {
   __typename?: 'Address';
   /** The city of the address. */
-  city: Scalars['String']['output'];
+  city: Scalars['String'];
   /** The district of the address. */
-  cityArea: Scalars['String']['output'];
+  cityArea: Scalars['String'];
   /** Company or organization name. */
-  companyName: Scalars['String']['output'];
+  companyName: Scalars['String'];
   /** The country of the address. */
   country: CountryDisplay;
   /** The country area of the address. */
-  countryArea: Scalars['String']['output'];
+  countryArea: Scalars['String'];
   /** The given name of the address. */
-  firstName: Scalars['String']['output'];
+  firstName: Scalars['String'];
   /** The ID of the address. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Address is user's default billing address. */
-  isDefaultBillingAddress?: Maybe<Scalars['Boolean']['output']>;
+  isDefaultBillingAddress?: Maybe<Scalars['Boolean']>;
   /** Address is user's default shipping address. */
-  isDefaultShippingAddress?: Maybe<Scalars['Boolean']['output']>;
+  isDefaultShippingAddress?: Maybe<Scalars['Boolean']>;
   /** The family name of the address. */
-  lastName: Scalars['String']['output'];
+  lastName: Scalars['String'];
   /**
    * List of public metadata items. Can be accessed without permissions.
    *
@@ -525,17 +523,17 @@ export type Address = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.10.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The phone number assigned the address. */
-  phone?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']>;
   /** The postal code of the address. */
-  postalCode: Scalars['String']['output'];
+  postalCode: Scalars['String'];
   /**
    * List of private metadata items. Requires staff permissions to access.
    *
@@ -549,41 +547,41 @@ export type Address = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.10.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** The first line of the address. */
-  streetAddress1: Scalars['String']['output'];
+  streetAddress1: Scalars['String'];
   /** The second line of the address. */
-  streetAddress2: Scalars['String']['output'];
+  streetAddress2: Scalars['String'];
 };
 
 
 /** Represents user address data. */
 export type AddressMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents user address data. */
 export type AddressMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents user address data. */
 export type AddressPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents user address data. */
 export type AddressPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -614,13 +612,13 @@ export type AddressCreated = Event & {
   /** The address the event relates to. */
   address?: Maybe<Address>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -651,30 +649,30 @@ export type AddressDeleted = Event & {
   /** The address the event relates to. */
   address?: Maybe<Address>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type AddressInput = {
   /** City. */
-  city?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']>;
   /** District. */
-  cityArea?: InputMaybe<Scalars['String']['input']>;
+  cityArea?: InputMaybe<Scalars['String']>;
   /** Company or organization. */
-  companyName?: InputMaybe<Scalars['String']['input']>;
+  companyName?: InputMaybe<Scalars['String']>;
   /** Country. */
   country?: InputMaybe<CountryCode>;
   /** State or province. */
-  countryArea?: InputMaybe<Scalars['String']['input']>;
+  countryArea?: InputMaybe<Scalars['String']>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Address public metadata.
    *
@@ -686,9 +684,9 @@ export type AddressInput = {
    *
    * Phone numbers are validated with Google's [libphonenumber](https://github.com/google/libphonenumber) library.
    */
-  phone?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']>;
   /** Postal code. */
-  postalCode?: InputMaybe<Scalars['String']['input']>;
+  postalCode?: InputMaybe<Scalars['String']>;
   /**
    * Determine if the address should be validated. By default, Saleor accepts only address inputs matching ruleset from [Google Address Data]{https://chromium-i18n.appspot.com/ssl-address), using [i18naddress](https://github.com/mirumee/google-i18n-address) library. Some mutations may require additional permissions to use the the field. More info about permissions can be found in relevant mutation.
    *
@@ -696,11 +694,11 @@ export type AddressInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  skipValidation?: InputMaybe<Scalars['Boolean']['input']>;
+  skipValidation?: InputMaybe<Scalars['Boolean']>;
   /** Address. */
-  streetAddress1?: InputMaybe<Scalars['String']['input']>;
+  streetAddress1?: InputMaybe<Scalars['String']>;
   /** Address. */
-  streetAddress2?: InputMaybe<Scalars['String']['input']>;
+  streetAddress2?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -752,13 +750,13 @@ export type AddressUpdated = Event & {
   /** The address the event relates to. */
   address?: Maybe<Address>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents address validation rules for a country. */
@@ -780,7 +778,7 @@ export type AddressValidationData = {
    *
    * [Click here for more information.](https://github.com/google/libaddressinput/wiki/AddressValidationMetadata)
    */
-  addressFormat: Scalars['String']['output'];
+  addressFormat: Scalars['String'];
   /**
    * The latin address format of the address validation rule.
    *
@@ -797,50 +795,50 @@ export type AddressValidationData = {
    *
    * [Click here for more information.](https://github.com/google/libaddressinput/wiki/AddressValidationMetadata)
    */
-  addressLatinFormat: Scalars['String']['output'];
+  addressLatinFormat: Scalars['String'];
   /** The allowed fields to use in address. */
-  allowedFields: Array<Scalars['String']['output']>;
+  allowedFields: Array<Scalars['String']>;
   /** The available choices for the city area of the address validation rule. */
   cityAreaChoices: Array<ChoiceValue>;
   /** The formal name of the city area of the address validation rule. */
-  cityAreaType: Scalars['String']['output'];
+  cityAreaType: Scalars['String'];
   /** The available choices for the city of the address validation rule. */
   cityChoices: Array<ChoiceValue>;
   /** The formal name of the city of the address validation rule. */
-  cityType: Scalars['String']['output'];
+  cityType: Scalars['String'];
   /** The available choices for the country area of the address validation rule. */
   countryAreaChoices: Array<ChoiceValue>;
   /** The formal name of the county area of the address validation rule. */
-  countryAreaType: Scalars['String']['output'];
+  countryAreaType: Scalars['String'];
   /** The country code of the address validation rule. */
-  countryCode: Scalars['String']['output'];
+  countryCode: Scalars['String'];
   /** The country name of the address validation rule. */
-  countryName: Scalars['String']['output'];
+  countryName: Scalars['String'];
   /** The example postal code of the address validation rule. */
-  postalCodeExamples: Array<Scalars['String']['output']>;
+  postalCodeExamples: Array<Scalars['String']>;
   /** The regular expression for postal code validation. */
-  postalCodeMatchers: Array<Scalars['String']['output']>;
+  postalCodeMatchers: Array<Scalars['String']>;
   /** The postal code prefix of the address validation rule. */
-  postalCodePrefix: Scalars['String']['output'];
+  postalCodePrefix: Scalars['String'];
   /** The formal name of the postal code of the address validation rule. */
-  postalCodeType: Scalars['String']['output'];
+  postalCodeType: Scalars['String'];
   /** The required fields to create a valid address. */
-  requiredFields: Array<Scalars['String']['output']>;
+  requiredFields: Array<Scalars['String']>;
   /** The list of fields that should be in upper case for address validation rule. */
-  upperFields: Array<Scalars['String']['output']>;
+  upperFields: Array<Scalars['String']>;
 };
 
 /** Represents allocation. */
 export type Allocation = Node & {
   __typename?: 'Allocation';
   /** The ID of allocation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Quantity allocated for orders.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
    */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /**
    * The warehouse were items were allocated.
    *
@@ -865,11 +863,11 @@ export type AllocationStrategyEnum =
 export type App = Node & ObjectWithMetadata & {
   __typename?: 'App';
   /** Description of this app. */
-  aboutApp?: Maybe<Scalars['String']['output']>;
+  aboutApp?: Maybe<Scalars['String']>;
   /** JWT token used to authenticate by third-party app. */
-  accessToken?: Maybe<Scalars['String']['output']>;
+  accessToken?: Maybe<Scalars['String']>;
   /** URL to iframe with the app. */
-  appUrl?: Maybe<Scalars['String']['output']>;
+  appUrl?: Maybe<Scalars['String']>;
   /**
    * The App's author name.
    *
@@ -877,7 +875,7 @@ export type App = Node & ObjectWithMetadata & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  author?: Maybe<Scalars['String']['output']>;
+  author?: Maybe<Scalars['String']>;
   /**
    * App's brand data.
    *
@@ -890,16 +888,16 @@ export type App = Node & ObjectWithMetadata & {
    * URL to iframe with the configuration for the app.
    * @deprecated This field will be removed in Saleor 4.0. Use `appUrl` instead.
    */
-  configurationUrl?: Maybe<Scalars['String']['output']>;
+  configurationUrl?: Maybe<Scalars['String']>;
   /** The date and time when the app was created. */
-  created?: Maybe<Scalars['DateTime']['output']>;
+  created?: Maybe<Scalars['DateTime']>;
   /**
    * Description of the data privacy defined for this app.
    * @deprecated This field will be removed in Saleor 4.0. Use `dataPrivacyUrl` instead.
    */
-  dataPrivacy?: Maybe<Scalars['String']['output']>;
+  dataPrivacy?: Maybe<Scalars['String']>;
   /** URL to details about the privacy policy on the app owner page. */
-  dataPrivacyUrl?: Maybe<Scalars['String']['output']>;
+  dataPrivacyUrl?: Maybe<Scalars['String']>;
   /**
    * App's dashboard extensions.
    *
@@ -907,23 +905,23 @@ export type App = Node & ObjectWithMetadata & {
    */
   extensions: Array<AppExtension>;
   /** Homepage of the app. */
-  homepageUrl?: Maybe<Scalars['String']['output']>;
+  homepageUrl?: Maybe<Scalars['String']>;
   /** The ID of the app. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Canonical app ID from the manifest
    *
    * Added in Saleor 3.19.
    */
-  identifier?: Maybe<Scalars['String']['output']>;
+  identifier?: Maybe<Scalars['String']>;
   /** Determine if app will be set active or not. */
-  isActive?: Maybe<Scalars['Boolean']['output']>;
+  isActive?: Maybe<Scalars['Boolean']>;
   /**
    * URL to manifest used during app's installation.
    *
    * Added in Saleor 3.5.
    */
-  manifestUrl?: Maybe<Scalars['String']['output']>;
+  manifestUrl?: Maybe<Scalars['String']>;
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -933,15 +931,15 @@ export type App = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the app. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** List of the app's permissions. */
   permissions?: Maybe<Array<Permission>>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -953,15 +951,15 @@ export type App = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Support page for the app. */
-  supportUrl?: Maybe<Scalars['String']['output']>;
+  supportUrl?: Maybe<Scalars['String']>;
   /**
    * Last 4 characters of the tokens.
    *
@@ -971,7 +969,7 @@ export type App = Node & ObjectWithMetadata & {
   /** Type of the app. */
   type?: Maybe<AppTypeEnum>;
   /** Version number of the app. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /**
    * List of webhooks assigned to this app.
    *
@@ -983,25 +981,25 @@ export type App = Node & ObjectWithMetadata & {
 
 /** Represents app data. */
 export type AppMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents app data. */
 export type AppMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents app data. */
 export type AppPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents app data. */
 export type AppPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -1055,7 +1053,7 @@ export type AppBrandLogo = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  default: Scalars['String']['output'];
+  default: Scalars['String'];
 };
 
 
@@ -1068,7 +1066,7 @@ export type AppBrandLogo = {
  */
 export type AppBrandLogoDefaultArgs = {
   format?: InputMaybe<IconThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 export type AppCountableConnection = {
@@ -1077,13 +1075,13 @@ export type AppCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type AppCountableEdge = {
   __typename?: 'AppCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: App;
 };
@@ -1100,7 +1098,7 @@ export type AppCreate = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   appErrors: Array<AppError>;
   /** The newly created authentication token. */
-  authToken?: Maybe<Scalars['String']['output']>;
+  authToken?: Maybe<Scalars['String']>;
   errors: Array<AppError>;
 };
 
@@ -1159,13 +1157,13 @@ export type AppDeleted = Event & {
   /** The application the event relates to. */
   app?: Maybe<App>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type AppError = {
@@ -1173,9 +1171,9 @@ export type AppError = {
   /** The error code. */
   code: AppErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of permissions which causes the error. */
   permissions?: Maybe<Array<PermissionEnum>>;
 };
@@ -1201,13 +1199,13 @@ export type AppErrorCode =
 export type AppExtension = Node & {
   __typename?: 'AppExtension';
   /** JWT token used to authenticate by third-party app extension. */
-  accessToken?: Maybe<Scalars['String']['output']>;
+  accessToken?: Maybe<Scalars['String']>;
   /** The app assigned to app extension. */
   app: App;
   /** The ID of the app extension. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Label of the extension to show in the dashboard. */
-  label: Scalars['String']['output'];
+  label: Scalars['String'];
   /** Place where given extension will be mounted. */
   mount: AppExtensionMountEnum;
   /** List of the app extension's permissions. */
@@ -1215,7 +1213,7 @@ export type AppExtension = Node & {
   /** Type of way how app extension will be opened. */
   target: AppExtensionTargetEnum;
   /** URL of a view where extension's iframe is placed. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 export type AppExtensionCountableConnection = {
@@ -1224,13 +1222,13 @@ export type AppExtensionCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type AppExtensionCountableEdge = {
   __typename?: 'AppExtensionCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: AppExtension;
 };
@@ -1283,8 +1281,8 @@ export type AppFetchManifest = {
 };
 
 export type AppFilterInput = {
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  search?: InputMaybe<Scalars['String']>;
   type?: InputMaybe<AppTypeEnum>;
 };
 
@@ -1294,9 +1292,9 @@ export type AppInput = {
    *
    * Added in Saleor 3.19.
    */
-  identifier?: InputMaybe<Scalars['String']['input']>;
+  identifier?: InputMaybe<Scalars['String']>;
   /** Name of the app. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** List of permission code names to assign to this app. */
   permissions?: InputMaybe<Array<PermissionEnum>>;
 };
@@ -1312,11 +1310,11 @@ export type AppInstall = {
 
 export type AppInstallInput = {
   /** Determine if app will be set active or not. */
-  activateAfterInstallation?: InputMaybe<Scalars['Boolean']['input']>;
+  activateAfterInstallation?: InputMaybe<Scalars['Boolean']>;
   /** Name of the app to install. */
-  appName?: InputMaybe<Scalars['String']['input']>;
+  appName?: InputMaybe<Scalars['String']>;
   /** URL to app's manifest in JSON format. */
-  manifestUrl?: InputMaybe<Scalars['String']['input']>;
+  manifestUrl?: InputMaybe<Scalars['String']>;
   /** List of permission code names to assign to this app. */
   permissions?: InputMaybe<Array<PermissionEnum>>;
 };
@@ -1325,7 +1323,7 @@ export type AppInstallInput = {
 export type AppInstallation = Job & Node & {
   __typename?: 'AppInstallation';
   /** The name of the app installation. */
-  appName: Scalars['String']['output'];
+  appName: Scalars['String'];
   /**
    * App's brand data.
    *
@@ -1335,17 +1333,17 @@ export type AppInstallation = Job & Node & {
    */
   brand?: Maybe<AppBrand>;
   /** Created date time of job in ISO 8601 format. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** The ID of the app installation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The URL address of manifest for the app installation. */
-  manifestUrl: Scalars['String']['output'];
+  manifestUrl: Scalars['String'];
   /** Job message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Job status. */
   status: JobStatusEnum;
   /** Date time of job last update in ISO 8601 format. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
 };
 
 /**
@@ -1358,13 +1356,13 @@ export type AppInstalled = Event & {
   /** The application the event relates to. */
   app?: Maybe<App>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -1402,7 +1400,7 @@ export type AppManifestBrandLogo = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  default: Scalars['String']['output'];
+  default: Scalars['String'];
 };
 
 
@@ -1415,13 +1413,13 @@ export type AppManifestBrandLogo = {
  */
 export type AppManifestBrandLogoDefaultArgs = {
   format?: InputMaybe<IconThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 export type AppManifestExtension = {
   __typename?: 'AppManifestExtension';
   /** Label of the extension to show in the dashboard. */
-  label: Scalars['String']['output'];
+  label: Scalars['String'];
   /** Place where given extension will be mounted. */
   mount: AppExtensionMountEnum;
   /** List of the app extension's permissions. */
@@ -1429,7 +1427,7 @@ export type AppManifestExtension = {
   /** Type of way how app extension will be opened. */
   target: AppExtensionTargetEnum;
   /** URL of a view where extension's iframe is placed. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 export type AppManifestRequiredSaleorVersion = {
@@ -1441,7 +1439,7 @@ export type AppManifestRequiredSaleorVersion = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  constraint: Scalars['String']['output'];
+  constraint: Scalars['String'];
   /**
    * Informs if the Saleor version matches the required one.
    *
@@ -1449,7 +1447,7 @@ export type AppManifestRequiredSaleorVersion = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  satisfied: Scalars['Boolean']['output'];
+  satisfied: Scalars['Boolean'];
 };
 
 export type AppManifestWebhook = {
@@ -1457,13 +1455,13 @@ export type AppManifestWebhook = {
   /** The asynchronous events that webhook wants to subscribe. */
   asyncEvents?: Maybe<Array<WebhookEventTypeAsyncEnum>>;
   /** The name of the webhook. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Subscription query of a webhook */
-  query: Scalars['String']['output'];
+  query: Scalars['String'];
   /** The synchronous events that webhook wants to subscribe. */
   syncEvents?: Maybe<Array<WebhookEventTypeSyncEnum>>;
   /** The url to receive the payload. */
-  targetUrl: Scalars['String']['output'];
+  targetUrl: Scalars['String'];
 };
 
 /**
@@ -1505,24 +1503,24 @@ export type AppStatusChanged = Event & {
   /** The application the event relates to. */
   app?: Maybe<App>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents token data. */
 export type AppToken = Node & {
   __typename?: 'AppToken';
   /** Last 4 characters of the token. */
-  authToken?: Maybe<Scalars['String']['output']>;
+  authToken?: Maybe<Scalars['String']>;
   /** The ID of the app token. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the authenticated token. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -1536,7 +1534,7 @@ export type AppTokenCreate = {
   appErrors: Array<AppError>;
   appToken?: Maybe<AppToken>;
   /** The newly created authentication token. */
-  authToken?: Maybe<Scalars['String']['output']>;
+  authToken?: Maybe<Scalars['String']>;
   errors: Array<AppError>;
 };
 
@@ -1555,9 +1553,9 @@ export type AppTokenDelete = {
 
 export type AppTokenInput = {
   /** ID of app. */
-  app: Scalars['ID']['input'];
+  app: Scalars['ID'];
   /** Name of the token. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 /** Verify provided app token. */
@@ -1567,7 +1565,7 @@ export type AppTokenVerify = {
   appErrors: Array<AppError>;
   errors: Array<AppError>;
   /** Determine if token is valid or not. */
-  valid: Scalars['Boolean']['output'];
+  valid: Scalars['Boolean'];
 };
 
 /** Enum determining type of your App. */
@@ -1603,13 +1601,13 @@ export type AppUpdated = Event & {
   /** The application the event relates to. */
   app?: Maybe<App>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type AreaUnitsEnum =
@@ -1646,7 +1644,7 @@ export type AssignedVariantAttribute = {
   /** Attribute assigned to variant. */
   attribute: Attribute;
   /** Determines, whether assigned attribute is allowed for variant selection. Supported variant types for variant selection are: ['dropdown', 'boolean', 'swatch', 'numeric'] */
-  variantSelection: Scalars['Boolean']['output'];
+  variantSelection: Scalars['Boolean'];
 };
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
@@ -1656,7 +1654,7 @@ export type Attribute = Node & ObjectWithMetadata & {
    * Whether the attribute can be displayed in the admin product list. Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
    * @deprecated This field will be removed in Saleor 4.0.
    */
-  availableInGrid: Scalars['Boolean']['output'];
+  availableInGrid: Scalars['Boolean'];
   /** List of attribute's values. */
   choices?: Maybe<AttributeValueCountableConnection>;
   /** The entity type which can be used as a reference. */
@@ -1666,16 +1664,16 @@ export type Attribute = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** Whether the attribute can be filtered in dashboard. Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES. */
-  filterableInDashboard: Scalars['Boolean']['output'];
+  filterableInDashboard: Scalars['Boolean'];
   /**
    * Whether the attribute can be filtered in storefront. Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
    * @deprecated This field will be removed in Saleor 4.0.
    */
-  filterableInStorefront: Scalars['Boolean']['output'];
+  filterableInStorefront: Scalars['Boolean'];
   /** The ID of the attribute. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The input type to use for entering attribute values in the dashboard. */
   inputType?: Maybe<AttributeInputTypeEnum>;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -1687,15 +1685,15 @@ export type Attribute = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of an attribute displayed in the interface. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -1705,24 +1703,24 @@ export type Attribute = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** A list of product types that use this attribute as a product attribute. */
   productTypes: ProductTypeCountableConnection;
   /** A list of product types that use this attribute as a product variant attribute. */
   productVariantTypes: ProductTypeCountableConnection;
   /** Internal representation of an attribute name. */
-  slug?: Maybe<Scalars['String']['output']>;
+  slug?: Maybe<Scalars['String']>;
   /**
    * The position of the attribute in the storefront navigation (0 by default). Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
    * @deprecated This field will be removed in Saleor 4.0.
    */
-  storefrontSearchPosition: Scalars['Int']['output'];
+  storefrontSearchPosition: Scalars['Int'];
   /** Returns translated attribute fields for the given language code. */
   translation?: Maybe<AttributeTranslation>;
   /** The attribute type. */
@@ -1730,64 +1728,64 @@ export type Attribute = Node & ObjectWithMetadata & {
   /** The unit of attribute values. */
   unit?: Maybe<MeasurementUnitsEnum>;
   /** Whether the attribute requires values to be passed or not. Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES. */
-  valueRequired: Scalars['Boolean']['output'];
+  valueRequired: Scalars['Boolean'];
   /** Whether the attribute should be visible or not in storefront. Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES, MANAGE_PRODUCTS, MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES. */
-  visibleInStorefront: Scalars['Boolean']['output'];
+  visibleInStorefront: Scalars['Boolean'];
   /** Flag indicating that attribute has predefined choices. */
-  withChoices: Scalars['Boolean']['output'];
+  withChoices: Scalars['Boolean'];
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributeChoicesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AttributeValueFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<AttributeChoicesSortingInput>;
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributeMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributeMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributeProductTypesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Custom attribute of a product. Attributes can be assigned to products and variants at the product type level. */
 export type AttributeProductVariantTypesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -1809,7 +1807,7 @@ export type AttributeTranslationArgs = {
 export type AttributeBulkCreate = {
   __typename?: 'AttributeBulkCreate';
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeBulkCreateError>;
   /** List of the created attributes. */
   results: Array<AttributeBulkCreateResult>;
@@ -1820,9 +1818,9 @@ export type AttributeBulkCreateError = {
   /** The error code. */
   code: AttributeBulkCreateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type AttributeBulkCreateErrorCode =
@@ -1857,7 +1855,7 @@ export type AttributeBulkDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   attributeErrors: Array<AttributeError>;
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeError>;
 };
 
@@ -1873,7 +1871,7 @@ export type AttributeBulkDelete = {
 export type AttributeBulkTranslate = {
   __typename?: 'AttributeBulkTranslate';
   /** Returns how many translations were created/updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeBulkTranslateError>;
   /** List of the translations. */
   results: Array<AttributeBulkTranslateResult>;
@@ -1884,16 +1882,16 @@ export type AttributeBulkTranslateError = {
   /** The error code. */
   code: AttributeTranslateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type AttributeBulkTranslateInput = {
   /** External reference of an attribute. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Attribute ID. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** Translation language code. */
   languageCode: LanguageCodeEnum;
   /** Translation fields. */
@@ -1923,7 +1921,7 @@ export type AttributeBulkTranslateResult = {
 export type AttributeBulkUpdate = {
   __typename?: 'AttributeBulkUpdate';
   /** Returns how many objects were updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeBulkUpdateError>;
   /** List of the updated attributes. */
   results: Array<AttributeBulkUpdateResult>;
@@ -1934,9 +1932,9 @@ export type AttributeBulkUpdateError = {
   /** The error code. */
   code: AttributeBulkUpdateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type AttributeBulkUpdateErrorCode =
@@ -1952,11 +1950,11 @@ export type AttributeBulkUpdateErrorCode =
 
 export type AttributeBulkUpdateInput = {
   /** External ID of this attribute. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Fields to update. */
   fields: AttributeUpdateInput;
   /** ID of an attribute to update. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 export type AttributeBulkUpdateResult = {
@@ -1986,13 +1984,13 @@ export type AttributeCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type AttributeCountableEdge = {
   __typename?: 'AttributeCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Attribute;
 };
@@ -2022,7 +2020,7 @@ export type AttributeCreateInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  availableInGrid?: InputMaybe<Scalars['Boolean']['input']>;
+  availableInGrid?: InputMaybe<Scalars['Boolean']>;
   /** The entity type which can be used as a reference. */
   entityType?: InputMaybe<AttributeEntityTypeEnum>;
   /**
@@ -2030,39 +2028,39 @@ export type AttributeCreateInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Whether the attribute can be filtered in dashboard. */
-  filterableInDashboard?: InputMaybe<Scalars['Boolean']['input']>;
+  filterableInDashboard?: InputMaybe<Scalars['Boolean']>;
   /**
    * Whether the attribute can be filtered in storefront.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  filterableInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
+  filterableInStorefront?: InputMaybe<Scalars['Boolean']>;
   /** The input type to use for entering attribute values in the dashboard. */
   inputType?: InputMaybe<AttributeInputTypeEnum>;
   /** Whether the attribute is for variants only. */
-  isVariantOnly?: InputMaybe<Scalars['Boolean']['input']>;
+  isVariantOnly?: InputMaybe<Scalars['Boolean']>;
   /** Name of an attribute displayed in the interface. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /** Internal representation of an attribute name. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /**
    * The position of the attribute in the storefront navigation (0 by default).
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  storefrontSearchPosition?: InputMaybe<Scalars['Int']['input']>;
+  storefrontSearchPosition?: InputMaybe<Scalars['Int']>;
   /** The attribute type. */
   type: AttributeTypeEnum;
   /** The unit of attribute values. */
   unit?: InputMaybe<MeasurementUnitsEnum>;
   /** Whether the attribute requires values to be passed or not. */
-  valueRequired?: InputMaybe<Scalars['Boolean']['input']>;
+  valueRequired?: InputMaybe<Scalars['Boolean']>;
   /** List of attribute's values. */
   values?: InputMaybe<Array<AttributeValueCreateInput>>;
   /** Whether the attribute should be visible or not in storefront. */
-  visibleInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
+  visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -2075,13 +2073,13 @@ export type AttributeCreated = Event & {
   /** The attribute the event relates to. */
   attribute?: Maybe<Attribute>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -2110,13 +2108,13 @@ export type AttributeDeleted = Event & {
   /** The attribute the event relates to. */
   attribute?: Maybe<Attribute>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type AttributeEntityTypeEnum =
@@ -2136,9 +2134,9 @@ export type AttributeError = {
   /** The error code. */
   code: AttributeErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type AttributeErrorCode =
@@ -2150,38 +2148,38 @@ export type AttributeErrorCode =
   | 'UNIQUE';
 
 export type AttributeFilterInput = {
-  availableInGrid?: InputMaybe<Scalars['Boolean']['input']>;
+  availableInGrid?: InputMaybe<Scalars['Boolean']>;
   /**
    * Specifies the channel by which the data should be filtered.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
-  filterableInDashboard?: InputMaybe<Scalars['Boolean']['input']>;
-  filterableInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  inCategory?: InputMaybe<Scalars['ID']['input']>;
-  inCollection?: InputMaybe<Scalars['ID']['input']>;
-  isVariantOnly?: InputMaybe<Scalars['Boolean']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  filterableInDashboard?: InputMaybe<Scalars['Boolean']>;
+  filterableInStorefront?: InputMaybe<Scalars['Boolean']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  inCategory?: InputMaybe<Scalars['ID']>;
+  inCollection?: InputMaybe<Scalars['ID']>;
+  isVariantOnly?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
   type?: InputMaybe<AttributeTypeEnum>;
-  valueRequired?: InputMaybe<Scalars['Boolean']['input']>;
-  visibleInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
+  valueRequired?: InputMaybe<Scalars['Boolean']>;
+  visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type AttributeInput = {
   /** The boolean value of the attribute. */
-  boolean?: InputMaybe<Scalars['Boolean']['input']>;
+  boolean?: InputMaybe<Scalars['Boolean']>;
   /** The date range that the returned values should be in. In case of date/time attributes, the UTC midnight of the given date is used. */
   date?: InputMaybe<DateRangeInput>;
   /** The date/time range that the returned values should be in. */
   dateTime?: InputMaybe<DateTimeRangeInput>;
   /** Internal representation of an attribute name. */
-  slug: Scalars['String']['input'];
+  slug: Scalars['String'];
   /** Internal representation of a value (unique per attribute). */
-  values?: InputMaybe<Array<Scalars['String']['input']>>;
+  values?: InputMaybe<Array<Scalars['String']>>;
   /** The range that the returned values should be in. */
   valuesRange?: InputMaybe<IntRangeInput>;
 };
@@ -2264,11 +2262,11 @@ export type AttributeTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  attributeId: Scalars['ID']['output'];
+  attributeId: Scalars['ID'];
   /** The ID of the attribute translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the attribute to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Returns translated attribute fields for the given language code. */
   translation?: Maybe<AttributeTranslation>;
 };
@@ -2302,11 +2300,11 @@ export type AttributeTranslateErrorCode =
 export type AttributeTranslation = Node & {
   __typename?: 'AttributeTranslation';
   /** The ID of the attribute translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated attribute name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Represents the attribute fields to translate.
    *
@@ -2355,41 +2353,41 @@ export type AttributeUpdateInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  availableInGrid?: InputMaybe<Scalars['Boolean']['input']>;
+  availableInGrid?: InputMaybe<Scalars['Boolean']>;
   /**
    * External ID of this product.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Whether the attribute can be filtered in dashboard. */
-  filterableInDashboard?: InputMaybe<Scalars['Boolean']['input']>;
+  filterableInDashboard?: InputMaybe<Scalars['Boolean']>;
   /**
    * Whether the attribute can be filtered in storefront.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  filterableInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
+  filterableInStorefront?: InputMaybe<Scalars['Boolean']>;
   /** Whether the attribute is for variants only. */
-  isVariantOnly?: InputMaybe<Scalars['Boolean']['input']>;
+  isVariantOnly?: InputMaybe<Scalars['Boolean']>;
   /** Name of an attribute displayed in the interface. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** IDs of values to be removed from this attribute. */
-  removeValues?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeValues?: InputMaybe<Array<Scalars['ID']>>;
   /** Internal representation of an attribute name. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /**
    * The position of the attribute in the storefront navigation (0 by default).
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  storefrontSearchPosition?: InputMaybe<Scalars['Int']['input']>;
+  storefrontSearchPosition?: InputMaybe<Scalars['Int']>;
   /** The unit of attribute values. */
   unit?: InputMaybe<MeasurementUnitsEnum>;
   /** Whether the attribute requires values to be passed or not. */
-  valueRequired?: InputMaybe<Scalars['Boolean']['input']>;
+  valueRequired?: InputMaybe<Scalars['Boolean']>;
   /** Whether the attribute should be visible or not in storefront. */
-  visibleInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
+  visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -2402,54 +2400,54 @@ export type AttributeUpdated = Event & {
   /** The attribute the event relates to. */
   attribute?: Maybe<Attribute>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents a value of an attribute. */
 export type AttributeValue = Node & {
   __typename?: 'AttributeValue';
   /** Represents the boolean value of the attribute value. */
-  boolean?: Maybe<Scalars['Boolean']['output']>;
+  boolean?: Maybe<Scalars['Boolean']>;
   /** Represents the date value of the attribute value. */
-  date?: Maybe<Scalars['Date']['output']>;
+  date?: Maybe<Scalars['Date']>;
   /** Represents the date/time value of the attribute value. */
-  dateTime?: Maybe<Scalars['DateTime']['output']>;
+  dateTime?: Maybe<Scalars['DateTime']>;
   /**
    * External ID of this attribute value.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** Represents file URL and content type (if attribute value is a file). */
   file?: Maybe<File>;
   /** The ID of the attribute value. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The input type to use for entering attribute values in the dashboard. */
   inputType?: Maybe<AttributeInputTypeEnum>;
   /** Name of a value displayed in the interface. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Represents the text of the attribute value, plain text without formatting. */
-  plainText?: Maybe<Scalars['String']['output']>;
+  plainText?: Maybe<Scalars['String']>;
   /** The ID of the attribute reference. */
-  reference?: Maybe<Scalars['ID']['output']>;
+  reference?: Maybe<Scalars['ID']>;
   /**
    * Represents the text of the attribute value, includes formatting.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  richText?: Maybe<Scalars['JSONString']['output']>;
+  richText?: Maybe<Scalars['JSONString']>;
   /** Internal representation of a value (unique per attribute). */
-  slug?: Maybe<Scalars['String']['output']>;
+  slug?: Maybe<Scalars['String']>;
   /** Returns translated attribute value fields for the given language code. */
   translation?: Maybe<AttributeValueTranslation>;
   /** Represent value of the attribute value (e.g. color values for swatch attributes). */
-  value?: Maybe<Scalars['String']['output']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 
@@ -2472,7 +2470,7 @@ export type AttributeValueBulkDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   attributeErrors: Array<AttributeError>;
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeError>;
 };
 
@@ -2488,7 +2486,7 @@ export type AttributeValueBulkDelete = {
 export type AttributeValueBulkTranslate = {
   __typename?: 'AttributeValueBulkTranslate';
   /** Returns how many translations were created/updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AttributeValueBulkTranslateError>;
   /** List of the translations. */
   results: Array<AttributeValueBulkTranslateResult>;
@@ -2499,16 +2497,16 @@ export type AttributeValueBulkTranslateError = {
   /** The error code. */
   code: AttributeValueTranslateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type AttributeValueBulkTranslateInput = {
   /** External reference of an attribute value. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Attribute value ID. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** Translation language code. */
   languageCode: LanguageCodeEnum;
   /** Translation fields. */
@@ -2529,13 +2527,13 @@ export type AttributeValueCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type AttributeValueCountableEdge = {
   __typename?: 'AttributeValueCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: AttributeValue;
 };
@@ -2561,23 +2559,23 @@ export type AttributeValueCreate = {
 
 export type AttributeValueCreateInput = {
   /** File content type. */
-  contentType?: InputMaybe<Scalars['String']['input']>;
+  contentType?: InputMaybe<Scalars['String']>;
   /**
    * External ID of this attribute value.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** URL of the file attribute. Every time, a new value is created. */
-  fileUrl?: InputMaybe<Scalars['String']['input']>;
+  fileUrl?: InputMaybe<Scalars['String']>;
   /** Name of a value displayed in the interface. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /**
    * Represents the text of the attribute value, plain text without formatting.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.The plain text attribute hasn't got predefined value, so can be specified only from instance that supports the given attribute.
    */
-  plainText?: InputMaybe<Scalars['String']['input']>;
+  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Represents the text of the attribute value, includes formatting.
    *
@@ -2585,9 +2583,9 @@ export type AttributeValueCreateInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.The rich text attribute hasn't got predefined value, so can be specified only from instance that supports the given attribute.
    */
-  richText?: InputMaybe<Scalars['JSONString']['input']>;
+  richText?: InputMaybe<Scalars['JSONString']>;
   /** Represent value of the attribute value (e.g. color values for swatch attributes). */
-  value?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -2600,13 +2598,13 @@ export type AttributeValueCreated = Event & {
   /** The attribute value the event relates to. */
   attributeValue?: Maybe<AttributeValue>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -2638,30 +2636,30 @@ export type AttributeValueDeleted = Event & {
   /** The attribute value the event relates to. */
   attributeValue?: Maybe<AttributeValue>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type AttributeValueFilterInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type AttributeValueInput = {
   /** Represents the boolean value of the attribute value. */
-  boolean?: InputMaybe<Scalars['Boolean']['input']>;
+  boolean?: InputMaybe<Scalars['Boolean']>;
   /** File content type. */
-  contentType?: InputMaybe<Scalars['String']['input']>;
+  contentType?: InputMaybe<Scalars['String']>;
   /** Represents the date value of the attribute value. */
-  date?: InputMaybe<Scalars['Date']['input']>;
+  date?: InputMaybe<Scalars['Date']>;
   /** Represents the date/time value of the attribute value. */
-  dateTime?: InputMaybe<Scalars['DateTime']['input']>;
+  dateTime?: InputMaybe<Scalars['DateTime']>;
   /**
    * Attribute value ID or external reference.
    *
@@ -2673,11 +2671,11 @@ export type AttributeValueInput = {
    *
    * Added in Saleor 3.14.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** URL of the file attribute. Every time, a new value is created. */
-  file?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']>;
   /** ID of the selected attribute. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /**
    * List of attribute value IDs or external references.
    *
@@ -2689,13 +2687,13 @@ export type AttributeValueInput = {
    *
    * Added in Saleor 3.9.
    */
-  numeric?: InputMaybe<Scalars['String']['input']>;
+  numeric?: InputMaybe<Scalars['String']>;
   /** Plain text content. */
-  plainText?: InputMaybe<Scalars['String']['input']>;
+  plainText?: InputMaybe<Scalars['String']>;
   /** List of entity IDs that will be used as references. */
-  references?: InputMaybe<Array<Scalars['ID']['input']>>;
+  references?: InputMaybe<Array<Scalars['ID']>>;
   /** Text content in JSON format. */
-  richText?: InputMaybe<Scalars['JSONString']['input']>;
+  richText?: InputMaybe<Scalars['JSONString']>;
   /**
    * Attribute value ID or external reference.
    *
@@ -2703,7 +2701,7 @@ export type AttributeValueInput = {
    */
   swatch?: InputMaybe<AttributeValueSelectableTypeInput>;
   /** The value or slug of an attribute to resolve. If the passed value is non-existent, it will be created. This field will be removed in Saleor 4.0. */
-  values?: InputMaybe<Array<Scalars['String']['input']>>;
+  values?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -2721,11 +2719,11 @@ export type AttributeValueSelectableTypeInput = {
    *
    * Added in Saleor 3.14.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** ID of an attribute value. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** The value or slug of an attribute to resolve. If the passed value is non-existent, it will be created. */
-  value?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents attribute value's original translatable fields and related translations. */
@@ -2747,19 +2745,19 @@ export type AttributeValueTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  attributeValueId: Scalars['ID']['output'];
+  attributeValueId: Scalars['ID'];
   /** The ID of the attribute value translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the attribute value to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Attribute plain text value. */
-  plainText?: Maybe<Scalars['String']['output']>;
+  plainText?: Maybe<Scalars['String']>;
   /**
    * Attribute value.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  richText?: Maybe<Scalars['JSONString']['output']>;
+  richText?: Maybe<Scalars['JSONString']>;
   /** Returns translated attribute value fields for the given language code. */
   translation?: Maybe<AttributeValueTranslation>;
 };
@@ -2793,19 +2791,19 @@ export type AttributeValueTranslateErrorCode =
 export type AttributeValueTranslation = Node & {
   __typename?: 'AttributeValueTranslation';
   /** The ID of the attribute value translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated attribute value name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Translated plain text attribute value . */
-  plainText?: Maybe<Scalars['String']['output']>;
+  plainText?: Maybe<Scalars['String']>;
   /**
    * Translated rich-text attribute value.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  richText?: Maybe<Scalars['JSONString']['output']>;
+  richText?: Maybe<Scalars['JSONString']>;
   /**
    * Represents the attribute value fields to translate.
    *
@@ -2815,15 +2813,15 @@ export type AttributeValueTranslation = Node & {
 };
 
 export type AttributeValueTranslationInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Translated text. */
-  plainText?: InputMaybe<Scalars['String']['input']>;
+  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Translated text.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  richText?: InputMaybe<Scalars['JSONString']['input']>;
+  richText?: InputMaybe<Scalars['JSONString']>;
 };
 
 /**
@@ -2847,23 +2845,23 @@ export type AttributeValueUpdate = {
 
 export type AttributeValueUpdateInput = {
   /** File content type. */
-  contentType?: InputMaybe<Scalars['String']['input']>;
+  contentType?: InputMaybe<Scalars['String']>;
   /**
    * External ID of this attribute value.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** URL of the file attribute. Every time, a new value is created. */
-  fileUrl?: InputMaybe<Scalars['String']['input']>;
+  fileUrl?: InputMaybe<Scalars['String']>;
   /** Name of a value displayed in the interface. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Represents the text of the attribute value, plain text without formatting.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.The plain text attribute hasn't got predefined value, so can be specified only from instance that supports the given attribute.
    */
-  plainText?: InputMaybe<Scalars['String']['input']>;
+  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Represents the text of the attribute value, includes formatting.
    *
@@ -2871,9 +2869,9 @@ export type AttributeValueUpdateInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.The rich text attribute hasn't got predefined value, so can be specified only from instance that supports the given attribute.
    */
-  richText?: InputMaybe<Scalars['JSONString']['input']>;
+  richText?: InputMaybe<Scalars['JSONString']>;
   /** Represent value of the attribute value (e.g. color values for swatch attributes). */
-  value?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -2886,13 +2884,13 @@ export type AttributeValueUpdated = Event & {
   /** The attribute value the event relates to. */
   attributeValue?: Maybe<AttributeValue>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -2908,42 +2906,42 @@ export type AttributeWhereInput = {
   /** A list of conditions of which at least one must be met. */
   OR?: InputMaybe<Array<AttributeWhereInput>>;
   entityType?: InputMaybe<AttributeEntityTypeEnumFilterInput>;
-  filterableInDashboard?: InputMaybe<Scalars['Boolean']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  inCategory?: InputMaybe<Scalars['ID']['input']>;
-  inCollection?: InputMaybe<Scalars['ID']['input']>;
+  filterableInDashboard?: InputMaybe<Scalars['Boolean']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  inCategory?: InputMaybe<Scalars['ID']>;
+  inCollection?: InputMaybe<Scalars['ID']>;
   inputType?: InputMaybe<AttributeInputTypeEnumFilterInput>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   name?: InputMaybe<StringFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
   type?: InputMaybe<AttributeTypeEnumFilterInput>;
   unit?: InputMaybe<MeasurementUnitsEnumFilterInput>;
-  valueRequired?: InputMaybe<Scalars['Boolean']['input']>;
-  visibleInStorefront?: InputMaybe<Scalars['Boolean']['input']>;
-  withChoices?: InputMaybe<Scalars['Boolean']['input']>;
+  valueRequired?: InputMaybe<Scalars['Boolean']>;
+  visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
+  withChoices?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type BulkAttributeValueInput = {
   /** The boolean value of an attribute to resolve. If the passed value is non-existent, it will be created. */
-  boolean?: InputMaybe<Scalars['Boolean']['input']>;
+  boolean?: InputMaybe<Scalars['Boolean']>;
   /**
    * File content type.
    *
    * Added in Saleor 3.12.
    */
-  contentType?: InputMaybe<Scalars['String']['input']>;
+  contentType?: InputMaybe<Scalars['String']>;
   /**
    * Represents the date value of the attribute value.
    *
    * Added in Saleor 3.12.
    */
-  date?: InputMaybe<Scalars['Date']['input']>;
+  date?: InputMaybe<Scalars['Date']>;
   /**
    * Represents the date/time value of the attribute value.
    *
    * Added in Saleor 3.12.
    */
-  dateTime?: InputMaybe<Scalars['DateTime']['input']>;
+  dateTime?: InputMaybe<Scalars['DateTime']>;
   /**
    * Attribute value ID.
    *
@@ -2955,15 +2953,15 @@ export type BulkAttributeValueInput = {
    *
    * Added in Saleor 3.14.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * URL of the file attribute. Every time, a new value is created.
    *
    * Added in Saleor 3.12.
    */
-  file?: InputMaybe<Scalars['String']['input']>;
+  file?: InputMaybe<Scalars['String']>;
   /** ID of the selected attribute. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /**
    * List of attribute value IDs.
    *
@@ -2975,25 +2973,25 @@ export type BulkAttributeValueInput = {
    *
    * Added in Saleor 3.12.
    */
-  numeric?: InputMaybe<Scalars['String']['input']>;
+  numeric?: InputMaybe<Scalars['String']>;
   /**
    * Plain text content.
    *
    * Added in Saleor 3.12.
    */
-  plainText?: InputMaybe<Scalars['String']['input']>;
+  plainText?: InputMaybe<Scalars['String']>;
   /**
    * List of entity IDs that will be used as references.
    *
    * Added in Saleor 3.12.
    */
-  references?: InputMaybe<Array<Scalars['ID']['input']>>;
+  references?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Text content in JSON format.
    *
    * Added in Saleor 3.12.
    */
-  richText?: InputMaybe<Scalars['JSONString']['input']>;
+  richText?: InputMaybe<Scalars['JSONString']>;
   /**
    * Attribute value ID.
    *
@@ -3001,43 +2999,43 @@ export type BulkAttributeValueInput = {
    */
   swatch?: InputMaybe<AttributeValueSelectableTypeInput>;
   /** The value or slug of an attribute to resolve. If the passed value is non-existent, it will be created.This field will be removed in Saleor 4.0. */
-  values?: InputMaybe<Array<Scalars['String']['input']>>;
+  values?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type BulkProductError = {
   __typename?: 'BulkProductError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** List of channel IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** Index of an input list item that caused the error. */
-  index?: Maybe<Scalars['Int']['output']>;
+  index?: Maybe<Scalars['Int']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
   /** List of warehouse IDs which causes the error. */
-  warehouses?: Maybe<Array<Scalars['ID']['output']>>;
+  warehouses?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type BulkStockError = {
   __typename?: 'BulkStockError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** Index of an input list item that caused the error. */
-  index?: Maybe<Scalars['Int']['output']>;
+  index?: Maybe<Scalars['Int']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -3048,38 +3046,38 @@ export type BulkStockError = {
 export type CalculateTaxes = Event & {
   __typename?: 'CalculateTaxes';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   taxBase: TaxableObject;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type CardInput = {
   /** Payment method nonce, a token returned by the appropriate provider's SDK. */
-  code: Scalars['String']['input'];
+  code: Scalars['String'];
   /** Card security code. */
-  cvc?: InputMaybe<Scalars['String']['input']>;
+  cvc?: InputMaybe<Scalars['String']>;
   /** Information about currency and amount. */
   money: MoneyInput;
 };
 
 export type CatalogueInput = {
   /** Categories related to the discount. */
-  categories?: InputMaybe<Array<Scalars['ID']['input']>>;
+  categories?: InputMaybe<Array<Scalars['ID']>>;
   /** Collections related to the discount. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /** Products related to the discount. */
-  products?: InputMaybe<Array<Scalars['ID']['input']>>;
+  products?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Product variant related to the discount.
    *
    * Added in Saleor 3.1.
    */
-  variants?: InputMaybe<Array<Scalars['ID']['input']>>;
+  variants?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 export type CataloguePredicateInput = {
@@ -3111,18 +3109,18 @@ export type Category = Node & ObjectWithMetadata & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the category.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the category. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Level of the category. */
-  level: Scalars['Int']['output'];
+  level: Scalars['Int'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -3132,15 +3130,15 @@ export type Category = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of category */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Parent category. */
   parent?: Maybe<Category>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -3152,21 +3150,21 @@ export type Category = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** List of products in the category. Requires the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS. */
   products?: Maybe<ProductCountableConnection>;
   /** SEO description of category. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title of category. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Slug of the category. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /** Returns translated category fields for the given language code. */
   translation?: Maybe<CategoryTranslation>;
   /**
@@ -3174,67 +3172,67 @@ export type Category = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.17.
    */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryAncestorsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryBackgroundImageArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryChildrenArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a single category of products. Categories allow to organize products in a tree-hierarchies which can be used for navigation in the storefront. */
 export type CategoryProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ProductFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<ProductOrder>;
   where?: InputMaybe<ProductWhereInput>;
 };
@@ -3253,7 +3251,7 @@ export type CategoryTranslationArgs = {
 export type CategoryBulkDelete = {
   __typename?: 'CategoryBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   productErrors: Array<ProductError>;
@@ -3265,13 +3263,13 @@ export type CategoryCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type CategoryCountableEdge = {
   __typename?: 'CategoryCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Category;
 };
@@ -3299,13 +3297,13 @@ export type CategoryCreated = Event & {
   /** The category the event relates to. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -3331,20 +3329,20 @@ export type CategoryDeleted = Event & {
   /** The category the event relates to. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type CategoryFilterInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
   /**
    * Filter by when was the most recent update.
    *
@@ -3355,15 +3353,15 @@ export type CategoryFilterInput = {
 
 export type CategoryInput = {
   /** Background image file. */
-  backgroundImage?: InputMaybe<Scalars['Upload']['input']>;
+  backgroundImage?: InputMaybe<Scalars['Upload']>;
   /** Alt text for a product media. */
-  backgroundImageAlt?: InputMaybe<Scalars['String']['input']>;
+  backgroundImageAlt?: InputMaybe<Scalars['String']>;
   /**
    * Category description.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /**
    * Fields required to update the category metadata.
    *
@@ -3371,7 +3369,7 @@ export type CategoryInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Category name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the category private metadata.
    *
@@ -3381,7 +3379,7 @@ export type CategoryInput = {
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Category slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 export type CategorySortField =
@@ -3398,7 +3396,7 @@ export type CategorySortingInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Specifies the direction in which to sort categories. */
   direction: OrderDirection;
   /** Sort categories by the selected field. */
@@ -3418,28 +3416,28 @@ export type CategoryTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  categoryId: Scalars['ID']['output'];
+  categoryId: Scalars['ID'];
   /**
    * Category description to translate.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the category.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the category translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the category translatable content. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** SEO description to translate. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title to translate. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Returns translated category fields for the given language code. */
   translation?: Maybe<CategoryTranslation>;
 };
@@ -3471,24 +3469,24 @@ export type CategoryTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Translated description of the category.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the category translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated category name. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Translated SEO description. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** Translated SEO title. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /**
    * Represents the category fields to translate.
    *
@@ -3520,13 +3518,13 @@ export type CategoryUpdated = Event & {
   /** The category the event relates to. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type CategoryWhereInput = {
@@ -3534,7 +3532,7 @@ export type CategoryWhereInput = {
   AND?: InputMaybe<Array<CategoryWhereInput>>;
   /** A list of conditions of which at least one must be met. */
   OR?: InputMaybe<Array<CategoryWhereInput>>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
 };
 
@@ -3568,7 +3566,7 @@ export type Channel = Node & ObjectWithMetadata & {
    *
    * Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
    */
-  currencyCode: Scalars['String']['output'];
+  currencyCode: Scalars['String'];
   /**
    * Default country for the channel. Default country can be used in checkout to determine the stock quantities or calculate taxes when the country was not explicitly provided.
    *
@@ -3582,15 +3580,15 @@ export type Channel = Node & ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_CHANNELS.
    */
-  hasOrders: Scalars['Boolean']['output'];
+  hasOrders: Scalars['Boolean'];
   /** The ID of the channel. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Whether the channel is active.
    *
    * Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
    */
-  isActive: Scalars['Boolean']['output'];
+  isActive: Scalars['Boolean'];
   /**
    * List of public metadata items. Can be accessed without permissions.
    *
@@ -3604,19 +3602,19 @@ export type Channel = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.15.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.15.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /**
    * Name of the channel.
    *
    * Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
    */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Channel-specific order settings.
    *
@@ -3648,15 +3646,15 @@ export type Channel = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.15.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.15.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Slug of the channel. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /**
    * Define the stock setting for this channel.
    *
@@ -3692,25 +3690,25 @@ export type ChannelAvailableShippingMethodsPerCountryArgs = {
 
 /** Represents channel. */
 export type ChannelMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents channel. */
 export type ChannelMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents channel. */
 export type ChannelPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents channel. */
 export type ChannelPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -3748,13 +3746,13 @@ export type ChannelCreate = {
 
 export type ChannelCreateInput = {
   /** List of shipping zones to assign to the channel. */
-  addShippingZones?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addShippingZones?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * List of warehouses to assign to the channel.
    *
    * Added in Saleor 3.5.
    */
-  addWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addWarehouses?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * The channel checkout settings
    *
@@ -3764,7 +3762,7 @@ export type ChannelCreateInput = {
    */
   checkoutSettings?: InputMaybe<CheckoutSettingsInput>;
   /** Currency of the channel. */
-  currencyCode: Scalars['String']['input'];
+  currencyCode: Scalars['String'];
   /**
    * Default country for the channel. Default country can be used in checkout to determine the stock quantities or calculate taxes when the country was not explicitly provided.
    *
@@ -3772,7 +3770,7 @@ export type ChannelCreateInput = {
    */
   defaultCountry: CountryCode;
   /** Determine if channel will be set active or not. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /**
    * Channel public metadata.
    *
@@ -3780,7 +3778,7 @@ export type ChannelCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Name of the channel. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /**
    * The channel order settings
    *
@@ -3802,7 +3800,7 @@ export type ChannelCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Slug of the channel. */
-  slug: Scalars['String']['input'];
+  slug: Scalars['String'];
   /**
    * The channel stock settings.
    *
@@ -3821,13 +3819,13 @@ export type ChannelCreated = Event & {
   /** The channel the event relates to. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -3865,7 +3863,7 @@ export type ChannelDelete = {
 
 export type ChannelDeleteInput = {
   /** ID of channel to migrate orders from origin channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
 };
 
 /**
@@ -3878,13 +3876,13 @@ export type ChannelDeleted = Event & {
   /** The channel the event relates to. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type ChannelError = {
@@ -3892,13 +3890,13 @@ export type ChannelError = {
   /** The error code. */
   code: ChannelErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of shipping zone IDs which causes the error. */
-  shippingZones?: Maybe<Array<Scalars['ID']['output']>>;
+  shippingZones?: Maybe<Array<Scalars['ID']>>;
   /** List of warehouses IDs which causes the error. */
-  warehouses?: Maybe<Array<Scalars['ID']['output']>>;
+  warehouses?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type ChannelErrorCode =
@@ -3914,13 +3912,13 @@ export type ChannelErrorCode =
 
 export type ChannelListingUpdateInput = {
   /** ID of a channel listing. */
-  channelListing: Scalars['ID']['input'];
+  channelListing: Scalars['ID'];
   /** Cost price of the variant in channel. */
-  costPrice?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  costPrice?: InputMaybe<Scalars['PositiveDecimal']>;
   /** The threshold for preorder variant in channel. */
-  preorderThreshold?: InputMaybe<Scalars['Int']['input']>;
+  preorderThreshold?: InputMaybe<Scalars['Int']>;
   /** Price of the particular variant in channel. */
-  price?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  price?: InputMaybe<Scalars['PositiveDecimal']>;
 };
 
 /**
@@ -3933,13 +3931,13 @@ export type ChannelMetadataUpdated = Event & {
   /** The channel the event relates to. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -3966,13 +3964,13 @@ export type ChannelStatusChanged = Event & {
   /** The channel the event relates to. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -3997,13 +3995,13 @@ export type ChannelUpdate = {
 
 export type ChannelUpdateInput = {
   /** List of shipping zones to assign to the channel. */
-  addShippingZones?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addShippingZones?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * List of warehouses to assign to the channel.
    *
    * Added in Saleor 3.5.
    */
-  addWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addWarehouses?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * The channel checkout settings
    *
@@ -4019,7 +4017,7 @@ export type ChannelUpdateInput = {
    */
   defaultCountry?: InputMaybe<CountryCode>;
   /** Determine if channel will be set active or not. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /**
    * Channel public metadata.
    *
@@ -4027,7 +4025,7 @@ export type ChannelUpdateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Name of the channel. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * The channel order settings
    *
@@ -4049,15 +4047,15 @@ export type ChannelUpdateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** List of shipping zones to unassign from the channel. */
-  removeShippingZones?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeShippingZones?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * List of warehouses to unassign from the channel.
    *
    * Added in Saleor 3.5.
    */
-  removeWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeWarehouses?: InputMaybe<Array<Scalars['ID']>>;
   /** Slug of the channel. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /**
    * The channel stock settings.
    *
@@ -4076,13 +4074,13 @@ export type ChannelUpdated = Event & {
   /** The channel the event relates to. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Checkout object. */
@@ -4137,7 +4135,7 @@ export type Checkout = Node & ObjectWithMetadata & {
    */
   chargeStatus: CheckoutChargeStatusEnum;
   /** The date and time when the checkout was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /**
    * The delivery method selected for this checkout.
    *
@@ -4151,25 +4149,25 @@ export type Checkout = Node & ObjectWithMetadata & {
   /** The total discount applied to the checkout. Note: Only discount created via voucher are included in this field. */
   discount?: Maybe<Money>;
   /** The name of voucher assigned to the checkout. */
-  discountName?: Maybe<Scalars['String']['output']>;
+  discountName?: Maybe<Scalars['String']>;
   /**
    * Determines whether displayed prices should include taxes.
    *
    * Added in Saleor 3.9.
    */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /** Email of a customer. */
-  email?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']>;
   /** List of gift cards associated with this checkout. */
   giftCards: Array<GiftCard>;
   /** The ID of the checkout. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Returns True, if checkout requires shipping. */
-  isShippingRequired: Scalars['Boolean']['output'];
+  isShippingRequired: Scalars['Boolean'];
   /** Checkout language code. */
   languageCode: LanguageCodeEnum;
   /** @deprecated This field will be removed in Saleor 4.0. Use `updatedAt` instead. */
-  lastChange: Scalars['DateTime']['output'];
+  lastChange: Scalars['DateTime'];
   /** A list of checkout lines, each containing information about an item in the checkout. */
   lines: Array<CheckoutLine>;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -4181,15 +4179,15 @@ export type Checkout = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The note for the checkout. */
-  note: Scalars['String']['output'];
+  note: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -4199,13 +4197,13 @@ export type Checkout = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of problems with the checkout.
    *
@@ -4215,7 +4213,7 @@ export type Checkout = Node & ObjectWithMetadata & {
    */
   problems?: Maybe<Array<CheckoutProblem>>;
   /** The number of items purchased. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /** The shipping address of the checkout. */
   shippingAddress?: Maybe<Address>;
   /**
@@ -4247,7 +4245,7 @@ export type Checkout = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.1.
    */
-  stockReservationExpires?: Maybe<Scalars['DateTime']['output']>;
+  stockReservationExpires?: Maybe<Scalars['DateTime']>;
   /**
    * List of user's stored payment methods that can be used in this checkout session. It uses the channel that the checkout was created in. When `amount` is not provided, `checkout.total` will be used as a default value.
    *
@@ -4268,9 +4266,9 @@ export type Checkout = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.8.
    */
-  taxExemption: Scalars['Boolean']['output'];
+  taxExemption: Scalars['Boolean'];
   /** The checkout's token. */
-  token: Scalars['UUID']['output'];
+  token: Scalars['UUID'];
   /**
    * The difference between the paid and the checkout total amount.
    *
@@ -4298,13 +4296,13 @@ export type Checkout = Node & ObjectWithMetadata & {
    */
   transactions?: Maybe<Array<TransactionItem>>;
   /** Translation of the discountName field in the language set in Checkout.languageCode field.Note: this field is set automatically when Checkout.languageCode is defined; otherwise it's null */
-  translatedDiscountName?: Maybe<Scalars['String']['output']>;
+  translatedDiscountName?: Maybe<Scalars['String']>;
   /**
    * Time of last modification of the given checkout.
    *
    * Added in Saleor 3.13.
    */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** The user assigned to the checkout. Requires one of the following permissions: MANAGE_USERS, HANDLE_PAYMENTS, OWNER. */
   user?: Maybe<User>;
   /**
@@ -4316,37 +4314,37 @@ export type Checkout = Node & ObjectWithMetadata & {
    */
   voucher?: Maybe<Voucher>;
   /** The code of voucher assigned to the checkout. */
-  voucherCode?: Maybe<Scalars['String']['output']>;
+  voucherCode?: Maybe<Scalars['String']>;
 };
 
 
 /** Checkout object. */
 export type CheckoutMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Checkout object. */
 export type CheckoutMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Checkout object. */
 export type CheckoutPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Checkout object. */
 export type CheckoutPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Checkout object. */
 export type CheckoutStoredPaymentMethodsArgs = {
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
 };
 
 /**
@@ -4366,11 +4364,11 @@ export type CheckoutAddPromoCode = {
 
 export type CheckoutAddressValidationRules = {
   /** Determines if an error should be raised when the provided address doesn't match the expected format. Example: using letters for postal code when the numbers are expected. */
-  checkFieldsFormat?: InputMaybe<Scalars['Boolean']['input']>;
+  checkFieldsFormat?: InputMaybe<Scalars['Boolean']>;
   /** Determines if an error should be raised when the provided address doesn't have all the required fields. The list of required fields is dynamic and depends on the country code (use the `addressValidationRules` query to fetch them). Note: country code is mandatory for all addresses regardless of the rules provided in this input. */
-  checkRequiredFields?: InputMaybe<Scalars['Boolean']['input']>;
+  checkRequiredFields?: InputMaybe<Scalars['Boolean']>;
   /** Determines if Saleor should apply normalization on address fields. Example: converting city field to uppercase letters. */
-  enableFieldsNormalization?: InputMaybe<Scalars['Boolean']['input']>;
+  enableFieldsNormalization?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -4449,9 +4447,9 @@ export type CheckoutComplete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   checkoutErrors: Array<CheckoutError>;
   /** Confirmation data used to process additional authorization steps. */
-  confirmationData?: Maybe<Scalars['JSONString']['output']>;
+  confirmationData?: Maybe<Scalars['JSONString']>;
   /** Set to true if payment needs to be confirmed before checkout is complete. */
-  confirmationNeeded: Scalars['Boolean']['output'];
+  confirmationNeeded: Scalars['Boolean'];
   errors: Array<CheckoutError>;
   /** Placed order. */
   order?: Maybe<Order>;
@@ -4463,13 +4461,13 @@ export type CheckoutCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type CheckoutCountableEdge = {
   __typename?: 'CheckoutCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Checkout;
 };
@@ -4491,7 +4489,7 @@ export type CheckoutCreate = {
    * Whether the checkout was created or the current active one was returned. Refer to checkoutLinesAdd and checkoutLinesUpdate to merge a cart with an active checkout.
    * @deprecated This field will be removed in Saleor 4.0. Always returns `true`.
    */
-  created?: Maybe<Scalars['Boolean']['output']>;
+  created?: Maybe<Scalars['Boolean']>;
   errors: Array<CheckoutError>;
 };
 
@@ -4516,9 +4514,9 @@ export type CheckoutCreateFromOrderError = {
   /** The error code. */
   code: CheckoutCreateFromOrderErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type CheckoutCreateFromOrderErrorCode =
@@ -4533,11 +4531,11 @@ export type CheckoutCreateFromOrderUnavailableVariant = {
   /** The error code. */
   code: CheckoutCreateFromOrderUnavailableVariantErrorCode;
   /** Order line ID that is unavailable. */
-  lineId: Scalars['ID']['output'];
+  lineId: Scalars['ID'];
   /** The error message. */
-  message: Scalars['String']['output'];
+  message: Scalars['String'];
   /** Variant ID that is unavailable. */
-  variantId: Scalars['ID']['output'];
+  variantId: Scalars['ID'];
 };
 
 export type CheckoutCreateFromOrderUnavailableVariantErrorCode =
@@ -4552,9 +4550,9 @@ export type CheckoutCreateInput = {
   /** Billing address of the customer. `skipValidation` requires HANDLE_CHECKOUTS and AUTHENTICATED_APP permissions. */
   billingAddress?: InputMaybe<AddressInput>;
   /** Slug of a channel in which to create a checkout. */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** The customer's email address. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** Checkout language code. */
   languageCode?: InputMaybe<LanguageCodeEnum>;
   /** A list of checkout lines, each containing information about an item in the checkout. */
@@ -4579,13 +4577,13 @@ export type CheckoutCreated = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -4660,13 +4658,13 @@ export type CheckoutError = {
   /** The error code. */
   code: CheckoutErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** List of line Ids which cause the error. */
-  lines?: Maybe<Array<Scalars['ID']['output']>>;
+  lines?: Maybe<Array<Scalars['ID']>>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of variant IDs which causes the error. */
-  variants?: Maybe<Array<Scalars['ID']['output']>>;
+  variants?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type CheckoutErrorCode =
@@ -4704,12 +4702,12 @@ export type CheckoutErrorCode =
 
 export type CheckoutFilterInput = {
   authorizeStatus?: InputMaybe<Array<CheckoutAuthorizeStatusEnum>>;
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   chargeStatus?: InputMaybe<Array<CheckoutChargeStatusEnum>>;
   created?: InputMaybe<DateRangeInput>;
-  customer?: InputMaybe<Scalars['String']['input']>;
+  customer?: InputMaybe<Scalars['String']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<DateRangeInput>;
 };
 
@@ -4723,7 +4721,7 @@ export type CheckoutFilterShippingMethods = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -4735,7 +4733,7 @@ export type CheckoutFilterShippingMethods = Event & {
    */
   shippingMethods?: Maybe<Array<ShippingMethod>>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -4750,13 +4748,13 @@ export type CheckoutFullyPaid = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -4778,7 +4776,7 @@ export type CheckoutLanguageCodeUpdate = {
 export type CheckoutLine = Node & ObjectWithMetadata & {
   __typename?: 'CheckoutLine';
   /** The ID of the checkout line. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Determine if the line is a gift.
    *
@@ -4786,7 +4784,7 @@ export type CheckoutLine = Node & ObjectWithMetadata & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  isGift?: Maybe<Scalars['Boolean']['output']>;
+  isGift?: Maybe<Scalars['Boolean']>;
   /**
    * List of public metadata items. Can be accessed without permissions.
    *
@@ -4800,13 +4798,13 @@ export type CheckoutLine = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.5.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.5.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of private metadata items. Requires staff permissions to access.
    *
@@ -4820,13 +4818,13 @@ export type CheckoutLine = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.5.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.5.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of problems with the checkout line.
    *
@@ -4836,9 +4834,9 @@ export type CheckoutLine = Node & ObjectWithMetadata & {
    */
   problems?: Maybe<Array<CheckoutLineProblem>>;
   /** The quantity of product variant assigned to the checkout line. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /** Indicates whether the item need to be delivered. */
-  requiresShipping: Scalars['Boolean']['output'];
+  requiresShipping: Scalars['Boolean'];
   /**
    * The sum of the checkout line price, taxes and discounts.
    *
@@ -4864,25 +4862,25 @@ export type CheckoutLine = Node & ObjectWithMetadata & {
 
 /** Represents an item in the checkout. */
 export type CheckoutLineMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an item in the checkout. */
 export type CheckoutLineMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents an item in the checkout. */
 export type CheckoutLinePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an item in the checkout. */
 export type CheckoutLinePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type CheckoutLineCountableConnection = {
@@ -4891,13 +4889,13 @@ export type CheckoutLineCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type CheckoutLineCountableEdge = {
   __typename?: 'CheckoutLineCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: CheckoutLine;
 };
@@ -4923,7 +4921,7 @@ export type CheckoutLineInput = {
    *
    * Added in Saleor 3.6.
    */
-  forceNewLine?: InputMaybe<Scalars['Boolean']['input']>;
+  forceNewLine?: InputMaybe<Scalars['Boolean']>;
   /**
    * Fields required to update the object's metadata.
    *
@@ -4935,11 +4933,11 @@ export type CheckoutLineInput = {
    *
    * Added in Saleor 3.1.
    */
-  price?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  price?: InputMaybe<Scalars['PositiveDecimal']>;
   /** The number of items purchased. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** ID of the product variant. */
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 /**
@@ -4961,7 +4959,7 @@ export type CheckoutLineProblem = CheckoutLineProblemInsufficientStock | Checkou
 export type CheckoutLineProblemInsufficientStock = {
   __typename?: 'CheckoutLineProblemInsufficientStock';
   /** Available quantity of a variant. */
-  availableQuantity?: Maybe<Scalars['Int']['output']>;
+  availableQuantity?: Maybe<Scalars['Int']>;
   /** The line that has variant with insufficient stock. */
   line: CheckoutLine;
   /** The variant with insufficient stock. */
@@ -4987,21 +4985,21 @@ export type CheckoutLineUpdateInput = {
    *
    * Added in Saleor 3.6.
    */
-  lineId?: InputMaybe<Scalars['ID']['input']>;
+  lineId?: InputMaybe<Scalars['ID']>;
   /**
    * Custom price of the item. Can be set only by apps with `HANDLE_CHECKOUTS` permission. When the line with the same variant will be provided multiple times, the last price will be used.
    *
    * Added in Saleor 3.1.
    */
-  price?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  price?: InputMaybe<Scalars['PositiveDecimal']>;
   /** The number of items purchased. Optional for apps, required for any other users. */
-  quantity?: InputMaybe<Scalars['Int']['input']>;
+  quantity?: InputMaybe<Scalars['Int']>;
   /**
    * ID of the product variant.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `lineId` instead.
    */
-  variantId?: InputMaybe<Scalars['ID']['input']>;
+  variantId?: InputMaybe<Scalars['ID']>;
 };
 
 /**
@@ -5057,13 +5055,13 @@ export type CheckoutMetadataUpdated = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Create a new payment for given checkout. */
@@ -5116,13 +5114,13 @@ export type CheckoutSettings = {
    *
    * Added in Saleor 3.20.
    */
-  automaticallyCompleteFullyPaidCheckouts: Scalars['Boolean']['output'];
+  automaticallyCompleteFullyPaidCheckouts: Scalars['Boolean'];
   /**
    * Default `true`. Determines if the checkout mutations should use legacy error flow. In legacy flow, all mutations can raise an exception unrelated to the requested action - (e.g. out-of-stock exception when updating checkoutShippingAddress.) If `false`, the errors will be aggregated in `checkout.problems` field. Some of the `problems` can block the finalizing checkout process. The legacy flow will be removed in Saleor 4.0. The flow with `checkout.problems` will be the default one.
    *
    * Added in Saleor 3.15.This field will be removed in Saleor 4.0.
    */
-  useLegacyErrorFlow: Scalars['Boolean']['output'];
+  useLegacyErrorFlow: Scalars['Boolean'];
 };
 
 export type CheckoutSettingsInput = {
@@ -5131,7 +5129,7 @@ export type CheckoutSettingsInput = {
    *
    * Added in Saleor 3.20.
    */
-  automaticallyCompleteFullyPaidCheckouts?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticallyCompleteFullyPaidCheckouts?: InputMaybe<Scalars['Boolean']>;
   /**
    * Default `true`. Determines if the checkout mutations should use legacy error flow. In legacy flow, all mutations can raise an exception unrelated to the requested action - (e.g. out-of-stock exception when updating checkoutShippingAddress.) If `false`, the errors will be aggregated in `checkout.problems` field. Some of the `problems` can block the finalizing checkout process. The legacy flow will be removed in Saleor 4.0. The flow with `checkout.problems` will be the default one.
    *
@@ -5139,7 +5137,7 @@ export type CheckoutSettingsInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  useLegacyErrorFlow?: InputMaybe<Scalars['Boolean']['input']>;
+  useLegacyErrorFlow?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -5198,13 +5196,13 @@ export type CheckoutUpdated = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type CheckoutValidationRules = {
@@ -5217,9 +5215,9 @@ export type CheckoutValidationRules = {
 export type ChoiceValue = {
   __typename?: 'ChoiceValue';
   /** The raw name of the choice. */
-  raw?: Maybe<Scalars['String']['output']>;
+  raw?: Maybe<Scalars['String']>;
   /** The verbose name of the choice. */
-  verbose?: Maybe<Scalars['String']['output']>;
+  verbose?: Maybe<Scalars['String']>;
 };
 
 /** Represents a collection of products. */
@@ -5228,7 +5226,7 @@ export type Collection = Node & ObjectWithMetadata & {
   /** Background image of the collection. */
   backgroundImage?: Maybe<Image>;
   /** Channel given to retrieve this collection. Also used by federation gateway to resolve this object in a federated query. */
-  channel?: Maybe<Scalars['String']['output']>;
+  channel?: Maybe<Scalars['String']>;
   /**
    * List of channels in which the collection is available.
    *
@@ -5240,16 +5238,16 @@ export type Collection = Node & ObjectWithMetadata & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the collection.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the collection. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -5259,15 +5257,15 @@ export type Collection = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the collection. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -5277,21 +5275,21 @@ export type Collection = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** List of products in this collection. */
   products?: Maybe<ProductCountableConnection>;
   /** SEO description of the collection. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title of the collection. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Slug of the collection. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /** Returns translated collection fields for the given language code. */
   translation?: Maybe<CollectionTranslation>;
 };
@@ -5300,41 +5298,41 @@ export type Collection = Node & ObjectWithMetadata & {
 /** Represents a collection of products. */
 export type CollectionBackgroundImageArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents a collection of products. */
 export type CollectionMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a collection of products. */
 export type CollectionMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a collection of products. */
 export type CollectionPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a collection of products. */
 export type CollectionPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a collection of products. */
 export type CollectionProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ProductFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<ProductOrder>;
   where?: InputMaybe<ProductWhereInput>;
 };
@@ -5369,7 +5367,7 @@ export type CollectionBulkDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   collectionErrors: Array<CollectionError>;
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<CollectionError>;
 };
 
@@ -5379,33 +5377,33 @@ export type CollectionChannelListing = Node & {
   /** The channel to which the collection belongs. */
   channel: Channel;
   /** The ID of the collection channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Indicates if the collection is published in the channel. */
-  isPublished: Scalars['Boolean']['output'];
+  isPublished: Scalars['Boolean'];
   /** @deprecated This field will be removed in Saleor 4.0. Use the `publishedAt` field to fetch the publication date. */
-  publicationDate?: Maybe<Scalars['Date']['output']>;
+  publicationDate?: Maybe<Scalars['Date']>;
   /**
    * The collection publication date.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type CollectionChannelListingError = {
   __typename?: 'CollectionChannelListingError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** List of channels IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -5426,7 +5424,7 @@ export type CollectionChannelListingUpdateInput = {
   /** List of channels to which the collection should be assigned. */
   addChannels?: InputMaybe<Array<PublishableChannelListingInput>>;
   /** List of channels from which the collection should be unassigned. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /** Represents a connection to a list of collections. */
@@ -5436,13 +5434,13 @@ export type CollectionCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type CollectionCountableEdge = {
   __typename?: 'CollectionCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Collection;
 };
@@ -5462,17 +5460,17 @@ export type CollectionCreate = {
 
 export type CollectionCreateInput = {
   /** Background image file. */
-  backgroundImage?: InputMaybe<Scalars['Upload']['input']>;
+  backgroundImage?: InputMaybe<Scalars['Upload']>;
   /** Alt text for an image. */
-  backgroundImageAlt?: InputMaybe<Scalars['String']['input']>;
+  backgroundImageAlt?: InputMaybe<Scalars['String']>;
   /**
    * Description of the collection.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /** Informs whether a collection is published. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Fields required to update the collection metadata.
    *
@@ -5480,7 +5478,7 @@ export type CollectionCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Name of the collection. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the collection private metadata.
    *
@@ -5488,17 +5486,17 @@ export type CollectionCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** List of products to be added to the collection. */
-  products?: InputMaybe<Array<Scalars['ID']['input']>>;
+  products?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Publication date. ISO 8601 standard.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  publicationDate?: InputMaybe<Scalars['Date']['input']>;
+  publicationDate?: InputMaybe<Scalars['Date']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Slug of the collection. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -5511,13 +5509,13 @@ export type CollectionCreated = Event & {
   /** The collection the event relates to. */
   collection?: Maybe<Collection>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -5527,7 +5525,7 @@ export type CollectionCreated = Event & {
  * Added in Saleor 3.2.
  */
 export type CollectionCreatedCollectionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -5553,13 +5551,13 @@ export type CollectionDeleted = Event & {
   /** The collection the event relates to. */
   collection?: Maybe<Collection>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -5569,7 +5567,7 @@ export type CollectionDeleted = Event & {
  * Added in Saleor 3.2.
  */
 export type CollectionDeletedCollectionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type CollectionError = {
@@ -5577,11 +5575,11 @@ export type CollectionError = {
   /** The error code. */
   code: CollectionErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of products IDs which causes the error. */
-  products?: Maybe<Array<Scalars['ID']['output']>>;
+  products?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type CollectionErrorCode =
@@ -5599,27 +5597,27 @@ export type CollectionFilterInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channel?: InputMaybe<Scalars['String']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   published?: InputMaybe<CollectionPublished>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type CollectionInput = {
   /** Background image file. */
-  backgroundImage?: InputMaybe<Scalars['Upload']['input']>;
+  backgroundImage?: InputMaybe<Scalars['Upload']>;
   /** Alt text for an image. */
-  backgroundImageAlt?: InputMaybe<Scalars['String']['input']>;
+  backgroundImageAlt?: InputMaybe<Scalars['String']>;
   /**
    * Description of the collection.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /** Informs whether a collection is published. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Fields required to update the collection metadata.
    *
@@ -5627,7 +5625,7 @@ export type CollectionInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Name of the collection. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the collection private metadata.
    *
@@ -5639,11 +5637,11 @@ export type CollectionInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  publicationDate?: InputMaybe<Scalars['Date']['input']>;
+  publicationDate?: InputMaybe<Scalars['Date']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Slug of the collection. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -5656,13 +5654,13 @@ export type CollectionMetadataUpdated = Event & {
   /** The collection the event relates to. */
   collection?: Maybe<Collection>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -5672,7 +5670,7 @@ export type CollectionMetadataUpdated = Event & {
  * Added in Saleor 3.8.
  */
 export type CollectionMetadataUpdatedCollectionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type CollectionPublished =
@@ -5737,7 +5735,7 @@ export type CollectionSortingInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Specifies the direction in which to sort collections. */
   direction: OrderDirection;
   /** Sort collections by the selected field. */
@@ -5757,28 +5755,28 @@ export type CollectionTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  collectionId: Scalars['ID']['output'];
+  collectionId: Scalars['ID'];
   /**
    * Collection's description to translate.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the collection.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the collection translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Collection's name to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** SEO description to translate. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title to translate. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Returns translated collection fields for the given language code. */
   translation?: Maybe<CollectionTranslation>;
 };
@@ -5810,24 +5808,24 @@ export type CollectionTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Translated description of the collection.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the collection translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated collection name. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Translated SEO description. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** Translated SEO title. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /**
    * Represents the collection fields to translate.
    *
@@ -5859,13 +5857,13 @@ export type CollectionUpdated = Event & {
   /** The collection the event relates to. */
   collection?: Maybe<Collection>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -5875,7 +5873,7 @@ export type CollectionUpdated = Event & {
  * Added in Saleor 3.2.
  */
 export type CollectionUpdatedCollectionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type CollectionWhereInput = {
@@ -5883,7 +5881,7 @@ export type CollectionWhereInput = {
   AND?: InputMaybe<Array<CollectionWhereInput>>;
   /** A list of conditions of which at least one must be met. */
   OR?: InputMaybe<Array<CollectionWhereInput>>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
 };
 
@@ -5891,22 +5889,22 @@ export type CollectionWhereInput = {
 export type ConfigurationItem = {
   __typename?: 'ConfigurationItem';
   /** Help text for the field. */
-  helpText?: Maybe<Scalars['String']['output']>;
+  helpText?: Maybe<Scalars['String']>;
   /** Label for the field. */
-  label?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']>;
   /** Name of the field. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Type of the field. */
   type?: Maybe<ConfigurationTypeFieldEnum>;
   /** Current value of the field. */
-  value?: Maybe<Scalars['String']['output']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 export type ConfigurationItemInput = {
   /** Name of the field to update. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /** Value of the given field to update. */
-  value?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 export type ConfigurationTypeFieldEnum =
@@ -6212,9 +6210,9 @@ export type CountryCode =
 export type CountryDisplay = {
   __typename?: 'CountryDisplay';
   /** Country code. */
-  code: Scalars['String']['output'];
+  code: Scalars['String'];
   /** Country name. */
-  country: Scalars['String']['output'];
+  country: Scalars['String'];
   /**
    * Country tax.
    * @deprecated This field will be removed in Saleor 4.0. Always returns `null`. Use `TaxClassCountryRate` type to manage tax rates per country.
@@ -6224,21 +6222,21 @@ export type CountryDisplay = {
 
 export type CountryFilterInput = {
   /** Boolean for filtering countries by having shipping zone assigned.If 'true', return countries with shipping zone assigned.If 'false', return countries without any shipping zone assigned.If the argument is not provided (null), return all countries. */
-  attachedToShippingZones?: InputMaybe<Scalars['Boolean']['input']>;
+  attachedToShippingZones?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type CountryRateInput = {
   /** Country in which this rate applies. */
   countryCode: CountryCode;
   /** Tax rate value provided as percentage. Example: provide `23` to represent `23%` tax rate. */
-  rate: Scalars['Float']['input'];
+  rate: Scalars['Float'];
 };
 
 export type CountryRateUpdateInput = {
   /** Country in which this rate applies. */
   countryCode: CountryCode;
   /** Tax rate value provided as percentage. Example: provide `23` to represent `23%` tax rate. Provide `null` to remove the particular rate. */
-  rate?: InputMaybe<Scalars['Float']['input']>;
+  rate?: InputMaybe<Scalars['Float']>;
 };
 
 /** Create JWT token. */
@@ -6247,12 +6245,12 @@ export type CreateToken = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** CSRF token required to re-generate access token. */
-  csrfToken?: Maybe<Scalars['String']['output']>;
+  csrfToken?: Maybe<Scalars['String']>;
   errors: Array<AccountError>;
   /** JWT refresh token, required to re-generate access token. */
-  refreshToken?: Maybe<Scalars['String']['output']>;
+  refreshToken?: Maybe<Scalars['String']>;
   /** JWT token, required to authenticate. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** A user instance. */
   user?: Maybe<User>;
 };
@@ -6260,15 +6258,15 @@ export type CreateToken = {
 export type CreditCard = {
   __typename?: 'CreditCard';
   /** Card brand. */
-  brand: Scalars['String']['output'];
+  brand: Scalars['String'];
   /** Two-digit number representing the card’s expiration month. */
-  expMonth?: Maybe<Scalars['Int']['output']>;
+  expMonth?: Maybe<Scalars['Int']>;
   /** Four-digit number representing the card’s expiration year. */
-  expYear?: Maybe<Scalars['Int']['output']>;
+  expYear?: Maybe<Scalars['Int']>;
   /** First 4 digits of the card number. */
-  firstDigits?: Maybe<Scalars['String']['output']>;
+  firstDigits?: Maybe<Scalars['String']>;
   /** Last 4 digits of the card number. */
-  lastDigits: Scalars['String']['output'];
+  lastDigits: Scalars['String'];
 };
 
 /**
@@ -6284,7 +6282,7 @@ export type CustomerBulkDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AccountError>;
 };
 
@@ -6312,7 +6310,7 @@ export type CustomerBulkResult = {
 export type CustomerBulkUpdate = {
   __typename?: 'CustomerBulkUpdate';
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<CustomerBulkUpdateError>;
   /** List of the updated customers. */
   results: Array<CustomerBulkResult>;
@@ -6323,9 +6321,9 @@ export type CustomerBulkUpdateError = {
   /** The error code. */
   code: CustomerBulkUpdateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type CustomerBulkUpdateErrorCode =
@@ -6340,9 +6338,9 @@ export type CustomerBulkUpdateErrorCode =
 
 export type CustomerBulkUpdateInput = {
   /** External ID of a customer to update. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** ID of a customer to update. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** Fields required to update a customer. */
   input: CustomerInput;
 };
@@ -6374,7 +6372,7 @@ export type CustomerCreate = {
 export type CustomerCreated = Event & {
   __typename?: 'CustomerCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -6382,7 +6380,7 @@ export type CustomerCreated = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -6407,13 +6405,13 @@ export type CustomerEvent = Node & {
   /** App that performed the action. */
   app?: Maybe<App>;
   /** Number of objects concerned by the event. */
-  count?: Maybe<Scalars['Int']['output']>;
+  count?: Maybe<Scalars['Int']>;
   /** Date when event happened at in ISO 8601 format. */
-  date?: Maybe<Scalars['DateTime']['output']>;
+  date?: Maybe<Scalars['DateTime']>;
   /** The ID of the customer event. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Content of the event. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** The concerned order. */
   order?: Maybe<Order>;
   /** The concerned order line. */
@@ -6448,11 +6446,11 @@ export type CustomerFilterInput = {
    *
    * Added in Saleor 3.8.
    */
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   numberOfOrders?: InputMaybe<IntRangeInput>;
   placedOrders?: InputMaybe<DateRangeInput>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<DateTimeRangeInput>;
 };
 
@@ -6462,27 +6460,27 @@ export type CustomerInput = {
   /** Shipping address of the customer. */
   defaultShippingAddress?: InputMaybe<AddressInput>;
   /** The unique email address of the user. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /**
    * External ID of the customer.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User account is active. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /**
    * User account is confirmed.
    *
    * Added in Saleor 3.15.
    */
-  isConfirmed?: InputMaybe<Scalars['Boolean']['input']>;
+  isConfirmed?: InputMaybe<Scalars['Boolean']>;
   /** User language code. */
   languageCode?: InputMaybe<LanguageCodeEnum>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user metadata.
    *
@@ -6490,7 +6488,7 @@ export type CustomerInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** A note about the user. */
-  note?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user private metadata.
    *
@@ -6507,7 +6505,7 @@ export type CustomerInput = {
 export type CustomerMetadataUpdated = Event & {
   __typename?: 'CustomerMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -6515,7 +6513,7 @@ export type CustomerMetadataUpdated = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -6543,7 +6541,7 @@ export type CustomerUpdate = {
 export type CustomerUpdated = Event & {
   __typename?: 'CustomerUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -6551,14 +6549,14 @@ export type CustomerUpdated = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type DateRangeInput = {
   /** Start date. */
-  gte?: InputMaybe<Scalars['Date']['input']>;
+  gte?: InputMaybe<Scalars['Date']>;
   /** End date. */
-  lte?: InputMaybe<Scalars['Date']['input']>;
+  lte?: InputMaybe<Scalars['Date']>;
 };
 
 /**
@@ -6570,18 +6568,18 @@ export type DateRangeInput = {
  */
 export type DateTimeFilterInput = {
   /** The value equal to. */
-  eq?: InputMaybe<Scalars['DateTime']['input']>;
+  eq?: InputMaybe<Scalars['DateTime']>;
   /** The value included in. */
-  oneOf?: InputMaybe<Array<Scalars['DateTime']['input']>>;
+  oneOf?: InputMaybe<Array<Scalars['DateTime']>>;
   /** The value in range. */
   range?: InputMaybe<DateTimeRangeInput>;
 };
 
 export type DateTimeRangeInput = {
   /** Start date. */
-  gte?: InputMaybe<Scalars['DateTime']['input']>;
+  gte?: InputMaybe<Scalars['DateTime']>;
   /** End date. */
-  lte?: InputMaybe<Scalars['DateTime']['input']>;
+  lte?: InputMaybe<Scalars['DateTime']>;
 };
 
 /**
@@ -6605,18 +6603,18 @@ export type DeactivateAllUserTokens = {
  */
 export type DecimalFilterInput = {
   /** The value equal to. */
-  eq?: InputMaybe<Scalars['Decimal']['input']>;
+  eq?: InputMaybe<Scalars['Decimal']>;
   /** The value included in. */
-  oneOf?: InputMaybe<Array<Scalars['Decimal']['input']>>;
+  oneOf?: InputMaybe<Array<Scalars['Decimal']>>;
   /** The value in range. */
   range?: InputMaybe<DecimalRangeInput>;
 };
 
 export type DecimalRangeInput = {
   /** Decimal value greater than or equal to. */
-  gte?: InputMaybe<Scalars['Decimal']['input']>;
+  gte?: InputMaybe<Scalars['Decimal']>;
   /** Decimal value less than or equal to. */
-  lte?: InputMaybe<Scalars['Decimal']['input']>;
+  lte?: InputMaybe<Scalars['Decimal']>;
 };
 
 /** Delete metadata of an object. To use it, you need to have access to the modified object. */
@@ -6648,13 +6646,13 @@ export type DeliveryMethod = ShippingMethod | Warehouse;
 export type DigitalContent = Node & ObjectWithMetadata & {
   __typename?: 'DigitalContent';
   /** Indicator for automatic fulfillment of digital content. */
-  automaticFulfillment: Scalars['Boolean']['output'];
+  automaticFulfillment: Scalars['Boolean'];
   /** File associated with digital content. */
-  contentFile: Scalars['String']['output'];
+  contentFile: Scalars['String'];
   /** The ID of the digital content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Maximum number of allowed downloads for the digital content. */
-  maxDownloads?: Maybe<Scalars['Int']['output']>;
+  maxDownloads?: Maybe<Scalars['Int']>;
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -6664,13 +6662,13 @@ export type DigitalContent = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -6680,45 +6678,45 @@ export type DigitalContent = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Product variant assigned to digital content. */
   productVariant: ProductVariant;
   /** Number of days the URL for the digital content remains valid. */
-  urlValidDays?: Maybe<Scalars['Int']['output']>;
+  urlValidDays?: Maybe<Scalars['Int']>;
   /** List of URLs for the digital variant. */
   urls?: Maybe<Array<DigitalContentUrl>>;
   /** Default settings indicator for digital content. */
-  useDefaultSettings: Scalars['Boolean']['output'];
+  useDefaultSettings: Scalars['Boolean'];
 };
 
 
 /** Represents digital content associated with a product variant. */
 export type DigitalContentMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents digital content associated with a product variant. */
 export type DigitalContentMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents digital content associated with a product variant. */
 export type DigitalContentPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents digital content associated with a product variant. */
 export type DigitalContentPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** A connection to a list of digital content items. */
@@ -6728,13 +6726,13 @@ export type DigitalContentCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type DigitalContentCountableEdge = {
   __typename?: 'DigitalContentCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: DigitalContent;
 };
@@ -6768,9 +6766,9 @@ export type DigitalContentDelete = {
 
 export type DigitalContentInput = {
   /** Overwrite default automatic_fulfillment setting for variant. */
-  automaticFulfillment?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticFulfillment?: InputMaybe<Scalars['Boolean']>;
   /** Determines how many times a download link can be accessed by a customer. */
-  maxDownloads?: InputMaybe<Scalars['Int']['input']>;
+  maxDownloads?: InputMaybe<Scalars['Int']>;
   /**
    * Fields required to update the digital content metadata.
    *
@@ -6784,9 +6782,9 @@ export type DigitalContentInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Determines for how many days a download link is active since it was generated. */
-  urlValidDays?: InputMaybe<Scalars['Int']['input']>;
+  urlValidDays?: InputMaybe<Scalars['Int']>;
   /** Use default digital content settings for this product. */
-  useDefaultSettings: Scalars['Boolean']['input'];
+  useDefaultSettings: Scalars['Boolean'];
 };
 
 /**
@@ -6805,11 +6803,11 @@ export type DigitalContentUpdate = {
 
 export type DigitalContentUploadInput = {
   /** Overwrite default automatic_fulfillment setting for variant. */
-  automaticFulfillment?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticFulfillment?: InputMaybe<Scalars['Boolean']>;
   /** Represents an file in a multipart request. */
-  contentFile: Scalars['Upload']['input'];
+  contentFile: Scalars['Upload'];
   /** Determines how many times a download link can be accessed by a customer. */
-  maxDownloads?: InputMaybe<Scalars['Int']['input']>;
+  maxDownloads?: InputMaybe<Scalars['Int']>;
   /**
    * Fields required to update the digital content metadata.
    *
@@ -6823,9 +6821,9 @@ export type DigitalContentUploadInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Determines for how many days a download link is active since it was generated. */
-  urlValidDays?: InputMaybe<Scalars['Int']['input']>;
+  urlValidDays?: InputMaybe<Scalars['Int']>;
   /** Use default digital content settings for this product. */
-  useDefaultSettings: Scalars['Boolean']['input'];
+  useDefaultSettings: Scalars['Boolean'];
 };
 
 /** Represents a URL for digital content. */
@@ -6834,15 +6832,15 @@ export type DigitalContentUrl = Node & {
   /** Digital content associated with the URL. */
   content: DigitalContent;
   /** Date and time when the digital content URL was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Number of times digital content has been downloaded. */
-  downloadNum: Scalars['Int']['output'];
+  downloadNum: Scalars['Int'];
   /** The ID of the digital content URL. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** UUID of digital content. */
-  token: Scalars['UUID']['output'];
+  token: Scalars['UUID'];
   /** URL for digital content. */
-  url?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -6860,27 +6858,27 @@ export type DigitalContentUrlCreate = {
 
 export type DigitalContentUrlCreateInput = {
   /** Digital content ID which URL will belong to. */
-  content: Scalars['ID']['input'];
+  content: Scalars['ID'];
 };
 
 export type DiscountError = {
   __typename?: 'DiscountError';
   /** List of channels IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: DiscountErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of products IDs which causes the error. */
-  products?: Maybe<Array<Scalars['ID']['output']>>;
+  products?: Maybe<Array<Scalars['ID']>>;
   /**
    * List of voucher codes which causes the error.
    *
    * Added in Saleor 3.18.
    */
-  voucherCodes?: Maybe<Array<Scalars['String']['output']>>;
+  voucherCodes?: Maybe<Array<Scalars['String']>>;
 };
 
 export type DiscountErrorCode =
@@ -6928,11 +6926,11 @@ export type DistanceUnitsEnum =
 export type Domain = {
   __typename?: 'Domain';
   /** The host name of the domain. */
-  host: Scalars['String']['output'];
+  host: Scalars['String'];
   /** Inform if SSL is enabled. */
-  sslEnabled: Scalars['Boolean']['output'];
+  sslEnabled: Scalars['Boolean'];
   /** The absolute URL of the API. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 /**
@@ -6943,7 +6941,7 @@ export type Domain = {
 export type DraftOrderBulkDelete = {
   __typename?: 'DraftOrderBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<OrderError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   orderErrors: Array<OrderError>;
@@ -6980,37 +6978,37 @@ export type DraftOrderCreateInput = {
   /** Billing address of the customer. */
   billingAddress?: InputMaybe<AddressInput>;
   /** ID of the channel associated with the order. */
-  channelId?: InputMaybe<Scalars['ID']['input']>;
+  channelId?: InputMaybe<Scalars['ID']>;
   /** A note from a customer. Visible by customers in the order summary. */
-  customerNote?: InputMaybe<Scalars['String']['input']>;
+  customerNote?: InputMaybe<Scalars['String']>;
   /** Discount amount for the order. */
-  discount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  discount?: InputMaybe<Scalars['PositiveDecimal']>;
   /**
    * External ID of this order.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Variant line input consisting of variant ID and quantity of products. */
   lines?: InputMaybe<Array<OrderLineCreateInput>>;
   /** URL of a view where users should be redirected to see the order details. URL in RFC 1808 format. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
   /** Shipping address of the customer. */
   shippingAddress?: InputMaybe<AddressInput>;
   /** ID of a selected shipping method. */
-  shippingMethod?: InputMaybe<Scalars['ID']['input']>;
+  shippingMethod?: InputMaybe<Scalars['ID']>;
   /** Customer associated with the draft order. */
-  user?: InputMaybe<Scalars['ID']['input']>;
+  user?: InputMaybe<Scalars['ID']>;
   /** Email address of the customer. */
-  userEmail?: InputMaybe<Scalars['String']['input']>;
+  userEmail?: InputMaybe<Scalars['String']>;
   /** ID of the voucher associated with the order. */
-  voucher?: InputMaybe<Scalars['ID']['input']>;
+  voucher?: InputMaybe<Scalars['ID']>;
   /**
    * A code of the voucher associated with the order.
    *
    * Added in Saleor 3.18.
    */
-  voucherCode?: InputMaybe<Scalars['String']['input']>;
+  voucherCode?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -7021,7 +7019,7 @@ export type DraftOrderCreateInput = {
 export type DraftOrderCreated = Event & {
   __typename?: 'DraftOrderCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -7029,7 +7027,7 @@ export type DraftOrderCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -7053,7 +7051,7 @@ export type DraftOrderDelete = {
 export type DraftOrderDeleted = Event & {
   __typename?: 'DraftOrderDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -7061,42 +7059,42 @@ export type DraftOrderDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type DraftOrderInput = {
   /** Billing address of the customer. */
   billingAddress?: InputMaybe<AddressInput>;
   /** ID of the channel associated with the order. */
-  channelId?: InputMaybe<Scalars['ID']['input']>;
+  channelId?: InputMaybe<Scalars['ID']>;
   /** A note from a customer. Visible by customers in the order summary. */
-  customerNote?: InputMaybe<Scalars['String']['input']>;
+  customerNote?: InputMaybe<Scalars['String']>;
   /** Discount amount for the order. */
-  discount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  discount?: InputMaybe<Scalars['PositiveDecimal']>;
   /**
    * External ID of this order.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** URL of a view where users should be redirected to see the order details. URL in RFC 1808 format. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
   /** Shipping address of the customer. */
   shippingAddress?: InputMaybe<AddressInput>;
   /** ID of a selected shipping method. */
-  shippingMethod?: InputMaybe<Scalars['ID']['input']>;
+  shippingMethod?: InputMaybe<Scalars['ID']>;
   /** Customer associated with the draft order. */
-  user?: InputMaybe<Scalars['ID']['input']>;
+  user?: InputMaybe<Scalars['ID']>;
   /** Email address of the customer. */
-  userEmail?: InputMaybe<Scalars['String']['input']>;
+  userEmail?: InputMaybe<Scalars['String']>;
   /** ID of the voucher associated with the order. */
-  voucher?: InputMaybe<Scalars['ID']['input']>;
+  voucher?: InputMaybe<Scalars['ID']>;
   /**
    * A code of the voucher associated with the order.
    *
    * Added in Saleor 3.18.
    */
-  voucherCode?: InputMaybe<Scalars['String']['input']>;
+  voucherCode?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -7107,7 +7105,7 @@ export type DraftOrderInput = {
 export type DraftOrderLinesBulkDelete = {
   __typename?: 'DraftOrderLinesBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<OrderError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   orderErrors: Array<OrderError>;
@@ -7134,7 +7132,7 @@ export type DraftOrderUpdate = {
 export type DraftOrderUpdated = Event & {
   __typename?: 'DraftOrderUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -7142,7 +7140,7 @@ export type DraftOrderUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type ErrorPolicyEnum =
@@ -7155,13 +7153,13 @@ export type ErrorPolicyEnum =
 
 export type Event = {
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Event delivery. */
@@ -7170,13 +7168,13 @@ export type EventDelivery = Node & {
   /** Event delivery attempts. */
   attempts?: Maybe<EventDeliveryAttemptCountableConnection>;
   /** Creation time of an event delivery. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** Webhook event type. */
   eventType: WebhookEventTypeEnum;
   /** The ID of an event delivery. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Event payload. */
-  payload?: Maybe<Scalars['String']['output']>;
+  payload?: Maybe<Scalars['String']>;
   /** Event delivery status. */
   status: EventDeliveryStatusEnum;
 };
@@ -7184,10 +7182,10 @@ export type EventDelivery = Node & {
 
 /** Event delivery. */
 export type EventDeliveryAttemptsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<EventDeliveryAttemptSortingInput>;
 };
 
@@ -7195,23 +7193,23 @@ export type EventDeliveryAttemptsArgs = {
 export type EventDeliveryAttempt = Node & {
   __typename?: 'EventDeliveryAttempt';
   /** Event delivery creation date and time. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** Delivery attempt duration. */
-  duration?: Maybe<Scalars['Float']['output']>;
+  duration?: Maybe<Scalars['Float']>;
   /** The ID of Event Delivery Attempt. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Request headers for delivery attempt. */
-  requestHeaders?: Maybe<Scalars['String']['output']>;
+  requestHeaders?: Maybe<Scalars['String']>;
   /** Delivery attempt response content. */
-  response?: Maybe<Scalars['String']['output']>;
+  response?: Maybe<Scalars['String']>;
   /** Response headers for delivery attempt. */
-  responseHeaders?: Maybe<Scalars['String']['output']>;
+  responseHeaders?: Maybe<Scalars['String']>;
   /** Delivery attempt response status code. */
-  responseStatusCode?: Maybe<Scalars['Int']['output']>;
+  responseStatusCode?: Maybe<Scalars['Int']>;
   /** Event delivery status. */
   status: EventDeliveryStatusEnum;
   /** Task id for delivery attempt. */
-  taskId?: Maybe<Scalars['String']['output']>;
+  taskId?: Maybe<Scalars['String']>;
 };
 
 export type EventDeliveryAttemptCountableConnection = {
@@ -7220,13 +7218,13 @@ export type EventDeliveryAttemptCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type EventDeliveryAttemptCountableEdge = {
   __typename?: 'EventDeliveryAttemptCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: EventDeliveryAttempt;
 };
@@ -7248,13 +7246,13 @@ export type EventDeliveryCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type EventDeliveryCountableEdge = {
   __typename?: 'EventDeliveryCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: EventDelivery;
 };
@@ -7297,9 +7295,9 @@ export type ExportError = {
   /** The error code. */
   code: ExportErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type ExportErrorCode =
@@ -7314,11 +7312,11 @@ export type ExportEvent = Node & {
   /** App which performed the action. Requires one of the following permissions: OWNER, MANAGE_APPS. */
   app?: Maybe<App>;
   /** Date when event happened at in ISO 8601 format. */
-  date: Scalars['DateTime']['output'];
+  date: Scalars['DateTime'];
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Content of the event. */
-  message: Scalars['String']['output'];
+  message: Scalars['String'];
   /** Export event type. */
   type: ExportEventsEnum;
   /** User who performed the action. Requires one of the following permissions: OWNER, MANAGE_STAFF. */
@@ -7339,19 +7337,19 @@ export type ExportFile = Job & Node & {
   /** The app which requests file export. */
   app?: Maybe<App>;
   /** Created date time of job in ISO 8601 format. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** List of events associated with the export. */
   events?: Maybe<Array<ExportEvent>>;
   /** The ID of the export file. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Job message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Job status. */
   status: JobStatusEnum;
   /** Date time of job last update in ISO 8601 format. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** The URL of field to download. */
-  url?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']>;
   /** The user who requests file export. */
   user?: Maybe<User>;
 };
@@ -7362,23 +7360,23 @@ export type ExportFileCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type ExportFileCountableEdge = {
   __typename?: 'ExportFileCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: ExportFile;
 };
 
 export type ExportFileFilterInput = {
-  app?: InputMaybe<Scalars['String']['input']>;
+  app?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<DateTimeRangeInput>;
   status?: InputMaybe<JobStatusEnum>;
   updatedAt?: InputMaybe<DateTimeRangeInput>;
-  user?: InputMaybe<Scalars['String']['input']>;
+  user?: InputMaybe<Scalars['String']>;
 };
 
 export type ExportFileSortField =
@@ -7418,20 +7416,20 @@ export type ExportGiftCardsInput = {
   /** Filtering options for gift cards. */
   filter?: InputMaybe<GiftCardFilterInput>;
   /** List of gift cards IDs to export. */
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   /** Determine which gift cards should be exported. */
   scope: ExportScope;
 };
 
 export type ExportInfoInput = {
   /** List of attribute ids witch should be exported. */
-  attributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  attributes?: InputMaybe<Array<Scalars['ID']>>;
   /** List of channels ids which should be exported. */
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of product fields witch should be exported. */
   fields?: InputMaybe<Array<ProductFieldEnum>>;
   /** List of warehouse ids witch should be exported. */
-  warehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  warehouses?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -7460,7 +7458,7 @@ export type ExportProductsInput = {
   /** Filtering options for products. */
   filter?: InputMaybe<ProductFilterInput>;
   /** List of products IDs to export. */
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   /** Determine which products should be exported. */
   scope: ExportScope;
 };
@@ -7496,18 +7494,18 @@ export type ExportVoucherCodesInput = {
   /** Type of exported file. */
   fileType: FileTypesEnum;
   /** List of voucher code IDs to export. */
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   /** The ID of the voucher. If provided, exports all codes belonging to the voucher. */
-  voucherId?: InputMaybe<Scalars['ID']['input']>;
+  voucherId?: InputMaybe<Scalars['ID']>;
 };
 
 /** External authentication plugin. */
 export type ExternalAuthentication = {
   __typename?: 'ExternalAuthentication';
   /** ID of external authentication plugin. */
-  id: Scalars['String']['output'];
+  id: Scalars['String'];
   /** Name of external authentication plugin. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 /** Prepare external authentication URL for user by custom plugin. */
@@ -7516,7 +7514,7 @@ export type ExternalAuthenticationUrl = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** The data returned by authentication plugin. */
-  authenticationData?: Maybe<Scalars['JSONString']['output']>;
+  authenticationData?: Maybe<Scalars['JSONString']>;
   errors: Array<AccountError>;
 };
 
@@ -7527,7 +7525,7 @@ export type ExternalLogout = {
   accountErrors: Array<AccountError>;
   errors: Array<AccountError>;
   /** The data returned by authentication plugin. */
-  logoutData?: Maybe<Scalars['JSONString']['output']>;
+  logoutData?: Maybe<Scalars['JSONString']>;
 };
 
 export type ExternalNotificationError = {
@@ -7535,9 +7533,9 @@ export type ExternalNotificationError = {
   /** The error code. */
   code: ExternalNotificationErrorCodes;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type ExternalNotificationErrorCodes =
@@ -7558,11 +7556,11 @@ export type ExternalNotificationTrigger = {
 
 export type ExternalNotificationTriggerInput = {
   /** External event type. This field is passed to a plugin as an event type. */
-  externalEventType: Scalars['String']['input'];
+  externalEventType: Scalars['String'];
   /** Additional payload that will be merged with the one based on the business object ID. */
-  extraPayload?: InputMaybe<Scalars['JSONString']['input']>;
+  extraPayload?: InputMaybe<Scalars['JSONString']>;
   /** The list of customers or orders node IDs that will be serialized and included in the notification payload. */
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 /** Obtain external access tokens for user by custom plugin. */
@@ -7571,12 +7569,12 @@ export type ExternalObtainAccessTokens = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** CSRF token required to re-generate external access token. */
-  csrfToken?: Maybe<Scalars['String']['output']>;
+  csrfToken?: Maybe<Scalars['String']>;
   errors: Array<AccountError>;
   /** The refresh token, required to re-generate external access token. */
-  refreshToken?: Maybe<Scalars['String']['output']>;
+  refreshToken?: Maybe<Scalars['String']>;
   /** The token, required to authenticate. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** A user instance. */
   user?: Maybe<User>;
 };
@@ -7587,12 +7585,12 @@ export type ExternalRefresh = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** CSRF token required to re-generate external access token. */
-  csrfToken?: Maybe<Scalars['String']['output']>;
+  csrfToken?: Maybe<Scalars['String']>;
   errors: Array<AccountError>;
   /** The refresh token, required to re-generate external access token. */
-  refreshToken?: Maybe<Scalars['String']['output']>;
+  refreshToken?: Maybe<Scalars['String']>;
   /** The token, required to authenticate. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** A user instance. */
   user?: Maybe<User>;
 };
@@ -7604,19 +7602,19 @@ export type ExternalVerify = {
   accountErrors: Array<AccountError>;
   errors: Array<AccountError>;
   /** Determine if authentication data is valid or not. */
-  isValid: Scalars['Boolean']['output'];
+  isValid: Scalars['Boolean'];
   /** User assigned to data. */
   user?: Maybe<User>;
   /** External data. */
-  verifyData?: Maybe<Scalars['JSONString']['output']>;
+  verifyData?: Maybe<Scalars['JSONString']>;
 };
 
 export type File = {
   __typename?: 'File';
   /** Content type of the file. */
-  contentType?: Maybe<Scalars['String']['output']>;
+  contentType?: Maybe<Scalars['String']>;
   /** The URL of the file. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 export type FileTypesEnum =
@@ -7640,11 +7638,11 @@ export type FileUpload = {
 export type Fulfillment = Node & ObjectWithMetadata & {
   __typename?: 'Fulfillment';
   /** Date and time when fulfillment was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Sequence in which the fulfillments were created for an order. */
-  fulfillmentOrder: Scalars['Int']['output'];
+  fulfillmentOrder: Scalars['Int'];
   /** ID of the fulfillment. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of lines for the fulfillment. */
   lines?: Maybe<Array<FulfillmentLine>>;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -7656,13 +7654,13 @@ export type Fulfillment = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -7672,13 +7670,13 @@ export type Fulfillment = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Amount of refunded shipping price.
    *
@@ -7688,7 +7686,7 @@ export type Fulfillment = Node & ObjectWithMetadata & {
   /** Status of fulfillment. */
   status: FulfillmentStatus;
   /** User-friendly fulfillment status. */
-  statusDisplay?: Maybe<Scalars['String']['output']>;
+  statusDisplay?: Maybe<Scalars['String']>;
   /**
    * Total refunded amount assigned to this fulfillment.
    *
@@ -7696,7 +7694,7 @@ export type Fulfillment = Node & ObjectWithMetadata & {
    */
   totalRefundedAmount?: Maybe<Money>;
   /** Fulfillment tracking number. */
-  trackingNumber: Scalars['String']['output'];
+  trackingNumber: Scalars['String'];
   /** Warehouse from fulfillment was fulfilled. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -7704,25 +7702,25 @@ export type Fulfillment = Node & ObjectWithMetadata & {
 
 /** Represents order fulfillment. */
 export type FulfillmentMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents order fulfillment. */
 export type FulfillmentMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents order fulfillment. */
 export type FulfillmentPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents order fulfillment. */
 export type FulfillmentPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -7756,7 +7754,7 @@ export type FulfillmentApproved = Event & {
   /** The fulfillment the event relates to. */
   fulfillment?: Maybe<Fulfillment>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -7764,13 +7762,13 @@ export type FulfillmentApproved = Event & {
    *
    * Added in Saleor 3.16.
    */
-  notifyCustomer: Scalars['Boolean']['output'];
+  notifyCustomer: Scalars['Boolean'];
   /** The order the fulfillment belongs to. */
   order?: Maybe<Order>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -7791,7 +7789,7 @@ export type FulfillmentCancel = {
 
 export type FulfillmentCancelInput = {
   /** ID of a warehouse where items will be restocked. Optional when fulfillment is in WAITING_FOR_APPROVAL state. */
-  warehouseId?: InputMaybe<Scalars['ID']['input']>;
+  warehouseId?: InputMaybe<Scalars['ID']>;
 };
 
 /**
@@ -7804,7 +7802,7 @@ export type FulfillmentCanceled = Event & {
   /** The fulfillment the event relates to. */
   fulfillment?: Maybe<Fulfillment>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the fulfillment belongs to. */
@@ -7812,7 +7810,7 @@ export type FulfillmentCanceled = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -7825,7 +7823,7 @@ export type FulfillmentCreated = Event & {
   /** The fulfillment the event relates to. */
   fulfillment?: Maybe<Fulfillment>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -7833,24 +7831,24 @@ export type FulfillmentCreated = Event & {
    *
    * Added in Saleor 3.16.
    */
-  notifyCustomer: Scalars['Boolean']['output'];
+  notifyCustomer: Scalars['Boolean'];
   /** The order the fulfillment belongs to. */
   order?: Maybe<Order>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents line of the fulfillment. */
 export type FulfillmentLine = Node & {
   __typename?: 'FulfillmentLine';
   /** ID of the fulfillment line. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The order line to which the fulfillment line is related. */
   orderLine?: Maybe<OrderLine>;
   /** The number of items included in the fulfillment line. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
 };
 
 /**
@@ -7863,7 +7861,7 @@ export type FulfillmentMetadataUpdated = Event & {
   /** The fulfillment the event relates to. */
   fulfillment?: Maybe<Fulfillment>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the fulfillment belongs to. */
@@ -7871,7 +7869,7 @@ export type FulfillmentMetadataUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -7929,7 +7927,7 @@ export type FulfillmentTrackingNumberUpdated = Event & {
   /** The fulfillment the event relates to. */
   fulfillment?: Maybe<Fulfillment>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the fulfillment belongs to. */
@@ -7937,7 +7935,7 @@ export type FulfillmentTrackingNumberUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -7961,18 +7959,18 @@ export type FulfillmentUpdateTracking = {
 
 export type FulfillmentUpdateTrackingInput = {
   /** If true, send an email notification to the customer. */
-  notifyCustomer?: InputMaybe<Scalars['Boolean']['input']>;
+  notifyCustomer?: InputMaybe<Scalars['Boolean']>;
   /** Fulfillment tracking number. */
-  trackingNumber?: InputMaybe<Scalars['String']['input']>;
+  trackingNumber?: InputMaybe<Scalars['String']>;
 };
 
 /** Payment gateway client configuration key and value pair. */
 export type GatewayConfigLine = {
   __typename?: 'GatewayConfigLine';
   /** Gateway config key. */
-  field: Scalars['String']['output'];
+  field: Scalars['String'];
   /** Gateway config value for key. */
-  value?: Maybe<Scalars['String']['output']>;
+  value?: Maybe<Scalars['String']>;
 };
 
 /** A gift card is a prepaid electronic payment card accepted in stores. They can be used during checkout by providing a valid gift card codes. */
@@ -7991,15 +7989,15 @@ export type GiftCard = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.1.
    */
-  boughtInChannel?: Maybe<Scalars['String']['output']>;
+  boughtInChannel?: Maybe<Scalars['String']>;
   /**
    * Gift card code. It can be fetched both by a staff member with 'MANAGE_GIFT_CARD' when gift card hasn't been used yet or a user who bought or issued the gift card.
    *
    * Requires one of the following permissions: MANAGE_GIFT_CARD, OWNER.
    */
-  code: Scalars['String']['output'];
+  code: Scalars['String'];
   /** Date and time when gift card was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /**
    * The user who bought or issued a gift card.
    *
@@ -8013,15 +8011,15 @@ export type GiftCard = Node & ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_USERS, OWNER.
    */
-  createdByEmail?: Maybe<Scalars['String']['output']>;
+  createdByEmail?: Maybe<Scalars['String']>;
   currentBalance: Money;
   /** Code in format which allows displaying in a user interface. */
-  displayCode: Scalars['String']['output'];
+  displayCode: Scalars['String'];
   /**
    * End date of gift card.
    * @deprecated This field will be removed in Saleor 4.0. Use `expiryDate` field instead.
    */
-  endDate?: Maybe<Scalars['DateTime']['output']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /**
    * List of events associated with the gift card.
    *
@@ -8031,15 +8029,15 @@ export type GiftCard = Node & ObjectWithMetadata & {
    */
   events: Array<GiftCardEvent>;
   /** Expiry date of the gift card. */
-  expiryDate?: Maybe<Scalars['Date']['output']>;
+  expiryDate?: Maybe<Scalars['Date']>;
   /** ID of the gift card. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   initialBalance: Money;
-  isActive: Scalars['Boolean']['output'];
+  isActive: Scalars['Boolean'];
   /** Last 4 characters of gift card code. */
-  last4CodeChars: Scalars['String']['output'];
+  last4CodeChars: Scalars['String'];
   /** Date and time when gift card was last used. */
-  lastUsedOn?: Maybe<Scalars['DateTime']['output']>;
+  lastUsedOn?: Maybe<Scalars['DateTime']>;
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -8049,13 +8047,13 @@ export type GiftCard = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -8065,13 +8063,13 @@ export type GiftCard = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Related gift card product.
    *
@@ -8082,7 +8080,7 @@ export type GiftCard = Node & ObjectWithMetadata & {
    * Start date of gift card.
    * @deprecated This field will be removed in Saleor 4.0.
    */
-  startDate?: Maybe<Scalars['DateTime']['output']>;
+  startDate?: Maybe<Scalars['DateTime']>;
   /**
    * The gift card tag.
    *
@@ -8104,7 +8102,7 @@ export type GiftCard = Node & ObjectWithMetadata & {
    * Added in Saleor 3.1.
    * @deprecated This field will be removed in Saleor 4.0.
    */
-  usedByEmail?: Maybe<Scalars['String']['output']>;
+  usedByEmail?: Maybe<Scalars['String']>;
   /**
    * The customer who bought a gift card.
    * @deprecated This field will be removed in Saleor 4.0. Use `createdBy` field instead.
@@ -8121,25 +8119,25 @@ export type GiftCardEventsArgs = {
 
 /** A gift card is a prepaid electronic payment card accepted in stores. They can be used during checkout by providing a valid gift card codes. */
 export type GiftCardMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** A gift card is a prepaid electronic payment card accepted in stores. They can be used during checkout by providing a valid gift card codes. */
 export type GiftCardMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** A gift card is a prepaid electronic payment card accepted in stores. They can be used during checkout by providing a valid gift card codes. */
 export type GiftCardPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** A gift card is a prepaid electronic payment card accepted in stores. They can be used during checkout by providing a valid gift card codes. */
 export type GiftCardPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -8180,7 +8178,7 @@ export type GiftCardAddNote = {
 
 export type GiftCardAddNoteInput = {
   /** Note message. */
-  message: Scalars['String']['input'];
+  message: Scalars['String'];
 };
 
 /**
@@ -8196,7 +8194,7 @@ export type GiftCardAddNoteInput = {
 export type GiftCardBulkActivate = {
   __typename?: 'GiftCardBulkActivate';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<GiftCardError>;
 };
 
@@ -8214,7 +8212,7 @@ export type GiftCardBulkActivate = {
 export type GiftCardBulkCreate = {
   __typename?: 'GiftCardBulkCreate';
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<GiftCardError>;
   /** List of created gift cards. */
   giftCards: Array<GiftCard>;
@@ -8224,13 +8222,13 @@ export type GiftCardBulkCreateInput = {
   /** Balance of the gift card. */
   balance: PriceInput;
   /** The number of cards to issue. */
-  count: Scalars['Int']['input'];
+  count: Scalars['Int'];
   /** The gift card expiry date. */
-  expiryDate?: InputMaybe<Scalars['Date']['input']>;
+  expiryDate?: InputMaybe<Scalars['Date']>;
   /** Determine if gift card is active. */
-  isActive: Scalars['Boolean']['input'];
+  isActive: Scalars['Boolean'];
   /** The gift card tags. */
-  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -8246,7 +8244,7 @@ export type GiftCardBulkCreateInput = {
 export type GiftCardBulkDeactivate = {
   __typename?: 'GiftCardBulkDeactivate';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<GiftCardError>;
 };
 
@@ -8263,7 +8261,7 @@ export type GiftCardBulkDeactivate = {
 export type GiftCardBulkDelete = {
   __typename?: 'GiftCardBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<GiftCardError>;
 };
 
@@ -8273,13 +8271,13 @@ export type GiftCardCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type GiftCardCountableEdge = {
   __typename?: 'GiftCardCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: GiftCard;
 };
@@ -8307,7 +8305,7 @@ export type GiftCardCreateInput = {
    *
    * Added in Saleor 3.1.
    */
-  addTags?: InputMaybe<Array<Scalars['String']['input']>>;
+  addTags?: InputMaybe<Array<Scalars['String']>>;
   /** Balance of the gift card. */
   balance: PriceInput;
   /**
@@ -8315,45 +8313,45 @@ export type GiftCardCreateInput = {
    *
    * Added in Saleor 3.1.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /**
    * Code to use the gift card.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. The code is now auto generated.
    */
-  code?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']>;
   /**
    * End date of the gift card in ISO 8601 format.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `expiryDate` from `expirySettings` instead.
    */
-  endDate?: InputMaybe<Scalars['Date']['input']>;
+  endDate?: InputMaybe<Scalars['Date']>;
   /**
    * The gift card expiry date.
    *
    * Added in Saleor 3.1.
    */
-  expiryDate?: InputMaybe<Scalars['Date']['input']>;
+  expiryDate?: InputMaybe<Scalars['Date']>;
   /**
    * Determine if gift card is active.
    *
    * Added in Saleor 3.1.
    */
-  isActive: Scalars['Boolean']['input'];
+  isActive: Scalars['Boolean'];
   /**
    * The gift card note from the staff member.
    *
    * Added in Saleor 3.1.
    */
-  note?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']>;
   /**
    * Start date of the gift card in ISO 8601 format.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  startDate?: InputMaybe<Scalars['Date']['input']>;
+  startDate?: InputMaybe<Scalars['Date']>;
   /** Email of the customer to whom gift card will be sent. */
-  userEmail?: InputMaybe<Scalars['String']['input']>;
+  userEmail?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -8366,13 +8364,13 @@ export type GiftCardCreated = Event & {
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -8420,13 +8418,13 @@ export type GiftCardDeleted = Event & {
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type GiftCardError = {
@@ -8434,11 +8432,11 @@ export type GiftCardError = {
   /** The error code. */
   code: GiftCardErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of tag values that cause the error. */
-  tags?: Maybe<Array<Scalars['String']['output']>>;
+  tags?: Maybe<Array<Scalars['String']>>;
 };
 
 export type GiftCardErrorCode =
@@ -8463,25 +8461,25 @@ export type GiftCardEvent = Node & {
   /** The gift card balance. */
   balance?: Maybe<GiftCardEventBalance>;
   /** Date when event happened at in ISO 8601 format. */
-  date?: Maybe<Scalars['DateTime']['output']>;
+  date?: Maybe<Scalars['DateTime']>;
   /** Email of the customer. */
-  email?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']>;
   /** The gift card expiry date. */
-  expiryDate?: Maybe<Scalars['Date']['output']>;
+  expiryDate?: Maybe<Scalars['Date']>;
   /** ID of the event associated with a gift card. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Content of the event. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Previous gift card expiry date. */
-  oldExpiryDate?: Maybe<Scalars['Date']['output']>;
+  oldExpiryDate?: Maybe<Scalars['Date']>;
   /** The list of old gift card tags. */
-  oldTags?: Maybe<Array<Scalars['String']['output']>>;
+  oldTags?: Maybe<Array<Scalars['String']>>;
   /** The order ID where gift card was used or bought. */
-  orderId?: Maybe<Scalars['ID']['output']>;
+  orderId?: Maybe<Scalars['ID']>;
   /** User-friendly number of an order where gift card was used or bought. */
-  orderNumber?: Maybe<Scalars['String']['output']>;
+  orderNumber?: Maybe<Scalars['String']>;
   /** The list of gift card tags. */
-  tags?: Maybe<Array<Scalars['String']['output']>>;
+  tags?: Maybe<Array<Scalars['String']>>;
   /** Gift card event type. */
   type?: Maybe<GiftCardEventsEnum>;
   /** User who performed the action. Requires one of the following permissions: MANAGE_USERS, MANAGE_STAFF, OWNER. */
@@ -8501,7 +8499,7 @@ export type GiftCardEventBalance = {
 };
 
 export type GiftCardEventFilterInput = {
-  orders?: InputMaybe<Array<Scalars['ID']['input']>>;
+  orders?: InputMaybe<Array<Scalars['ID']>>;
   type?: InputMaybe<GiftCardEventsEnum>;
 };
 
@@ -8529,27 +8527,27 @@ export type GiftCardExportCompleted = Event & {
   /** The export file for gift cards. */
   export?: Maybe<ExportFile>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type GiftCardFilterInput = {
-  code?: InputMaybe<Scalars['String']['input']>;
-  createdByEmail?: InputMaybe<Scalars['String']['input']>;
-  currency?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']>;
+  createdByEmail?: InputMaybe<Scalars['String']>;
+  currency?: InputMaybe<Scalars['String']>;
   currentBalance?: InputMaybe<PriceRangeInput>;
   initialBalance?: InputMaybe<PriceRangeInput>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  products?: InputMaybe<Array<Scalars['ID']['input']>>;
-  tags?: InputMaybe<Array<Scalars['String']['input']>>;
-  used?: InputMaybe<Scalars['Boolean']['input']>;
-  usedBy?: InputMaybe<Array<Scalars['ID']['input']>>;
+  products?: InputMaybe<Array<Scalars['ID']>>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
+  used?: InputMaybe<Scalars['Boolean']>;
+  usedBy?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -8562,13 +8560,13 @@ export type GiftCardMetadataUpdated = Event & {
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -8590,11 +8588,11 @@ export type GiftCardResend = {
 
 export type GiftCardResendInput = {
   /** Slug of a channel from which the email should be sent. */
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
   /** Email to which gift card should be send. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** ID of a gift card to resend. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 /**
@@ -8607,19 +8605,19 @@ export type GiftCardResendInput = {
 export type GiftCardSent = Event & {
   __typename?: 'GiftCardSent';
   /** Slug of a channel for which this gift card email was sent. */
-  channel?: Maybe<Scalars['String']['output']>;
+  channel?: Maybe<Scalars['String']>;
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** E-mail address to which gift card was sent. */
-  sentToEmail?: Maybe<Scalars['String']['output']>;
+  sentToEmail?: Maybe<Scalars['String']>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Gift card related settings from site settings. */
@@ -8636,9 +8634,9 @@ export type GiftCardSettingsError = {
   /** The error code. */
   code: GiftCardSettingsErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type GiftCardSettingsErrorCode =
@@ -8700,13 +8698,13 @@ export type GiftCardStatusChanged = Event & {
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -8717,9 +8715,9 @@ export type GiftCardStatusChanged = Event & {
 export type GiftCardTag = Node & {
   __typename?: 'GiftCardTag';
   /** ID of the tag associated with a gift card. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the tag associated with a gift card. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 export type GiftCardTagCountableConnection = {
@@ -8728,19 +8726,19 @@ export type GiftCardTagCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type GiftCardTagCountableEdge = {
   __typename?: 'GiftCardTagCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: GiftCardTag;
 };
 
 export type GiftCardTagFilterInput = {
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -8765,37 +8763,37 @@ export type GiftCardUpdateInput = {
    *
    * Added in Saleor 3.1.
    */
-  addTags?: InputMaybe<Array<Scalars['String']['input']>>;
+  addTags?: InputMaybe<Array<Scalars['String']>>;
   /**
    * The gift card balance amount.
    *
    * Added in Saleor 3.1.
    */
-  balanceAmount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  balanceAmount?: InputMaybe<Scalars['PositiveDecimal']>;
   /**
    * End date of the gift card in ISO 8601 format.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `expiryDate` from `expirySettings` instead.
    */
-  endDate?: InputMaybe<Scalars['Date']['input']>;
+  endDate?: InputMaybe<Scalars['Date']>;
   /**
    * The gift card expiry date.
    *
    * Added in Saleor 3.1.
    */
-  expiryDate?: InputMaybe<Scalars['Date']['input']>;
+  expiryDate?: InputMaybe<Scalars['Date']>;
   /**
    * The gift card tags to remove.
    *
    * Added in Saleor 3.1.
    */
-  removeTags?: InputMaybe<Array<Scalars['String']['input']>>;
+  removeTags?: InputMaybe<Array<Scalars['String']>>;
   /**
    * Start date of the gift card in ISO 8601 format.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  startDate?: InputMaybe<Scalars['Date']['input']>;
+  startDate?: InputMaybe<Scalars['Date']>;
 };
 
 /**
@@ -8808,13 +8806,13 @@ export type GiftCardUpdated = Event & {
   /** The gift card the event relates to. */
   giftCard?: Maybe<GiftCard>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -8826,9 +8824,9 @@ export type GiftCardUpdated = Event & {
  */
 export type GlobalIdFilterInput = {
   /** The value equal to. */
-  eq?: InputMaybe<Scalars['ID']['input']>;
+  eq?: InputMaybe<Scalars['ID']>;
   /** The value included in. */
-  oneOf?: InputMaybe<Array<Scalars['ID']['input']>>;
+  oneOf?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /** Represents permission group data. */
@@ -8843,9 +8841,9 @@ export type Group = Node & {
    */
   accessibleChannels?: Maybe<Array<Channel>>;
   /** The ID of the group. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The name of the group. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of group permissions */
   permissions?: Maybe<Array<Permission>>;
   /**
@@ -8855,9 +8853,9 @@ export type Group = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  restrictedAccessToChannels: Scalars['Boolean']['output'];
+  restrictedAccessToChannels: Scalars['Boolean'];
   /** True, if the currently authenticated user has rights to manage a group. */
-  userCanManage: Scalars['Boolean']['output'];
+  userCanManage: Scalars['Boolean'];
   /**
    * List of group users
    *
@@ -8872,13 +8870,13 @@ export type GroupCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type GroupCountableEdge = {
   __typename?: 'GroupCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Group;
 };
@@ -8892,32 +8890,32 @@ export type IconThumbnailFormatEnum =
 export type Image = {
   __typename?: 'Image';
   /** Alt text for an image. */
-  alt?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']>;
   /** The URL of the image. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 export type IntRangeInput = {
   /** Value greater than or equal to. */
-  gte?: InputMaybe<Scalars['Int']['input']>;
+  gte?: InputMaybe<Scalars['Int']>;
   /** Value less than or equal to. */
-  lte?: InputMaybe<Scalars['Int']['input']>;
+  lte?: InputMaybe<Scalars['Int']>;
 };
 
 /** Represents an Invoice. */
 export type Invoice = Job & Node & ObjectWithMetadata & {
   __typename?: 'Invoice';
   /** Date and time at which invoice was created. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /**
    * URL to view an invoice.
    * @deprecated This field will be removed in Saleor 4.0. Use `url` field.This field will be removed in 4.0
    */
-  externalUrl?: Maybe<Scalars['String']['output']>;
+  externalUrl?: Maybe<Scalars['String']>;
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Message associated with an invoice. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -8927,15 +8925,15 @@ export type Invoice = Job & Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Invoice number. */
-  number?: Maybe<Scalars['String']['output']>;
+  number?: Maybe<Scalars['String']>;
   /**
    * Order related to the invoice.
    *
@@ -8951,43 +8949,43 @@ export type Invoice = Job & Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Job status. */
   status: JobStatusEnum;
   /** Date and time at which invoice was updated. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** URL to view/download an invoice. This can be an internal URL if the Invoicing Plugin was used or an external URL if it has been provided. */
-  url?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 
 /** Represents an Invoice. */
 export type InvoiceMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an Invoice. */
 export type InvoiceMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents an Invoice. */
 export type InvoicePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an Invoice. */
 export type InvoicePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -9011,7 +9009,7 @@ export type InvoiceCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Invoice number. */
-  number: Scalars['String']['input'];
+  number: Scalars['String'];
   /**
    * Fields required to update the invoice private metadata.
    *
@@ -9019,7 +9017,7 @@ export type InvoiceCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of an invoice to download. */
-  url: Scalars['String']['input'];
+  url: Scalars['String'];
 };
 
 /**
@@ -9045,7 +9043,7 @@ export type InvoiceDeleted = Event & {
   /** The invoice the event relates to. */
   invoice?: Maybe<Invoice>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -9057,7 +9055,7 @@ export type InvoiceDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type InvoiceError = {
@@ -9065,9 +9063,9 @@ export type InvoiceError = {
   /** The error code. */
   code: InvoiceErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type InvoiceErrorCode =
@@ -9124,7 +9122,7 @@ export type InvoiceRequested = Event & {
   /** The invoice the event relates to. */
   invoice?: Maybe<Invoice>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -9136,7 +9134,7 @@ export type InvoiceRequested = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -9166,7 +9164,7 @@ export type InvoiceSent = Event & {
   /** The invoice the event relates to. */
   invoice?: Maybe<Invoice>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -9178,7 +9176,7 @@ export type InvoiceSent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -9198,13 +9196,13 @@ export type IssuingPrincipal = App | User;
 
 export type Job = {
   /** Created date time of job in ISO 8601 format. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** Job message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Job status. */
   status: JobStatusEnum;
   /** Date time of job last update in ISO 8601 format. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
 };
 
 export type JobStatusEnum =
@@ -9999,7 +9997,7 @@ export type LanguageDisplay = {
   /** ISO 639 representation of the language name. */
   code: LanguageCodeEnum;
   /** Full name of the language. */
-  language: Scalars['String']['output'];
+  language: Scalars['String'];
 };
 
 /** Store the current and allowed usage. */
@@ -10014,15 +10012,15 @@ export type LimitInfo = {
 export type Limits = {
   __typename?: 'Limits';
   /** Defines the number of channels. */
-  channels?: Maybe<Scalars['Int']['output']>;
+  channels?: Maybe<Scalars['Int']>;
   /** Defines the number of order. */
-  orders?: Maybe<Scalars['Int']['output']>;
+  orders?: Maybe<Scalars['Int']>;
   /** Defines the number of product variants. */
-  productVariants?: Maybe<Scalars['Int']['output']>;
+  productVariants?: Maybe<Scalars['Int']>;
   /** Defines the number of staff users. */
-  staffUsers?: Maybe<Scalars['Int']['output']>;
+  staffUsers?: Maybe<Scalars['Int']>;
   /** Defines the number of warehouses. */
-  warehouses?: Maybe<Scalars['Int']['output']>;
+  warehouses?: Maybe<Scalars['Int']>;
 };
 
 /**
@@ -10037,7 +10035,7 @@ export type ListStoredPaymentMethods = Event & {
   /** Channel in context which was used to fetch the list of payment methods. */
   channel: Channel;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -10045,22 +10043,22 @@ export type ListStoredPaymentMethods = Event & {
   /** The user for which the app should return a list of payment methods. */
   user: User;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** The manifest definition. */
 export type Manifest = {
   __typename?: 'Manifest';
   /** Description of the app displayed in the dashboard. */
-  about?: Maybe<Scalars['String']['output']>;
+  about?: Maybe<Scalars['String']>;
   /** App website rendered in the dashboard. */
-  appUrl?: Maybe<Scalars['String']['output']>;
+  appUrl?: Maybe<Scalars['String']>;
   /**
    * The audience that will be included in all JWT tokens for the app.
    *
    * Added in Saleor 3.8.
    */
-  audience?: Maybe<Scalars['String']['output']>;
+  audience?: Maybe<Scalars['String']>;
   /**
    * The App's author name.
    *
@@ -10068,7 +10066,7 @@ export type Manifest = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  author?: Maybe<Scalars['String']['output']>;
+  author?: Maybe<Scalars['String']>;
   /**
    * App's brand data.
    *
@@ -10081,22 +10079,22 @@ export type Manifest = {
    * URL to iframe with the configuration for the app.
    * @deprecated This field will be removed in Saleor 4.0. Use `appUrl` instead.
    */
-  configurationUrl?: Maybe<Scalars['String']['output']>;
+  configurationUrl?: Maybe<Scalars['String']>;
   /**
    * Description of the data privacy defined for this app.
    * @deprecated This field will be removed in Saleor 4.0. Use `dataPrivacyUrl` instead.
    */
-  dataPrivacy?: Maybe<Scalars['String']['output']>;
+  dataPrivacy?: Maybe<Scalars['String']>;
   /** URL to the full privacy policy. */
-  dataPrivacyUrl?: Maybe<Scalars['String']['output']>;
+  dataPrivacyUrl?: Maybe<Scalars['String']>;
   /** List of extensions that will be mounted in Saleor's dashboard. For details, please [see the extension section.](https://docs.saleor.io/docs/3.x/developer/extending/apps/extending-dashboard-with-apps#key-concepts) */
   extensions: Array<AppManifestExtension>;
   /** External URL to the app homepage. */
-  homepageUrl?: Maybe<Scalars['String']['output']>;
+  homepageUrl?: Maybe<Scalars['String']>;
   /** The identifier of the manifest for the app. */
-  identifier: Scalars['String']['output'];
+  identifier: Scalars['String'];
   /** The name of the manifest for the app . */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** The array permissions required for the app. */
   permissions?: Maybe<Array<Permission>>;
   /**
@@ -10108,11 +10106,11 @@ export type Manifest = {
    */
   requiredSaleorVersion?: Maybe<AppManifestRequiredSaleorVersion>;
   /** External URL to the page where app users can find support. */
-  supportUrl?: Maybe<Scalars['String']['output']>;
+  supportUrl?: Maybe<Scalars['String']>;
   /** Endpoint used during process of app installation, [see installing an app.](https://docs.saleor.io/docs/3.x/developer/extending/apps/installing-apps#installing-an-app) */
-  tokenTargetUrl?: Maybe<Scalars['String']['output']>;
+  tokenTargetUrl?: Maybe<Scalars['String']>;
   /** The version of the manifest for the app. */
-  version: Scalars['String']['output'];
+  version: Scalars['String'];
   /**
    * List of the app's webhooks.
    *
@@ -10125,9 +10123,9 @@ export type Manifest = {
 export type Margin = {
   __typename?: 'Margin';
   /** The starting value of the margin. */
-  start?: Maybe<Scalars['Int']['output']>;
+  start?: Maybe<Scalars['Int']>;
   /** The ending value of the margin. */
-  stop?: Maybe<Scalars['Int']['output']>;
+  stop?: Maybe<Scalars['Int']>;
 };
 
 /**
@@ -10192,11 +10190,11 @@ export type MediaChoicesSortField =
 
 export type MediaInput = {
   /** Alt text for a product media. */
-  alt?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']>;
   /** Represents an image file in a multipart request. */
-  image?: InputMaybe<Scalars['Upload']['input']>;
+  image?: InputMaybe<Scalars['Upload']>;
   /** Represents an URL to an external media. */
-  mediaUrl?: InputMaybe<Scalars['String']['input']>;
+  mediaUrl?: InputMaybe<Scalars['String']>;
 };
 
 export type MediaSortingInput = {
@@ -10210,7 +10208,7 @@ export type MediaSortingInput = {
 export type Menu = Node & ObjectWithMetadata & {
   __typename?: 'Menu';
   /** The ID of the menu. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Menu items associated with this menu. */
   items?: Maybe<Array<MenuItem>>;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -10222,15 +10220,15 @@ export type Menu = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The name of the menu. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -10240,39 +10238,39 @@ export type Menu = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Slug of the menu. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
 };
 
 
 /** Represents a single menu - an object that is used to help navigate through the store. */
 export type MenuMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single menu - an object that is used to help navigate through the store. */
 export type MenuMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a single menu - an object that is used to help navigate through the store. */
 export type MenuPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single menu - an object that is used to help navigate through the store. */
 export type MenuPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -10286,7 +10284,7 @@ export type MenuPrivateMetafieldsArgs = {
 export type MenuBulkDelete = {
   __typename?: 'MenuBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<MenuError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   menuErrors: Array<MenuError>;
@@ -10298,13 +10296,13 @@ export type MenuCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type MenuCountableEdge = {
   __typename?: 'MenuCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Menu;
 };
@@ -10329,9 +10327,9 @@ export type MenuCreateInput = {
   /** List of menu items. */
   items?: InputMaybe<Array<MenuItemInput>>;
   /** Name of the menu. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /** Slug of the menu. Will be generated if not provided. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -10342,7 +10340,7 @@ export type MenuCreateInput = {
 export type MenuCreated = Event & {
   __typename?: 'MenuCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu the event relates to. */
@@ -10350,7 +10348,7 @@ export type MenuCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10360,7 +10358,7 @@ export type MenuCreated = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuCreatedMenuArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -10387,7 +10385,7 @@ export type MenuDelete = {
 export type MenuDeleted = Event & {
   __typename?: 'MenuDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu the event relates to. */
@@ -10395,7 +10393,7 @@ export type MenuDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10405,7 +10403,7 @@ export type MenuDeleted = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuDeletedMenuArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type MenuError = {
@@ -10413,9 +10411,9 @@ export type MenuError = {
   /** The error code. */
   code: MenuErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type MenuErrorCode =
@@ -10431,16 +10429,16 @@ export type MenuErrorCode =
 
 export type MenuFilterInput = {
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slug?: InputMaybe<Array<Scalars['String']['input']>>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Array<Scalars['String']>>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type MenuInput = {
   /** Name of the menu. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Slug of the menu. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a single item of the related menu. Can store categories, collection or pages. */
@@ -10453,9 +10451,9 @@ export type MenuItem = Node & ObjectWithMetadata & {
   /** A collection associated with this menu item. Requires one of the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS. */
   collection?: Maybe<Collection>;
   /** The ID of the menu item. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Indicates the position of the menu item within the menu structure. */
-  level: Scalars['Int']['output'];
+  level: Scalars['Int'];
   /** Represents the menu to which the menu item belongs. */
   menu: Menu;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -10467,15 +10465,15 @@ export type MenuItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The name of the menu item. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** A page associated with this menu item. Requires one of the following permissions to include unpublished items: MANAGE_PAGES. */
   page?: Maybe<Page>;
   /** ID of parent menu item. If empty, menu will be top level menu. */
@@ -10489,41 +10487,41 @@ export type MenuItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Returns translated menu item fields for the given language code. */
   translation?: Maybe<MenuItemTranslation>;
   /** URL to the menu item. */
-  url?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 
 /** Represents a single item of the related menu. Can store categories, collection or pages. */
 export type MenuItemMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single item of the related menu. Can store categories, collection or pages. */
 export type MenuItemMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a single item of the related menu. Can store categories, collection or pages. */
 export type MenuItemPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a single item of the related menu. Can store categories, collection or pages. */
 export type MenuItemPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -10543,7 +10541,7 @@ export type MenuItemTranslationArgs = {
 export type MenuItemBulkDelete = {
   __typename?: 'MenuItemBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<MenuError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   menuErrors: Array<MenuError>;
@@ -10555,13 +10553,13 @@ export type MenuItemCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type MenuItemCountableEdge = {
   __typename?: 'MenuItemCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: MenuItem;
 };
@@ -10584,19 +10582,19 @@ export type MenuItemCreate = {
 
 export type MenuItemCreateInput = {
   /** Category to which item points. */
-  category?: InputMaybe<Scalars['ID']['input']>;
+  category?: InputMaybe<Scalars['ID']>;
   /** Collection to which item points. */
-  collection?: InputMaybe<Scalars['ID']['input']>;
+  collection?: InputMaybe<Scalars['ID']>;
   /** Menu to which item belongs. */
-  menu: Scalars['ID']['input'];
+  menu: Scalars['ID'];
   /** Name of the menu item. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /** Page to which item points. */
-  page?: InputMaybe<Scalars['ID']['input']>;
+  page?: InputMaybe<Scalars['ID']>;
   /** ID of the parent menu. If empty, menu will be top level menu. */
-  parent?: InputMaybe<Scalars['ID']['input']>;
+  parent?: InputMaybe<Scalars['ID']>;
   /** URL of the pointed item. */
-  url?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -10607,7 +10605,7 @@ export type MenuItemCreateInput = {
 export type MenuItemCreated = Event & {
   __typename?: 'MenuItemCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu item the event relates to. */
@@ -10615,7 +10613,7 @@ export type MenuItemCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10625,7 +10623,7 @@ export type MenuItemCreated = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuItemCreatedMenuItemArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -10652,7 +10650,7 @@ export type MenuItemDelete = {
 export type MenuItemDeleted = Event & {
   __typename?: 'MenuItemDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu item the event relates to. */
@@ -10660,7 +10658,7 @@ export type MenuItemDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10670,25 +10668,25 @@ export type MenuItemDeleted = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuItemDeletedMenuItemArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type MenuItemFilterInput = {
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 export type MenuItemInput = {
   /** Category to which item points. */
-  category?: InputMaybe<Scalars['ID']['input']>;
+  category?: InputMaybe<Scalars['ID']>;
   /** Collection to which item points. */
-  collection?: InputMaybe<Scalars['ID']['input']>;
+  collection?: InputMaybe<Scalars['ID']>;
   /** Name of the menu item. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Page to which item points. */
-  page?: InputMaybe<Scalars['ID']['input']>;
+  page?: InputMaybe<Scalars['ID']>;
   /** URL of the pointed item. */
-  url?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -10710,11 +10708,11 @@ export type MenuItemMove = {
 
 export type MenuItemMoveInput = {
   /** The menu item ID to move. */
-  itemId: Scalars['ID']['input'];
+  itemId: Scalars['ID'];
   /** ID of the parent menu. If empty, menu will be top level menu. */
-  parentId?: InputMaybe<Scalars['ID']['input']>;
+  parentId?: InputMaybe<Scalars['ID']>;
   /** The new relative sorting position of the item (from -inf to +inf). 1 moves the item one position forward, -1 moves the item one position backward, 0 leaves the item unchanged. */
-  sortOrder?: InputMaybe<Scalars['Int']['input']>;
+  sortOrder?: InputMaybe<Scalars['Int']>;
 };
 
 export type MenuItemSortingInput = {
@@ -10728,7 +10726,7 @@ export type MenuItemSortingInput = {
 export type MenuItemTranslatableContent = Node & {
   __typename?: 'MenuItemTranslatableContent';
   /** The ID of the menu item translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Represents a single item of the related menu. Can store categories, collection or pages.
    * @deprecated This field will be removed in Saleor 4.0. Get model fields from the root level queries.
@@ -10739,9 +10737,9 @@ export type MenuItemTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  menuItemId: Scalars['ID']['output'];
+  menuItemId: Scalars['ID'];
   /** Name of the menu item to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Returns translated menu item fields for the given language code. */
   translation?: Maybe<MenuItemTranslation>;
 };
@@ -10769,11 +10767,11 @@ export type MenuItemTranslate = {
 export type MenuItemTranslation = Node & {
   __typename?: 'MenuItemTranslation';
   /** The ID of the menu item translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated menu item name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Represents the menu item fields to translate.
    *
@@ -10806,7 +10804,7 @@ export type MenuItemUpdate = {
 export type MenuItemUpdated = Event & {
   __typename?: 'MenuItemUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu item the event relates to. */
@@ -10814,7 +10812,7 @@ export type MenuItemUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10824,7 +10822,7 @@ export type MenuItemUpdated = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuItemUpdatedMenuItemArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type MenuItemsSortField =
@@ -10868,7 +10866,7 @@ export type MenuUpdate = {
 export type MenuUpdated = Event & {
   __typename?: 'MenuUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The menu the event relates to. */
@@ -10876,7 +10874,7 @@ export type MenuUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -10886,7 +10884,7 @@ export type MenuUpdated = Event & {
  * Added in Saleor 3.4.
  */
 export type MenuUpdatedMenuArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type MetadataError = {
@@ -10894,9 +10892,9 @@ export type MetadataError = {
   /** The error code. */
   code: MetadataErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type MetadataErrorCode =
@@ -10908,40 +10906,40 @@ export type MetadataErrorCode =
 
 export type MetadataFilter = {
   /** Key of a metadata item. */
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
   /** Value of a metadata item. */
-  value?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 export type MetadataInput = {
   /** Key of a metadata item. */
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
   /** Value of a metadata item. */
-  value: Scalars['String']['input'];
+  value: Scalars['String'];
 };
 
 export type MetadataItem = {
   __typename?: 'MetadataItem';
   /** Key of a metadata item. */
-  key: Scalars['String']['output'];
+  key: Scalars['String'];
   /** Value of a metadata item. */
-  value: Scalars['String']['output'];
+  value: Scalars['String'];
 };
 
 /** Represents amount of money in specific currency. */
 export type Money = {
   __typename?: 'Money';
   /** Amount of money. */
-  amount: Scalars['Float']['output'];
+  amount: Scalars['Float'];
   /** Currency code. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
 };
 
 export type MoneyInput = {
   /** Amount of money. */
-  amount: Scalars['PositiveDecimal']['input'];
+  amount: Scalars['PositiveDecimal'];
   /** Currency code. */
-  currency: Scalars['String']['input'];
+  currency: Scalars['String'];
 };
 
 /** Represents a range of amounts of money. */
@@ -10955,9 +10953,9 @@ export type MoneyRange = {
 
 export type MoveProductInput = {
   /** The ID of the product to move. */
-  productId: Scalars['ID']['input'];
+  productId: Scalars['ID'];
   /** The relative sorting position of the product (from -inf to +inf) starting from the first given product's actual position.1 moves the item one position forward, -1 moves the item one position backward, 0 leaves the item unchanged. */
-  sortOrder?: InputMaybe<Scalars['Int']['input']>;
+  sortOrder?: InputMaybe<Scalars['Int']>;
 };
 
 export type Mutation = {
@@ -13462,25 +13460,25 @@ export type Mutation = {
 
 
 export type MutationAccountAddressCreateArgs = {
-  customerId?: InputMaybe<Scalars['ID']['input']>;
+  customerId?: InputMaybe<Scalars['ID']>;
   input: AddressInput;
   type?: InputMaybe<AddressTypeEnum>;
 };
 
 
 export type MutationAccountAddressDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAccountAddressUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: AddressInput;
 };
 
 
 export type MutationAccountDeleteArgs = {
-  token: Scalars['String']['input'];
+  token: Scalars['String'];
 };
 
 
@@ -13490,49 +13488,49 @@ export type MutationAccountRegisterArgs = {
 
 
 export type MutationAccountRequestDeletionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  redirectUrl: Scalars['String']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  redirectUrl: Scalars['String'];
 };
 
 
 export type MutationAccountSetDefaultAddressArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   type: AddressTypeEnum;
 };
 
 
 export type MutationAccountUpdateArgs = {
-  customerId?: InputMaybe<Scalars['ID']['input']>;
+  customerId?: InputMaybe<Scalars['ID']>;
   input: AccountInput;
 };
 
 
 export type MutationAddressCreateArgs = {
   input: AddressInput;
-  userId: Scalars['ID']['input'];
+  userId: Scalars['ID'];
 };
 
 
 export type MutationAddressDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAddressSetDefaultArgs = {
-  addressId: Scalars['ID']['input'];
+  addressId: Scalars['ID'];
   type: AddressTypeEnum;
-  userId: Scalars['ID']['input'];
+  userId: Scalars['ID'];
 };
 
 
 export type MutationAddressUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: AddressInput;
 };
 
 
 export type MutationAppActivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -13542,22 +13540,22 @@ export type MutationAppCreateArgs = {
 
 
 export type MutationAppDeactivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAppDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAppDeleteFailedInstallationArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAppFetchManifestArgs = {
-  manifestUrl: Scalars['String']['input'];
+  manifestUrl: Scalars['String'];
 };
 
 
@@ -13567,8 +13565,8 @@ export type MutationAppInstallArgs = {
 
 
 export type MutationAppRetryInstallArgs = {
-  activateAfterInstallation?: InputMaybe<Scalars['Boolean']['input']>;
-  id: Scalars['ID']['input'];
+  activateAfterInstallation?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['ID'];
 };
 
 
@@ -13578,30 +13576,30 @@ export type MutationAppTokenCreateArgs = {
 
 
 export type MutationAppTokenDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationAppTokenVerifyArgs = {
-  token: Scalars['String']['input'];
+  token: Scalars['String'];
 };
 
 
 export type MutationAppUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: AppInput;
 };
 
 
 export type MutationAssignNavigationArgs = {
-  menu?: InputMaybe<Scalars['ID']['input']>;
+  menu?: InputMaybe<Scalars['ID']>;
   navigationType: NavigationType;
 };
 
 
 export type MutationAssignWarehouseShippingZoneArgs = {
-  id: Scalars['ID']['input'];
-  shippingZoneIds: Array<Scalars['ID']['input']>;
+  id: Scalars['ID'];
+  shippingZoneIds: Array<Scalars['ID']>;
 };
 
 
@@ -13612,7 +13610,7 @@ export type MutationAttributeBulkCreateArgs = {
 
 
 export type MutationAttributeBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -13634,33 +13632,33 @@ export type MutationAttributeCreateArgs = {
 
 
 export type MutationAttributeDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationAttributeReorderValuesArgs = {
-  attributeId: Scalars['ID']['input'];
+  attributeId: Scalars['ID'];
   moves: Array<ReorderInput>;
 };
 
 
 export type MutationAttributeTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: NameTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationAttributeUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: AttributeUpdateInput;
 };
 
 
 export type MutationAttributeValueBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -13671,62 +13669,62 @@ export type MutationAttributeValueBulkTranslateArgs = {
 
 
 export type MutationAttributeValueCreateArgs = {
-  attribute: Scalars['ID']['input'];
+  attribute: Scalars['ID'];
   input: AttributeValueCreateInput;
 };
 
 
 export type MutationAttributeValueDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationAttributeValueTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: AttributeValueTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationAttributeValueUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: AttributeValueUpdateInput;
 };
 
 
 export type MutationCategoryBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationCategoryCreateArgs = {
   input: CategoryInput;
-  parent?: InputMaybe<Scalars['ID']['input']>;
+  parent?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationCategoryDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationCategoryTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: TranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationCategoryUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CategoryInput;
 };
 
 
 export type MutationChannelActivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -13736,53 +13734,53 @@ export type MutationChannelCreateArgs = {
 
 
 export type MutationChannelDeactivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationChannelDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input?: InputMaybe<ChannelDeleteInput>;
 };
 
 
 export type MutationChannelReorderWarehousesArgs = {
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   moves: Array<ReorderInput>;
 };
 
 
 export type MutationChannelUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ChannelUpdateInput;
 };
 
 
 export type MutationCheckoutAddPromoCodeArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  promoCode: Scalars['String']['input'];
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  promoCode: Scalars['String'];
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutBillingAddressUpdateArgs = {
   billingAddress: AddressInput;
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
   validationRules?: InputMaybe<CheckoutAddressValidationRules>;
 };
 
 
 export type MutationCheckoutCompleteArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   metadata?: InputMaybe<Array<MetadataInput>>;
-  paymentData?: InputMaybe<Scalars['JSONString']['input']>;
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
-  storeSource?: InputMaybe<Scalars['Boolean']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  paymentData?: InputMaybe<Scalars['JSONString']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
+  storeSource?: InputMaybe<Scalars['Boolean']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
@@ -13792,126 +13790,126 @@ export type MutationCheckoutCreateArgs = {
 
 
 export type MutationCheckoutCreateFromOrderArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationCheckoutCustomerAttachArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  customerId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  customerId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutCustomerDetachArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutDeliveryMethodUpdateArgs = {
-  deliveryMethodId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  deliveryMethodId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutEmailUpdateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  email: Scalars['String']['input'];
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  email: Scalars['String'];
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutLanguageCodeUpdateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   languageCode: LanguageCodeEnum;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutLineDeleteArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  lineId?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  lineId?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutLinesAddArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   lines: Array<CheckoutLineInput>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutLinesDeleteArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  linesIds: Array<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  linesIds: Array<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutLinesUpdateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   lines: Array<CheckoutLineUpdateInput>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutPaymentCreateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: PaymentInput;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutRemovePromoCodeArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  promoCode?: InputMaybe<Scalars['String']['input']>;
-  promoCodeId?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  promoCode?: InputMaybe<Scalars['String']>;
+  promoCodeId?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCheckoutShippingAddressUpdateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
   shippingAddress: AddressInput;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  token?: InputMaybe<Scalars['UUID']>;
   validationRules?: InputMaybe<CheckoutAddressValidationRules>;
 };
 
 
 export type MutationCheckoutShippingMethodUpdateArgs = {
-  checkoutId?: InputMaybe<Scalars['ID']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  shippingMethodId?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  checkoutId?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  shippingMethodId?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationCollectionAddProductsArgs = {
-  collectionId: Scalars['ID']['input'];
-  products: Array<Scalars['ID']['input']>;
+  collectionId: Scalars['ID'];
+  products: Array<Scalars['ID']>;
 };
 
 
 export type MutationCollectionBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationCollectionChannelListingUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CollectionChannelListingUpdateInput;
 };
 
@@ -13922,44 +13920,44 @@ export type MutationCollectionCreateArgs = {
 
 
 export type MutationCollectionDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationCollectionRemoveProductsArgs = {
-  collectionId: Scalars['ID']['input'];
-  products: Array<Scalars['ID']['input']>;
+  collectionId: Scalars['ID'];
+  products: Array<Scalars['ID']>;
 };
 
 
 export type MutationCollectionReorderProductsArgs = {
-  collectionId: Scalars['ID']['input'];
+  collectionId: Scalars['ID'];
   moves: Array<MoveProductInput>;
 };
 
 
 export type MutationCollectionTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: TranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationCollectionUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CollectionInput;
 };
 
 
 export type MutationConfirmAccountArgs = {
-  email: Scalars['String']['input'];
-  token: Scalars['String']['input'];
+  email: Scalars['String'];
+  token: Scalars['String'];
 };
 
 
 export type MutationConfirmEmailChangeArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  token: Scalars['String']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  token: Scalars['String'];
 };
 
 
@@ -13969,7 +13967,7 @@ export type MutationCreateWarehouseArgs = {
 
 
 export type MutationCustomerBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -13985,49 +13983,49 @@ export type MutationCustomerCreateArgs = {
 
 
 export type MutationCustomerDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationCustomerUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: CustomerInput;
 };
 
 
 export type MutationDeleteMetadataArgs = {
-  id: Scalars['ID']['input'];
-  keys: Array<Scalars['String']['input']>;
+  id: Scalars['ID'];
+  keys: Array<Scalars['String']>;
 };
 
 
 export type MutationDeletePrivateMetadataArgs = {
-  id: Scalars['ID']['input'];
-  keys: Array<Scalars['String']['input']>;
+  id: Scalars['ID'];
+  keys: Array<Scalars['String']>;
 };
 
 
 export type MutationDeleteWarehouseArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationDigitalContentCreateArgs = {
   input: DigitalContentUploadInput;
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationDigitalContentDeleteArgs = {
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationDigitalContentUpdateArgs = {
   input: DigitalContentInput;
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 
@@ -14037,12 +14035,12 @@ export type MutationDigitalContentUrlCreateArgs = {
 
 
 export type MutationDraftOrderBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationDraftOrderCompleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -14052,25 +14050,25 @@ export type MutationDraftOrderCreateArgs = {
 
 
 export type MutationDraftOrderDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationDraftOrderLinesBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationDraftOrderUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: DraftOrderInput;
 };
 
 
 export type MutationEventDeliveryRetryArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -14090,60 +14088,60 @@ export type MutationExportVoucherCodesArgs = {
 
 
 export type MutationExternalAuthenticationUrlArgs = {
-  input: Scalars['JSONString']['input'];
-  pluginId: Scalars['String']['input'];
+  input: Scalars['JSONString'];
+  pluginId: Scalars['String'];
 };
 
 
 export type MutationExternalLogoutArgs = {
-  input: Scalars['JSONString']['input'];
-  pluginId: Scalars['String']['input'];
+  input: Scalars['JSONString'];
+  pluginId: Scalars['String'];
 };
 
 
 export type MutationExternalNotificationTriggerArgs = {
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
   input: ExternalNotificationTriggerInput;
-  pluginId?: InputMaybe<Scalars['String']['input']>;
+  pluginId?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationExternalObtainAccessTokensArgs = {
-  input: Scalars['JSONString']['input'];
-  pluginId: Scalars['String']['input'];
+  input: Scalars['JSONString'];
+  pluginId: Scalars['String'];
 };
 
 
 export type MutationExternalRefreshArgs = {
-  input: Scalars['JSONString']['input'];
-  pluginId: Scalars['String']['input'];
+  input: Scalars['JSONString'];
+  pluginId: Scalars['String'];
 };
 
 
 export type MutationExternalVerifyArgs = {
-  input: Scalars['JSONString']['input'];
-  pluginId: Scalars['String']['input'];
+  input: Scalars['JSONString'];
+  pluginId: Scalars['String'];
 };
 
 
 export type MutationFileUploadArgs = {
-  file: Scalars['Upload']['input'];
+  file: Scalars['Upload'];
 };
 
 
 export type MutationGiftCardActivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationGiftCardAddNoteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: GiftCardAddNoteInput;
 };
 
 
 export type MutationGiftCardBulkActivateArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14153,12 +14151,12 @@ export type MutationGiftCardBulkCreateArgs = {
 
 
 export type MutationGiftCardBulkDeactivateArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationGiftCardBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14168,12 +14166,12 @@ export type MutationGiftCardCreateArgs = {
 
 
 export type MutationGiftCardDeactivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationGiftCardDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -14188,46 +14186,46 @@ export type MutationGiftCardSettingsUpdateArgs = {
 
 
 export type MutationGiftCardUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: GiftCardUpdateInput;
 };
 
 
 export type MutationInvoiceCreateArgs = {
   input: InvoiceCreateInput;
-  orderId: Scalars['ID']['input'];
+  orderId: Scalars['ID'];
 };
 
 
 export type MutationInvoiceDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationInvoiceRequestArgs = {
-  number?: InputMaybe<Scalars['String']['input']>;
-  orderId: Scalars['ID']['input'];
+  number?: InputMaybe<Scalars['String']>;
+  orderId: Scalars['ID'];
 };
 
 
 export type MutationInvoiceRequestDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationInvoiceSendNotificationArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationInvoiceUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: UpdateInvoiceInput;
 };
 
 
 export type MutationMenuBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14237,12 +14235,12 @@ export type MutationMenuCreateArgs = {
 
 
 export type MutationMenuDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationMenuItemBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14252,43 +14250,43 @@ export type MutationMenuItemCreateArgs = {
 
 
 export type MutationMenuItemDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationMenuItemMoveArgs = {
-  menu: Scalars['ID']['input'];
+  menu: Scalars['ID'];
   moves: Array<MenuItemMoveInput>;
 };
 
 
 export type MutationMenuItemTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: NameTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationMenuItemUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: MenuItemInput;
 };
 
 
 export type MutationMenuUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: MenuInput;
 };
 
 
 export type MutationOrderAddNoteArgs = {
   input: OrderAddNoteInput;
-  order: Scalars['ID']['input'];
+  order: Scalars['ID'];
 };
 
 
 export type MutationOrderBulkCancelArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14300,144 +14298,144 @@ export type MutationOrderBulkCreateArgs = {
 
 
 export type MutationOrderCancelArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationOrderCaptureArgs = {
-  amount: Scalars['PositiveDecimal']['input'];
-  id: Scalars['ID']['input'];
+  amount: Scalars['PositiveDecimal'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationOrderConfirmArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationOrderCreateFromCheckoutArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   metadata?: InputMaybe<Array<MetadataInput>>;
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
-  removeCheckout?: InputMaybe<Scalars['Boolean']['input']>;
+  removeCheckout?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationOrderDiscountAddArgs = {
   input: OrderDiscountCommonInput;
-  orderId: Scalars['ID']['input'];
+  orderId: Scalars['ID'];
 };
 
 
 export type MutationOrderDiscountDeleteArgs = {
-  discountId: Scalars['ID']['input'];
+  discountId: Scalars['ID'];
 };
 
 
 export type MutationOrderDiscountUpdateArgs = {
-  discountId: Scalars['ID']['input'];
+  discountId: Scalars['ID'];
   input: OrderDiscountCommonInput;
 };
 
 
 export type MutationOrderFulfillArgs = {
   input: OrderFulfillInput;
-  order?: InputMaybe<Scalars['ID']['input']>;
+  order?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationOrderFulfillmentApproveArgs = {
-  allowStockToBeExceeded?: InputMaybe<Scalars['Boolean']['input']>;
-  id: Scalars['ID']['input'];
-  notifyCustomer: Scalars['Boolean']['input'];
+  allowStockToBeExceeded?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['ID'];
+  notifyCustomer: Scalars['Boolean'];
 };
 
 
 export type MutationOrderFulfillmentCancelArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input?: InputMaybe<FulfillmentCancelInput>;
 };
 
 
 export type MutationOrderFulfillmentRefundProductsArgs = {
   input: OrderRefundProductsInput;
-  order: Scalars['ID']['input'];
+  order: Scalars['ID'];
 };
 
 
 export type MutationOrderFulfillmentReturnProductsArgs = {
   input: OrderReturnProductsInput;
-  order: Scalars['ID']['input'];
+  order: Scalars['ID'];
 };
 
 
 export type MutationOrderFulfillmentUpdateTrackingArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: FulfillmentUpdateTrackingInput;
 };
 
 
 export type MutationOrderGrantRefundCreateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: OrderGrantRefundCreateInput;
 };
 
 
 export type MutationOrderGrantRefundUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: OrderGrantRefundUpdateInput;
 };
 
 
 export type MutationOrderLineDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationOrderLineDiscountRemoveArgs = {
-  orderLineId: Scalars['ID']['input'];
+  orderLineId: Scalars['ID'];
 };
 
 
 export type MutationOrderLineDiscountUpdateArgs = {
   input: OrderDiscountCommonInput;
-  orderLineId: Scalars['ID']['input'];
+  orderLineId: Scalars['ID'];
 };
 
 
 export type MutationOrderLineUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: OrderLineInput;
 };
 
 
 export type MutationOrderLinesCreateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: Array<OrderLineCreateInput>;
 };
 
 
 export type MutationOrderMarkAsPaidArgs = {
-  id: Scalars['ID']['input'];
-  transactionReference?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['ID'];
+  transactionReference?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationOrderNoteAddArgs = {
   input: OrderNoteInput;
-  order: Scalars['ID']['input'];
+  order: Scalars['ID'];
 };
 
 
 export type MutationOrderNoteUpdateArgs = {
   input: OrderNoteInput;
-  note: Scalars['ID']['input'];
+  note: Scalars['ID'];
 };
 
 
 export type MutationOrderRefundArgs = {
-  amount: Scalars['PositiveDecimal']['input'];
-  id: Scalars['ID']['input'];
+  amount: Scalars['PositiveDecimal'];
+  id: Scalars['ID'];
 };
 
 
@@ -14447,43 +14445,43 @@ export type MutationOrderSettingsUpdateArgs = {
 
 
 export type MutationOrderUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: OrderUpdateInput;
 };
 
 
 export type MutationOrderUpdateShippingArgs = {
   input: OrderUpdateShippingInput;
-  order: Scalars['ID']['input'];
+  order: Scalars['ID'];
 };
 
 
 export type MutationOrderVoidArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationPageAttributeAssignArgs = {
-  attributeIds: Array<Scalars['ID']['input']>;
-  pageTypeId: Scalars['ID']['input'];
+  attributeIds: Array<Scalars['ID']>;
+  pageTypeId: Scalars['ID'];
 };
 
 
 export type MutationPageAttributeUnassignArgs = {
-  attributeIds: Array<Scalars['ID']['input']>;
-  pageTypeId: Scalars['ID']['input'];
+  attributeIds: Array<Scalars['ID']>;
+  pageTypeId: Scalars['ID'];
 };
 
 
 export type MutationPageBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationPageBulkPublishArgs = {
-  ids: Array<Scalars['ID']['input']>;
-  isPublished: Scalars['Boolean']['input'];
+  ids: Array<Scalars['ID']>;
+  isPublished: Scalars['Boolean'];
 };
 
 
@@ -14493,26 +14491,26 @@ export type MutationPageCreateArgs = {
 
 
 export type MutationPageDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationPageReorderAttributeValuesArgs = {
-  attributeId: Scalars['ID']['input'];
+  attributeId: Scalars['ID'];
   moves: Array<ReorderInput>;
-  pageId: Scalars['ID']['input'];
+  pageId: Scalars['ID'];
 };
 
 
 export type MutationPageTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PageTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationPageTypeBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14522,37 +14520,37 @@ export type MutationPageTypeCreateArgs = {
 
 
 export type MutationPageTypeDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationPageTypeReorderAttributesArgs = {
   moves: Array<ReorderInput>;
-  pageTypeId: Scalars['ID']['input'];
+  pageTypeId: Scalars['ID'];
 };
 
 
 export type MutationPageTypeUpdateArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: PageTypeUpdateInput;
 };
 
 
 export type MutationPageUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PageInput;
 };
 
 
 export type MutationPasswordChangeArgs = {
-  newPassword: Scalars['String']['input'];
-  oldPassword?: InputMaybe<Scalars['String']['input']>;
+  newPassword: Scalars['String'];
+  oldPassword?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationPaymentCaptureArgs = {
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  paymentId: Scalars['ID']['input'];
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
+  paymentId: Scalars['ID'];
 };
 
 
@@ -14562,49 +14560,49 @@ export type MutationPaymentCheckBalanceArgs = {
 
 
 export type MutationPaymentGatewayInitializeArgs = {
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  id: Scalars['ID']['input'];
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
+  id: Scalars['ID'];
   paymentGateways?: InputMaybe<Array<PaymentGatewayToInitialize>>;
 };
 
 
 export type MutationPaymentGatewayInitializeTokenizationArgs = {
-  channel: Scalars['String']['input'];
-  data?: InputMaybe<Scalars['JSON']['input']>;
-  id: Scalars['String']['input'];
+  channel: Scalars['String'];
+  data?: InputMaybe<Scalars['JSON']>;
+  id: Scalars['String'];
 };
 
 
 export type MutationPaymentInitializeArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  gateway: Scalars['String']['input'];
-  paymentData?: InputMaybe<Scalars['JSONString']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  gateway: Scalars['String'];
+  paymentData?: InputMaybe<Scalars['JSONString']>;
 };
 
 
 export type MutationPaymentMethodInitializeTokenizationArgs = {
-  channel: Scalars['String']['input'];
-  data?: InputMaybe<Scalars['JSON']['input']>;
-  id: Scalars['String']['input'];
+  channel: Scalars['String'];
+  data?: InputMaybe<Scalars['JSON']>;
+  id: Scalars['String'];
   paymentFlowToSupport: TokenizedPaymentFlowEnum;
 };
 
 
 export type MutationPaymentMethodProcessTokenizationArgs = {
-  channel: Scalars['String']['input'];
-  data?: InputMaybe<Scalars['JSON']['input']>;
-  id: Scalars['String']['input'];
+  channel: Scalars['String'];
+  data?: InputMaybe<Scalars['JSON']>;
+  id: Scalars['String'];
 };
 
 
 export type MutationPaymentRefundArgs = {
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  paymentId: Scalars['ID']['input'];
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
+  paymentId: Scalars['ID'];
 };
 
 
 export type MutationPaymentVoidArgs = {
-  paymentId: Scalars['ID']['input'];
+  paymentId: Scalars['ID'];
 };
 
 
@@ -14614,38 +14612,38 @@ export type MutationPermissionGroupCreateArgs = {
 
 
 export type MutationPermissionGroupDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationPermissionGroupUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PermissionGroupUpdateInput;
 };
 
 
 export type MutationPluginUpdateArgs = {
-  channelId?: InputMaybe<Scalars['ID']['input']>;
-  id: Scalars['ID']['input'];
+  channelId?: InputMaybe<Scalars['ID']>;
+  id: Scalars['ID'];
   input: PluginUpdateInput;
 };
 
 
 export type MutationProductAttributeAssignArgs = {
   operations: Array<ProductAttributeAssignInput>;
-  productTypeId: Scalars['ID']['input'];
+  productTypeId: Scalars['ID'];
 };
 
 
 export type MutationProductAttributeAssignmentUpdateArgs = {
   operations: Array<ProductAttributeAssignmentUpdateInput>;
-  productTypeId: Scalars['ID']['input'];
+  productTypeId: Scalars['ID'];
 };
 
 
 export type MutationProductAttributeUnassignArgs = {
-  attributeIds: Array<Scalars['ID']['input']>;
-  productTypeId: Scalars['ID']['input'];
+  attributeIds: Array<Scalars['ID']>;
+  productTypeId: Scalars['ID'];
 };
 
 
@@ -14656,7 +14654,7 @@ export type MutationProductBulkCreateArgs = {
 
 
 export type MutationProductBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14667,7 +14665,7 @@ export type MutationProductBulkTranslateArgs = {
 
 
 export type MutationProductChannelListingUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ProductChannelListingUpdateInput;
 };
 
@@ -14678,13 +14676,13 @@ export type MutationProductCreateArgs = {
 
 
 export type MutationProductDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationProductMediaBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14694,38 +14692,38 @@ export type MutationProductMediaCreateArgs = {
 
 
 export type MutationProductMediaDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationProductMediaReorderArgs = {
-  mediaIds: Array<Scalars['ID']['input']>;
-  productId: Scalars['ID']['input'];
+  mediaIds: Array<Scalars['ID']>;
+  productId: Scalars['ID'];
 };
 
 
 export type MutationProductMediaUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ProductMediaUpdateInput;
 };
 
 
 export type MutationProductReorderAttributeValuesArgs = {
-  attributeId: Scalars['ID']['input'];
+  attributeId: Scalars['ID'];
   moves: Array<ReorderInput>;
-  productId: Scalars['ID']['input'];
+  productId: Scalars['ID'];
 };
 
 
 export type MutationProductTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: TranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationProductTypeBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14735,40 +14733,40 @@ export type MutationProductTypeCreateArgs = {
 
 
 export type MutationProductTypeDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationProductTypeReorderAttributesArgs = {
   moves: Array<ReorderInput>;
-  productTypeId: Scalars['ID']['input'];
+  productTypeId: Scalars['ID'];
   type: ProductAttributeType;
 };
 
 
 export type MutationProductTypeUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ProductTypeInput;
 };
 
 
 export type MutationProductUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: ProductInput;
 };
 
 
 export type MutationProductVariantBulkCreateArgs = {
   errorPolicy?: InputMaybe<ErrorPolicyEnum>;
-  product: Scalars['ID']['input'];
+  product: Scalars['ID'];
   variants: Array<ProductVariantBulkCreateInput>;
 };
 
 
 export type MutationProductVariantBulkDeleteArgs = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  skus?: InputMaybe<Array<Scalars['String']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  skus?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -14780,15 +14778,15 @@ export type MutationProductVariantBulkTranslateArgs = {
 
 export type MutationProductVariantBulkUpdateArgs = {
   errorPolicy?: InputMaybe<ErrorPolicyEnum>;
-  product: Scalars['ID']['input'];
+  product: Scalars['ID'];
   variants: Array<ProductVariantBulkUpdateInput>;
 };
 
 
 export type MutationProductVariantChannelListingUpdateArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: Array<ProductVariantChannelListingAddInput>;
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -14798,73 +14796,73 @@ export type MutationProductVariantCreateArgs = {
 
 
 export type MutationProductVariantDeleteArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  sku?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  sku?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationProductVariantPreorderDeactivateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationProductVariantReorderArgs = {
   moves: Array<ReorderInput>;
-  productId: Scalars['ID']['input'];
+  productId: Scalars['ID'];
 };
 
 
 export type MutationProductVariantReorderAttributeValuesArgs = {
-  attributeId: Scalars['ID']['input'];
+  attributeId: Scalars['ID'];
   moves: Array<ReorderInput>;
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationProductVariantSetDefaultArgs = {
-  productId: Scalars['ID']['input'];
-  variantId: Scalars['ID']['input'];
+  productId: Scalars['ID'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationProductVariantStocksCreateArgs = {
   stocks: Array<StockInput>;
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationProductVariantStocksDeleteArgs = {
-  sku?: InputMaybe<Scalars['String']['input']>;
-  variantId?: InputMaybe<Scalars['ID']['input']>;
-  warehouseIds?: InputMaybe<Array<Scalars['ID']['input']>>;
+  sku?: InputMaybe<Scalars['String']>;
+  variantId?: InputMaybe<Scalars['ID']>;
+  warehouseIds?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 
 export type MutationProductVariantStocksUpdateArgs = {
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
   stocks: Array<StockInput>;
-  variantId?: InputMaybe<Scalars['ID']['input']>;
+  variantId?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type MutationProductVariantTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: NameTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationProductVariantUpdateArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: ProductVariantInput;
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationPromotionBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -14874,7 +14872,7 @@ export type MutationPromotionCreateArgs = {
 
 
 export type MutationPromotionDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -14884,70 +14882,70 @@ export type MutationPromotionRuleCreateArgs = {
 
 
 export type MutationPromotionRuleDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationPromotionRuleTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PromotionRuleTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationPromotionRuleUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PromotionRuleUpdateInput;
 };
 
 
 export type MutationPromotionTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PromotionTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationPromotionUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: PromotionUpdateInput;
 };
 
 
 export type MutationRequestEmailChangeArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  newEmail: Scalars['String']['input'];
-  password: Scalars['String']['input'];
-  redirectUrl: Scalars['String']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  newEmail: Scalars['String'];
+  password: Scalars['String'];
+  redirectUrl: Scalars['String'];
 };
 
 
 export type MutationRequestPasswordResetArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  email: Scalars['String']['input'];
-  redirectUrl: Scalars['String']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  redirectUrl: Scalars['String'];
 };
 
 
 export type MutationSaleBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationSaleCataloguesAddArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CatalogueInput;
 };
 
 
 export type MutationSaleCataloguesRemoveArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CatalogueInput;
 };
 
 
 export type MutationSaleChannelListingUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: SaleChannelListingInput;
 };
 
@@ -14958,44 +14956,44 @@ export type MutationSaleCreateArgs = {
 
 
 export type MutationSaleDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationSaleTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: NameTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationSaleUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: SaleInput;
 };
 
 
 export type MutationSendConfirmationEmailArgs = {
-  channel: Scalars['String']['input'];
-  redirectUrl: Scalars['String']['input'];
+  channel: Scalars['String'];
+  redirectUrl: Scalars['String'];
 };
 
 
 export type MutationSetPasswordArgs = {
-  email: Scalars['String']['input'];
-  password: Scalars['String']['input'];
-  token: Scalars['String']['input'];
+  email: Scalars['String'];
+  password: Scalars['String'];
+  token: Scalars['String'];
 };
 
 
 export type MutationShippingMethodChannelListingUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ShippingMethodChannelListingInput;
 };
 
 
 export type MutationShippingPriceBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -15005,37 +15003,37 @@ export type MutationShippingPriceCreateArgs = {
 
 
 export type MutationShippingPriceDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationShippingPriceExcludeProductsArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ShippingPriceExcludeProductsInput;
 };
 
 
 export type MutationShippingPriceRemoveProductFromExcludeArgs = {
-  id: Scalars['ID']['input'];
-  products: Array<Scalars['ID']['input']>;
+  id: Scalars['ID'];
+  products: Array<Scalars['ID']>;
 };
 
 
 export type MutationShippingPriceTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ShippingPriceTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationShippingPriceUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ShippingPriceInput;
 };
 
 
 export type MutationShippingZoneBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -15045,12 +15043,12 @@ export type MutationShippingZoneCreateArgs = {
 
 
 export type MutationShippingZoneDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationShippingZoneUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: ShippingZoneUpdateInput;
 };
 
@@ -15077,7 +15075,7 @@ export type MutationShopSettingsUpdateArgs = {
 
 
 export type MutationStaffBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -15087,7 +15085,7 @@ export type MutationStaffCreateArgs = {
 
 
 export type MutationStaffDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -15097,18 +15095,18 @@ export type MutationStaffNotificationRecipientCreateArgs = {
 
 
 export type MutationStaffNotificationRecipientDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationStaffNotificationRecipientUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: StaffNotificationRecipientInput;
 };
 
 
 export type MutationStaffUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: StaffUpdateInput;
 };
 
@@ -15120,8 +15118,8 @@ export type MutationStockBulkUpdateArgs = {
 
 
 export type MutationStoredPaymentMethodRequestDeleteArgs = {
-  channel: Scalars['String']['input'];
-  id: Scalars['ID']['input'];
+  channel: Scalars['String'];
+  id: Scalars['ID'];
 };
 
 
@@ -15131,18 +15129,18 @@ export type MutationTaxClassCreateArgs = {
 
 
 export type MutationTaxClassDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationTaxClassUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: TaxClassUpdateInput;
 };
 
 
 export type MutationTaxConfigurationUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: TaxConfigurationUpdateInput;
 };
 
@@ -15159,45 +15157,45 @@ export type MutationTaxCountryConfigurationUpdateArgs = {
 
 
 export type MutationTaxExemptionManageArgs = {
-  id: Scalars['ID']['input'];
-  taxExemption: Scalars['Boolean']['input'];
+  id: Scalars['ID'];
+  taxExemption: Scalars['Boolean'];
 };
 
 
 export type MutationTokenCreateArgs = {
-  audience?: InputMaybe<Scalars['String']['input']>;
-  email: Scalars['String']['input'];
-  password: Scalars['String']['input'];
+  audience?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
 export type MutationTokenRefreshArgs = {
-  csrfToken?: InputMaybe<Scalars['String']['input']>;
-  refreshToken?: InputMaybe<Scalars['String']['input']>;
+  csrfToken?: InputMaybe<Scalars['String']>;
+  refreshToken?: InputMaybe<Scalars['String']>;
 };
 
 
 export type MutationTokenVerifyArgs = {
-  token: Scalars['String']['input'];
+  token: Scalars['String'];
 };
 
 
 export type MutationTransactionCreateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   transaction: TransactionCreateInput;
   transactionEvent?: InputMaybe<TransactionEventInput>;
 };
 
 
 export type MutationTransactionEventReportArgs = {
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
   availableActions?: InputMaybe<Array<TransactionActionEnum>>;
-  externalUrl?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  message?: InputMaybe<Scalars['String']['input']>;
-  pspReference: Scalars['String']['input'];
-  time?: InputMaybe<Scalars['DateTime']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  externalUrl?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  message?: InputMaybe<Scalars['String']>;
+  pspReference: Scalars['String'];
+  time?: InputMaybe<Scalars['DateTime']>;
+  token?: InputMaybe<Scalars['UUID']>;
   transactionMetadata?: InputMaybe<Array<MetadataInput>>;
   transactionPrivateMetadata?: InputMaybe<Array<MetadataInput>>;
   type: TransactionEventTypeEnum;
@@ -15206,118 +15204,118 @@ export type MutationTransactionEventReportArgs = {
 
 export type MutationTransactionInitializeArgs = {
   action?: InputMaybe<TransactionFlowStrategyEnum>;
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  customerIpAddress?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
-  idempotencyKey?: InputMaybe<Scalars['String']['input']>;
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
+  customerIpAddress?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
+  idempotencyKey?: InputMaybe<Scalars['String']>;
   paymentGateway: PaymentGatewayToInitialize;
 };
 
 
 export type MutationTransactionProcessArgs = {
-  customerIpAddress?: InputMaybe<Scalars['String']['input']>;
-  data?: InputMaybe<Scalars['JSON']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  customerIpAddress?: InputMaybe<Scalars['String']>;
+  data?: InputMaybe<Scalars['JSON']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationTransactionRequestActionArgs = {
   actionType: TransactionActionEnum;
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationTransactionRequestRefundForGrantedRefundArgs = {
-  grantedRefundId: Scalars['ID']['input'];
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  grantedRefundId: Scalars['ID'];
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type MutationTransactionUpdateArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
   transaction?: InputMaybe<TransactionUpdateInput>;
   transactionEvent?: InputMaybe<TransactionEventInput>;
 };
 
 
 export type MutationUnassignWarehouseShippingZoneArgs = {
-  id: Scalars['ID']['input'];
-  shippingZoneIds: Array<Scalars['ID']['input']>;
+  id: Scalars['ID'];
+  shippingZoneIds: Array<Scalars['ID']>;
 };
 
 
 export type MutationUpdateMetadataArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: Array<MetadataInput>;
 };
 
 
 export type MutationUpdatePrivateMetadataArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: Array<MetadataInput>;
 };
 
 
 export type MutationUpdateWarehouseArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   input: WarehouseUpdateInput;
 };
 
 
 export type MutationUserAvatarUpdateArgs = {
-  image: Scalars['Upload']['input'];
+  image: Scalars['Upload'];
 };
 
 
 export type MutationUserBulkSetActiveArgs = {
-  ids: Array<Scalars['ID']['input']>;
-  isActive: Scalars['Boolean']['input'];
+  ids: Array<Scalars['ID']>;
+  isActive: Scalars['Boolean'];
 };
 
 
 export type MutationVariantMediaAssignArgs = {
-  mediaId: Scalars['ID']['input'];
-  variantId: Scalars['ID']['input'];
+  mediaId: Scalars['ID'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationVariantMediaUnassignArgs = {
-  mediaId: Scalars['ID']['input'];
-  variantId: Scalars['ID']['input'];
+  mediaId: Scalars['ID'];
+  variantId: Scalars['ID'];
 };
 
 
 export type MutationVoucherBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
 export type MutationVoucherCataloguesAddArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CatalogueInput;
 };
 
 
 export type MutationVoucherCataloguesRemoveArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: CatalogueInput;
 };
 
 
 export type MutationVoucherChannelListingUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: VoucherChannelListingInput;
 };
 
 
 export type MutationVoucherCodeBulkDeleteArgs = {
-  ids: Array<Scalars['ID']['input']>;
+  ids: Array<Scalars['ID']>;
 };
 
 
@@ -15327,19 +15325,19 @@ export type MutationVoucherCreateArgs = {
 
 
 export type MutationVoucherDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationVoucherTranslateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: NameTranslationInput;
   languageCode: LanguageCodeEnum;
 };
 
 
 export type MutationVoucherUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: VoucherInput;
 };
 
@@ -15350,29 +15348,29 @@ export type MutationWebhookCreateArgs = {
 
 
 export type MutationWebhookDeleteArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type MutationWebhookDryRunArgs = {
-  objectId: Scalars['ID']['input'];
-  query: Scalars['String']['input'];
+  objectId: Scalars['ID'];
+  query: Scalars['String'];
 };
 
 
 export type MutationWebhookTriggerArgs = {
-  objectId: Scalars['ID']['input'];
-  webhookId: Scalars['ID']['input'];
+  objectId: Scalars['ID'];
+  webhookId: Scalars['ID'];
 };
 
 
 export type MutationWebhookUpdateArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   input: WebhookUpdateInput;
 };
 
 export type NameTranslationInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 export type NavigationType =
@@ -15384,7 +15382,7 @@ export type NavigationType =
 /** An object with an ID */
 export type Node = {
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
 };
 
 export type ObjectWithMetadata = {
@@ -15395,9 +15393,9 @@ export type ObjectWithMetadata = {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /** Public metadata. Use `keys` to control which fields you want to include. The default is to include everything. */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -15405,29 +15403,29 @@ export type ObjectWithMetadata = {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /** Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything. */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
 };
 
 
 export type ObjectWithMetadataMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 export type ObjectWithMetadataMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type ObjectWithMetadataPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 export type ObjectWithMetadataPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** Represents an order in the shop. */
@@ -15455,7 +15453,7 @@ export type Order = Node & ObjectWithMetadata & {
   /** Billing address. The full data can be access for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_ORDERS, OWNER. */
   billingAddress?: Maybe<Address>;
   /** Informs whether a draft order can be finalized(turned into a regular order). */
-  canFinalize: Scalars['Boolean']['output'];
+  canFinalize: Scalars['Boolean'];
   /** Channel through which the order was placed. */
   channel: Channel;
   /**
@@ -15469,13 +15467,13 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.11.
    */
-  checkoutId?: Maybe<Scalars['ID']['output']>;
+  checkoutId?: Maybe<Scalars['ID']>;
   /** Name of the collection point where the order should be picked up by the customer. */
-  collectionPointName?: Maybe<Scalars['String']['output']>;
+  collectionPointName?: Maybe<Scalars['String']>;
   /** Date and time when the order was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Additional information provided by the customer about the order. */
-  customerNote: Scalars['String']['output'];
+  customerNote: Scalars['String'];
   /**
    * The delivery method selected for this order.
    *
@@ -15491,7 +15489,7 @@ export type Order = Node & ObjectWithMetadata & {
    * Discount name.
    * @deprecated This field will be removed in Saleor 4.0. Use the `discounts` field instead.
    */
-  discountName?: Maybe<Scalars['String']['output']>;
+  discountName?: Maybe<Scalars['String']>;
   /** List of all discounts assigned to the order. */
   discounts: Array<OrderDiscount>;
   /**
@@ -15499,7 +15497,7 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.9.
    */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /** List of errors that occurred during order validation. */
   errors: Array<OrderError>;
   /**
@@ -15513,7 +15511,7 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** List of shipments for the order. */
   fulfillments: Array<Fulfillment>;
   /** List of user gift cards. */
@@ -15529,15 +15527,15 @@ export type Order = Node & ObjectWithMetadata & {
    */
   grantedRefunds: Array<OrderGrantedRefund>;
   /** ID of the order. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of order invoices. Can be fetched for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_ORDERS, OWNER. */
   invoices: Array<Invoice>;
   /** Informs if an order is fully paid. */
-  isPaid: Scalars['Boolean']['output'];
+  isPaid: Scalars['Boolean'];
   /** Returns True, if order requires shipping. */
-  isShippingRequired: Scalars['Boolean']['output'];
+  isShippingRequired: Scalars['Boolean'];
   /** @deprecated This field will be removed in Saleor 4.0. Use the `languageCodeEnum` field to fetch the language code.  */
-  languageCode: Scalars['String']['output'];
+  languageCode: Scalars['String'];
   /** Order language code. */
   languageCodeEnum: LanguageCodeEnum;
   /** List of order lines. */
@@ -15551,23 +15549,23 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** User-friendly number of an order. */
-  number: Scalars['String']['output'];
+  number: Scalars['String'];
   /** The order origin. */
   origin: OrderOriginEnum;
   /** The ID of the order that was the base for this order. */
-  original?: Maybe<Scalars['ID']['output']>;
+  original?: Maybe<Scalars['ID']>;
   /** Internal payment status. */
   paymentStatus: PaymentChargeStatusEnum;
   /** User-friendly payment status. */
-  paymentStatusDisplay: Scalars['String']['output'];
+  paymentStatusDisplay: Scalars['String'];
   /** List of payments for the order. */
   payments: Array<Payment>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -15579,15 +15577,15 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** URL to which user should be redirected after order is placed. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shipping address. The full data can be access for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_ORDERS, OWNER. */
   shippingAddress?: Maybe<Address>;
   /**
@@ -15596,7 +15594,7 @@ export type Order = Node & ObjectWithMetadata & {
    */
   shippingMethod?: Maybe<ShippingMethod>;
   /** Method used for shipping. */
-  shippingMethodName?: Maybe<Scalars['String']['output']>;
+  shippingMethodName?: Maybe<Scalars['String']>;
   /** Shipping methods related to this order. */
   shippingMethods: Array<ShippingMethod>;
   /** Total price of shipping. */
@@ -15620,7 +15618,7 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.9.
    */
-  shippingTaxClassName?: Maybe<Scalars['String']['output']>;
+  shippingTaxClassName?: Maybe<Scalars['String']>;
   /**
    * Denormalized private metadata of the shipping method's tax class. Requires staff permissions to access.
    *
@@ -15628,11 +15626,11 @@ export type Order = Node & ObjectWithMetadata & {
    */
   shippingTaxClassPrivateMetadata: Array<MetadataItem>;
   /** The shipping tax rate value. */
-  shippingTaxRate: Scalars['Float']['output'];
+  shippingTaxRate: Scalars['Float'];
   /** Status of the order. */
   status: OrderStatus;
   /** User-friendly order status. */
-  statusDisplay: Scalars['String']['output'];
+  statusDisplay: Scalars['String'];
   /** The sum of line prices not including shipping. */
   subtotal: TaxedMoney;
   /**
@@ -15640,9 +15638,9 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.8.
    */
-  taxExemption: Scalars['Boolean']['output'];
+  taxExemption: Scalars['Boolean'];
   /** @deprecated This field will be removed in Saleor 4.0. Use `id` instead. */
-  token: Scalars['String']['output'];
+  token: Scalars['String'];
   /** Total amount of the order. */
   total: TaxedMoney;
   /**
@@ -15735,7 +15733,7 @@ export type Order = Node & ObjectWithMetadata & {
    */
   totalRemainingGrant: Money;
   /** Google Analytics tracking client ID. This field will be removed in Saleor 4.0. */
-  trackingClientId: Scalars['String']['output'];
+  trackingClientId: Scalars['String'];
   /**
    * List of transactions for the order. Requires one of the following permissions: MANAGE_ORDERS, HANDLE_PAYMENTS.
    *
@@ -15746,7 +15744,7 @@ export type Order = Node & ObjectWithMetadata & {
    * Translated discount name.
    * @deprecated This field will be removed in Saleor 4.0. Use the `discounts` field instead.
    */
-  translatedDiscountName?: Maybe<Scalars['String']['output']>;
+  translatedDiscountName?: Maybe<Scalars['String']>;
   /**
    * Undiscounted total price of shipping.
    *
@@ -15756,11 +15754,11 @@ export type Order = Node & ObjectWithMetadata & {
   /** Undiscounted total amount of the order. */
   undiscountedTotal: TaxedMoney;
   /** Date and time when the order was created. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** User who placed the order. This field is set only for orders placed by authenticated users. Can be fetched for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_USERS, MANAGE_ORDERS, HANDLE_PAYMENTS, OWNER. */
   user?: Maybe<User>;
   /** Email address of the customer. The full data can be access for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_ORDERS, OWNER. */
-  userEmail?: Maybe<Scalars['String']['output']>;
+  userEmail?: Maybe<Scalars['String']>;
   /** Voucher linked to the order. */
   voucher?: Maybe<Voucher>;
   /**
@@ -15768,7 +15766,7 @@ export type Order = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.18.
    */
-  voucherCode?: Maybe<Scalars['String']['output']>;
+  voucherCode?: Maybe<Scalars['String']>;
   /** Weight of the order. */
   weight: Weight;
 };
@@ -15776,25 +15774,25 @@ export type Order = Node & ObjectWithMetadata & {
 
 /** Represents an order in the shop. */
 export type OrderMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an order in the shop. */
 export type OrderMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents an order in the shop. */
 export type OrderPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an order in the shop. */
 export type OrderPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type OrderAction =
@@ -15831,7 +15829,7 @@ export type OrderAddNoteInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.
    */
-  message: Scalars['String']['input'];
+  message: Scalars['String'];
 };
 
 /**
@@ -15863,7 +15861,7 @@ export type OrderAuthorizeStatusEnum =
 export type OrderBulkCancel = {
   __typename?: 'OrderBulkCancel';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<OrderError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   orderErrors: Array<OrderError>;
@@ -15881,7 +15879,7 @@ export type OrderBulkCancel = {
 export type OrderBulkCreate = {
   __typename?: 'OrderBulkCreate';
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<OrderBulkCreateError>;
   /** List of the created orders. */
   results: Array<OrderBulkCreateResult>;
@@ -15889,25 +15887,25 @@ export type OrderBulkCreate = {
 
 export type OrderBulkCreateDeliveryMethodInput = {
   /** The ID of the shipping method. */
-  shippingMethodId?: InputMaybe<Scalars['ID']['input']>;
+  shippingMethodId?: InputMaybe<Scalars['ID']>;
   /** The name of the shipping method. */
-  shippingMethodName?: InputMaybe<Scalars['String']['input']>;
+  shippingMethodName?: InputMaybe<Scalars['String']>;
   /** The price of the shipping. */
   shippingPrice?: InputMaybe<TaxedMoneyInput>;
   /** The ID of the tax class. */
-  shippingTaxClassId?: InputMaybe<Scalars['ID']['input']>;
+  shippingTaxClassId?: InputMaybe<Scalars['ID']>;
   /** Metadata of the tax class. */
   shippingTaxClassMetadata?: InputMaybe<Array<MetadataInput>>;
   /** The name of the tax class. */
-  shippingTaxClassName?: InputMaybe<Scalars['String']['input']>;
+  shippingTaxClassName?: InputMaybe<Scalars['String']>;
   /** Private metadata of the tax class. */
   shippingTaxClassPrivateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Tax rate of the shipping. */
-  shippingTaxRate?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  shippingTaxRate?: InputMaybe<Scalars['PositiveDecimal']>;
   /** The ID of the warehouse. */
-  warehouseId?: InputMaybe<Scalars['ID']['input']>;
+  warehouseId?: InputMaybe<Scalars['ID']>;
   /** The name of the warehouse. */
-  warehouseName?: InputMaybe<Scalars['String']['input']>;
+  warehouseName?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderBulkCreateError = {
@@ -15915,9 +15913,9 @@ export type OrderBulkCreateError = {
   /** The error code. */
   code?: Maybe<OrderBulkCreateErrorCode>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type OrderBulkCreateErrorCode =
@@ -15944,47 +15942,47 @@ export type OrderBulkCreateFulfillmentInput = {
   /** List of items informing how to fulfill the order. */
   lines?: InputMaybe<Array<OrderBulkCreateFulfillmentLineInput>>;
   /** Fulfillment's tracking code. */
-  trackingCode?: InputMaybe<Scalars['String']['input']>;
+  trackingCode?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderBulkCreateFulfillmentLineInput = {
   /** 0-based index of order line, which the fulfillment line refers to. */
-  orderLineIndex: Scalars['Int']['input'];
+  orderLineIndex: Scalars['Int'];
   /** The number of line items to be fulfilled from given warehouse. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** The external ID of the product variant. */
-  variantExternalReference?: InputMaybe<Scalars['String']['input']>;
+  variantExternalReference?: InputMaybe<Scalars['String']>;
   /** The ID of the product variant. */
-  variantId?: InputMaybe<Scalars['ID']['input']>;
+  variantId?: InputMaybe<Scalars['ID']>;
   /** The SKU of the product variant. */
-  variantSku?: InputMaybe<Scalars['String']['input']>;
+  variantSku?: InputMaybe<Scalars['String']>;
   /** ID of the warehouse from which the item will be fulfilled. */
-  warehouse: Scalars['ID']['input'];
+  warehouse: Scalars['ID'];
 };
 
 export type OrderBulkCreateInput = {
   /** Billing address of the customer. */
   billingAddress: AddressInput;
   /** Slug of the channel associated with the order. */
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
   /** The date, when the order was inserted to Saleor database. */
-  createdAt: Scalars['DateTime']['input'];
+  createdAt: Scalars['DateTime'];
   /** Currency code. */
-  currency: Scalars['String']['input'];
+  currency: Scalars['String'];
   /** Note about customer. */
-  customerNote?: InputMaybe<Scalars['String']['input']>;
+  customerNote?: InputMaybe<Scalars['String']>;
   /** The delivery method selected for this order. */
   deliveryMethod?: InputMaybe<OrderBulkCreateDeliveryMethodInput>;
   /** List of discounts. */
   discounts?: InputMaybe<Array<OrderDiscountCommonInput>>;
   /** Determines whether displayed prices should include taxes. */
-  displayGrossPrices?: InputMaybe<Scalars['Boolean']['input']>;
+  displayGrossPrices?: InputMaybe<Scalars['Boolean']>;
   /** External ID of the order. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Fulfillments of the order. */
   fulfillments?: InputMaybe<Array<OrderBulkCreateFulfillmentInput>>;
   /** List of gift card codes associated with the order. */
-  giftCards?: InputMaybe<Array<Scalars['String']['input']>>;
+  giftCards?: InputMaybe<Array<Scalars['String']>>;
   /** Invoices related to the order. */
   invoices?: InputMaybe<Array<OrderBulkCreateInvoiceInput>>;
   /** Order language code. */
@@ -15998,7 +15996,7 @@ export type OrderBulkCreateInput = {
   /** Private metadata of the order. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of a view, where users should be redirected to see the order details. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
   /** Shipping address of the customer. */
   shippingAddress?: InputMaybe<AddressInput>;
   /** Status of the order. */
@@ -16012,76 +16010,76 @@ export type OrderBulkCreateInput = {
    *
    * Added in Saleor 3.18.
    */
-  voucherCode?: InputMaybe<Scalars['String']['input']>;
+  voucherCode?: InputMaybe<Scalars['String']>;
   /** Weight of the order in kg. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 export type OrderBulkCreateInvoiceInput = {
   /** The date, when the invoice was created. */
-  createdAt: Scalars['DateTime']['input'];
+  createdAt: Scalars['DateTime'];
   /** Metadata of the invoice. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Invoice number. */
-  number?: InputMaybe<Scalars['String']['input']>;
+  number?: InputMaybe<Scalars['String']>;
   /** Private metadata of the invoice. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of the invoice to download. */
-  url?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderBulkCreateNoteInput = {
   /** The app ID associated with the message. */
-  appId?: InputMaybe<Scalars['ID']['input']>;
+  appId?: InputMaybe<Scalars['ID']>;
   /** The date associated with the message. */
-  date?: InputMaybe<Scalars['DateTime']['input']>;
+  date?: InputMaybe<Scalars['DateTime']>;
   /** Note message. Max characters: 255. */
-  message: Scalars['String']['input'];
+  message: Scalars['String'];
   /** The user email associated with the message. */
-  userEmail?: InputMaybe<Scalars['ID']['input']>;
+  userEmail?: InputMaybe<Scalars['ID']>;
   /** The user external ID associated with the message. */
-  userExternalReference?: InputMaybe<Scalars['ID']['input']>;
+  userExternalReference?: InputMaybe<Scalars['ID']>;
   /** The user ID associated with the message. */
-  userId?: InputMaybe<Scalars['ID']['input']>;
+  userId?: InputMaybe<Scalars['ID']>;
 };
 
 export type OrderBulkCreateOrderLineInput = {
   /** The date, when the order line was created. */
-  createdAt: Scalars['DateTime']['input'];
+  createdAt: Scalars['DateTime'];
   /** Gift card flag. */
-  isGiftCard: Scalars['Boolean']['input'];
+  isGiftCard: Scalars['Boolean'];
   /** Determines whether shipping of the order line items is required. */
-  isShippingRequired: Scalars['Boolean']['input'];
+  isShippingRequired: Scalars['Boolean'];
   /** Metadata of the order line. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Private metadata of the order line. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** The name of the product. */
-  productName?: InputMaybe<Scalars['String']['input']>;
+  productName?: InputMaybe<Scalars['String']>;
   /**
    * The SKU of the product.
    *
    * Added in Saleor 3.18.
    */
-  productSku?: InputMaybe<Scalars['String']['input']>;
+  productSku?: InputMaybe<Scalars['String']>;
   /** Number of items in the order line */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** The ID of the tax class. */
-  taxClassId?: InputMaybe<Scalars['ID']['input']>;
+  taxClassId?: InputMaybe<Scalars['ID']>;
   /** Metadata of the tax class. */
   taxClassMetadata?: InputMaybe<Array<MetadataInput>>;
   /** The name of the tax class. */
-  taxClassName?: InputMaybe<Scalars['String']['input']>;
+  taxClassName?: InputMaybe<Scalars['String']>;
   /** Private metadata of the tax class. */
   taxClassPrivateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Tax rate of the order line. */
-  taxRate?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  taxRate?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Price of the order line. */
   totalPrice: TaxedMoneyInput;
   /** Translation of the product name. */
-  translatedProductName?: InputMaybe<Scalars['String']['input']>;
+  translatedProductName?: InputMaybe<Scalars['String']>;
   /** Translation of the product variant name. */
-  translatedVariantName?: InputMaybe<Scalars['String']['input']>;
+  translatedVariantName?: InputMaybe<Scalars['String']>;
   /** Price of the order line excluding applied discount. */
   undiscountedTotalPrice: TaxedMoneyInput;
   /**
@@ -16089,7 +16087,7 @@ export type OrderBulkCreateOrderLineInput = {
    *
    * Added in Saleor 3.19.
    */
-  unitDiscountReason?: InputMaybe<Scalars['String']['input']>;
+  unitDiscountReason?: InputMaybe<Scalars['String']>;
   /**
    * Type of the discount: fixed or percent
    *
@@ -16101,17 +16099,17 @@ export type OrderBulkCreateOrderLineInput = {
    *
    * Added in Saleor 3.19.
    */
-  unitDiscountValue?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  unitDiscountValue?: InputMaybe<Scalars['PositiveDecimal']>;
   /** The external ID of the product variant. */
-  variantExternalReference?: InputMaybe<Scalars['String']['input']>;
+  variantExternalReference?: InputMaybe<Scalars['String']>;
   /** The ID of the product variant. */
-  variantId?: InputMaybe<Scalars['ID']['input']>;
+  variantId?: InputMaybe<Scalars['ID']>;
   /** The name of the product variant. */
-  variantName?: InputMaybe<Scalars['String']['input']>;
+  variantName?: InputMaybe<Scalars['String']>;
   /** The SKU of the product variant. */
-  variantSku?: InputMaybe<Scalars['String']['input']>;
+  variantSku?: InputMaybe<Scalars['String']>;
   /** The ID of the warehouse, where the line will be allocated. */
-  warehouse: Scalars['ID']['input'];
+  warehouse: Scalars['ID'];
 };
 
 export type OrderBulkCreateResult = {
@@ -16124,11 +16122,11 @@ export type OrderBulkCreateResult = {
 
 export type OrderBulkCreateUserInput = {
   /** Customer email associated with the order. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** Customer external ID associated with the order. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Customer ID associated with the order. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 /**
@@ -16141,7 +16139,7 @@ export type OrderBulkCreateUserInput = {
 export type OrderBulkCreated = Event & {
   __typename?: 'OrderBulkCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The orders the event relates to. */
@@ -16149,7 +16147,7 @@ export type OrderBulkCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16174,7 +16172,7 @@ export type OrderCancel = {
 export type OrderCancelled = Event & {
   __typename?: 'OrderCancelled';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16182,7 +16180,7 @@ export type OrderCancelled = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16246,7 +16244,7 @@ export type OrderConfirm = {
 export type OrderConfirmed = Event & {
   __typename?: 'OrderConfirmed';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16254,7 +16252,7 @@ export type OrderConfirmed = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type OrderCountableConnection = {
@@ -16263,13 +16261,13 @@ export type OrderCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type OrderCountableEdge = {
   __typename?: 'OrderCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Order;
 };
@@ -16303,13 +16301,13 @@ export type OrderCreateFromCheckoutError = {
   /** The error code. */
   code: OrderCreateFromCheckoutErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** List of line Ids which cause the error. */
-  lines?: Maybe<Array<Scalars['ID']['output']>>;
+  lines?: Maybe<Array<Scalars['ID']>>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of variant IDs which causes the error. */
-  variants?: Maybe<Array<Scalars['ID']['output']>>;
+  variants?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type OrderCreateFromCheckoutErrorCode =
@@ -16336,7 +16334,7 @@ export type OrderCreateFromCheckoutErrorCode =
 export type OrderCreated = Event & {
   __typename?: 'OrderCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16344,7 +16342,7 @@ export type OrderCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type OrderDirection =
@@ -16359,21 +16357,21 @@ export type OrderDiscount = Node & {
   /** Returns amount of discount. */
   amount: Money;
   /** The ID of discount applied. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The name of applied discount. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Explanation for the applied discount.
    *
    * Requires one of the following permissions: MANAGE_ORDERS.
    */
-  reason?: Maybe<Scalars['String']['output']>;
+  reason?: Maybe<Scalars['String']>;
   /** Translated name of the applied discount. */
-  translatedName?: Maybe<Scalars['String']['output']>;
+  translatedName?: Maybe<Scalars['String']>;
   /** The type of applied discount: Sale, Voucher or Manual. */
   type: OrderDiscountType;
   /** Value of the discount. Can store fixed value or percent value */
-  value: Scalars['PositiveDecimal']['output'];
+  value: Scalars['PositiveDecimal'];
   /** Type of the discount: fixed or percent */
   valueType: DiscountValueTypeEnum;
 };
@@ -16394,9 +16392,9 @@ export type OrderDiscountAdd = {
 
 export type OrderDiscountCommonInput = {
   /** Explanation for the applied discount. */
-  reason?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<Scalars['String']>;
   /** Value of the discount. Can store fixed value or percent value */
-  value: Scalars['PositiveDecimal']['input'];
+  value: Scalars['PositiveDecimal'];
   /** Type of the discount: fixed or percent */
   valueType: DiscountValueTypeEnum;
 };
@@ -16437,11 +16435,11 @@ export type OrderDiscountUpdate = {
 };
 
 export type OrderDraftFilterInput = {
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   created?: InputMaybe<DateRangeInput>;
-  customer?: InputMaybe<Scalars['String']['input']>;
+  customer?: InputMaybe<Scalars['String']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderError = {
@@ -16451,15 +16449,15 @@ export type OrderError = {
   /** The error code. */
   code: OrderErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of order line IDs that cause the error. */
-  orderLines?: Maybe<Array<Scalars['ID']['output']>>;
+  orderLines?: Maybe<Array<Scalars['ID']>>;
   /** List of product variants that are associated with the error */
-  variants?: Maybe<Array<Scalars['ID']['output']>>;
+  variants?: Maybe<Array<Scalars['ID']>>;
   /** Warehouse ID which causes the error. */
-  warehouse?: Maybe<Scalars['ID']['output']>;
+  warehouse?: Maybe<Scalars['ID']>;
 };
 
 export type OrderErrorCode =
@@ -16504,41 +16502,41 @@ export type OrderErrorCode =
 export type OrderEvent = Node & {
   __typename?: 'OrderEvent';
   /** Amount of money. */
-  amount?: Maybe<Scalars['Float']['output']>;
+  amount?: Maybe<Scalars['Float']>;
   /** App that performed the action. Requires of of the following permissions: MANAGE_APPS, MANAGE_ORDERS, OWNER. */
   app?: Maybe<App>;
   /** Composed ID of the Fulfillment. */
-  composedId?: Maybe<Scalars['String']['output']>;
+  composedId?: Maybe<Scalars['String']>;
   /** Date when event happened at in ISO 8601 format. */
-  date?: Maybe<Scalars['DateTime']['output']>;
+  date?: Maybe<Scalars['DateTime']>;
   /** The discount applied to the order. */
   discount?: Maybe<OrderEventDiscountObject>;
   /** Email of the customer. */
-  email?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']>;
   /** Type of an email sent to the customer. */
   emailType?: Maybe<OrderEventsEmailsEnum>;
   /** The lines fulfilled. */
   fulfilledItems?: Maybe<Array<FulfillmentLine>>;
   /** ID of the event associated with an order. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Number of an invoice related to the order. */
-  invoiceNumber?: Maybe<Scalars['String']['output']>;
+  invoiceNumber?: Maybe<Scalars['String']>;
   /** The concerned lines. */
   lines?: Maybe<Array<OrderEventOrderLineObject>>;
   /** Content of the event. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** User-friendly number of an order. */
-  orderNumber?: Maybe<Scalars['String']['output']>;
+  orderNumber?: Maybe<Scalars['String']>;
   /** List of oversold lines names. */
-  oversoldItems?: Maybe<Array<Scalars['String']['output']>>;
+  oversoldItems?: Maybe<Array<Scalars['String']>>;
   /** The payment gateway of the payment. */
-  paymentGateway?: Maybe<Scalars['String']['output']>;
+  paymentGateway?: Maybe<Scalars['String']>;
   /** The payment reference from the payment provider. */
-  paymentId?: Maybe<Scalars['String']['output']>;
+  paymentId?: Maybe<Scalars['String']>;
   /** Number of items. */
-  quantity?: Maybe<Scalars['Int']['output']>;
+  quantity?: Maybe<Scalars['Int']>;
   /** The reference of payment's transaction. */
-  reference?: Maybe<Scalars['String']['output']>;
+  reference?: Maybe<Scalars['String']>;
   /**
    * The order event which is related to this event.
    *
@@ -16550,9 +16548,9 @@ export type OrderEvent = Node & {
   /** The order which is related to this order. */
   relatedOrder?: Maybe<Order>;
   /** Define if shipping costs were included to the refund. */
-  shippingCostsIncluded?: Maybe<Scalars['Boolean']['output']>;
+  shippingCostsIncluded?: Maybe<Scalars['Boolean']>;
   /** The transaction reference of captured payment. */
-  transactionReference?: Maybe<Scalars['String']['output']>;
+  transactionReference?: Maybe<Scalars['String']>;
   /** Order event type. */
   type?: Maybe<OrderEventsEnum>;
   /** User who performed the action. */
@@ -16567,13 +16565,13 @@ export type OrderEventCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type OrderEventCountableEdge = {
   __typename?: 'OrderEventCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: OrderEvent;
 };
@@ -16585,13 +16583,13 @@ export type OrderEventDiscountObject = {
   /** Returns amount of discount. */
   oldAmount?: Maybe<Money>;
   /** Value of the discount. Can store fixed value or percent value. */
-  oldValue?: Maybe<Scalars['PositiveDecimal']['output']>;
+  oldValue?: Maybe<Scalars['PositiveDecimal']>;
   /** Type of the discount: fixed or percent. */
   oldValueType?: Maybe<DiscountValueTypeEnum>;
   /** Explanation for the applied discount. */
-  reason?: Maybe<Scalars['String']['output']>;
+  reason?: Maybe<Scalars['String']>;
   /** Value of the discount. Can store fixed value or percent value. */
-  value: Scalars['PositiveDecimal']['output'];
+  value: Scalars['PositiveDecimal'];
   /** Type of the discount: fixed or percent. */
   valueType: DiscountValueTypeEnum;
 };
@@ -16601,11 +16599,11 @@ export type OrderEventOrderLineObject = {
   /** The discount applied to the order line. */
   discount?: Maybe<OrderEventDiscountObject>;
   /** The variant name. */
-  itemName?: Maybe<Scalars['String']['output']>;
+  itemName?: Maybe<Scalars['String']>;
   /** The order line. */
   orderLine?: Maybe<OrderLine>;
   /** The variant quantity. */
-  quantity?: Maybe<Scalars['Int']['output']>;
+  quantity?: Maybe<Scalars['Int']>;
 };
 
 export type OrderEventsEmailsEnum =
@@ -16682,7 +16680,7 @@ export type OrderEventsEnum =
 export type OrderExpired = Event & {
   __typename?: 'OrderExpired';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16690,26 +16688,26 @@ export type OrderExpired = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type OrderFilterInput = {
   authorizeStatus?: InputMaybe<Array<OrderAuthorizeStatusEnum>>;
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   chargeStatus?: InputMaybe<Array<OrderChargeStatusEnum>>;
-  checkoutIds?: InputMaybe<Array<Scalars['ID']['input']>>;
-  checkoutTokens?: InputMaybe<Array<Scalars['UUID']['input']>>;
+  checkoutIds?: InputMaybe<Array<Scalars['ID']>>;
+  checkoutTokens?: InputMaybe<Array<Scalars['UUID']>>;
   created?: InputMaybe<DateRangeInput>;
-  customer?: InputMaybe<Scalars['String']['input']>;
-  giftCardBought?: InputMaybe<Scalars['Boolean']['input']>;
-  giftCardUsed?: InputMaybe<Scalars['Boolean']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  isClickAndCollect?: InputMaybe<Scalars['Boolean']['input']>;
-  isPreorder?: InputMaybe<Scalars['Boolean']['input']>;
+  customer?: InputMaybe<Scalars['String']>;
+  giftCardBought?: InputMaybe<Scalars['Boolean']>;
+  giftCardUsed?: InputMaybe<Scalars['Boolean']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  isClickAndCollect?: InputMaybe<Scalars['Boolean']>;
+  isPreorder?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  numbers?: InputMaybe<Array<Scalars['String']['input']>>;
+  numbers?: InputMaybe<Array<Scalars['String']>>;
   paymentStatus?: InputMaybe<Array<PaymentChargeStatusEnum>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   status?: InputMaybe<Array<OrderStatusFilter>>;
   updatedAt?: InputMaybe<DateTimeRangeInput>;
 };
@@ -16722,7 +16720,7 @@ export type OrderFilterInput = {
 export type OrderFilterShippingMethods = Event & {
   __typename?: 'OrderFilterShippingMethods';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16736,7 +16734,7 @@ export type OrderFilterShippingMethods = Event & {
    */
   shippingMethods?: Maybe<Array<ShippingMethod>>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16763,31 +16761,31 @@ export type OrderFulfill = {
 
 export type OrderFulfillInput = {
   /** If true, then allow proceed fulfillment when stock is exceeded. */
-  allowStockToBeExceeded?: InputMaybe<Scalars['Boolean']['input']>;
+  allowStockToBeExceeded?: InputMaybe<Scalars['Boolean']>;
   /** List of items informing how to fulfill the order. */
   lines: Array<OrderFulfillLineInput>;
   /** If true, send an email notification to the customer. */
-  notifyCustomer?: InputMaybe<Scalars['Boolean']['input']>;
+  notifyCustomer?: InputMaybe<Scalars['Boolean']>;
   /**
    * Fulfillment tracking number.
    *
    * Added in Saleor 3.6.
    */
-  trackingNumber?: InputMaybe<Scalars['String']['input']>;
+  trackingNumber?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderFulfillLineInput = {
   /** The ID of the order line. */
-  orderLineId?: InputMaybe<Scalars['ID']['input']>;
+  orderLineId?: InputMaybe<Scalars['ID']>;
   /** List of stock items to create. */
   stocks: Array<OrderFulfillStockInput>;
 };
 
 export type OrderFulfillStockInput = {
   /** The number of line items to be fulfilled from given warehouse. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** ID of the warehouse from which the item will be fulfilled. */
-  warehouse: Scalars['ID']['input'];
+  warehouse: Scalars['ID'];
 };
 
 /**
@@ -16798,7 +16796,7 @@ export type OrderFulfillStockInput = {
 export type OrderFulfilled = Event & {
   __typename?: 'OrderFulfilled';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16806,7 +16804,7 @@ export type OrderFulfilled = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16817,7 +16815,7 @@ export type OrderFulfilled = Event & {
 export type OrderFullyPaid = Event & {
   __typename?: 'OrderFullyPaid';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16825,7 +16823,7 @@ export type OrderFullyPaid = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16838,7 +16836,7 @@ export type OrderFullyPaid = Event & {
 export type OrderFullyRefunded = Event & {
   __typename?: 'OrderFullyRefunded';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -16846,7 +16844,7 @@ export type OrderFullyRefunded = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -16872,7 +16870,7 @@ export type OrderGrantRefundCreateError = {
   /** The error code. */
   code: OrderGrantRefundCreateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /**
    * List of lines which cause the error.
    *
@@ -16882,7 +16880,7 @@ export type OrderGrantRefundCreateError = {
    */
   lines?: Maybe<Array<OrderGrantRefundCreateLineError>>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderGrantRefundCreateErrorCode =
@@ -16895,7 +16893,7 @@ export type OrderGrantRefundCreateErrorCode =
 
 export type OrderGrantRefundCreateInput = {
   /** Amount of the granted refund. If not provided, the amount will be calculated automatically based on provided `lines` and `grantRefundForShipping`. */
-  amount?: InputMaybe<Scalars['Decimal']['input']>;
+  amount?: InputMaybe<Scalars['Decimal']>;
   /**
    * Determine if granted refund should include shipping costs.
    *
@@ -16903,7 +16901,7 @@ export type OrderGrantRefundCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  grantRefundForShipping?: InputMaybe<Scalars['Boolean']['input']>;
+  grantRefundForShipping?: InputMaybe<Scalars['Boolean']>;
   /**
    * Lines to assign to granted refund.
    *
@@ -16913,7 +16911,7 @@ export type OrderGrantRefundCreateInput = {
    */
   lines?: InputMaybe<Array<OrderGrantRefundCreateLineInput>>;
   /** Reason of the granted refund. */
-  reason?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<Scalars['String']>;
   /**
    * The ID of the transaction item related to the granted refund. If `amount` provided in the input, the transaction.chargedAmount needs to be equal or greater than provided `amount`.If `amount` is not provided in the input and calculated automatically by Saleor, the `min(calculatedAmount, transaction.chargedAmount)` will be used.Field will be required starting from Saleor 3.21.
    *
@@ -16921,7 +16919,7 @@ export type OrderGrantRefundCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  transactionId?: InputMaybe<Scalars['ID']['input']>;
+  transactionId?: InputMaybe<Scalars['ID']>;
 };
 
 export type OrderGrantRefundCreateLineError = {
@@ -16929,11 +16927,11 @@ export type OrderGrantRefundCreateLineError = {
   /** The error code. */
   code: OrderGrantRefundCreateLineErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The ID of the line related to the error. */
-  lineId: Scalars['ID']['output'];
+  lineId: Scalars['ID'];
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderGrantRefundCreateLineErrorCode =
@@ -16943,11 +16941,11 @@ export type OrderGrantRefundCreateLineErrorCode =
 
 export type OrderGrantRefundCreateLineInput = {
   /** The ID of the order line. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /** The quantity of line items to be marked to refund. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Reason of the granted refund for the line. */
-  reason?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -16981,9 +16979,9 @@ export type OrderGrantRefundUpdateError = {
   /** The error code. */
   code: OrderGrantRefundUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /**
    * List of lines to remove which cause the error.
    *
@@ -17012,7 +17010,7 @@ export type OrderGrantRefundUpdateInput = {
    */
   addLines?: InputMaybe<Array<OrderGrantRefundUpdateLineAddInput>>;
   /** Amount of the granted refund. if not provided and `addLines` or `removeLines` or `grantRefundForShipping` is provided, amount will be calculated automatically. */
-  amount?: InputMaybe<Scalars['Decimal']['input']>;
+  amount?: InputMaybe<Scalars['Decimal']>;
   /**
    * Determine if granted refund should include shipping costs.
    *
@@ -17020,9 +17018,9 @@ export type OrderGrantRefundUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  grantRefundForShipping?: InputMaybe<Scalars['Boolean']['input']>;
+  grantRefundForShipping?: InputMaybe<Scalars['Boolean']>;
   /** Reason of the granted refund. */
-  reason?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<Scalars['String']>;
   /**
    * Lines to remove from granted refund.
    *
@@ -17030,7 +17028,7 @@ export type OrderGrantRefundUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  removeLines?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeLines?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * The ID of the transaction item related to the granted refund. If `amount` provided in the input, the transaction.chargedAmount needs to be equal or greater than provided `amount`.If `amount` is not provided in the input and calculated automatically by Saleor, the `min(calculatedAmount, transaction.chargedAmount)` will be used.Field will be required starting from Saleor 3.21.
    *
@@ -17038,16 +17036,16 @@ export type OrderGrantRefundUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  transactionId?: InputMaybe<Scalars['ID']['input']>;
+  transactionId?: InputMaybe<Scalars['ID']>;
 };
 
 export type OrderGrantRefundUpdateLineAddInput = {
   /** The ID of the order line. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /** The quantity of line items to be marked to refund. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Reason of the granted refund for the line. */
-  reason?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<Scalars['String']>;
 };
 
 export type OrderGrantRefundUpdateLineError = {
@@ -17055,11 +17053,11 @@ export type OrderGrantRefundUpdateLineError = {
   /** The error code. */
   code: OrderGrantRefundUpdateLineErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The ID of the line related to the error. */
-  lineId: Scalars['ID']['output'];
+  lineId: Scalars['ID'];
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderGrantRefundUpdateLineErrorCode =
@@ -17081,8 +17079,8 @@ export type OrderGrantedRefund = {
   /** App that performed the action. */
   app?: Maybe<App>;
   /** Time of creation. */
-  createdAt: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ID'];
   /**
    * Lines assigned to the granted refund.
    *
@@ -17092,7 +17090,7 @@ export type OrderGrantedRefund = {
    */
   lines?: Maybe<Array<OrderGrantedRefundLine>>;
   /** Reason of the refund. */
-  reason?: Maybe<Scalars['String']['output']>;
+  reason?: Maybe<Scalars['String']>;
   /**
    * If true, the refunded amount includes the shipping price.If false, the refunded amount does not include the shipping price.
    *
@@ -17100,7 +17098,7 @@ export type OrderGrantedRefund = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  shippingCostsIncluded: Scalars['Boolean']['output'];
+  shippingCostsIncluded: Scalars['Boolean'];
   /**
    * Status of the granted refund calculated based on transactionItem assigned to granted refund.
    *
@@ -17120,7 +17118,7 @@ export type OrderGrantedRefund = {
    */
   transactionEvents?: Maybe<Array<TransactionEvent>>;
   /** Time of last update. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** User who performed the action. Requires of of the following permissions: MANAGE_USERS, MANAGE_STAFF, OWNER. */
   user?: Maybe<User>;
 };
@@ -17134,13 +17132,13 @@ export type OrderGrantedRefund = {
  */
 export type OrderGrantedRefundLine = {
   __typename?: 'OrderGrantedRefundLine';
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Line of the order associated with this granted refund. */
   orderLine: OrderLine;
   /** Number of items to refund. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /** Reason for refunding the line. */
-  reason?: Maybe<Scalars['String']['output']>;
+  reason?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -17168,7 +17166,7 @@ export type OrderLine = Node & ObjectWithMetadata & {
   allocations?: Maybe<Array<Allocation>>;
   digitalContentUrl?: Maybe<DigitalContentUrl>;
   /** ID of the order line. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Determine if the line is a gift.
    *
@@ -17176,15 +17174,15 @@ export type OrderLine = Node & ObjectWithMetadata & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  isGift?: Maybe<Scalars['Boolean']['output']>;
+  isGift?: Maybe<Scalars['Boolean']>;
   /**
    * Returns True, if the line unit price was overridden.
    *
    * Added in Saleor 3.14.
    */
-  isPriceOverridden?: Maybe<Scalars['Boolean']['output']>;
+  isPriceOverridden?: Maybe<Scalars['Boolean']>;
   /** Whether the product variant requires shipping. */
-  isShippingRequired: Scalars['Boolean']['output'];
+  isShippingRequired: Scalars['Boolean'];
   /**
    * List of public metadata items. Can be accessed without permissions.
    *
@@ -17198,13 +17196,13 @@ export type OrderLine = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.5.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.5.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of private metadata items. Requires staff permissions to access.
    *
@@ -17218,35 +17216,35 @@ export type OrderLine = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.5.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.5.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Name of the product in order line. */
-  productName: Scalars['String']['output'];
+  productName: Scalars['String'];
   /** SKU of the product variant. */
-  productSku?: Maybe<Scalars['String']['output']>;
+  productSku?: Maybe<Scalars['String']>;
   /** The ID of the product variant. */
-  productVariantId?: Maybe<Scalars['String']['output']>;
+  productVariantId?: Maybe<Scalars['String']>;
   /** Number of variant items ordered. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /** Number of variant items fulfilled. */
-  quantityFulfilled: Scalars['Int']['output'];
+  quantityFulfilled: Scalars['Int'];
   /**
    * A quantity of items remaining to be fulfilled.
    *
    * Added in Saleor 3.1.
    */
-  quantityToFulfill: Scalars['Int']['output'];
+  quantityToFulfill: Scalars['Int'];
   /**
    * Denormalized sale ID, set when order line is created for a product variant that is on sale.
    *
    * Added in Saleor 3.14.
    */
-  saleId?: Maybe<Scalars['ID']['output']>;
+  saleId?: Maybe<Scalars['ID']>;
   /**
    * Denormalized tax class of the product in this order line.
    *
@@ -17266,7 +17264,7 @@ export type OrderLine = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.9.
    */
-  taxClassName?: Maybe<Scalars['String']['output']>;
+  taxClassName?: Maybe<Scalars['String']>;
   /**
    * Denormalized private metadata of the tax class. Requires staff permissions to access.
    *
@@ -17274,14 +17272,14 @@ export type OrderLine = Node & ObjectWithMetadata & {
    */
   taxClassPrivateMetadata: Array<MetadataItem>;
   /** Rate of tax applied on product variant. */
-  taxRate: Scalars['Float']['output'];
+  taxRate: Scalars['Float'];
   thumbnail?: Maybe<Image>;
   /** Price of the order line. */
   totalPrice: TaxedMoney;
   /** Product name in the customer's language */
-  translatedProductName: Scalars['String']['output'];
+  translatedProductName: Scalars['String'];
   /** Variant name in the customer's language */
-  translatedVariantName: Scalars['String']['output'];
+  translatedVariantName: Scalars['String'];
   /** Price of the order line without discounts. */
   undiscountedTotalPrice: TaxedMoney;
   /** Price of the single item in the order line without any discount applied. */
@@ -17289,54 +17287,54 @@ export type OrderLine = Node & ObjectWithMetadata & {
   /** Sum of the line-level discounts applied to the order line. Order-level discounts which affect the line are not visible in this field. For order-level discount portion (if any), please query `order.discounts` field. */
   unitDiscount: Money;
   /** Reason for line-level discounts applied on the order line. Order-level discounts which affect the line are not visible in this field. For order-level discount reason (if any), please query `order.discounts` field. */
-  unitDiscountReason?: Maybe<Scalars['String']['output']>;
+  unitDiscountReason?: Maybe<Scalars['String']>;
   /** Type of the discount: `fixed` or `percent`. This field shouldn't be used when multiple discounts affect the line. There is a limitation, that after running `checkoutComplete` mutation the field is always set to `fixed`. */
   unitDiscountType?: Maybe<DiscountValueTypeEnum>;
   /** Value of the discount. Can store fixed value or percent value. This field shouldn't be used when multiple discounts affect the line. There is a limitation, that after running `checkoutComplete` mutation the field always stores fixed value. */
-  unitDiscountValue: Scalars['PositiveDecimal']['output'];
+  unitDiscountValue: Scalars['PositiveDecimal'];
   /** Price of the single item in the order line with all the line-level discounts and order-level discount portions applied. */
   unitPrice: TaxedMoney;
   /** A purchased product variant. Note: this field may be null if the variant has been removed from stock at all. Requires one of the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS. */
   variant?: Maybe<ProductVariant>;
   /** Name of the variant of product in order line. */
-  variantName: Scalars['String']['output'];
+  variantName: Scalars['String'];
   /**
    * Voucher code that was used for this order line.
    *
    * Added in Saleor 3.14.
    */
-  voucherCode?: Maybe<Scalars['String']['output']>;
+  voucherCode?: Maybe<Scalars['String']>;
 };
 
 
 /** Represents order line of particular order. */
 export type OrderLineMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents order line of particular order. */
 export type OrderLineMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents order line of particular order. */
 export type OrderLinePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents order line of particular order. */
 export type OrderLinePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents order line of particular order. */
 export type OrderLineThumbnailArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 export type OrderLineCreateInput = {
@@ -17345,7 +17343,7 @@ export type OrderLineCreateInput = {
    *
    * Added in Saleor 3.6.
    */
-  forceNewLine?: InputMaybe<Scalars['Boolean']['input']>;
+  forceNewLine?: InputMaybe<Scalars['Boolean']>;
   /**
    * Custom price of the item.When the line with the same variant will be provided multiple times, the last price will be used.
    *
@@ -17353,11 +17351,11 @@ export type OrderLineCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  price?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  price?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Number of variant items ordered. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Product variant ID. */
-  variantId: Scalars['ID']['input'];
+  variantId: Scalars['ID'];
 };
 
 /**
@@ -17410,7 +17408,7 @@ export type OrderLineDiscountUpdate = {
 
 export type OrderLineInput = {
   /** Number of variant items ordered. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
 };
 
 /**
@@ -17466,7 +17464,7 @@ export type OrderMarkAsPaid = {
 export type OrderMetadataUpdated = Event & {
   __typename?: 'OrderMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -17474,7 +17472,7 @@ export type OrderMetadataUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -17500,9 +17498,9 @@ export type OrderNoteAddError = {
   /** The error code. */
   code?: Maybe<OrderNoteAddErrorCode>;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderNoteAddErrorCode =
@@ -17511,7 +17509,7 @@ export type OrderNoteAddErrorCode =
 
 export type OrderNoteInput = {
   /** Note message. */
-  message: Scalars['String']['input'];
+  message: Scalars['String'];
 };
 
 /**
@@ -17537,9 +17535,9 @@ export type OrderNoteUpdateError = {
   /** The error code. */
   code?: Maybe<OrderNoteUpdateErrorCode>;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderNoteUpdateErrorCode =
@@ -17565,7 +17563,7 @@ export type OrderOriginEnum =
 export type OrderPaid = Event & {
   __typename?: 'OrderPaid';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -17573,7 +17571,7 @@ export type OrderPaid = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type OrderPredicateInput = {
@@ -17601,25 +17599,25 @@ export type OrderRefund = {
 
 export type OrderRefundFulfillmentLineInput = {
   /** The ID of the fulfillment line to refund. */
-  fulfillmentLineId: Scalars['ID']['input'];
+  fulfillmentLineId: Scalars['ID'];
   /** The number of items to be refunded. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
 };
 
 export type OrderRefundLineInput = {
   /** The ID of the order line to refund. */
-  orderLineId: Scalars['ID']['input'];
+  orderLineId: Scalars['ID'];
   /** The number of items to be refunded. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
 };
 
 export type OrderRefundProductsInput = {
   /** The total amount of refund when the value is provided manually. */
-  amountToRefund?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  amountToRefund?: InputMaybe<Scalars['PositiveDecimal']>;
   /** List of fulfilled lines to refund. */
   fulfillmentLines?: InputMaybe<Array<OrderRefundFulfillmentLineInput>>;
   /** If true, Saleor will refund shipping costs. If amountToRefund is providedincludeShippingCosts will be ignored. */
-  includeShippingCosts?: InputMaybe<Scalars['Boolean']['input']>;
+  includeShippingCosts?: InputMaybe<Scalars['Boolean']>;
   /** List of unfulfilled lines to refund. */
   orderLines?: InputMaybe<Array<OrderRefundLineInput>>;
 };
@@ -17634,7 +17632,7 @@ export type OrderRefundProductsInput = {
 export type OrderRefunded = Event & {
   __typename?: 'OrderRefunded';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -17642,38 +17640,38 @@ export type OrderRefunded = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type OrderReturnFulfillmentLineInput = {
   /** The ID of the fulfillment line to return. */
-  fulfillmentLineId: Scalars['ID']['input'];
+  fulfillmentLineId: Scalars['ID'];
   /** The number of items to be returned. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Determines, if the line should be added to replace order. */
-  replace?: InputMaybe<Scalars['Boolean']['input']>;
+  replace?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type OrderReturnLineInput = {
   /** The ID of the order line to return. */
-  orderLineId: Scalars['ID']['input'];
+  orderLineId: Scalars['ID'];
   /** The number of items to be returned. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Determines, if the line should be added to replace order. */
-  replace?: InputMaybe<Scalars['Boolean']['input']>;
+  replace?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type OrderReturnProductsInput = {
   /** The total amount of refund when the value is provided manually. */
-  amountToRefund?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  amountToRefund?: InputMaybe<Scalars['PositiveDecimal']>;
   /** List of fulfilled lines to return. */
   fulfillmentLines?: InputMaybe<Array<OrderReturnFulfillmentLineInput>>;
   /** If true, Saleor will refund shipping costs. If amountToRefund is providedincludeShippingCosts will be ignored. */
-  includeShippingCosts?: InputMaybe<Scalars['Boolean']['input']>;
+  includeShippingCosts?: InputMaybe<Scalars['Boolean']>;
   /** List of unfulfilled lines to return. */
   orderLines?: InputMaybe<Array<OrderReturnLineInput>>;
   /** If true, Saleor will call refund action for all lines. */
-  refund?: InputMaybe<Scalars['Boolean']['input']>;
+  refund?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Represents the channel-specific order settings. */
@@ -17686,11 +17684,11 @@ export type OrderSettings = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  allowUnpaidOrders: Scalars['Boolean']['output'];
+  allowUnpaidOrders: Scalars['Boolean'];
   /** When disabled, all new orders from checkout will be marked as unconfirmed. When enabled orders from checkout will become unfulfilled immediately. */
-  automaticallyConfirmAllNewOrders: Scalars['Boolean']['output'];
+  automaticallyConfirmAllNewOrders: Scalars['Boolean'];
   /** When enabled, all non-shippable gift card orders will be fulfilled automatically. */
-  automaticallyFulfillNonShippableGiftCard: Scalars['Boolean']['output'];
+  automaticallyFulfillNonShippableGiftCard: Scalars['Boolean'];
   /**
    * The time in days after expired orders will be deleted.
    *
@@ -17698,7 +17696,7 @@ export type OrderSettings = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  deleteExpiredOrdersAfter: Scalars['Day']['output'];
+  deleteExpiredOrdersAfter: Scalars['Day'];
   /**
    * Expiration time in minutes. Default null - means do not expire any orders.
    *
@@ -17706,7 +17704,7 @@ export type OrderSettings = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  expireOrdersAfter?: Maybe<Scalars['Minute']['output']>;
+  expireOrdersAfter?: Maybe<Scalars['Minute']>;
   /**
    * Determine if voucher applied on draft order should be count toward voucher usage.
    *
@@ -17714,7 +17712,7 @@ export type OrderSettings = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  includeDraftOrderInVoucherUsage: Scalars['Boolean']['output'];
+  includeDraftOrderInVoucherUsage: Scalars['Boolean'];
   /**
    * Determine what strategy will be used to mark the order as paid. Based on the chosen option, the proper object will be created and attached to the order when it's manually marked as paid.
    * `PAYMENT_FLOW` - [default option] creates the `Payment` object.
@@ -17732,9 +17730,9 @@ export type OrderSettingsError = {
   /** The error code. */
   code: OrderSettingsErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type OrderSettingsErrorCode =
@@ -17748,11 +17746,11 @@ export type OrderSettingsInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  allowUnpaidOrders?: InputMaybe<Scalars['Boolean']['input']>;
+  allowUnpaidOrders?: InputMaybe<Scalars['Boolean']>;
   /** When disabled, all new orders from checkout will be marked as unconfirmed. When enabled orders from checkout will become unfulfilled immediately. By default set to True */
-  automaticallyConfirmAllNewOrders?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticallyConfirmAllNewOrders?: InputMaybe<Scalars['Boolean']>;
   /** When enabled, all non-shippable gift card orders will be fulfilled automatically. By default set to True. */
-  automaticallyFulfillNonShippableGiftCard?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticallyFulfillNonShippableGiftCard?: InputMaybe<Scalars['Boolean']>;
   /**
    * The time in days after expired orders will be deleted.Allowed range is from 1 to 120.
    *
@@ -17760,7 +17758,7 @@ export type OrderSettingsInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  deleteExpiredOrdersAfter?: InputMaybe<Scalars['Day']['input']>;
+  deleteExpiredOrdersAfter?: InputMaybe<Scalars['Day']>;
   /**
    * Expiration time in minutes. Default null - means do not expire any orders. Enter 0 or null to disable.
    *
@@ -17768,7 +17766,7 @@ export type OrderSettingsInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  expireOrdersAfter?: InputMaybe<Scalars['Minute']['input']>;
+  expireOrdersAfter?: InputMaybe<Scalars['Minute']>;
   /**
    * Specify whether a coupon applied to draft orders will count toward voucher usage.
    *
@@ -17778,7 +17776,7 @@ export type OrderSettingsInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  includeDraftOrderInVoucherUsage?: InputMaybe<Scalars['Boolean']['input']>;
+  includeDraftOrderInVoucherUsage?: InputMaybe<Scalars['Boolean']>;
   /**
    * Determine what strategy will be used to mark the order as paid. Based on the chosen option, the proper object will be created and attached to the order when it's manually marked as paid.
    * `PAYMENT_FLOW` - [default option] creates the `Payment` object.
@@ -17807,9 +17805,9 @@ export type OrderSettingsUpdate = {
 
 export type OrderSettingsUpdateInput = {
   /** When disabled, all new orders from checkout will be marked as unconfirmed. When enabled orders from checkout will become unfulfilled immediately. By default set to True */
-  automaticallyConfirmAllNewOrders?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticallyConfirmAllNewOrders?: InputMaybe<Scalars['Boolean']>;
   /** When enabled, all non-shippable gift card orders will be fulfilled automatically. By default set to True. */
-  automaticallyFulfillNonShippableGiftCard?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticallyFulfillNonShippableGiftCard?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type OrderSortField =
@@ -17886,11 +17884,11 @@ export type OrderUpdateInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Shipping address of the customer. */
   shippingAddress?: InputMaybe<AddressInput>;
   /** Email address of the customer. */
-  userEmail?: InputMaybe<Scalars['String']['input']>;
+  userEmail?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -17909,7 +17907,7 @@ export type OrderUpdateShipping = {
 
 export type OrderUpdateShippingInput = {
   /** ID of the selected shipping method, pass null to remove currently assigned shipping method. */
-  shippingMethod?: InputMaybe<Scalars['ID']['input']>;
+  shippingMethod?: InputMaybe<Scalars['ID']>;
 };
 
 /**
@@ -17920,7 +17918,7 @@ export type OrderUpdateShippingInput = {
 export type OrderUpdated = Event & {
   __typename?: 'OrderUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The order the event relates to. */
@@ -17928,7 +17926,7 @@ export type OrderUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -17955,20 +17953,20 @@ export type Page = Node & ObjectWithMetadata & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: Maybe<Scalars['JSONString']['output']>;
+  content?: Maybe<Scalars['JSONString']>;
   /**
    * Content of the page.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `content` field instead.
    */
-  contentJson: Scalars['JSONString']['output'];
+  contentJson: Scalars['JSONString'];
   /** Date and time at which page was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** ID of the page. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Determines if the page is published. */
-  isPublished: Scalars['Boolean']['output'];
+  isPublished: Scalars['Boolean'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -17978,13 +17976,13 @@ export type Page = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Determines the type of page */
   pageType: PageType;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -17996,29 +17994,29 @@ export type Page = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** @deprecated This field will be removed in Saleor 4.0. Use the `publishedAt` field to fetch the publication date. */
-  publicationDate?: Maybe<Scalars['Date']['output']>;
+  publicationDate?: Maybe<Scalars['Date']>;
   /**
    * The page publication date.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
   /** Description of the page for SEO. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** Title of the page for SEO. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Slug of the page. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /** Title of the page. */
-  title: Scalars['String']['output'];
+  title: Scalars['String'];
   /** Returns translated page fields for the given language code. */
   translation?: Maybe<PageTranslation>;
 };
@@ -18026,25 +18024,25 @@ export type Page = Node & ObjectWithMetadata & {
 
 /** A static page that can be manually added by a shop operator through the dashboard. */
 export type PageMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** A static page that can be manually added by a shop operator through the dashboard. */
 export type PageMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** A static page that can be manually added by a shop operator through the dashboard. */
 export type PagePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** A static page that can be manually added by a shop operator through the dashboard. */
 export type PagePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -18089,7 +18087,7 @@ export type PageAttributeUnassign = {
 export type PageBulkDelete = {
   __typename?: 'PageBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<PageError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   pageErrors: Array<PageError>;
@@ -18103,7 +18101,7 @@ export type PageBulkDelete = {
 export type PageBulkPublish = {
   __typename?: 'PageBulkPublish';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<PageError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   pageErrors: Array<PageError>;
@@ -18115,13 +18113,13 @@ export type PageCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type PageCountableEdge = {
   __typename?: 'PageCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Page;
 };
@@ -18147,29 +18145,29 @@ export type PageCreateInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: InputMaybe<Scalars['JSONString']['input']>;
+  content?: InputMaybe<Scalars['JSONString']>;
   /** Determines if page is visible in the storefront. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /** ID of the page type that page belongs to. */
-  pageType: Scalars['ID']['input'];
+  pageType: Scalars['ID'];
   /**
    * Publication date. ISO 8601 standard.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `publishedAt` field instead.
    */
-  publicationDate?: InputMaybe<Scalars['String']['input']>;
+  publicationDate?: InputMaybe<Scalars['String']>;
   /**
    * Publication date time. ISO 8601 standard.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Page internal name. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** Page title. */
-  title?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -18180,7 +18178,7 @@ export type PageCreateInput = {
 export type PageCreated = Event & {
   __typename?: 'PageCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page the event relates to. */
@@ -18188,7 +18186,7 @@ export type PageCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18212,7 +18210,7 @@ export type PageDelete = {
 export type PageDeleted = Event & {
   __typename?: 'PageDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page the event relates to. */
@@ -18220,21 +18218,21 @@ export type PageDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PageError = {
   __typename?: 'PageError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: PageErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type PageErrorCode =
@@ -18247,24 +18245,24 @@ export type PageErrorCode =
   | 'UNIQUE';
 
 export type PageFilterInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  pageTypes?: InputMaybe<Array<Scalars['ID']['input']>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  pageTypes?: InputMaybe<Array<Scalars['ID']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** The Relay compliant `PageInfo` type, containing data necessary to paginate this connection. */
 export type PageInfo = {
   __typename?: 'PageInfo';
   /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
+  endCursor?: Maybe<Scalars['String']>;
   /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
+  hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
+  hasPreviousPage: Scalars['Boolean'];
   /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
+  startCursor?: Maybe<Scalars['String']>;
 };
 
 export type PageInput = {
@@ -18275,27 +18273,27 @@ export type PageInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: InputMaybe<Scalars['JSONString']['input']>;
+  content?: InputMaybe<Scalars['JSONString']>;
   /** Determines if page is visible in the storefront. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Publication date. ISO 8601 standard.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `publishedAt` field instead.
    */
-  publicationDate?: InputMaybe<Scalars['String']['input']>;
+  publicationDate?: InputMaybe<Scalars['String']>;
   /**
    * Publication date time. ISO 8601 standard.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Page internal name. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** Page title. */
-  title?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -18361,16 +18359,16 @@ export type PageTranslatableContent = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: Maybe<Scalars['JSONString']['output']>;
+  content?: Maybe<Scalars['JSONString']>;
   /**
    * Content of the page.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `content` field instead.
    */
-  contentJson?: Maybe<Scalars['JSONString']['output']>;
+  contentJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the page translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * A static page that can be manually added by a shop operator through the dashboard.
    * @deprecated This field will be removed in Saleor 4.0. Get model fields from the root level queries.
@@ -18381,13 +18379,13 @@ export type PageTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  pageId: Scalars['ID']['output'];
+  pageId: Scalars['ID'];
   /** SEO description to translate. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title to translate. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Page title to translate. */
-  title: Scalars['String']['output'];
+  title: Scalars['String'];
   /** Returns translated page fields for the given language code. */
   translation?: Maybe<PageTranslation>;
 };
@@ -18419,24 +18417,24 @@ export type PageTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: Maybe<Scalars['JSONString']['output']>;
+  content?: Maybe<Scalars['JSONString']>;
   /**
    * Translated description of the page.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `content` field instead.
    */
-  contentJson?: Maybe<Scalars['JSONString']['output']>;
+  contentJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the page translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated SEO description. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** Translated SEO title. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Translated page title. */
-  title?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']>;
   /**
    * Represents the page fields to translate.
    *
@@ -18451,10 +18449,10 @@ export type PageTranslationInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  content?: InputMaybe<Scalars['JSONString']['input']>;
-  seoDescription?: InputMaybe<Scalars['String']['input']>;
-  seoTitle?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSONString']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
@@ -18473,9 +18471,9 @@ export type PageType = Node & ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_PAGES, MANAGE_PAGE_TYPES_AND_ATTRIBUTES.
    */
-  hasPages?: Maybe<Scalars['Boolean']['output']>;
+  hasPages?: Maybe<Scalars['Boolean']>;
   /** ID of the page type. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -18485,15 +18483,15 @@ export type PageType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the page type. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -18503,50 +18501,50 @@ export type PageType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Slug of the page type. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
 };
 
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
 export type PageTypeAvailableAttributesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AttributeFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AttributeWhereInput>;
 };
 
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
 export type PageTypeMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
 export type PageTypeMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
 export type PageTypePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a type of page. It defines what attributes are available to pages of this type. */
 export type PageTypePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -18557,7 +18555,7 @@ export type PageTypePrivateMetafieldsArgs = {
 export type PageTypeBulkDelete = {
   __typename?: 'PageTypeBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<PageError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   pageErrors: Array<PageError>;
@@ -18569,13 +18567,13 @@ export type PageTypeCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type PageTypeCountableEdge = {
   __typename?: 'PageTypeCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: PageType;
 };
@@ -18595,11 +18593,11 @@ export type PageTypeCreate = {
 
 export type PageTypeCreateInput = {
   /** List of attribute IDs to be assigned to the page type. */
-  addAttributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Name of the page type. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Page type slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -18610,7 +18608,7 @@ export type PageTypeCreateInput = {
 export type PageTypeCreated = Event & {
   __typename?: 'PageTypeCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page type the event relates to. */
@@ -18618,7 +18616,7 @@ export type PageTypeCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18642,7 +18640,7 @@ export type PageTypeDelete = {
 export type PageTypeDeleted = Event & {
   __typename?: 'PageTypeDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page type the event relates to. */
@@ -18650,12 +18648,12 @@ export type PageTypeDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PageTypeFilterInput = {
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -18700,13 +18698,13 @@ export type PageTypeUpdate = {
 
 export type PageTypeUpdateInput = {
   /** List of attribute IDs to be assigned to the page type. */
-  addAttributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Name of the page type. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** List of attribute IDs to be assigned to the page type. */
-  removeAttributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Page type slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -18717,7 +18715,7 @@ export type PageTypeUpdateInput = {
 export type PageTypeUpdated = Event & {
   __typename?: 'PageTypeUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page type the event relates to. */
@@ -18725,7 +18723,7 @@ export type PageTypeUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18749,7 +18747,7 @@ export type PageUpdate = {
 export type PageUpdated = Event & {
   __typename?: 'PageUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The page the event relates to. */
@@ -18757,7 +18755,7 @@ export type PageUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18802,7 +18800,7 @@ export type Payment = Node & ObjectWithMetadata & {
   /** Checkout associated with a payment. */
   checkout?: Maybe<Checkout>;
   /** Date and time at which payment was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** The details of the card used for this payment. */
   creditCard?: Maybe<CreditCard>;
   /**
@@ -18810,13 +18808,13 @@ export type Payment = Node & ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_ORDERS.
    */
-  customerIpAddress?: Maybe<Scalars['String']['output']>;
+  customerIpAddress?: Maybe<Scalars['String']>;
   /** Payment gateway used for payment. */
-  gateway: Scalars['String']['output'];
+  gateway: Scalars['String'];
   /** ID of the payment. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Determines if the payment is active or not. */
-  isActive: Scalars['Boolean']['output'];
+  isActive: Scalars['Boolean'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -18826,15 +18824,15 @@ export type Payment = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Date and time at which payment was modified. */
-  modified: Scalars['DateTime']['output'];
+  modified: Scalars['DateTime'];
   /** Order associated with a payment. */
   order?: Maybe<Order>;
   /**
@@ -18842,9 +18840,9 @@ export type Payment = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.14.
    */
-  partial: Scalars['Boolean']['output'];
+  partial: Scalars['Boolean'];
   /** Type of method used for payment. */
-  paymentMethodType: Scalars['String']['output'];
+  paymentMethodType: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -18854,21 +18852,21 @@ export type Payment = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * PSP reference of the payment.
    *
    * Added in Saleor 3.14.
    */
-  pspReference?: Maybe<Scalars['String']['output']>;
+  pspReference?: Maybe<Scalars['String']>;
   /** Unique token associated with a payment. */
-  token: Scalars['String']['output'];
+  token: Scalars['String'];
   /** Total amount of the payment. */
   total?: Maybe<Money>;
   /**
@@ -18882,25 +18880,25 @@ export type Payment = Node & ObjectWithMetadata & {
 
 /** Represents a payment of a given type. */
 export type PaymentMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a payment of a given type. */
 export type PaymentMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a payment of a given type. */
 export type PaymentPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a payment of a given type. */
 export type PaymentPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -18911,7 +18909,7 @@ export type PaymentPrivateMetafieldsArgs = {
 export type PaymentAuthorize = Event & {
   __typename?: 'PaymentAuthorize';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -18919,7 +18917,7 @@ export type PaymentAuthorize = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18944,7 +18942,7 @@ export type PaymentCapture = {
 export type PaymentCaptureEvent = Event & {
   __typename?: 'PaymentCaptureEvent';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -18952,7 +18950,7 @@ export type PaymentCaptureEvent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PaymentChargeStatusEnum =
@@ -18969,7 +18967,7 @@ export type PaymentChargeStatusEnum =
 export type PaymentCheckBalance = {
   __typename?: 'PaymentCheckBalance';
   /** Response from the gateway. */
-  data?: Maybe<Scalars['JSONString']['output']>;
+  data?: Maybe<Scalars['JSONString']>;
   errors: Array<PaymentError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   paymentErrors: Array<PaymentError>;
@@ -18979,11 +18977,11 @@ export type PaymentCheckBalanceInput = {
   /** Information about card. */
   card: CardInput;
   /** Slug of a channel for which the data should be returned. */
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
   /** An ID of a payment gateway to check. */
-  gatewayId: Scalars['String']['input'];
+  gatewayId: Scalars['String'];
   /** Payment method name. */
-  method: Scalars['String']['input'];
+  method: Scalars['String'];
 };
 
 /**
@@ -18994,7 +18992,7 @@ export type PaymentCheckBalanceInput = {
 export type PaymentConfirmEvent = Event & {
   __typename?: 'PaymentConfirmEvent';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -19002,7 +19000,7 @@ export type PaymentConfirmEvent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PaymentCountableConnection = {
@@ -19011,13 +19009,13 @@ export type PaymentCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type PaymentCountableEdge = {
   __typename?: 'PaymentCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Payment;
 };
@@ -19027,11 +19025,11 @@ export type PaymentError = {
   /** The error code. */
   code: PaymentErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of variant IDs which causes the error. */
-  variants?: Maybe<Array<Scalars['ID']['output']>>;
+  variants?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type PaymentErrorCode =
@@ -19055,13 +19053,13 @@ export type PaymentErrorCode =
   | 'UNIQUE';
 
 export type PaymentFilterInput = {
-  checkouts?: InputMaybe<Array<Scalars['ID']['input']>>;
+  checkouts?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Filter by ids.
    *
    * Added in Saleor 3.8.
    */
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /** Available payment gateway backend with configuration necessary to setup client. */
@@ -19070,20 +19068,20 @@ export type PaymentGateway = {
   /** Payment gateway client configuration. */
   config: Array<GatewayConfigLine>;
   /** Payment gateway supported currencies. */
-  currencies: Array<Scalars['String']['output']>;
+  currencies: Array<Scalars['String']>;
   /** Payment gateway ID. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Payment gateway name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 export type PaymentGatewayConfig = {
   __typename?: 'PaymentGatewayConfig';
   /** The JSON data required to initialize the payment gateway. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors?: Maybe<Array<PaymentGatewayConfigError>>;
   /** The app identifier. */
-  id: Scalars['String']['output'];
+  id: Scalars['String'];
 };
 
 export type PaymentGatewayConfigError = {
@@ -19091,9 +19089,9 @@ export type PaymentGatewayConfigError = {
   /** The error code. */
   code: PaymentGatewayConfigErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentGatewayConfigErrorCode =
@@ -19120,9 +19118,9 @@ export type PaymentGatewayInitializeError = {
   /** The error code. */
   code: PaymentGatewayInitializeErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentGatewayInitializeErrorCode =
@@ -19140,11 +19138,11 @@ export type PaymentGatewayInitializeErrorCode =
 export type PaymentGatewayInitializeSession = Event & {
   __typename?: 'PaymentGatewayInitializeSession';
   /** Amount requested for initializing the payment gateway. */
-  amount?: Maybe<Scalars['PositiveDecimal']['output']>;
+  amount?: Maybe<Scalars['PositiveDecimal']>;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -19152,7 +19150,7 @@ export type PaymentGatewayInitializeSession = Event & {
   /** Checkout or order */
   sourceObject: OrderOrCheckout;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19170,7 +19168,7 @@ export type PaymentGatewayInitializeSession = Event & {
 export type PaymentGatewayInitializeTokenization = {
   __typename?: 'PaymentGatewayInitializeTokenization';
   /** A data returned by payment app. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors: Array<PaymentGatewayInitializeTokenizationError>;
   /** A status of the payment gateway initialization. */
   result: PaymentGatewayInitializeTokenizationResult;
@@ -19181,9 +19179,9 @@ export type PaymentGatewayInitializeTokenizationError = {
   /** The error code. */
   code: PaymentGatewayInitializeTokenizationErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentGatewayInitializeTokenizationErrorCode =
@@ -19218,9 +19216,9 @@ export type PaymentGatewayInitializeTokenizationSession = Event & {
   /** Channel related to the requested action. */
   channel: Channel;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -19228,14 +19226,14 @@ export type PaymentGatewayInitializeTokenizationSession = Event & {
   /** The user related to the requested action. */
   user: User;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PaymentGatewayToInitialize = {
   /** The data that will be passed to the payment gateway. */
-  data?: InputMaybe<Scalars['JSON']['input']>;
+  data?: InputMaybe<Scalars['JSON']>;
   /** The identifier of the payment gateway app to initialize. */
-  id: Scalars['String']['input'];
+  id: Scalars['String'];
 };
 
 /** Initializes payment process when it is required by gateway. */
@@ -19252,18 +19250,18 @@ export type PaymentInitialize = {
 export type PaymentInitialized = {
   __typename?: 'PaymentInitialized';
   /** Initialized data by gateway. */
-  data?: Maybe<Scalars['JSONString']['output']>;
+  data?: Maybe<Scalars['JSONString']>;
   /** ID of a payment gateway. */
-  gateway: Scalars['String']['output'];
+  gateway: Scalars['String'];
   /** Payment gateway name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 export type PaymentInput = {
   /** Total amount of the transaction, including all taxes and discounts. If no amount is provided, the checkout total will be used. */
-  amount?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  amount?: InputMaybe<Scalars['PositiveDecimal']>;
   /** A gateway to use with that payment. */
-  gateway: Scalars['String']['input'];
+  gateway: Scalars['String'];
   /**
    * User public metadata.
    *
@@ -19271,7 +19269,7 @@ export type PaymentInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of a storefront view where user should be redirected after requiring additional actions. Payment with additional actions will not be finished if this field is not provided. */
-  returnUrl?: InputMaybe<Scalars['String']['input']>;
+  returnUrl?: InputMaybe<Scalars['String']>;
   /**
    * Payment store type.
    *
@@ -19279,7 +19277,7 @@ export type PaymentInput = {
    */
   storePaymentMethod?: InputMaybe<StorePaymentMethodEnum>;
   /** Client-side generated payment token, representing customer's billing data in a secure manner. */
-  token?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -19292,13 +19290,13 @@ export type PaymentListGateways = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19316,10 +19314,10 @@ export type PaymentListGateways = Event & {
 export type PaymentMethodInitializeTokenization = {
   __typename?: 'PaymentMethodInitializeTokenization';
   /** A data returned by the payment app. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors: Array<PaymentMethodInitializeTokenizationError>;
   /** The identifier of the payment method. */
-  id?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']>;
   /** A status of the payment method tokenization. */
   result: PaymentMethodTokenizationResult;
 };
@@ -19329,9 +19327,9 @@ export type PaymentMethodInitializeTokenizationError = {
   /** The error code. */
   code: PaymentMethodInitializeTokenizationErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodInitializeTokenizationErrorCode =
@@ -19353,9 +19351,9 @@ export type PaymentMethodInitializeTokenizationSession = Event & {
   /** Channel related to the requested action. */
   channel: Channel;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The payment flow that the tokenized payment method should support. */
@@ -19365,7 +19363,7 @@ export type PaymentMethodInitializeTokenizationSession = Event & {
   /** The user related to the requested action. */
   user: User;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19383,10 +19381,10 @@ export type PaymentMethodInitializeTokenizationSession = Event & {
 export type PaymentMethodProcessTokenization = {
   __typename?: 'PaymentMethodProcessTokenization';
   /** A data returned by the payment app. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors: Array<PaymentMethodProcessTokenizationError>;
   /** The identifier of the payment method. */
-  id?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']>;
   /** A status of the payment method tokenization. */
   result: PaymentMethodTokenizationResult;
 };
@@ -19396,9 +19394,9 @@ export type PaymentMethodProcessTokenizationError = {
   /** The error code. */
   code: PaymentMethodProcessTokenizationErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodProcessTokenizationErrorCode =
@@ -19420,11 +19418,11 @@ export type PaymentMethodProcessTokenizationSession = Event & {
   /** Channel related to the requested action. */
   channel: Channel;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** The ID returned by app from `PAYMENT_METHOD_INITIALIZE_TOKENIZATION_SESSION` webhook. */
-  id: Scalars['String']['output'];
+  id: Scalars['String'];
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -19432,7 +19430,7 @@ export type PaymentMethodProcessTokenizationSession = Event & {
   /** The user related to the requested action. */
   user: User;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodRequestDeleteError = {
@@ -19440,9 +19438,9 @@ export type PaymentMethodRequestDeleteError = {
   /** The error code. */
   code: StoredPaymentMethodRequestDeleteErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19470,7 +19468,7 @@ export type PaymentMethodTokenizationResult =
 export type PaymentProcessEvent = Event & {
   __typename?: 'PaymentProcessEvent';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -19478,7 +19476,7 @@ export type PaymentProcessEvent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19503,7 +19501,7 @@ export type PaymentRefund = {
 export type PaymentRefundEvent = Event & {
   __typename?: 'PaymentRefundEvent';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -19511,7 +19509,7 @@ export type PaymentRefundEvent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents the channel-specific payment settings. */
@@ -19544,7 +19542,7 @@ export type PaymentSource = {
   /** Stored credit card details if available. */
   creditCardInfo?: Maybe<CreditCard>;
   /** Payment gateway name. */
-  gateway: Scalars['String']['output'];
+  gateway: Scalars['String'];
   /**
    * List of public metadata items.
    *
@@ -19554,7 +19552,7 @@ export type PaymentSource = {
    */
   metadata: Array<MetadataItem>;
   /** ID of stored payment method. */
-  paymentMethodId?: Maybe<Scalars['String']['output']>;
+  paymentMethodId?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19579,7 +19577,7 @@ export type PaymentVoid = {
 export type PaymentVoidEvent = Event & {
   __typename?: 'PaymentVoidEvent';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Look up a payment. */
@@ -19587,7 +19585,7 @@ export type PaymentVoidEvent = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Represents a permission object in a friendly form. */
@@ -19596,7 +19594,7 @@ export type Permission = {
   /** Internal code for permission. */
   code: PermissionEnum;
   /** Describe action(s) allowed to do by permission. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 export type PermissionEnum =
@@ -19649,13 +19647,13 @@ export type PermissionGroupCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  addChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of permission code names to assign to this group. */
   addPermissions?: InputMaybe<Array<PermissionEnum>>;
   /** List of users to assign to this group. */
-  addUsers?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addUsers?: InputMaybe<Array<Scalars['ID']>>;
   /** Group name. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /**
    * Determine if the group has restricted access to channels.  DEFAULT: False
    *
@@ -19663,7 +19661,7 @@ export type PermissionGroupCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  restrictedAccessToChannels?: InputMaybe<Scalars['Boolean']['input']>;
+  restrictedAccessToChannels?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -19674,7 +19672,7 @@ export type PermissionGroupCreateInput = {
 export type PermissionGroupCreated = Event & {
   __typename?: 'PermissionGroupCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The permission group the event relates to. */
@@ -19682,7 +19680,7 @@ export type PermissionGroupCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -19709,7 +19707,7 @@ export type PermissionGroupDelete = {
 export type PermissionGroupDeleted = Event & {
   __typename?: 'PermissionGroupDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The permission group the event relates to. */
@@ -19717,23 +19715,23 @@ export type PermissionGroupDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type PermissionGroupError = {
   __typename?: 'PermissionGroupError';
   /** List of channels IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: PermissionGroupErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of permissions which causes the error. */
   permissions?: Maybe<Array<PermissionEnum>>;
   /** List of user IDs which causes the error. */
-  users?: Maybe<Array<Scalars['ID']['output']>>;
+  users?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type PermissionGroupErrorCode =
@@ -19748,8 +19746,8 @@ export type PermissionGroupErrorCode =
   | 'UNIQUE';
 
 export type PermissionGroupFilterInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 /** Sorting options for permission groups. */
@@ -19788,13 +19786,13 @@ export type PermissionGroupUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  addChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of permission code names to assign to this group. */
   addPermissions?: InputMaybe<Array<PermissionEnum>>;
   /** List of users to assign to this group. */
-  addUsers?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addUsers?: InputMaybe<Array<Scalars['ID']>>;
   /** Group name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * List of channels to unassign from this group.
    *
@@ -19802,11 +19800,11 @@ export type PermissionGroupUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of permission code names to unassign from this group. */
   removePermissions?: InputMaybe<Array<PermissionEnum>>;
   /** List of users to unassign from this group. */
-  removeUsers?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeUsers?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Determine if the group has restricted access to channels.
    *
@@ -19814,7 +19812,7 @@ export type PermissionGroupUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  restrictedAccessToChannels?: InputMaybe<Scalars['Boolean']['input']>;
+  restrictedAccessToChannels?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -19825,7 +19823,7 @@ export type PermissionGroupUpdateInput = {
 export type PermissionGroupUpdated = Event & {
   __typename?: 'PermissionGroupUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The permission group the event relates to. */
@@ -19833,7 +19831,7 @@ export type PermissionGroupUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Plugin. */
@@ -19842,20 +19840,20 @@ export type Plugin = {
   /** Channel-specific plugin configuration. */
   channelConfigurations: Array<PluginConfiguration>;
   /** Description of the plugin. */
-  description: Scalars['String']['output'];
+  description: Scalars['String'];
   /** Global configuration of the plugin (not channel-specific). */
   globalConfiguration?: Maybe<PluginConfiguration>;
   /** Identifier of the plugin. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the plugin. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 /** Stores information about a configuration of plugin. */
 export type PluginConfiguration = {
   __typename?: 'PluginConfiguration';
   /** Determines if plugin is active or not. */
-  active: Scalars['Boolean']['output'];
+  active: Scalars['Boolean'];
   /** The channel to which the plugin configuration is assigned to. */
   channel?: Maybe<Channel>;
   /** Configuration of the plugin. */
@@ -19872,13 +19870,13 @@ export type PluginCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type PluginCountableEdge = {
   __typename?: 'PluginCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Plugin;
 };
@@ -19888,9 +19886,9 @@ export type PluginError = {
   /** The error code. */
   code: PluginErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PluginErrorCode =
@@ -19902,7 +19900,7 @@ export type PluginErrorCode =
   | 'UNIQUE';
 
 export type PluginFilterInput = {
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   statusInChannels?: InputMaybe<PluginStatusInChannelsInput>;
   type?: InputMaybe<PluginConfigurationType>;
 };
@@ -19919,8 +19917,8 @@ export type PluginSortingInput = {
 };
 
 export type PluginStatusInChannelsInput = {
-  active: Scalars['Boolean']['input'];
-  channels: Array<Scalars['ID']['input']>;
+  active: Scalars['Boolean'];
+  channels: Array<Scalars['ID']>;
 };
 
 /**
@@ -19938,7 +19936,7 @@ export type PluginUpdate = {
 
 export type PluginUpdateInput = {
   /** Indicates whether the plugin should be enabled. */
-  active?: InputMaybe<Scalars['Boolean']['input']>;
+  active?: InputMaybe<Scalars['Boolean']>;
   /** Configuration of the plugin. */
   configuration?: InputMaybe<Array<ConfigurationItemInput>>;
 };
@@ -19951,49 +19949,49 @@ export type PostalCodeRuleInclusionTypeEnum =
 export type PreorderData = {
   __typename?: 'PreorderData';
   /** Preorder end date. */
-  endDate?: Maybe<Scalars['DateTime']['output']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /**
    * Total number of sold product variant during preorder.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS.
    */
-  globalSoldUnits: Scalars['Int']['output'];
+  globalSoldUnits: Scalars['Int'];
   /**
    * The global preorder threshold for product variant.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS.
    */
-  globalThreshold?: Maybe<Scalars['Int']['output']>;
+  globalThreshold?: Maybe<Scalars['Int']>;
 };
 
 export type PreorderSettingsInput = {
   /** The end date for preorder. */
-  endDate?: InputMaybe<Scalars['DateTime']['input']>;
+  endDate?: InputMaybe<Scalars['DateTime']>;
   /** The global threshold for preorder variant. */
-  globalThreshold?: InputMaybe<Scalars['Int']['input']>;
+  globalThreshold?: InputMaybe<Scalars['Int']>;
 };
 
 /** Represents preorder variant data for channel. */
 export type PreorderThreshold = {
   __typename?: 'PreorderThreshold';
   /** Preorder threshold for product variant in this channel. */
-  quantity?: Maybe<Scalars['Int']['output']>;
+  quantity?: Maybe<Scalars['Int']>;
   /** Number of sold product variant in this channel. */
-  soldUnits: Scalars['Int']['output'];
+  soldUnits: Scalars['Int'];
 };
 
 export type PriceInput = {
   /** Amount of money. */
-  amount: Scalars['PositiveDecimal']['input'];
+  amount: Scalars['PositiveDecimal'];
   /** Currency code. */
-  currency: Scalars['String']['input'];
+  currency: Scalars['String'];
 };
 
 export type PriceRangeInput = {
   /** Price greater than or equal to. */
-  gte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']>;
   /** Price less than or equal to. */
-  lte?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']>;
 };
 
 /** Represents an individual item for sale in the storefront. */
@@ -20011,12 +20009,12 @@ export type Product = Node & ObjectWithMetadata & {
    * Date when product is available for purchase.
    * @deprecated This field will be removed in Saleor 4.0. Use the `availableForPurchaseAt` field to fetch the available for purchase date.
    */
-  availableForPurchase?: Maybe<Scalars['Date']['output']>;
+  availableForPurchase?: Maybe<Scalars['Date']>;
   /** Date when product is available for purchase. */
-  availableForPurchaseAt?: Maybe<Scalars['DateTime']['output']>;
+  availableForPurchaseAt?: Maybe<Scalars['DateTime']>;
   category?: Maybe<Category>;
   /** Channel given to retrieve this product. Also used by federation gateway to resolve this object in a federated query. */
-  channel?: Maybe<Scalars['String']['output']>;
+  channel?: Maybe<Scalars['String']>;
   /**
    * List of availability in channels for the product.
    *
@@ -20024,11 +20022,11 @@ export type Product = Node & ObjectWithMetadata & {
    */
   channelListings?: Maybe<Array<ProductChannelListing>>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` field to determine whether tax collection is enabled. */
-  chargeTaxes: Scalars['Boolean']['output'];
+  chargeTaxes: Scalars['Boolean'];
   /** List of collections for the product. Requires the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS. */
   collections?: Maybe<Array<Collection>>;
   /** The date and time when the product was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Default variant of the product. */
   defaultVariant?: Maybe<ProductVariant>;
   /**
@@ -20036,22 +20034,22 @@ export type Product = Node & ObjectWithMetadata & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the product.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /**
    * External ID of this product.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** The ID of the product. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Get a single product image by ID.
    * @deprecated This field will be removed in Saleor 4.0. Use the `mediaById` field instead.
@@ -20063,9 +20061,9 @@ export type Product = Node & ObjectWithMetadata & {
    */
   images?: Maybe<Array<ProductImage>>;
   /** Whether the product is in stock, set as available for purchase in the given channel, and published. */
-  isAvailable?: Maybe<Scalars['Boolean']['output']>;
+  isAvailable?: Maybe<Scalars['Boolean']>;
   /** Refers to a state that can be set by admins to control whether a product is available for purchase in storefronts. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased. */
-  isAvailableForPurchase?: Maybe<Scalars['Boolean']['output']>;
+  isAvailableForPurchase?: Maybe<Scalars['Boolean']>;
   /** List of media for the product. */
   media?: Maybe<Array<ProductMedia>>;
   /** Get a single product media by ID. */
@@ -20079,15 +20077,15 @@ export type Product = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** SEO description of the product. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Lists the storefront product's pricing, the current price and discounts, only meant for displaying. */
   pricing?: Maybe<ProductPricingInfo>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -20099,23 +20097,23 @@ export type Product = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Type of the product. */
   productType: ProductType;
   /** Rating of the product. */
-  rating?: Maybe<Scalars['Float']['output']>;
+  rating?: Maybe<Scalars['Float']>;
   /** SEO description of the product. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title of the product. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Slug of the product. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /**
    * Tax class assigned to this product type. All products of this product type use this tax class, unless it's overridden in the `Product` type.
    *
@@ -20132,7 +20130,7 @@ export type Product = Node & ObjectWithMetadata & {
   /** Returns translated product fields for the given language code. */
   translation?: Maybe<ProductTranslation>;
   /** The date and time when the product was last updated. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /**
    * Get a single variant by SKU or ID.
    *
@@ -20149,13 +20147,13 @@ export type Product = Node & ObjectWithMetadata & {
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductAttributeArgs = {
-  slug: Scalars['String']['input'];
+  slug: Scalars['String'];
 };
 
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductImageByIdArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
@@ -20173,19 +20171,19 @@ export type ProductMediaArgs = {
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductMediaByIdArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -20197,20 +20195,20 @@ export type ProductPricingArgs = {
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductThumbnailArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -20222,8 +20220,8 @@ export type ProductTranslationArgs = {
 
 /** Represents an individual item for sale in the storefront. */
 export type ProductVariantArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  sku?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  sku?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -20242,7 +20240,7 @@ export type ProductAttributeAssign = {
 
 export type ProductAttributeAssignInput = {
   /** The ID of the attribute to assign. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /** The attribute type to be assigned as. */
   type: ProductAttributeType;
   /**
@@ -20250,7 +20248,7 @@ export type ProductAttributeAssignInput = {
    *
    * Added in Saleor 3.1.
    */
-  variantSelection?: InputMaybe<Scalars['Boolean']['input']>;
+  variantSelection?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -20271,13 +20269,13 @@ export type ProductAttributeAssignmentUpdate = {
 
 export type ProductAttributeAssignmentUpdateInput = {
   /** The ID of the attribute to assign. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /**
    * Whether attribute is allowed in variant selection. Allowed types are: ['dropdown', 'boolean', 'swatch', 'numeric'].
    *
    * Added in Saleor 3.1.
    */
-  variantSelection: Scalars['Boolean']['input'];
+  variantSelection: Scalars['Boolean'];
 };
 
 export type ProductAttributeType =
@@ -20310,7 +20308,7 @@ export type ProductAttributeUnassign = {
 export type ProductBulkCreate = {
   __typename?: 'ProductBulkCreate';
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductBulkCreateError>;
   /** List of the created products. */
   results: Array<ProductBulkResult>;
@@ -20319,19 +20317,19 @@ export type ProductBulkCreate = {
 export type ProductBulkCreateError = {
   __typename?: 'ProductBulkCreateError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** List of channel IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductBulkCreateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
   /** List of warehouse IDs which causes the error. */
-  warehouses?: Maybe<Array<Scalars['ID']['output']>>;
+  warehouses?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type ProductBulkCreateErrorCode =
@@ -20355,7 +20353,7 @@ export type ProductBulkCreateInput = {
   /** List of attributes. */
   attributes?: InputMaybe<Array<AttributeValueInput>>;
   /** ID of the product's category. */
-  category?: InputMaybe<Scalars['ID']['input']>;
+  category?: InputMaybe<Scalars['ID']>;
   /** List of channels in which the product is available. */
   channelListings?: InputMaybe<Array<ProductChannelListingCreateInput>>;
   /**
@@ -20363,45 +20361,45 @@ export type ProductBulkCreateInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` to configure whether tax collection is enabled.
    */
-  chargeTaxes?: InputMaybe<Scalars['Boolean']['input']>;
+  chargeTaxes?: InputMaybe<Scalars['Boolean']>;
   /** List of IDs of collections that the product belongs to. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Product description.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /** External ID of this product. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** List of media inputs associated with the product. */
   media?: InputMaybe<Array<MediaInput>>;
   /** Fields required to update the product metadata. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Product name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Fields required to update the product private metadata. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** ID of the type that product belongs to. */
-  productType: Scalars['ID']['input'];
+  productType: Scalars['ID'];
   /** Defines the product rating value. */
-  rating?: InputMaybe<Scalars['Float']['input']>;
+  rating?: InputMaybe<Scalars['Float']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Product slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** ID of a tax class to assign to this product. If not provided, product will use the tax class which is assigned to the product type. */
-  taxClass?: InputMaybe<Scalars['ID']['input']>;
+  taxClass?: InputMaybe<Scalars['ID']>;
   /**
    * Tax rate for enabled tax gateway.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use tax classes to control the tax calculation for a product. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
    */
-  taxCode?: InputMaybe<Scalars['String']['input']>;
+  taxCode?: InputMaybe<Scalars['String']>;
   /** Input list of product variants to create. */
   variants?: InputMaybe<Array<ProductVariantBulkCreateInput>>;
   /** Weight of the Product. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /**
@@ -20412,7 +20410,7 @@ export type ProductBulkCreateInput = {
 export type ProductBulkDelete = {
   __typename?: 'ProductBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   productErrors: Array<ProductError>;
@@ -20442,7 +20440,7 @@ export type ProductBulkResult = {
 export type ProductBulkTranslate = {
   __typename?: 'ProductBulkTranslate';
   /** Returns how many translations were created/updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductBulkTranslateError>;
   /** List of the translations. */
   results: Array<ProductBulkTranslateResult>;
@@ -20453,16 +20451,16 @@ export type ProductBulkTranslateError = {
   /** The error code. */
   code: ProductTranslateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type ProductBulkTranslateInput = {
   /** External reference of an product. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Product ID. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** Translation language code. */
   languageCode: LanguageCodeEnum;
   /** Translation fields. */
@@ -20481,23 +20479,23 @@ export type ProductBulkTranslateResult = {
 export type ProductChannelListing = Node & {
   __typename?: 'ProductChannelListing';
   /** @deprecated This field will be removed in Saleor 4.0. Use the `availableForPurchaseAt` field to fetch the available for purchase date. */
-  availableForPurchase?: Maybe<Scalars['Date']['output']>;
+  availableForPurchase?: Maybe<Scalars['Date']>;
   /**
    * The product available for purchase date time.
    *
    * Added in Saleor 3.3.
    */
-  availableForPurchaseAt?: Maybe<Scalars['DateTime']['output']>;
+  availableForPurchaseAt?: Maybe<Scalars['DateTime']>;
   /** The channel in which the product is listed. */
   channel: Channel;
   /** The price of the cheapest variant (including discounts). */
   discountedPrice?: Maybe<Money>;
   /** The ID of the product channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Refers to a state that can be set by admins to control whether a product is available for purchase in storefronts in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased. */
-  isAvailableForPurchase?: Maybe<Scalars['Boolean']['output']>;
+  isAvailableForPurchase?: Maybe<Scalars['Boolean']>;
   /** Indicates if the product is published in the channel. */
-  isPublished: Scalars['Boolean']['output'];
+  isPublished: Scalars['Boolean'];
   /**
    * Range of margin percentage value.
    *
@@ -20507,13 +20505,13 @@ export type ProductChannelListing = Node & {
   /** Lists the storefront product's pricing, the current price and discounts, only meant for displaying. */
   pricing?: Maybe<ProductPricingInfo>;
   /** @deprecated This field will be removed in Saleor 4.0. Use the `publishedAt` field to fetch the publication date. */
-  publicationDate?: Maybe<Scalars['Date']['output']>;
+  publicationDate?: Maybe<Scalars['Date']>;
   /**
    * The product publication date time.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
   /**
    * Purchase cost of product.
    *
@@ -20521,7 +20519,7 @@ export type ProductChannelListing = Node & {
    */
   purchaseCost?: Maybe<MoneyRange>;
   /** Indicates product visibility in the channel listings. */
-  visibleInListings: Scalars['Boolean']['output'];
+  visibleInListings: Scalars['Boolean'];
 };
 
 
@@ -20532,74 +20530,74 @@ export type ProductChannelListingPricingArgs = {
 
 export type ProductChannelListingAddInput = {
   /** List of variants to which the channel should be assigned. */
-  addVariants?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addVariants?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * A start date time from which a product will be available for purchase. When not set and `isAvailable` is set to True, the current day is assumed.
    *
    * Added in Saleor 3.3.
    */
-  availableForPurchaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  availableForPurchaseAt?: InputMaybe<Scalars['DateTime']>;
   /**
    * A start date from which a product will be available for purchase. When not set and isAvailable is set to True, the current day is assumed.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `availableForPurchaseAt` field instead.
    */
-  availableForPurchaseDate?: InputMaybe<Scalars['Date']['input']>;
+  availableForPurchaseDate?: InputMaybe<Scalars['Date']>;
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Determines if product should be available for purchase in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased. */
-  isAvailableForPurchase?: InputMaybe<Scalars['Boolean']['input']>;
+  isAvailableForPurchase?: InputMaybe<Scalars['Boolean']>;
   /** Determines if object is visible to customers. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Publication date. ISO 8601 standard.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `publishedAt` field instead.
    */
-  publicationDate?: InputMaybe<Scalars['Date']['input']>;
+  publicationDate?: InputMaybe<Scalars['Date']>;
   /**
    * Publication date time. ISO 8601 standard.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** List of variants from which the channel should be unassigned. */
-  removeVariants?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeVariants?: InputMaybe<Array<Scalars['ID']>>;
   /** Determines if product is visible in product listings (doesn't apply to product collections). */
-  visibleInListings?: InputMaybe<Scalars['Boolean']['input']>;
+  visibleInListings?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProductChannelListingCreateInput = {
   /** A start date time from which a product will be available for purchase. When not set and `isAvailable` is set to True, the current day is assumed. */
-  availableForPurchaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  availableForPurchaseAt?: InputMaybe<Scalars['DateTime']>;
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Determines if product should be available for purchase in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased. */
-  isAvailableForPurchase?: InputMaybe<Scalars['Boolean']['input']>;
+  isAvailableForPurchase?: InputMaybe<Scalars['Boolean']>;
   /** Determines if object is visible to customers. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /** Publication date time. ISO 8601 standard. */
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** Determines if product is visible in product listings (doesn't apply to product collections). */
-  visibleInListings?: InputMaybe<Scalars['Boolean']['input']>;
+  visibleInListings?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProductChannelListingError = {
   __typename?: 'ProductChannelListingError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** List of channels IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
   /** List of variants IDs which causes the error. */
-  variants?: Maybe<Array<Scalars['ID']['output']>>;
+  variants?: Maybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -20618,7 +20616,7 @@ export type ProductChannelListingUpdate = {
 
 export type ProductChannelListingUpdateInput = {
   /** List of channels from which the product should be unassigned. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of channels to which the product should be assigned or updated. */
   updateChannels?: InputMaybe<Array<ProductChannelListingAddInput>>;
 };
@@ -20629,13 +20627,13 @@ export type ProductCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type ProductCountableEdge = {
   __typename?: 'ProductCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Product;
 };
@@ -20657,27 +20655,27 @@ export type ProductCreateInput = {
   /** List of attributes. */
   attributes?: InputMaybe<Array<AttributeValueInput>>;
   /** ID of the product's category. */
-  category?: InputMaybe<Scalars['ID']['input']>;
+  category?: InputMaybe<Scalars['ID']>;
   /**
    * Determine if taxes are being charged for the product.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` to configure whether tax collection is enabled.
    */
-  chargeTaxes?: InputMaybe<Scalars['Boolean']['input']>;
+  chargeTaxes?: InputMaybe<Scalars['Boolean']>;
   /** List of IDs of collections that the product belongs to. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Product description.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /**
    * External ID of this product.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product metadata.
    *
@@ -20685,7 +20683,7 @@ export type ProductCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Product name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product private metadata.
    *
@@ -20693,23 +20691,23 @@ export type ProductCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** ID of the type that product belongs to. */
-  productType: Scalars['ID']['input'];
+  productType: Scalars['ID'];
   /** Defines the product rating value. */
-  rating?: InputMaybe<Scalars['Float']['input']>;
+  rating?: InputMaybe<Scalars['Float']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Product slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** ID of a tax class to assign to this product. If not provided, product will use the tax class which is assigned to the product type. */
-  taxClass?: InputMaybe<Scalars['ID']['input']>;
+  taxClass?: InputMaybe<Scalars['ID']>;
   /**
    * Tax rate for enabled tax gateway.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use tax classes to control the tax calculation for a product. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
    */
-  taxCode?: InputMaybe<Scalars['String']['input']>;
+  taxCode?: InputMaybe<Scalars['String']>;
   /** Weight of the Product. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /**
@@ -20722,7 +20720,7 @@ export type ProductCreated = Event & {
   /** The category of the product. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product the event relates to. */
@@ -20730,7 +20728,7 @@ export type ProductCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -20740,7 +20738,7 @@ export type ProductCreated = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductCreatedProductArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -20766,7 +20764,7 @@ export type ProductDeleted = Event & {
   /** The category of the product. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product the event relates to. */
@@ -20774,7 +20772,7 @@ export type ProductDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -20784,21 +20782,21 @@ export type ProductDeleted = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductDeletedProductArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type ProductError = {
   __typename?: 'ProductError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type ProductErrorCode =
@@ -20833,13 +20831,13 @@ export type ProductExportCompleted = Event & {
   /** The export file for products. */
   export?: Maybe<ExportFile>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type ProductFieldEnum =
@@ -20863,46 +20861,46 @@ export type ProductFilterInput = {
    *
    * Added in Saleor 3.8.
    */
-  availableFrom?: InputMaybe<Scalars['DateTime']['input']>;
-  categories?: InputMaybe<Array<Scalars['ID']['input']>>;
+  availableFrom?: InputMaybe<Scalars['DateTime']>;
+  categories?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Specifies the channel by which the data should be filtered.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channel?: InputMaybe<Scalars['String']>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /** Filter on whether product is a gift card or not. */
-  giftCard?: InputMaybe<Scalars['Boolean']['input']>;
-  hasCategory?: InputMaybe<Scalars['Boolean']['input']>;
-  hasPreorderedVariants?: InputMaybe<Scalars['Boolean']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  giftCard?: InputMaybe<Scalars['Boolean']>;
+  hasCategory?: InputMaybe<Scalars['Boolean']>;
+  hasPreorderedVariants?: InputMaybe<Scalars['Boolean']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Filter by availability for purchase.
    *
    * Added in Saleor 3.8.
    */
-  isAvailable?: InputMaybe<Scalars['Boolean']['input']>;
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isAvailable?: InputMaybe<Scalars['Boolean']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Filter by visibility in product listings.
    *
    * Added in Saleor 3.8.
    */
-  isVisibleInListing?: InputMaybe<Scalars['Boolean']['input']>;
+  isVisibleInListing?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   /** Filter by the lowest variant price after discounts. */
   minimalPrice?: InputMaybe<PriceRangeInput>;
   price?: InputMaybe<PriceRangeInput>;
-  productTypes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  productTypes?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Filter by the publication date.
    *
    * Added in Saleor 3.8.
    */
-  publishedFrom?: InputMaybe<Scalars['DateTime']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  publishedFrom?: InputMaybe<Scalars['DateTime']>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
   /** Filter by variants having specific stock status. */
   stockAvailability?: InputMaybe<StockAvailability>;
   stocks?: InputMaybe<ProductStockFilterInput>;
@@ -20914,47 +20912,47 @@ export type ProductFilterInput = {
 export type ProductImage = {
   __typename?: 'ProductImage';
   /** The alt text of the image. */
-  alt?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']>;
   /** The ID of the image. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** The new relative sorting position of the item (from -inf to +inf). 1 moves the item one position forward, -1 moves the item one position backward, 0 leaves the item unchanged. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
+  sortOrder?: Maybe<Scalars['Int']>;
   /** The URL of the image. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 
 /** Represents a product image. */
 export type ProductImageUrlArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 export type ProductInput = {
   /** List of attributes. */
   attributes?: InputMaybe<Array<AttributeValueInput>>;
   /** ID of the product's category. */
-  category?: InputMaybe<Scalars['ID']['input']>;
+  category?: InputMaybe<Scalars['ID']>;
   /**
    * Determine if taxes are being charged for the product.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` to configure whether tax collection is enabled.
    */
-  chargeTaxes?: InputMaybe<Scalars['Boolean']['input']>;
+  chargeTaxes?: InputMaybe<Scalars['Boolean']>;
   /** List of IDs of collections that the product belongs to. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Product description.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /**
    * External ID of this product.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product metadata.
    *
@@ -20962,7 +20960,7 @@ export type ProductInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Product name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product private metadata.
    *
@@ -20970,30 +20968,30 @@ export type ProductInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Defines the product rating value. */
-  rating?: InputMaybe<Scalars['Float']['input']>;
+  rating?: InputMaybe<Scalars['Float']>;
   /** Search engine optimization fields. */
   seo?: InputMaybe<SeoInput>;
   /** Product slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** ID of a tax class to assign to this product. If not provided, product will use the tax class which is assigned to the product type. */
-  taxClass?: InputMaybe<Scalars['ID']['input']>;
+  taxClass?: InputMaybe<Scalars['ID']>;
   /**
    * Tax rate for enabled tax gateway.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use tax classes to control the tax calculation for a product. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
    */
-  taxCode?: InputMaybe<Scalars['String']['input']>;
+  taxCode?: InputMaybe<Scalars['String']>;
   /** Weight of the Product. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /** Represents a product media. */
 export type ProductMedia = Node & ObjectWithMetadata & {
   __typename?: 'ProductMedia';
   /** The alt text of the media. */
-  alt: Scalars['String']['output'];
+  alt: Scalars['String'];
   /** The unique ID of the product media. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * List of public metadata items. Can be accessed without permissions.
    *
@@ -21007,15 +21005,15 @@ export type ProductMedia = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.12.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.12.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The oEmbed data of the media. */
-  oembedData: Scalars['JSONString']['output'];
+  oembedData: Scalars['JSONString'];
   /**
    * List of private metadata items. Requires staff permissions to access.
    *
@@ -21029,56 +21027,56 @@ export type ProductMedia = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.12.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.12.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Product id the media refers to.
    *
    * Added in Saleor 3.12.
    */
-  productId?: Maybe<Scalars['ID']['output']>;
+  productId?: Maybe<Scalars['ID']>;
   /** The sort order of the media. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
+  sortOrder?: Maybe<Scalars['Int']>;
   /** The type of the media. */
   type: ProductMediaType;
   /** The URL of the media. */
-  url: Scalars['String']['output'];
+  url: Scalars['String'];
 };
 
 
 /** Represents a product media. */
 export type ProductMediaMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a product media. */
 export type ProductMediaMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a product media. */
 export type ProductMediaPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a product media. */
 export type ProductMediaPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a product media. */
 export type ProductMediaUrlArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 /**
@@ -21089,7 +21087,7 @@ export type ProductMediaUrlArgs = {
 export type ProductMediaBulkDelete = {
   __typename?: 'ProductMediaBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   productErrors: Array<ProductError>;
@@ -21111,13 +21109,13 @@ export type ProductMediaCreate = {
 
 export type ProductMediaCreateInput = {
   /** Alt text for a product media. */
-  alt?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']>;
   /** Represents an image file in a multipart request. */
-  image?: InputMaybe<Scalars['Upload']['input']>;
+  image?: InputMaybe<Scalars['Upload']>;
   /** Represents an URL to an external media. */
-  mediaUrl?: InputMaybe<Scalars['String']['input']>;
+  mediaUrl?: InputMaybe<Scalars['String']>;
   /** ID of an product. */
-  product: Scalars['ID']['input'];
+  product: Scalars['ID'];
 };
 
 /**
@@ -21128,7 +21126,7 @@ export type ProductMediaCreateInput = {
 export type ProductMediaCreated = Event & {
   __typename?: 'ProductMediaCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product media the event relates to. */
@@ -21136,7 +21134,7 @@ export type ProductMediaCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -21161,7 +21159,7 @@ export type ProductMediaDelete = {
 export type ProductMediaDeleted = Event & {
   __typename?: 'ProductMediaDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product media the event relates to. */
@@ -21169,7 +21167,7 @@ export type ProductMediaDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -21206,7 +21204,7 @@ export type ProductMediaUpdate = {
 
 export type ProductMediaUpdateInput = {
   /** Alt text for a product media. */
-  alt?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -21217,7 +21215,7 @@ export type ProductMediaUpdateInput = {
 export type ProductMediaUpdated = Event & {
   __typename?: 'ProductMediaUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product media the event relates to. */
@@ -21225,7 +21223,7 @@ export type ProductMediaUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -21238,7 +21236,7 @@ export type ProductMetadataUpdated = Event & {
   /** The category of the product. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product the event relates to. */
@@ -21246,7 +21244,7 @@ export type ProductMetadataUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -21256,7 +21254,7 @@ export type ProductMetadataUpdated = Event & {
  * Added in Saleor 3.8.
  */
 export type ProductMetadataUpdatedProductArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type ProductOrder = {
@@ -21264,13 +21262,13 @@ export type ProductOrder = {
    * Sort product by the selected attribute's values.
    * Note: this doesn't take translations into account yet.
    */
-  attributeId?: InputMaybe<Scalars['ID']['input']>;
+  attributeId?: InputMaybe<Scalars['ID']>;
   /**
    * Specifies the channel in which to sort the data.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Specifies the direction in which to sort products. */
   direction: OrderDirection;
   /** Sort products by the selected field. */
@@ -21350,9 +21348,9 @@ export type ProductPricingInfo = {
    *
    * Added in Saleor 3.9.
    */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /** Whether it is in sale or not. */
-  onSale?: Maybe<Scalars['Boolean']['output']>;
+  onSale?: Maybe<Scalars['Boolean']>;
   /** The discounted price range of the product variants. */
   priceRange?: Maybe<TaxedMoneyRange>;
   /**
@@ -21380,7 +21378,7 @@ export type ProductReorderAttributeValues = {
 
 export type ProductStockFilterInput = {
   quantity?: InputMaybe<IntRangeInput>;
-  warehouseIds?: InputMaybe<Array<Scalars['ID']['input']>>;
+  warehouseIds?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /** Represents product's original translatable fields and related translations. */
@@ -21393,18 +21391,18 @@ export type ProductTranslatableContent = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Description of the product.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the product translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Product's name to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Represents an individual item for sale in the storefront.
    * @deprecated This field will be removed in Saleor 4.0. Get model fields from the root level queries.
@@ -21415,11 +21413,11 @@ export type ProductTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  productId: Scalars['ID']['output'];
+  productId: Scalars['ID'];
   /** SEO description to translate. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** SEO title to translate. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /** Returns translated product fields for the given language code. */
   translation?: Maybe<ProductTranslation>;
 };
@@ -21457,24 +21455,24 @@ export type ProductTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * Translated description of the product.
    *
    * Rich text format. For reference see https://editorjs.io/
    * @deprecated This field will be removed in Saleor 4.0. Use the `description` field instead.
    */
-  descriptionJson?: Maybe<Scalars['JSONString']['output']>;
+  descriptionJson?: Maybe<Scalars['JSONString']>;
   /** The ID of the product translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated product name. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Translated SEO description. */
-  seoDescription?: Maybe<Scalars['String']['output']>;
+  seoDescription?: Maybe<Scalars['String']>;
   /** Translated SEO title. */
-  seoTitle?: Maybe<Scalars['String']['output']>;
+  seoTitle?: Maybe<Scalars['String']>;
   /**
    * Represents the product fields to translate.
    *
@@ -21499,13 +21497,13 @@ export type ProductType = Node & ObjectWithMetadata & {
    */
   availableAttributes?: Maybe<AttributeCountableConnection>;
   /** Whether the product type has variants. */
-  hasVariants: Scalars['Boolean']['output'];
+  hasVariants: Scalars['Boolean'];
   /** The ID of the product type. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Whether the product type is digital. */
-  isDigital: Scalars['Boolean']['output'];
+  isDigital: Scalars['Boolean'];
   /** Whether shipping is required for this product type. */
-  isShippingRequired: Scalars['Boolean']['output'];
+  isShippingRequired: Scalars['Boolean'];
   /** The product type kind. */
   kind: ProductTypeKindEnum;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -21517,15 +21515,15 @@ export type ProductType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the product type. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -21535,13 +21533,13 @@ export type ProductType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Product attributes of that product type. */
   productAttributes?: Maybe<Array<Attribute>>;
   /**
@@ -21550,7 +21548,7 @@ export type ProductType = Node & ObjectWithMetadata & {
    */
   products?: Maybe<ProductCountableConnection>;
   /** Slug of the product type. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /**
    * Tax class assigned to this product type. All products of this product type use this tax class, unless it's overridden in the `Product` type.
    *
@@ -21580,46 +21578,46 @@ export type ProductTypeAssignedVariantAttributesArgs = {
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypeAvailableAttributesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AttributeFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AttributeWhereInput>;
 };
 
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypeMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypeMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a type of product. It defines what attributes are available to products of this type. */
 export type ProductTypeProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -21636,7 +21634,7 @@ export type ProductTypeVariantAttributesArgs = {
 export type ProductTypeBulkDelete = {
   __typename?: 'ProductTypeBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   productErrors: Array<ProductError>;
@@ -21652,13 +21650,13 @@ export type ProductTypeCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type ProductTypeCountableEdge = {
   __typename?: 'ProductTypeCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: ProductType;
 };
@@ -21695,41 +21693,41 @@ export type ProductTypeEnum =
 
 export type ProductTypeFilterInput = {
   configurable?: InputMaybe<ProductTypeConfigurable>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   kind?: InputMaybe<ProductTypeKindEnum>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   productType?: InputMaybe<ProductTypeEnum>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type ProductTypeInput = {
   /** Determines if product of this type has multiple variants. This option mainly simplifies product management in the dashboard. There is always at least one variant created under the hood. */
-  hasVariants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasVariants?: InputMaybe<Scalars['Boolean']>;
   /** Determines if products are digital. */
-  isDigital?: InputMaybe<Scalars['Boolean']['input']>;
+  isDigital?: InputMaybe<Scalars['Boolean']>;
   /** Determines if shipping is required for products of this variant. */
-  isShippingRequired?: InputMaybe<Scalars['Boolean']['input']>;
+  isShippingRequired?: InputMaybe<Scalars['Boolean']>;
   /** The product type kind. */
   kind?: InputMaybe<ProductTypeKindEnum>;
   /** Name of the product type. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** List of attributes shared among all product variants. */
-  productAttributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  productAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Product type slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
   /** ID of a tax class to assign to this product type. All products of this product type would use this tax class, unless it's overridden in the `Product` type. */
-  taxClass?: InputMaybe<Scalars['ID']['input']>;
+  taxClass?: InputMaybe<Scalars['ID']>;
   /**
    * Tax rate for enabled tax gateway.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0.. Use tax classes to control the tax calculation for a product type. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
    */
-  taxCode?: InputMaybe<Scalars['String']['input']>;
+  taxCode?: InputMaybe<Scalars['String']>;
   /** List of attributes used to distinguish between different variants of a product. */
-  variantAttributes?: InputMaybe<Array<Scalars['ID']['input']>>;
+  variantAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Weight of the ProductType items. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 export type ProductTypeKindEnum =
@@ -21801,7 +21799,7 @@ export type ProductUpdated = Event & {
   /** The category of the product. */
   category?: Maybe<Category>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product the event relates to. */
@@ -21809,7 +21807,7 @@ export type ProductUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -21819,7 +21817,7 @@ export type ProductUpdated = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductUpdatedProductArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a version of a product such as different size or color. */
@@ -21828,7 +21826,7 @@ export type ProductVariant = Node & ObjectWithMetadata & {
   /** List of attributes assigned to this variant. */
   attributes: Array<SelectedAttribute>;
   /** Channel given to retrieve this product variant. Also used by federation gateway to resolve this object in a federated query. */
-  channel?: Maybe<Scalars['String']['output']>;
+  channel?: Maybe<Scalars['String']>;
   /**
    * List of price information in channels for the product.
    *
@@ -21836,7 +21834,7 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    */
   channelListings?: Maybe<Array<ProductVariantChannelListing>>;
   /** The date and time when the product variant was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /**
    * Digital content for the product variant.
    *
@@ -21848,16 +21846,16 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** The ID of the product variant. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * List of images for the product variant.
    * @deprecated This field will be removed in Saleor 4.0. Use the `media` field instead.
    */
   images?: Maybe<Array<ProductImage>>;
   /** Gross margin percentage value. */
-  margin?: Maybe<Scalars['Int']['output']>;
+  margin?: Maybe<Scalars['Int']>;
   /** List of media for the product variant. */
   media?: Maybe<Array<ProductMedia>>;
   /** List of public metadata items. Can be accessed without permissions. */
@@ -21869,15 +21867,15 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The name of the product variant. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Preorder data for product variant.
    *
@@ -21895,25 +21893,25 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** The product to which the variant belongs. */
   product: Product;
   /** Quantity of a product available for sale in one checkout. Field value will be `null` when no `limitQuantityPerCheckout` in global settings has been set, and `productVariant` stocks are not tracked. */
-  quantityAvailable?: Maybe<Scalars['Int']['output']>;
+  quantityAvailable?: Maybe<Scalars['Int']>;
   /** The maximum quantity of this variant that a customer can purchase. */
-  quantityLimitPerCustomer?: Maybe<Scalars['Int']['output']>;
+  quantityLimitPerCustomer?: Maybe<Scalars['Int']>;
   /**
    * Total quantity ordered.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS.
    */
-  quantityOrdered?: Maybe<Scalars['Int']['output']>;
+  quantityOrdered?: Maybe<Scalars['Int']>;
   /**
    * Total revenue generated by a variant in given period of time. Note: this field should be queried using `reportProductSales` query as it uses optimizations suitable for such calculations.
    *
@@ -21921,7 +21919,7 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    */
   revenue?: Maybe<TaxedMoney>;
   /** The SKU (stock keeping unit) of the product variant. */
-  sku?: Maybe<Scalars['String']['output']>;
+  sku?: Maybe<Scalars['String']>;
   /**
    * Stocks for the product variant.
    *
@@ -21929,11 +21927,11 @@ export type ProductVariant = Node & ObjectWithMetadata & {
    */
   stocks?: Maybe<Array<Stock>>;
   /** Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used. */
-  trackInventory: Scalars['Boolean']['output'];
+  trackInventory: Scalars['Boolean'];
   /** Returns translated product variant fields for the given language code. */
   translation?: Maybe<ProductVariantTranslation>;
   /** The date and time when the product variant was last updated. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** The weight of the product variant. */
   weight?: Maybe<Weight>;
 };
@@ -21947,13 +21945,13 @@ export type ProductVariantAttributesArgs = {
 
 /** Represents a version of a product such as different size or color. */
 export type ProductVariantMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a version of a product such as different size or color. */
 export type ProductVariantMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -21965,13 +21963,13 @@ export type ProductVariantPricingArgs = {
 
 /** Represents a version of a product such as different size or color. */
 export type ProductVariantPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a version of a product such as different size or color. */
 export type ProductVariantPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -22008,7 +22006,7 @@ export type ProductVariantTranslationArgs = {
 export type ProductVariantBackInStock = Event & {
   __typename?: 'ProductVariantBackInStock';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22016,7 +22014,7 @@ export type ProductVariantBackInStock = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** Look up a warehouse. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -22028,7 +22026,7 @@ export type ProductVariantBackInStock = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductVariantBackInStockProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -22041,7 +22039,7 @@ export type ProductVariantBulkCreate = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   bulkProductErrors: Array<BulkProductError>;
   /** Returns how many objects were created. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<BulkProductError>;
   /** List of the created variants.This field will be removed in Saleor 4.0. */
   productVariants: Array<ProductVariant>;
@@ -22063,7 +22061,7 @@ export type ProductVariantBulkCreateInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product variant metadata.
    *
@@ -22071,7 +22069,7 @@ export type ProductVariantBulkCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Variant name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Determines if variant is in preorder.
    *
@@ -22089,15 +22087,15 @@ export type ProductVariantBulkCreateInput = {
    *
    * Added in Saleor 3.1.
    */
-  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']['input']>;
+  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']>;
   /** Stock keeping unit. */
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
   /** Stocks of a product available for sale. */
   stocks?: InputMaybe<Array<StockInput>>;
   /** Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used. */
-  trackInventory?: InputMaybe<Scalars['Boolean']['input']>;
+  trackInventory?: InputMaybe<Scalars['Boolean']>;
   /** Weight of the Product Variant. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /**
@@ -22108,7 +22106,7 @@ export type ProductVariantBulkCreateInput = {
 export type ProductVariantBulkDelete = {
   __typename?: 'ProductVariantBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   productErrors: Array<ProductError>;
@@ -22117,37 +22115,37 @@ export type ProductVariantBulkDelete = {
 export type ProductVariantBulkError = {
   __typename?: 'ProductVariantBulkError';
   /** List of attributes IDs which causes the error. */
-  attributes?: Maybe<Array<Scalars['ID']['output']>>;
+  attributes?: Maybe<Array<Scalars['ID']>>;
   /** List of channel listings IDs which causes the error. */
-  channelListings?: Maybe<Array<Scalars['ID']['output']>>;
+  channelListings?: Maybe<Array<Scalars['ID']>>;
   /**
    * List of channel IDs which causes the error.
    *
    * Added in Saleor 3.12.
    */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ProductVariantBulkErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /**
    * Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
    *
    * Added in Saleor 3.14.
    */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
   /**
    * List of stocks IDs which causes the error.
    *
    * Added in Saleor 3.12.
    */
-  stocks?: Maybe<Array<Scalars['ID']['output']>>;
+  stocks?: Maybe<Array<Scalars['ID']>>;
   /** List of attribute values IDs which causes the error. */
-  values?: Maybe<Array<Scalars['ID']['output']>>;
+  values?: Maybe<Array<Scalars['ID']>>;
   /** List of warehouse IDs which causes the error. */
-  warehouses?: Maybe<Array<Scalars['ID']['output']>>;
+  warehouses?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type ProductVariantBulkErrorCode =
@@ -22189,7 +22187,7 @@ export type ProductVariantBulkResult = {
 export type ProductVariantBulkTranslate = {
   __typename?: 'ProductVariantBulkTranslate';
   /** Returns how many translations were created/updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductVariantBulkTranslateError>;
   /** List of the translations. */
   results: Array<ProductVariantBulkTranslateResult>;
@@ -22200,16 +22198,16 @@ export type ProductVariantBulkTranslateError = {
   /** The error code. */
   code: ProductVariantTranslateErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
 };
 
 export type ProductVariantBulkTranslateInput = {
   /** External reference of a product variant. */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Product variant ID. */
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
   /** Translation language code. */
   languageCode: LanguageCodeEnum;
   /** Translation fields. */
@@ -22236,7 +22234,7 @@ export type ProductVariantBulkTranslateResult = {
 export type ProductVariantBulkUpdate = {
   __typename?: 'ProductVariantBulkUpdate';
   /** Returns how many objects were updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ProductVariantBulkError>;
   /** List of the updated variants. */
   results: Array<ProductVariantBulkResult>;
@@ -22263,9 +22261,9 @@ export type ProductVariantBulkUpdateInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** ID of the product variant to update. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /**
    * Fields required to update the product variant metadata.
    *
@@ -22273,7 +22271,7 @@ export type ProductVariantBulkUpdateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Variant name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Determines if variant is in preorder.
    *
@@ -22291,9 +22289,9 @@ export type ProductVariantBulkUpdateInput = {
    *
    * Added in Saleor 3.1.
    */
-  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']['input']>;
+  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']>;
   /** Stock keeping unit. */
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
   /**
    * Stocks input.
    *
@@ -22303,9 +22301,9 @@ export type ProductVariantBulkUpdateInput = {
    */
   stocks?: InputMaybe<ProductVariantStocksUpdateInput>;
   /** Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used. */
-  trackInventory?: InputMaybe<Scalars['Boolean']['input']>;
+  trackInventory?: InputMaybe<Scalars['Boolean']>;
   /** Weight of the Product Variant. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /** Represents product variant channel listing. */
@@ -22316,13 +22314,13 @@ export type ProductVariantChannelListing = Node & {
   /** Cost price of the variant. */
   costPrice?: Maybe<Money>;
   /** The ID of the variant channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Gross margin percentage value.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS.
    */
-  margin?: Maybe<Scalars['Int']['output']>;
+  margin?: Maybe<Scalars['Int']>;
   /**
    * Preorder variant data.
    *
@@ -22335,17 +22333,17 @@ export type ProductVariantChannelListing = Node & {
 
 export type ProductVariantChannelListingAddInput = {
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Cost price of the variant in channel. */
-  costPrice?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  costPrice?: InputMaybe<Scalars['PositiveDecimal']>;
   /**
    * The threshold for preorder variant in channel.
    *
    * Added in Saleor 3.1.
    */
-  preorderThreshold?: InputMaybe<Scalars['Int']['input']>;
+  preorderThreshold?: InputMaybe<Scalars['Int']>;
   /** Price of the particular variant in channel. */
-  price: Scalars['PositiveDecimal']['input'];
+  price: Scalars['PositiveDecimal'];
 };
 
 /**
@@ -22366,7 +22364,7 @@ export type ProductVariantChannelListingUpdateInput = {
   /** List of channels to create variant channel listings. */
   create?: InputMaybe<Array<ProductVariantChannelListingAddInput>>;
   /** List of channel listings to remove. */
-  remove?: InputMaybe<Array<Scalars['ID']['input']>>;
+  remove?: InputMaybe<Array<Scalars['ID']>>;
   /** List of channel listings to update. */
   update?: InputMaybe<Array<ChannelListingUpdateInput>>;
 };
@@ -22377,13 +22375,13 @@ export type ProductVariantCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type ProductVariantCountableEdge = {
   __typename?: 'ProductVariantCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: ProductVariant;
 };
@@ -22409,7 +22407,7 @@ export type ProductVariantCreateInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product variant metadata.
    *
@@ -22417,7 +22415,7 @@ export type ProductVariantCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Variant name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Determines if variant is in preorder.
    *
@@ -22431,21 +22429,21 @@ export type ProductVariantCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** Product ID of which type is the variant. */
-  product: Scalars['ID']['input'];
+  product: Scalars['ID'];
   /**
    * Determines maximum quantity of `ProductVariant`,that can be bought in a single checkout.
    *
    * Added in Saleor 3.1.
    */
-  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']['input']>;
+  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']>;
   /** Stock keeping unit. */
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
   /** Stocks of a product available for sale. */
   stocks?: InputMaybe<Array<StockInput>>;
   /** Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used. */
-  trackInventory?: InputMaybe<Scalars['Boolean']['input']>;
+  trackInventory?: InputMaybe<Scalars['Boolean']>;
   /** Weight of the Product Variant. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /**
@@ -22456,7 +22454,7 @@ export type ProductVariantCreateInput = {
 export type ProductVariantCreated = Event & {
   __typename?: 'ProductVariantCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22464,7 +22462,7 @@ export type ProductVariantCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -22474,7 +22472,7 @@ export type ProductVariantCreated = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductVariantCreatedProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -22498,7 +22496,7 @@ export type ProductVariantDelete = {
 export type ProductVariantDeleted = Event & {
   __typename?: 'ProductVariantDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22506,7 +22504,7 @@ export type ProductVariantDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -22516,14 +22514,14 @@ export type ProductVariantDeleted = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductVariantDeletedProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type ProductVariantFilterInput = {
-  isPreorder?: InputMaybe<Scalars['Boolean']['input']>;
+  isPreorder?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  sku?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  sku?: InputMaybe<Array<Scalars['String']>>;
   updatedAt?: InputMaybe<DateTimeRangeInput>;
 };
 
@@ -22535,7 +22533,7 @@ export type ProductVariantInput = {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the product variant metadata.
    *
@@ -22543,7 +22541,7 @@ export type ProductVariantInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Variant name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Determines if variant is in preorder.
    *
@@ -22561,13 +22559,13 @@ export type ProductVariantInput = {
    *
    * Added in Saleor 3.1.
    */
-  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']['input']>;
+  quantityLimitPerCustomer?: InputMaybe<Scalars['Int']>;
   /** Stock keeping unit. */
-  sku?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']>;
   /** Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used. */
-  trackInventory?: InputMaybe<Scalars['Boolean']['input']>;
+  trackInventory?: InputMaybe<Scalars['Boolean']>;
   /** Weight of the Product Variant. */
-  weight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  weight?: InputMaybe<Scalars['WeightScalar']>;
 };
 
 /**
@@ -22578,7 +22576,7 @@ export type ProductVariantInput = {
 export type ProductVariantMetadataUpdated = Event & {
   __typename?: 'ProductVariantMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22586,7 +22584,7 @@ export type ProductVariantMetadataUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -22596,7 +22594,7 @@ export type ProductVariantMetadataUpdated = Event & {
  * Added in Saleor 3.8.
  */
 export type ProductVariantMetadataUpdatedProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -22607,7 +22605,7 @@ export type ProductVariantMetadataUpdatedProductVariantArgs = {
 export type ProductVariantOutOfStock = Event & {
   __typename?: 'ProductVariantOutOfStock';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22615,7 +22613,7 @@ export type ProductVariantOutOfStock = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** Look up a warehouse. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -22627,7 +22625,7 @@ export type ProductVariantOutOfStock = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductVariantOutOfStockProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -22705,7 +22703,7 @@ export type ProductVariantSortingInput = {
 export type ProductVariantStockUpdated = Event & {
   __typename?: 'ProductVariantStockUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22713,7 +22711,7 @@ export type ProductVariantStockUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** Look up a warehouse. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -22727,7 +22725,7 @@ export type ProductVariantStockUpdated = Event & {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type ProductVariantStockUpdatedProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -22776,7 +22774,7 @@ export type ProductVariantStocksUpdateInput = {
   /** List of warehouses to create stocks. */
   create?: InputMaybe<Array<StockInput>>;
   /** List of stocks to remove. */
-  remove?: InputMaybe<Array<Scalars['ID']['input']>>;
+  remove?: InputMaybe<Array<Scalars['ID']>>;
   /** List of stocks to update. */
   update?: InputMaybe<Array<StockUpdateInput>>;
 };
@@ -22787,9 +22785,9 @@ export type ProductVariantTranslatableContent = Node & {
   /** List of product variant attribute values that can be translated. */
   attributeValues: Array<AttributeValueTranslatableContent>;
   /** The ID of the product variant translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the product variant to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Represents a version of a product such as different size or color.
    * @deprecated This field will be removed in Saleor 4.0. Get model fields from the root level queries.
@@ -22800,7 +22798,7 @@ export type ProductVariantTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  productVariantId: Scalars['ID']['output'];
+  productVariantId: Scalars['ID'];
   /** Returns translated product variant fields for the given language code. */
   translation?: Maybe<ProductVariantTranslation>;
 };
@@ -22834,11 +22832,11 @@ export type ProductVariantTranslateErrorCode =
 export type ProductVariantTranslation = Node & {
   __typename?: 'ProductVariantTranslation';
   /** The ID of the product variant translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated product variant name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Represents the product variant fields to translate.
    *
@@ -22868,7 +22866,7 @@ export type ProductVariantUpdate = {
 export type ProductVariantUpdated = Event & {
   __typename?: 'ProductVariantUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The product variant the event relates to. */
@@ -22876,7 +22874,7 @@ export type ProductVariantUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -22886,7 +22884,7 @@ export type ProductVariantUpdated = Event & {
  * Added in Saleor 3.2.
  */
 export type ProductVariantUpdatedProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type ProductVariantWhereInput = {
@@ -22894,7 +22892,7 @@ export type ProductVariantWhereInput = {
   AND?: InputMaybe<Array<ProductVariantWhereInput>>;
   /** A list of conditions of which at least one must be met. */
   OR?: InputMaybe<Array<ProductVariantWhereInput>>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
 };
 
@@ -22906,24 +22904,24 @@ export type ProductWhereInput = {
   /** Filter by attributes associated with the product. */
   attributes?: InputMaybe<Array<AttributeInput>>;
   /** Filter by the date of availability for purchase. */
-  availableFrom?: InputMaybe<Scalars['DateTime']['input']>;
+  availableFrom?: InputMaybe<Scalars['DateTime']>;
   /** Filter by product category. */
   category?: InputMaybe<GlobalIdFilterInput>;
   /** Filter by collection. */
   collection?: InputMaybe<GlobalIdFilterInput>;
   /** Filter on whether product is a gift card or not. */
-  giftCard?: InputMaybe<Scalars['Boolean']['input']>;
+  giftCard?: InputMaybe<Scalars['Boolean']>;
   /** Filter by product with category assigned. */
-  hasCategory?: InputMaybe<Scalars['Boolean']['input']>;
+  hasCategory?: InputMaybe<Scalars['Boolean']>;
   /** Filter by product with preordered variants. */
-  hasPreorderedVariants?: InputMaybe<Scalars['Boolean']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  hasPreorderedVariants?: InputMaybe<Scalars['Boolean']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   /** Filter by availability for purchase. */
-  isAvailable?: InputMaybe<Scalars['Boolean']['input']>;
+  isAvailable?: InputMaybe<Scalars['Boolean']>;
   /** Filter by public visibility. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /** Filter by visibility on the channel. */
-  isVisibleInListing?: InputMaybe<Scalars['Boolean']['input']>;
+  isVisibleInListing?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   /** Filter by the lowest variant price after discounts. */
   minimalPrice?: InputMaybe<DecimalFilterInput>;
@@ -22934,7 +22932,7 @@ export type ProductWhereInput = {
   /** Filter by product type. */
   productType?: InputMaybe<GlobalIdFilterInput>;
   /** Filter by the publication date. */
-  publishedFrom?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedFrom?: InputMaybe<Scalars['DateTime']>;
   /** Filter by product slug. */
   slug?: InputMaybe<StringFilterInput>;
   /** Filter by variants having specific stock status. */
@@ -22955,14 +22953,14 @@ export type ProductWhereInput = {
 export type Promotion = Node & ObjectWithMetadata & {
   __typename?: 'Promotion';
   /** Date time of promotion creation. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** Description of the promotion. */
-  description?: Maybe<Scalars['JSON']['output']>;
+  description?: Maybe<Scalars['JSON']>;
   /** End date of the promotion. */
-  endDate?: Maybe<Scalars['DateTime']['output']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /** The list of events associated with the promotion. */
   events?: Maybe<Array<PromotionEvent>>;
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -22972,15 +22970,15 @@ export type Promotion = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the promotion. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -22990,17 +22988,17 @@ export type Promotion = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** The list of promotion rules. */
   rules?: Maybe<Array<PromotionRule>>;
   /** Start date of the promotion. */
-  startDate: Scalars['DateTime']['output'];
+  startDate: Scalars['DateTime'];
   /** Returns translated promotion fields for the given language code. */
   translation?: Maybe<PromotionTranslation>;
   /**
@@ -23012,7 +23010,7 @@ export type Promotion = Node & ObjectWithMetadata & {
    */
   type?: Maybe<PromotionTypeEnum>;
   /** Date time of last update of promotion. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
 };
 
 
@@ -23024,7 +23022,7 @@ export type Promotion = Node & ObjectWithMetadata & {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type PromotionMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -23036,7 +23034,7 @@ export type PromotionMetafieldArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type PromotionMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -23048,7 +23046,7 @@ export type PromotionMetafieldsArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type PromotionPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -23060,7 +23058,7 @@ export type PromotionPrivateMetafieldArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type PromotionPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -23090,7 +23088,7 @@ export type PromotionTranslationArgs = {
 export type PromotionBulkDelete = {
   __typename?: 'PromotionBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<DiscountError>;
 };
 
@@ -23100,13 +23098,13 @@ export type PromotionCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type PromotionCountableEdge = {
   __typename?: 'PromotionCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Promotion;
 };
@@ -23135,19 +23133,19 @@ export type PromotionCreateError = {
   /** The error code. */
   code: PromotionCreateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** Limit of gifts assigned to promotion rule. */
-  giftsLimit?: Maybe<Scalars['Int']['output']>;
+  giftsLimit?: Maybe<Scalars['Int']>;
   /** Number of gifts defined for this promotion rule exceeding the limit. */
-  giftsLimitExceedBy?: Maybe<Scalars['Int']['output']>;
+  giftsLimitExceedBy?: Maybe<Scalars['Int']>;
   /** Index of an input list item that caused the error. */
-  index?: Maybe<Scalars['Int']['output']>;
+  index?: Maybe<Scalars['Int']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Limit of rules with orderPredicate defined. */
-  rulesLimit?: Maybe<Scalars['Int']['output']>;
+  rulesLimit?: Maybe<Scalars['Int']>;
   /** Number of rules with orderPredicate defined exceeding the limit. */
-  rulesLimitExceedBy?: Maybe<Scalars['Int']['output']>;
+  rulesLimitExceedBy?: Maybe<Scalars['Int']>;
 };
 
 export type PromotionCreateErrorCode =
@@ -23164,15 +23162,15 @@ export type PromotionCreateErrorCode =
 
 export type PromotionCreateInput = {
   /** Promotion description. */
-  description?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
   /** The end date of the promotion in ISO 8601 format. */
-  endDate?: InputMaybe<Scalars['DateTime']['input']>;
+  endDate?: InputMaybe<Scalars['DateTime']>;
   /** Promotion name. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /** List of promotion rules. */
   rules?: InputMaybe<Array<PromotionRuleInput>>;
   /** The start date of the promotion in ISO 8601 format. */
-  startDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate?: InputMaybe<Scalars['DateTime']>;
   /**
    * Defines the promotion type. Implicate the required promotion rules predicate type and whether the promotion rules will give the catalogue or order discount.
    *
@@ -23191,7 +23189,7 @@ export type PromotionCreateInput = {
 export type PromotionCreated = Event & {
   __typename?: 'PromotionCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion the event relates to. */
@@ -23199,7 +23197,7 @@ export type PromotionCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23218,8 +23216,8 @@ export type PromotionCreatedEvent = Node & PromotionEventInterface & {
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23247,9 +23245,9 @@ export type PromotionDeleteError = {
   /** The error code. */
   code: PromotionDeleteErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PromotionDeleteErrorCode =
@@ -23266,7 +23264,7 @@ export type PromotionDeleteErrorCode =
 export type PromotionDeleted = Event & {
   __typename?: 'PromotionDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion the event relates to. */
@@ -23274,7 +23272,7 @@ export type PromotionDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23287,7 +23285,7 @@ export type PromotionDeleted = Event & {
 export type PromotionEnded = Event & {
   __typename?: 'PromotionEnded';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion the event relates to. */
@@ -23295,7 +23293,7 @@ export type PromotionEnded = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23314,8 +23312,8 @@ export type PromotionEndedEvent = Node & PromotionEventInterface & {
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23330,8 +23328,8 @@ export type PromotionEventInterface = {
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23355,7 +23353,7 @@ export type PromotionEventsEnum =
 export type PromotionRule = Node & {
   __typename?: 'PromotionRule';
   /** The catalogue predicate that must be met to apply the rule reward. */
-  cataloguePredicate?: Maybe<Scalars['JSON']['output']>;
+  cataloguePredicate?: Maybe<Scalars['JSON']>;
   /**
    * List of channels where the rule applies.
    *
@@ -23363,7 +23361,7 @@ export type PromotionRule = Node & {
    */
   channels?: Maybe<Array<Channel>>;
   /** Description of the promotion rule. */
-  description?: Maybe<Scalars['JSON']['output']>;
+  description?: Maybe<Scalars['JSON']>;
   /**
    * Product variant IDs available as a gift to choose.
    *
@@ -23371,7 +23369,7 @@ export type PromotionRule = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  giftIds?: Maybe<Array<Scalars['ID']['output']>>;
+  giftIds?: Maybe<Array<Scalars['ID']>>;
   /**
    * Defines the maximum number of gifts to choose from the gifts list.
    *
@@ -23379,10 +23377,10 @@ export type PromotionRule = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  giftsLimit?: Maybe<Scalars['Int']['output']>;
-  id: Scalars['ID']['output'];
+  giftsLimit?: Maybe<Scalars['Int']>;
+  id: Scalars['ID'];
   /** Name of the promotion rule. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * The checkout/order predicate that must be met to apply the rule reward.
    *
@@ -23390,7 +23388,7 @@ export type PromotionRule = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  orderPredicate?: Maybe<Scalars['JSON']['output']>;
+  orderPredicate?: Maybe<Scalars['JSON']>;
   /**
    * The type of the predicate that must be met to apply the reward.
    *
@@ -23416,7 +23414,7 @@ export type PromotionRule = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  rewardValue?: Maybe<Scalars['PositiveDecimal']['output']>;
+  rewardValue?: Maybe<Scalars['PositiveDecimal']>;
   /** The type of reward value of the promotion rule. */
   rewardValueType?: Maybe<RewardValueTypeEnum>;
   /** Returns translated promotion rule fields for the given language code. */
@@ -23458,17 +23456,17 @@ export type PromotionRuleCreateError = {
   /** The error code. */
   code: PromotionRuleCreateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** Limit of gifts assigned to promotion rule. */
-  giftsLimit?: Maybe<Scalars['Int']['output']>;
+  giftsLimit?: Maybe<Scalars['Int']>;
   /** Number of gifts defined for this promotion rule exceeding the limit. */
-  giftsLimitExceedBy?: Maybe<Scalars['Int']['output']>;
+  giftsLimitExceedBy?: Maybe<Scalars['Int']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Limit of rules with orderPredicate defined. */
-  rulesLimit?: Maybe<Scalars['Int']['output']>;
+  rulesLimit?: Maybe<Scalars['Int']>;
   /** Number of rules with orderPredicate defined exceeding the limit. */
-  rulesLimitExceedBy?: Maybe<Scalars['Int']['output']>;
+  rulesLimitExceedBy?: Maybe<Scalars['Int']>;
 };
 
 export type PromotionRuleCreateErrorCode =
@@ -23487,9 +23485,9 @@ export type PromotionRuleCreateInput = {
   /** Defines the conditions on the catalogue level that must be met for the reward to be applied. */
   cataloguePredicate?: InputMaybe<CataloguePredicateInput>;
   /** List of channel ids to which the rule should apply to. */
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   /** Promotion rule description. */
-  description?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
   /**
    * Product variant IDs available as a gift to choose.
    *
@@ -23497,9 +23495,9 @@ export type PromotionRuleCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  gifts?: InputMaybe<Array<Scalars['ID']['input']>>;
+  gifts?: InputMaybe<Array<Scalars['ID']>>;
   /** Promotion rule name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Defines the conditions on the checkout/draft order level that must be met for the reward to be applied.
    *
@@ -23509,7 +23507,7 @@ export type PromotionRuleCreateInput = {
    */
   orderPredicate?: InputMaybe<OrderPredicateInput>;
   /** The ID of the promotion that rule belongs to. */
-  promotion: Scalars['ID']['input'];
+  promotion: Scalars['ID'];
   /**
    * Defines the reward type of the promotion rule.
    *
@@ -23519,7 +23517,7 @@ export type PromotionRuleCreateInput = {
    */
   rewardType?: InputMaybe<RewardTypeEnum>;
   /** Defines the discount value. Required when catalogue predicate is provided. */
-  rewardValue?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  rewardValue?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Defines the promotion rule reward value type. Must be provided together with reward value. */
   rewardValueType?: InputMaybe<RewardValueTypeEnum>;
 };
@@ -23534,7 +23532,7 @@ export type PromotionRuleCreateInput = {
 export type PromotionRuleCreated = Event & {
   __typename?: 'PromotionRuleCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion rule the event relates to. */
@@ -23542,7 +23540,7 @@ export type PromotionRuleCreated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23561,10 +23559,10 @@ export type PromotionRuleCreatedEvent = Node & PromotionEventInterface & Promoti
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** The rule ID associated with the promotion event. */
-  ruleId?: Maybe<Scalars['String']['output']>;
+  ruleId?: Maybe<Scalars['String']>;
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23592,9 +23590,9 @@ export type PromotionRuleDeleteError = {
   /** The error code. */
   code: PromotionRuleDeleteErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PromotionRuleDeleteErrorCode =
@@ -23611,7 +23609,7 @@ export type PromotionRuleDeleteErrorCode =
 export type PromotionRuleDeleted = Event & {
   __typename?: 'PromotionRuleDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion rule the event relates to. */
@@ -23619,7 +23617,7 @@ export type PromotionRuleDeleted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23638,10 +23636,10 @@ export type PromotionRuleDeletedEvent = Node & PromotionEventInterface & Promoti
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** The rule ID associated with the promotion event. */
-  ruleId?: Maybe<Scalars['String']['output']>;
+  ruleId?: Maybe<Scalars['String']>;
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23655,16 +23653,16 @@ export type PromotionRuleDeletedEvent = Node & PromotionEventInterface & Promoti
  */
 export type PromotionRuleEventInterface = {
   /** The rule ID associated with the promotion event. */
-  ruleId?: Maybe<Scalars['String']['output']>;
+  ruleId?: Maybe<Scalars['String']>;
 };
 
 export type PromotionRuleInput = {
   /** Defines the conditions on the catalogue level that must be met for the reward to be applied. */
   cataloguePredicate?: InputMaybe<CataloguePredicateInput>;
   /** List of channel ids to which the rule should apply to. */
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   /** Promotion rule description. */
-  description?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
   /**
    * Product variant IDs available as a gift to choose.
    *
@@ -23672,9 +23670,9 @@ export type PromotionRuleInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  gifts?: InputMaybe<Array<Scalars['ID']['input']>>;
+  gifts?: InputMaybe<Array<Scalars['ID']>>;
   /** Promotion rule name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Defines the conditions on the checkout/draft order level that must be met for the reward to be applied.
    *
@@ -23692,7 +23690,7 @@ export type PromotionRuleInput = {
    */
   rewardType?: InputMaybe<RewardTypeEnum>;
   /** Defines the discount value. Required when catalogue predicate is provided. */
-  rewardValue?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  rewardValue?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Defines the promotion rule reward value type. Must be provided together with reward value. */
   rewardValueType?: InputMaybe<RewardValueTypeEnum>;
 };
@@ -23709,17 +23707,17 @@ export type PromotionRuleTranslatableContent = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** ID of the promotion rule translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the promotion rule. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * ID of the promotion rule to translate.
    *
    * Added in Saleor 3.14.
    */
-  promotionRuleId: Scalars['ID']['output'];
+  promotionRuleId: Scalars['ID'];
   /** Returns translated promotion rule fields for the given language code. */
   translation?: Maybe<PromotionRuleTranslation>;
 };
@@ -23759,13 +23757,13 @@ export type PromotionRuleTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** ID of the promotion rule translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated name of the promotion rule. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Represents the promotion rule fields to translate.
    *
@@ -23780,8 +23778,8 @@ export type PromotionRuleTranslationInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSON']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -23805,17 +23803,17 @@ export type PromotionRuleUpdate = {
 export type PromotionRuleUpdateError = {
   __typename?: 'PromotionRuleUpdateError';
   /** List of channel IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: PromotionRuleUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** Limit of gifts assigned to promotion rule. */
-  giftsLimit?: Maybe<Scalars['Int']['output']>;
+  giftsLimit?: Maybe<Scalars['Int']>;
   /** Number of gifts defined for this promotion rule exceeding the limit. */
-  giftsLimitExceedBy?: Maybe<Scalars['Int']['output']>;
+  giftsLimitExceedBy?: Maybe<Scalars['Int']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PromotionRuleUpdateErrorCode =
@@ -23832,7 +23830,7 @@ export type PromotionRuleUpdateErrorCode =
 
 export type PromotionRuleUpdateInput = {
   /** List of channel ids to add. */
-  addChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addChannels?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * List of variant IDs available as a gift to add.
    *
@@ -23840,13 +23838,13 @@ export type PromotionRuleUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  addGifts?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addGifts?: InputMaybe<Array<Scalars['ID']>>;
   /** Defines the conditions on the catalogue level that must be met for the reward to be applied. */
   cataloguePredicate?: InputMaybe<CataloguePredicateInput>;
   /** Promotion rule description. */
-  description?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
   /** Promotion rule name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Defines the conditions on the checkout/draft order level that must be met for the reward to be applied.
    *
@@ -23856,7 +23854,7 @@ export type PromotionRuleUpdateInput = {
    */
   orderPredicate?: InputMaybe<OrderPredicateInput>;
   /** List of channel ids to remove. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * List of variant IDs available as a gift to remove.
    *
@@ -23864,7 +23862,7 @@ export type PromotionRuleUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  removeGifts?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeGifts?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * Defines the reward type of the promotion rule.
    *
@@ -23874,7 +23872,7 @@ export type PromotionRuleUpdateInput = {
    */
   rewardType?: InputMaybe<RewardTypeEnum>;
   /** Defines the discount value. Required when catalogue predicate is provided. */
-  rewardValue?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  rewardValue?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Defines the promotion rule reward value type. Must be provided together with reward value. */
   rewardValueType?: InputMaybe<RewardValueTypeEnum>;
 };
@@ -23889,7 +23887,7 @@ export type PromotionRuleUpdateInput = {
 export type PromotionRuleUpdated = Event & {
   __typename?: 'PromotionRuleUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion rule the event relates to. */
@@ -23897,7 +23895,7 @@ export type PromotionRuleUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23916,10 +23914,10 @@ export type PromotionRuleUpdatedEvent = Node & PromotionEventInterface & Promoti
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** The rule ID associated with the promotion event. */
-  ruleId?: Maybe<Scalars['String']['output']>;
+  ruleId?: Maybe<Scalars['String']>;
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23951,7 +23949,7 @@ export type PromotionSortingInput = {
 export type PromotionStarted = Event & {
   __typename?: 'PromotionStarted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion the event relates to. */
@@ -23959,7 +23957,7 @@ export type PromotionStarted = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -23978,8 +23976,8 @@ export type PromotionStartedEvent = Node & PromotionEventInterface & {
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -23996,13 +23994,13 @@ export type PromotionTranslatableContent = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** ID of the promotion translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the promotion. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** ID of the promotion to translate. */
-  promotionId: Scalars['ID']['output'];
+  promotionId: Scalars['ID'];
   /** Returns translated promotion fields for the given language code. */
   translation?: Maybe<PromotionTranslation>;
 };
@@ -24042,13 +24040,13 @@ export type PromotionTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** ID of the promotion translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated name of the promotion. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Represents the promotion fields to translate.
    *
@@ -24063,8 +24061,8 @@ export type PromotionTranslationInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSON']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 export type PromotionTypeEnum =
@@ -24103,9 +24101,9 @@ export type PromotionUpdateError = {
   /** The error code. */
   code: PromotionUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PromotionUpdateErrorCode =
@@ -24116,13 +24114,13 @@ export type PromotionUpdateErrorCode =
 
 export type PromotionUpdateInput = {
   /** Promotion description. */
-  description?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']>;
   /** The end date of the promotion in ISO 8601 format. */
-  endDate?: InputMaybe<Scalars['DateTime']['input']>;
+  endDate?: InputMaybe<Scalars['DateTime']>;
   /** Promotion name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** The start date of the promotion in ISO 8601 format. */
-  startDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate?: InputMaybe<Scalars['DateTime']>;
 };
 
 /**
@@ -24135,7 +24133,7 @@ export type PromotionUpdateInput = {
 export type PromotionUpdated = Event & {
   __typename?: 'PromotionUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The promotion the event relates to. */
@@ -24143,7 +24141,7 @@ export type PromotionUpdated = Event & {
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -24162,8 +24160,8 @@ export type PromotionUpdatedEvent = Node & PromotionEventInterface & {
    */
   createdBy?: Maybe<UserOrApp>;
   /** Date when event happened. */
-  date: Scalars['DateTime']['output'];
-  id: Scalars['ID']['output'];
+  date: Scalars['DateTime'];
+  id: Scalars['ID'];
   /** Promotion event type. */
   type: PromotionEventsEnum;
 };
@@ -24175,8 +24173,8 @@ export type PromotionWhereInput = {
   OR?: InputMaybe<Array<PromotionWhereInput>>;
   /** Filter promotions by end date. */
   endDate?: InputMaybe<DateTimeFilterInput>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  isOldSale?: InputMaybe<Scalars['Boolean']['input']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  isOldSale?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
   /** Filter by promotion name. */
   name?: InputMaybe<StringFilterInput>;
@@ -24187,21 +24185,21 @@ export type PromotionWhereInput = {
 
 export type PublishableChannelListingInput = {
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Determines if object is visible to customers. */
-  isPublished?: InputMaybe<Scalars['Boolean']['input']>;
+  isPublished?: InputMaybe<Scalars['Boolean']>;
   /**
    * Publication date. ISO 8601 standard.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `publishedAt` field instead.
    */
-  publicationDate?: InputMaybe<Scalars['Date']['input']>;
+  publicationDate?: InputMaybe<Scalars['Date']>;
   /**
    * Publication date time. ISO 8601 standard.
    *
    * Added in Saleor 3.3.
    */
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type Query = {
@@ -24337,7 +24335,7 @@ export type Query = {
    *
    * Requires one of the following permissions: MANAGE_GIFT_CARD.
    */
-  giftCardCurrencies: Array<Scalars['String']['output']>;
+  giftCardCurrencies: Array<Scalars['String']>;
   /**
    * Gift card related settings from site settings.
    *
@@ -24638,531 +24636,531 @@ export type Query = {
    */
   webhookEvents?: Maybe<Array<WebhookEvent>>;
   /** Retrieve a sample payload for a given webhook event based on real data. It can be useful for some integrations where sample payload is required. */
-  webhookSamplePayload?: Maybe<Scalars['JSONString']['output']>;
+  webhookSamplePayload?: Maybe<Scalars['JSONString']>;
 };
 
 
 export type Query_EntitiesArgs = {
-  representations?: InputMaybe<Array<InputMaybe<Scalars['_Any']['input']>>>;
+  representations?: InputMaybe<Array<InputMaybe<Scalars['_Any']>>>;
 };
 
 
 export type QueryAddressArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryAddressValidationRulesArgs = {
-  city?: InputMaybe<Scalars['String']['input']>;
-  cityArea?: InputMaybe<Scalars['String']['input']>;
-  countryArea?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']>;
+  cityArea?: InputMaybe<Scalars['String']>;
+  countryArea?: InputMaybe<Scalars['String']>;
   countryCode: CountryCode;
 };
 
 
 export type QueryAppArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type QueryAppExtensionArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryAppExtensionsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AppExtensionFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryAppsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AppFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<AppSortingInput>;
 };
 
 
 export type QueryAttributeArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryAttributesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<AttributeFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
   sortBy?: InputMaybe<AttributeSortingInput>;
   where?: InputMaybe<AttributeWhereInput>;
 };
 
 
 export type QueryCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<CategoryFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  level?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<CategorySortingInput>;
   where?: InputMaybe<CategoryWhereInput>;
 };
 
 
 export type QueryCategoryArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryChannelArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryCheckoutArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type QueryCheckoutLinesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryCheckoutsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<CheckoutFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<CheckoutSortingInput>;
 };
 
 
 export type QueryCollectionArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryCollectionsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<CollectionFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<CollectionSortingInput>;
   where?: InputMaybe<CollectionWhereInput>;
 };
 
 
 export type QueryCustomersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<CustomerFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<UserSortingInput>;
 };
 
 
 export type QueryDigitalContentArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryDigitalContentsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryDraftOrdersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<OrderDraftFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<OrderSortingInput>;
 };
 
 
 export type QueryExportFileArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryExportFilesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ExportFileFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<ExportFileSortingInput>;
 };
 
 
 export type QueryGiftCardArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryGiftCardTagsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<GiftCardTagFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryGiftCardsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<GiftCardFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
   sortBy?: InputMaybe<GiftCardSortingInput>;
 };
 
 
 export type QueryHomepageEventsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryMenuArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  name?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryMenuItemArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
 };
 
 
 export type QueryMenuItemsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<MenuItemFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<MenuItemSortingInput>;
 };
 
 
 export type QueryMenusArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<MenuFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<MenuSortingInput>;
 };
 
 
 export type QueryOrderArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type QueryOrderByTokenArgs = {
-  token: Scalars['UUID']['input'];
+  token: Scalars['UUID'];
 };
 
 
 export type QueryOrdersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<OrderFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<OrderSortingInput>;
 };
 
 
 export type QueryOrdersTotalArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   period?: InputMaybe<ReportingPeriod>;
 };
 
 
 export type QueryPageArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryPageTypeArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryPageTypesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<PageTypeFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<PageTypeSortingInput>;
 };
 
 
 export type QueryPagesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<PageFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<PageSortingInput>;
 };
 
 
 export type QueryPaymentArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryPaymentsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<PaymentFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryPermissionGroupArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryPermissionGroupsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<PermissionGroupFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<PermissionGroupSortingInput>;
 };
 
 
 export type QueryPluginArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryPluginsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<PluginFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<PluginSortingInput>;
 };
 
 
 export type QueryProductArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryProductTypeArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryProductTypesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ProductTypeFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<ProductTypeSortingInput>;
 };
 
 
 export type QueryProductVariantArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  sku?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  sku?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryProductVariantsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ProductVariantFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<ProductVariantSortingInput>;
   where?: InputMaybe<ProductVariantWhereInput>;
 };
 
 
 export type QueryProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ProductFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
   sortBy?: InputMaybe<ProductOrder>;
   where?: InputMaybe<ProductWhereInput>;
 };
 
 
 export type QueryPromotionArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryPromotionsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<PromotionSortingInput>;
   where?: InputMaybe<PromotionWhereInput>;
 };
 
 
 export type QueryReportProductSalesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel: Scalars['String']['input'];
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel: Scalars['String'];
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   period: ReportingPeriod;
 };
 
 
 export type QuerySaleArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
 };
 
 
 export type QuerySalesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<SaleFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  query?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  query?: InputMaybe<Scalars['String']>;
   sortBy?: InputMaybe<SaleSortingInput>;
 };
 
 
 export type QueryShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
 };
 
 
 export type QueryShippingZonesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<ShippingZoneFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryStaffUsersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<StaffUserInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<UserSortingInput>;
 };
 
 
 export type QueryStockArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryStocksArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<StockFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryTaxClassArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryTaxClassesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<TaxClassFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<TaxClassSortingInput>;
 };
 
 
 export type QueryTaxConfigurationArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryTaxConfigurationsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<TaxConfigurationFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -25172,69 +25170,69 @@ export type QueryTaxCountryConfigurationArgs = {
 
 
 export type QueryTransactionArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  token?: InputMaybe<Scalars['UUID']['input']>;
+  id?: InputMaybe<Scalars['ID']>;
+  token?: InputMaybe<Scalars['UUID']>;
 };
 
 
 export type QueryTranslationArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   kind: TranslatableKinds;
 };
 
 
 export type QueryTranslationsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
   kind: TranslatableKinds;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type QueryUserArgs = {
-  email?: InputMaybe<Scalars['String']['input']>;
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  email?: InputMaybe<Scalars['String']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type QueryVoucherArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
+  channel?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
 };
 
 
 export type QueryVouchersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<VoucherFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  query?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  query?: InputMaybe<Scalars['String']>;
   sortBy?: InputMaybe<VoucherSortingInput>;
 };
 
 
 export type QueryWarehouseArgs = {
-  externalReference?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
 export type QueryWarehousesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<WarehouseFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<WarehouseSortingInput>;
 };
 
 
 export type QueryWebhookArgs = {
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
 };
 
 
@@ -25246,9 +25244,9 @@ export type QueryWebhookSamplePayloadArgs = {
 export type ReducedRate = {
   __typename?: 'ReducedRate';
   /** Reduced VAT rate in percent. */
-  rate: Scalars['Float']['output'];
+  rate: Scalars['Float'];
   /** A type of goods. */
-  rateType: Scalars['String']['output'];
+  rateType: Scalars['String'];
 };
 
 /** Refresh JWT token. Mutation tries to take refreshToken from the input. If it fails it will try to take `refreshToken` from the http-only cookie `refreshToken`. `csrfToken` is required when `refreshToken` is provided as a cookie. */
@@ -25258,16 +25256,16 @@ export type RefreshToken = {
   accountErrors: Array<AccountError>;
   errors: Array<AccountError>;
   /** JWT token, required to authenticate. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** A user instance. */
   user?: Maybe<User>;
 };
 
 export type ReorderInput = {
   /** The ID of the item to move. */
-  id: Scalars['ID']['input'];
+  id: Scalars['ID'];
   /** The new relative sorting position of the item (from -inf to +inf). 1 moves the item one position forward, -1 moves the item one position backward, 0 leaves the item unchanged. */
-  sortOrder?: InputMaybe<Scalars['Int']['input']>;
+  sortOrder?: InputMaybe<Scalars['Int']>;
 };
 
 export type ReportingPeriod =
@@ -25337,15 +25335,15 @@ export type Sale = Node & ObjectWithMetadata & {
    */
   collections?: Maybe<CollectionCountableConnection>;
   /** The date and time when the sale was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Currency code for sale. */
-  currency?: Maybe<Scalars['String']['output']>;
+  currency?: Maybe<Scalars['String']>;
   /** Sale value. */
-  discountValue?: Maybe<Scalars['Float']['output']>;
+  discountValue?: Maybe<Scalars['Float']>;
   /** The end date and time of the sale. */
-  endDate?: Maybe<Scalars['DateTime']['output']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /** The ID of the sale. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -25355,15 +25353,15 @@ export type Sale = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** The name of the sale. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -25373,13 +25371,13 @@ export type Sale = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of products this sale applies to.
    *
@@ -25387,13 +25385,13 @@ export type Sale = Node & ObjectWithMetadata & {
    */
   products?: Maybe<ProductCountableConnection>;
   /** The start date and time of the sale. */
-  startDate: Scalars['DateTime']['output'];
+  startDate: Scalars['DateTime'];
   /** Returns translated sale fields for the given language code. */
   translation?: Maybe<SaleTranslation>;
   /** Type of the sale, fixed or percentage. */
   type: SaleType;
   /** The date and time when the sale was updated. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /**
    * List of product variants this sale applies to.
    *
@@ -25411,10 +25409,10 @@ export type Sale = Node & ObjectWithMetadata & {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -25424,10 +25422,10 @@ export type SaleCategoriesArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleCollectionsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -25437,7 +25435,7 @@ export type SaleCollectionsArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -25447,7 +25445,7 @@ export type SaleMetafieldArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -25457,7 +25455,7 @@ export type SaleMetafieldsArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SalePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -25467,7 +25465,7 @@ export type SalePrivateMetafieldArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SalePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -25477,10 +25475,10 @@ export type SalePrivateMetafieldsArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -25500,10 +25498,10 @@ export type SaleTranslationArgs = {
  * DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
  */
 export type SaleVariantsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 /**
@@ -25536,7 +25534,7 @@ export type SaleAddCatalogues = {
 export type SaleBulkDelete = {
   __typename?: 'SaleBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   discountErrors: Array<DiscountError>;
   errors: Array<DiscountError>;
@@ -25552,25 +25550,25 @@ export type SaleChannelListing = Node & {
   /** The channel in which the sale is available. */
   channel: Channel;
   /** The currency in which the discount value is specified. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
   /** The value of the discount applied to the sale in the channel. */
-  discountValue: Scalars['Float']['output'];
+  discountValue: Scalars['Float'];
   /** The ID of the channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
 };
 
 export type SaleChannelListingAddInput = {
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** The value of the discount. */
-  discountValue: Scalars['PositiveDecimal']['input'];
+  discountValue: Scalars['PositiveDecimal'];
 };
 
 export type SaleChannelListingInput = {
   /** List of channels to which the sale should be assigned. */
   addChannels?: InputMaybe<Array<SaleChannelListingAddInput>>;
   /** List of channels from which the sale should be unassigned. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -25595,13 +25593,13 @@ export type SaleCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type SaleCountableEdge = {
   __typename?: 'SaleCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Sale;
 };
@@ -25634,7 +25632,7 @@ export type SaleCreate = {
 export type SaleCreated = Event & {
   __typename?: 'SaleCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -25642,7 +25640,7 @@ export type SaleCreated = Event & {
   /** The sale the event relates to. */
   sale?: Maybe<Sale>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -25654,7 +25652,7 @@ export type SaleCreated = Event & {
  * DEPRECATED: this event will be removed in Saleor 4.0. Use `PromotionCreated` event instead.
  */
 export type SaleCreatedSaleArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -25685,7 +25683,7 @@ export type SaleDelete = {
 export type SaleDeleted = Event & {
   __typename?: 'SaleDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -25693,7 +25691,7 @@ export type SaleDeleted = Event & {
   /** The sale the event relates to. */
   sale?: Maybe<Sale>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -25705,13 +25703,13 @@ export type SaleDeleted = Event & {
  * DEPRECATED: this event will be removed in Saleor 4.0. Use `PromotionDeleted` event instead.
  */
 export type SaleDeletedSaleArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type SaleFilterInput = {
   metadata?: InputMaybe<Array<MetadataFilter>>;
   saleType?: InputMaybe<DiscountValueTypeEnum>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   started?: InputMaybe<DateTimeRangeInput>;
   status?: InputMaybe<Array<DiscountStatusEnum>>;
   updatedAt?: InputMaybe<DateTimeRangeInput>;
@@ -25719,22 +25717,22 @@ export type SaleFilterInput = {
 
 export type SaleInput = {
   /** Categories related to the discount. */
-  categories?: InputMaybe<Array<Scalars['ID']['input']>>;
+  categories?: InputMaybe<Array<Scalars['ID']>>;
   /** Collections related to the discount. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /** End date of the voucher in ISO 8601 format. */
-  endDate?: InputMaybe<Scalars['DateTime']['input']>;
+  endDate?: InputMaybe<Scalars['DateTime']>;
   /** Voucher name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Products related to the discount. */
-  products?: InputMaybe<Array<Scalars['ID']['input']>>;
+  products?: InputMaybe<Array<Scalars['ID']>>;
   /** Start date of the voucher in ISO 8601 format. */
-  startDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate?: InputMaybe<Scalars['DateTime']>;
   /** Fixed or percentage. */
   type?: InputMaybe<DiscountValueTypeEnum>;
   /** Value of the voucher. */
-  value?: InputMaybe<Scalars['PositiveDecimal']['input']>;
-  variants?: InputMaybe<Array<Scalars['ID']['input']>>;
+  value?: InputMaybe<Scalars['PositiveDecimal']>;
+  variants?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -25782,7 +25780,7 @@ export type SaleSortingInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Specifies the direction in which to sort sales. */
   direction: OrderDirection;
   /** Sort sales by the selected field. */
@@ -25799,7 +25797,7 @@ export type SaleSortingInput = {
 export type SaleToggle = Event & {
   __typename?: 'SaleToggle';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -25811,7 +25809,7 @@ export type SaleToggle = Event & {
    */
   sale?: Maybe<Sale>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -25823,7 +25821,7 @@ export type SaleToggle = Event & {
  * DEPRECATED: this event will be removed in Saleor 4.0. Use `PromotionStarted` and `PromotionEnded` events instead.
  */
 export type SaleToggleSaleArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -25834,9 +25832,9 @@ export type SaleToggleSaleArgs = {
 export type SaleTranslatableContent = Node & {
   __typename?: 'SaleTranslatableContent';
   /** The ID of the sale translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Name of the sale to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Sales allow creating discounts for categories, collections or products and are visible to all the customers.
    *
@@ -25849,7 +25847,7 @@ export type SaleTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  saleId: Scalars['ID']['output'];
+  saleId: Scalars['ID'];
   /** Returns translated sale fields for the given language code. */
   translation?: Maybe<SaleTranslation>;
 };
@@ -25887,11 +25885,11 @@ export type SaleTranslate = {
 export type SaleTranslation = Node & {
   __typename?: 'SaleTranslation';
   /** The ID of the sale translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated name of sale. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Represents the sale fields to translate.
    *
@@ -25933,7 +25931,7 @@ export type SaleUpdate = {
 export type SaleUpdated = Event & {
   __typename?: 'SaleUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -25941,7 +25939,7 @@ export type SaleUpdated = Event & {
   /** The sale the event relates to. */
   sale?: Maybe<Sale>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -25953,7 +25951,7 @@ export type SaleUpdated = Event & {
  * DEPRECATED: this event will be removed in Saleor 4.0. Use `PromotionUpdated` event instead.
  */
 export type SaleUpdatedSaleArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a custom attribute. */
@@ -25988,9 +25986,9 @@ export type SendConfirmationEmailError = {
   /** The error code. */
   code: SendConfirmationEmailErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type SendConfirmationEmailErrorCode =
@@ -26001,9 +25999,9 @@ export type SendConfirmationEmailErrorCode =
 
 export type SeoInput = {
   /** SEO description. */
-  description?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']>;
   /** SEO title. */
-  title?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 /** Sets the user's password from the token sent by email using the RequestPasswordReset mutation. */
@@ -26012,12 +26010,12 @@ export type SetPassword = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** CSRF token required to re-generate access token. */
-  csrfToken?: Maybe<Scalars['String']['output']>;
+  csrfToken?: Maybe<Scalars['String']>;
   errors: Array<AccountError>;
   /** JWT refresh token, required to re-generate access token. */
-  refreshToken?: Maybe<Scalars['String']['output']>;
+  refreshToken?: Maybe<Scalars['String']>;
   /** JWT token, required to authenticate. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** A user instance. */
   user?: Maybe<User>;
 };
@@ -26025,15 +26023,15 @@ export type SetPassword = {
 export type ShippingError = {
   __typename?: 'ShippingError';
   /** List of channels IDs which causes the error. */
-  channels?: Maybe<Array<Scalars['ID']['output']>>;
+  channels?: Maybe<Array<Scalars['ID']>>;
   /** The error code. */
   code: ShippingErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of warehouse IDs which causes the error. */
-  warehouses?: Maybe<Array<Scalars['ID']['output']>>;
+  warehouses?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type ShippingErrorCode =
@@ -26056,7 +26054,7 @@ export type ShippingListMethodsForCheckout = Event & {
   /** The checkout the event relates to. */
   checkout?: Maybe<Checkout>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26068,24 +26066,24 @@ export type ShippingListMethodsForCheckout = Event & {
    */
   shippingMethods?: Maybe<Array<ShippingMethod>>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /** Shipping methods that can be used as means of shipping for orders and checkouts. */
 export type ShippingMethod = Node & ObjectWithMetadata & {
   __typename?: 'ShippingMethod';
   /** Describes if this shipping method is active and can be selected. */
-  active: Scalars['Boolean']['output'];
+  active: Scalars['Boolean'];
   /**
    * Shipping method description.
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** Unique ID of ShippingMethod available for Order. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Maximum delivery days for this shipping method. */
-  maximumDeliveryDays?: Maybe<Scalars['Int']['output']>;
+  maximumDeliveryDays?: Maybe<Scalars['Int']>;
   /** Maximum order price for this shipping method. */
   maximumOrderPrice?: Maybe<Money>;
   /**
@@ -26094,7 +26092,7 @@ export type ShippingMethod = Node & ObjectWithMetadata & {
    */
   maximumOrderWeight?: Maybe<Weight>;
   /** Message connected to this shipping method. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -26102,11 +26100,11 @@ export type ShippingMethod = Node & ObjectWithMetadata & {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /** Public metadata. Use `keys` to control which fields you want to include. The default is to include everything. */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Minimum delivery days for this shipping method. */
-  minimumDeliveryDays?: Maybe<Scalars['Int']['output']>;
+  minimumDeliveryDays?: Maybe<Scalars['Int']>;
   /** Minimal order price for this shipping method. */
   minimumOrderPrice?: Maybe<Money>;
   /**
@@ -26115,7 +26113,7 @@ export type ShippingMethod = Node & ObjectWithMetadata & {
    */
   minimumOrderWeight?: Maybe<Weight>;
   /** Shipping method name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** The price of selected shipping method. */
   price: Money;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -26125,9 +26123,9 @@ export type ShippingMethod = Node & ObjectWithMetadata & {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /** Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything. */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Returns translated shipping method fields for the given language code. */
   translation?: Maybe<ShippingMethodTranslation>;
   /**
@@ -26140,25 +26138,25 @@ export type ShippingMethod = Node & ObjectWithMetadata & {
 
 /** Shipping methods that can be used as means of shipping for orders and checkouts. */
 export type ShippingMethodMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Shipping methods that can be used as means of shipping for orders and checkouts. */
 export type ShippingMethodMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Shipping methods that can be used as means of shipping for orders and checkouts. */
 export type ShippingMethodPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Shipping methods that can be used as means of shipping for orders and checkouts. */
 export type ShippingMethodPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -26173,7 +26171,7 @@ export type ShippingMethodChannelListing = Node & {
   /** The channel associated with the shipping method channel listing. */
   channel: Channel;
   /** The ID of shipping method channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Maximum order price. */
   maximumOrderPrice?: Maybe<Money>;
   /** Minimum order price. */
@@ -26184,20 +26182,20 @@ export type ShippingMethodChannelListing = Node & {
 
 export type ShippingMethodChannelListingAddInput = {
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Maximum order price to use this shipping method. */
-  maximumOrderPrice?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  maximumOrderPrice?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Minimum order price to use this shipping method. */
-  minimumOrderPrice?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  minimumOrderPrice?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Shipping price of the shipping method in this channel. */
-  price?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  price?: InputMaybe<Scalars['PositiveDecimal']>;
 };
 
 export type ShippingMethodChannelListingInput = {
   /** List of channels to which the shipping method should be assigned. */
   addChannels?: InputMaybe<Array<ShippingMethodChannelListingAddInput>>;
   /** List of channels from which the shipping method should be unassigned. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -26218,13 +26216,13 @@ export type ShippingMethodChannelListingUpdate = {
 export type ShippingMethodPostalCodeRule = Node & {
   __typename?: 'ShippingMethodPostalCodeRule';
   /** End address range. */
-  end?: Maybe<Scalars['String']['output']>;
+  end?: Maybe<Scalars['String']>;
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Inclusion type of the postal code rule. */
   inclusionType?: Maybe<PostalCodeRuleInclusionTypeEnum>;
   /** Start address range. */
-  start?: Maybe<Scalars['String']['output']>;
+  start?: Maybe<Scalars['String']>;
 };
 
 /** Represents shipping method's original translatable fields and related translations. */
@@ -26235,11 +26233,11 @@ export type ShippingMethodTranslatableContent = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** The ID of the shipping method translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Shipping method name to translate. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * Shipping method are the methods you'll use to get customer's orders  to them. They are directly exposed to the customers.
    *
@@ -26252,7 +26250,7 @@ export type ShippingMethodTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  shippingMethodId: Scalars['ID']['output'];
+  shippingMethodId: Scalars['ID'];
   /** Returns translated shipping method fields for the given language code. */
   translation?: Maybe<ShippingMethodTranslation>;
 };
@@ -26271,13 +26269,13 @@ export type ShippingMethodTranslation = Node & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /** The ID of the shipping method translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated shipping method name. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Represents the shipping method fields to translate.
    *
@@ -26300,7 +26298,7 @@ export type ShippingMethodType = Node & ObjectWithMetadata & {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: Maybe<Scalars['JSONString']['output']>;
+  description?: Maybe<Scalars['JSONString']>;
   /**
    * List of excluded products for the shipping method.
    *
@@ -26308,9 +26306,9 @@ export type ShippingMethodType = Node & ObjectWithMetadata & {
    */
   excludedProducts?: Maybe<ProductCountableConnection>;
   /** Shipping method ID. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Maximum number of days for delivery. */
-  maximumDeliveryDays?: Maybe<Scalars['Int']['output']>;
+  maximumDeliveryDays?: Maybe<Scalars['Int']>;
   /** The price of the cheapest variant (including discounts). */
   maximumOrderPrice?: Maybe<Money>;
   /** Maximum order weight to use this shipping method. */
@@ -26324,21 +26322,21 @@ export type ShippingMethodType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Minimal number of days for delivery. */
-  minimumDeliveryDays?: Maybe<Scalars['Int']['output']>;
+  minimumDeliveryDays?: Maybe<Scalars['Int']>;
   /** The price of the cheapest variant (including discounts). */
   minimumOrderPrice?: Maybe<Money>;
   /** Minimum order weight to use this shipping method. */
   minimumOrderWeight?: Maybe<Weight>;
   /** Shipping method name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Postal code ranges rule of exclusion or inclusion of the shipping method. */
   postalCodeRules?: Maybe<Array<ShippingMethodPostalCodeRule>>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -26350,13 +26348,13 @@ export type ShippingMethodType = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Tax class assigned to this shipping method.
    *
@@ -26372,34 +26370,34 @@ export type ShippingMethodType = Node & ObjectWithMetadata & {
 
 /** Shipping method are the methods you'll use to get customer's orders to them. They are directly exposed to the customers. */
 export type ShippingMethodTypeExcludedProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Shipping method are the methods you'll use to get customer's orders to them. They are directly exposed to the customers. */
 export type ShippingMethodTypeMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Shipping method are the methods you'll use to get customer's orders to them. They are directly exposed to the customers. */
 export type ShippingMethodTypeMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Shipping method are the methods you'll use to get customer's orders to them. They are directly exposed to the customers. */
 export type ShippingMethodTypePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Shipping method are the methods you'll use to get customer's orders to them. They are directly exposed to the customers. */
 export type ShippingMethodTypePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -26427,9 +26425,9 @@ export type ShippingMethodsPerCountry = {
 
 export type ShippingPostalCodeRulesCreateInputRange = {
   /** End range of the postal code. */
-  end?: InputMaybe<Scalars['String']['input']>;
+  end?: InputMaybe<Scalars['String']>;
   /** Start range of the postal code. */
-  start: Scalars['String']['input'];
+  start: Scalars['String'];
 };
 
 /**
@@ -26440,7 +26438,7 @@ export type ShippingPostalCodeRulesCreateInputRange = {
 export type ShippingPriceBulkDelete = {
   __typename?: 'ShippingPriceBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ShippingError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   shippingErrors: Array<ShippingError>;
@@ -26469,7 +26467,7 @@ export type ShippingPriceCreate = {
 export type ShippingPriceCreated = Event & {
   __typename?: 'ShippingPriceCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26479,7 +26477,7 @@ export type ShippingPriceCreated = Event & {
   /** The shipping zone the shipping method belongs to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26489,7 +26487,7 @@ export type ShippingPriceCreated = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceCreatedShippingMethodArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -26499,7 +26497,7 @@ export type ShippingPriceCreatedShippingMethodArgs = {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceCreatedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26526,7 +26524,7 @@ export type ShippingPriceDelete = {
 export type ShippingPriceDeleted = Event & {
   __typename?: 'ShippingPriceDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26536,7 +26534,7 @@ export type ShippingPriceDeleted = Event & {
   /** The shipping zone the shipping method belongs to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26546,7 +26544,7 @@ export type ShippingPriceDeleted = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceDeletedShippingMethodArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -26556,7 +26554,7 @@ export type ShippingPriceDeletedShippingMethodArgs = {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceDeletedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26575,32 +26573,32 @@ export type ShippingPriceExcludeProducts = {
 
 export type ShippingPriceExcludeProductsInput = {
   /** List of products which will be excluded. */
-  products: Array<Scalars['ID']['input']>;
+  products: Array<Scalars['ID']>;
 };
 
 export type ShippingPriceInput = {
   /** Postal code rules to add. */
   addPostalCodeRules?: InputMaybe<Array<ShippingPostalCodeRulesCreateInputRange>>;
   /** Postal code rules to delete. */
-  deletePostalCodeRules?: InputMaybe<Array<Scalars['ID']['input']>>;
+  deletePostalCodeRules?: InputMaybe<Array<Scalars['ID']>>;
   /** Shipping method description. */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
   /** Inclusion type for currently assigned postal code rules. */
   inclusionType?: InputMaybe<PostalCodeRuleInclusionTypeEnum>;
   /** Maximum number of days for delivery. */
-  maximumDeliveryDays?: InputMaybe<Scalars['Int']['input']>;
+  maximumDeliveryDays?: InputMaybe<Scalars['Int']>;
   /** Maximum order weight to use this shipping method. */
-  maximumOrderWeight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  maximumOrderWeight?: InputMaybe<Scalars['WeightScalar']>;
   /** Minimal number of days for delivery. */
-  minimumDeliveryDays?: InputMaybe<Scalars['Int']['input']>;
+  minimumDeliveryDays?: InputMaybe<Scalars['Int']>;
   /** Minimum order weight to use this shipping method. */
-  minimumOrderWeight?: InputMaybe<Scalars['WeightScalar']['input']>;
+  minimumOrderWeight?: InputMaybe<Scalars['WeightScalar']>;
   /** Name of the shipping method. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Shipping zone this method belongs to. */
-  shippingZone?: InputMaybe<Scalars['ID']['input']>;
+  shippingZone?: InputMaybe<Scalars['ID']>;
   /** ID of a tax class to assign to this shipping method. If not provided, the default tax class will be used. */
-  taxClass?: InputMaybe<Scalars['ID']['input']>;
+  taxClass?: InputMaybe<Scalars['ID']>;
   /** Shipping type: price or weight based. */
   type?: InputMaybe<ShippingMethodTypeEnum>;
 };
@@ -26638,8 +26636,8 @@ export type ShippingPriceTranslationInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26665,7 +26663,7 @@ export type ShippingPriceUpdate = {
 export type ShippingPriceUpdated = Event & {
   __typename?: 'ShippingPriceUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26675,7 +26673,7 @@ export type ShippingPriceUpdated = Event & {
   /** The shipping zone the shipping method belongs to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26685,7 +26683,7 @@ export type ShippingPriceUpdated = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceUpdatedShippingMethodArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -26695,7 +26693,7 @@ export type ShippingPriceUpdatedShippingMethodArgs = {
  * Added in Saleor 3.2.
  */
 export type ShippingPriceUpdatedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a shipping zone in the shop. Zones are the concept used only for grouping shipping methods in the dashboard, and are never exposed to the customers directly. */
@@ -26706,11 +26704,11 @@ export type ShippingZone = Node & ObjectWithMetadata & {
   /** List of countries available for the method. */
   countries: Array<CountryDisplay>;
   /** Indicates if the shipping zone is default one. */
-  default: Scalars['Boolean']['output'];
+  default: Scalars['Boolean'];
   /** Description of a shipping zone. */
-  description?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']>;
   /** The ID of shipping zone. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -26720,15 +26718,15 @@ export type ShippingZone = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Shipping zone name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** Lowest and highest prices for the shipping. */
   priceRange?: Maybe<MoneyRange>;
   /** List of private metadata items. Requires staff permissions to access. */
@@ -26740,13 +26738,13 @@ export type ShippingZone = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** List of shipping methods available for orders shipped to countries within this shipping zone. */
   shippingMethods?: Maybe<Array<ShippingMethodType>>;
   /** List of warehouses for shipping zone. */
@@ -26756,25 +26754,25 @@ export type ShippingZone = Node & ObjectWithMetadata & {
 
 /** Represents a shipping zone in the shop. Zones are the concept used only for grouping shipping methods in the dashboard, and are never exposed to the customers directly. */
 export type ShippingZoneMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a shipping zone in the shop. Zones are the concept used only for grouping shipping methods in the dashboard, and are never exposed to the customers directly. */
 export type ShippingZoneMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a shipping zone in the shop. Zones are the concept used only for grouping shipping methods in the dashboard, and are never exposed to the customers directly. */
 export type ShippingZonePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a shipping zone in the shop. Zones are the concept used only for grouping shipping methods in the dashboard, and are never exposed to the customers directly. */
 export type ShippingZonePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -26785,7 +26783,7 @@ export type ShippingZonePrivateMetafieldsArgs = {
 export type ShippingZoneBulkDelete = {
   __typename?: 'ShippingZoneBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<ShippingError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   shippingErrors: Array<ShippingError>;
@@ -26797,13 +26795,13 @@ export type ShippingZoneCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type ShippingZoneCountableEdge = {
   __typename?: 'ShippingZoneCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: ShippingZone;
 };
@@ -26823,17 +26821,17 @@ export type ShippingZoneCreate = {
 
 export type ShippingZoneCreateInput = {
   /** List of channels to assign to the shipping zone. */
-  addChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of warehouses to assign to a shipping zone */
-  addWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addWarehouses?: InputMaybe<Array<Scalars['ID']>>;
   /** List of countries in this shipping zone. */
-  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  countries?: InputMaybe<Array<Scalars['String']>>;
   /** Default shipping zone will be used for countries not covered by other zones. */
-  default?: InputMaybe<Scalars['Boolean']['input']>;
+  default?: InputMaybe<Scalars['Boolean']>;
   /** Description of the shipping zone. */
-  description?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']>;
   /** Shipping zone's name. Visible only to the staff. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26844,7 +26842,7 @@ export type ShippingZoneCreateInput = {
 export type ShippingZoneCreated = Event & {
   __typename?: 'ShippingZoneCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26852,7 +26850,7 @@ export type ShippingZoneCreated = Event & {
   /** The shipping zone the event relates to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26862,7 +26860,7 @@ export type ShippingZoneCreated = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingZoneCreatedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26886,7 +26884,7 @@ export type ShippingZoneDelete = {
 export type ShippingZoneDeleted = Event & {
   __typename?: 'ShippingZoneDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26894,7 +26892,7 @@ export type ShippingZoneDeleted = Event & {
   /** The shipping zone the event relates to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26904,12 +26902,12 @@ export type ShippingZoneDeleted = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingZoneDeletedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type ShippingZoneFilterInput = {
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26920,7 +26918,7 @@ export type ShippingZoneFilterInput = {
 export type ShippingZoneMetadataUpdated = Event & {
   __typename?: 'ShippingZoneMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26928,7 +26926,7 @@ export type ShippingZoneMetadataUpdated = Event & {
   /** The shipping zone the event relates to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26938,7 +26936,7 @@ export type ShippingZoneMetadataUpdated = Event & {
  * Added in Saleor 3.8.
  */
 export type ShippingZoneMetadataUpdatedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -26956,21 +26954,21 @@ export type ShippingZoneUpdate = {
 
 export type ShippingZoneUpdateInput = {
   /** List of channels to assign to the shipping zone. */
-  addChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of warehouses to assign to a shipping zone */
-  addWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addWarehouses?: InputMaybe<Array<Scalars['ID']>>;
   /** List of countries in this shipping zone. */
-  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  countries?: InputMaybe<Array<Scalars['String']>>;
   /** Default shipping zone will be used for countries not covered by other zones. */
-  default?: InputMaybe<Scalars['Boolean']['input']>;
+  default?: InputMaybe<Scalars['Boolean']>;
   /** Description of the shipping zone. */
-  description?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']>;
   /** Shipping zone's name. Visible only to the staff. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** List of channels to unassign from the shipping zone. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
   /** List of warehouses to unassign from a shipping zone */
-  removeWarehouses?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeWarehouses?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -26981,7 +26979,7 @@ export type ShippingZoneUpdateInput = {
 export type ShippingZoneUpdated = Event & {
   __typename?: 'ShippingZoneUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -26989,7 +26987,7 @@ export type ShippingZoneUpdated = Event & {
   /** The shipping zone the event relates to. */
   shippingZone?: Maybe<ShippingZone>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
@@ -26999,7 +26997,7 @@ export type ShippingZoneUpdated = Event & {
  * Added in Saleor 3.2.
  */
 export type ShippingZoneUpdatedShippingZoneArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents a shop resource containing general shop data and configuration. */
@@ -27012,13 +27010,13 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  allowLoginWithoutConfirmation?: Maybe<Scalars['Boolean']['output']>;
+  allowLoginWithoutConfirmation?: Maybe<Scalars['Boolean']>;
   /**
    * Enable automatic fulfillment for all digital products.
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  automaticFulfillmentDigitalProducts?: Maybe<Scalars['Boolean']['output']>;
+  automaticFulfillmentDigitalProducts?: Maybe<Scalars['Boolean']>;
   /** List of available external authentications. */
   availableExternalAuthentications: Array<ExternalAuthentication>;
   /** List of available payment gateways. */
@@ -27040,18 +27038,18 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
    */
-  channelCurrencies: Array<Scalars['String']['output']>;
+  channelCurrencies: Array<Scalars['String']>;
   /**
    * Charge taxes on shipping.
    * @deprecated This field will be removed in Saleor 4.0. Use `ShippingMethodType.taxClass` to determine whether taxes are calculated for shipping methods; if a tax class is set, the taxes will be calculated, otherwise no tax rate will be applied.
    */
-  chargeTaxesOnShipping: Scalars['Boolean']['output'];
+  chargeTaxesOnShipping: Scalars['Boolean'];
   /** Company address. */
   companyAddress?: Maybe<Address>;
   /** List of countries available in the shop. */
   countries: Array<CountryDisplay>;
   /** URL of a view where customers can set their password. */
-  customerSetPasswordUrl?: Maybe<Scalars['String']['output']>;
+  customerSetPasswordUrl?: Maybe<Scalars['String']>;
   /** Shop's default country. */
   defaultCountry?: Maybe<CountryDisplay>;
   /**
@@ -27059,34 +27057,34 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  defaultDigitalMaxDownloads?: Maybe<Scalars['Int']['output']>;
+  defaultDigitalMaxDownloads?: Maybe<Scalars['Int']>;
   /**
    * Default number of days which digital content URL will be valid.
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  defaultDigitalUrlValidDays?: Maybe<Scalars['Int']['output']>;
+  defaultDigitalUrlValidDays?: Maybe<Scalars['Int']>;
   /**
    * Default shop's email sender's address.
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  defaultMailSenderAddress?: Maybe<Scalars['String']['output']>;
+  defaultMailSenderAddress?: Maybe<Scalars['String']>;
   /**
    * Default shop's email sender's name.
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  defaultMailSenderName?: Maybe<Scalars['String']['output']>;
+  defaultMailSenderName?: Maybe<Scalars['String']>;
   /** Default weight unit. */
   defaultWeightUnit?: Maybe<WeightUnitsEnum>;
   /** Shop's description. */
-  description?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']>;
   /**
    * Display prices with tax in store.
    * @deprecated This field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` to determine whether to display gross or net prices.
    */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /** Shop's domain data. */
   domain: Domain;
   /**
@@ -27096,28 +27094,28 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  enableAccountConfirmationByEmail?: Maybe<Scalars['Boolean']['output']>;
+  enableAccountConfirmationByEmail?: Maybe<Scalars['Boolean']>;
   /**
    * Allow to approve fulfillments which are unpaid.
    *
    * Added in Saleor 3.1.
    */
-  fulfillmentAllowUnpaid: Scalars['Boolean']['output'];
+  fulfillmentAllowUnpaid: Scalars['Boolean'];
   /**
    * Automatically approve all new fulfillments.
    *
    * Added in Saleor 3.1.
    */
-  fulfillmentAutoApprove: Scalars['Boolean']['output'];
+  fulfillmentAutoApprove: Scalars['Boolean'];
   /** Header text. */
-  headerText?: Maybe<Scalars['String']['output']>;
+  headerText?: Maybe<Scalars['String']>;
   /** ID of the shop. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Include taxes in prices.
    * @deprecated This field will be removed in Saleor 4.0. Use `Channel.taxConfiguration.pricesEnteredWithTax` to determine whether prices are entered with tax.
    */
-  includeTaxesInPrices: Scalars['Boolean']['output'];
+  includeTaxesInPrices: Scalars['Boolean'];
   /** List of the shops's supported languages. */
   languages: Array<LanguageDisplay>;
   /**
@@ -27127,7 +27125,7 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  limitQuantityPerCheckout?: Maybe<Scalars['Int']['output']>;
+  limitQuantityPerCheckout?: Maybe<Scalars['Int']>;
   /**
    * Resource limitations and current usage if any set for a shop
    *
@@ -27142,15 +27140,15 @@ export type Shop = ObjectWithMetadata & {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /** Public metadata. Use `keys` to control which fields you want to include. The default is to include everything. */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Shop's name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of available permissions. */
   permissions: Array<Permission>;
   /** List of possible phone prefixes. */
-  phonePrefixes: Array<Scalars['String']['output']>;
+  phonePrefixes: Array<Scalars['String']>;
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -27158,9 +27156,9 @@ export type Shop = ObjectWithMetadata & {
    *
    * Tip: Use GraphQL aliases to fetch multiple keys.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /** Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything. */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Default number of minutes stock will be reserved for anonymous checkout or null when stock reservation is disabled.
    *
@@ -27168,7 +27166,7 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  reserveStockDurationAnonymousUser?: Maybe<Scalars['Int']['output']>;
+  reserveStockDurationAnonymousUser?: Maybe<Scalars['Int']>;
   /**
    * Default number of minutes stock will be reserved for authenticated checkout or null when stock reservation is disabled.
    *
@@ -27176,13 +27174,13 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: MANAGE_SETTINGS.
    */
-  reserveStockDurationAuthenticatedUser?: Maybe<Scalars['Int']['output']>;
+  reserveStockDurationAuthenticatedUser?: Maybe<Scalars['Int']>;
   /**
    * Minor Saleor API version.
    *
    * Added in Saleor 3.5.
    */
-  schemaVersion: Scalars['String']['output'];
+  schemaVersion: Scalars['String'];
   /**
    * List of staff notification recipients.
    *
@@ -27190,7 +27188,7 @@ export type Shop = ObjectWithMetadata & {
    */
   staffNotificationRecipients?: Maybe<Array<StaffNotificationRecipient>>;
   /** This field is used as a default value for `ProductVariant.trackInventory`. */
-  trackInventoryByDefault?: Maybe<Scalars['Boolean']['output']>;
+  trackInventoryByDefault?: Maybe<Scalars['Boolean']>;
   /** Returns translated shop fields for the given language code. */
   translation?: Maybe<ShopTranslation>;
   /**
@@ -27198,21 +27196,21 @@ export type Shop = ObjectWithMetadata & {
    *
    * Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
    */
-  version: Scalars['String']['output'];
+  version: Scalars['String'];
 };
 
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopAvailablePaymentGatewaysArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  currency?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
+  currency?: InputMaybe<Scalars['String']>;
 };
 
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopAvailableShippingMethodsArgs = {
   address?: InputMaybe<AddressInput>;
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
 };
 
 
@@ -27225,25 +27223,25 @@ export type ShopCountriesArgs = {
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents a shop resource containing general shop data and configuration. */
 export type ShopPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -27287,9 +27285,9 @@ export type ShopError = {
   /** The error code. */
   code: ShopErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type ShopErrorCode =
@@ -27323,7 +27321,7 @@ export type ShopFetchTaxRates = {
 export type ShopMetadataUpdated = Event & {
   __typename?: 'ShopMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -27331,7 +27329,7 @@ export type ShopMetadataUpdated = Event & {
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type ShopSettingsInput = {
@@ -27340,67 +27338,67 @@ export type ShopSettingsInput = {
    *
    * Added in Saleor 3.15.
    */
-  allowLoginWithoutConfirmation?: InputMaybe<Scalars['Boolean']['input']>;
+  allowLoginWithoutConfirmation?: InputMaybe<Scalars['Boolean']>;
   /** Enable automatic fulfillment for all digital products. */
-  automaticFulfillmentDigitalProducts?: InputMaybe<Scalars['Boolean']['input']>;
+  automaticFulfillmentDigitalProducts?: InputMaybe<Scalars['Boolean']>;
   /**
    * Charge taxes on shipping.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. To enable taxes for a shipping method, assign a tax class to the shipping method with `shippingPriceCreate` or `shippingPriceUpdate` mutations.
    */
-  chargeTaxesOnShipping?: InputMaybe<Scalars['Boolean']['input']>;
+  chargeTaxesOnShipping?: InputMaybe<Scalars['Boolean']>;
   /** URL of a view where customers can set their password. */
-  customerSetPasswordUrl?: InputMaybe<Scalars['String']['input']>;
+  customerSetPasswordUrl?: InputMaybe<Scalars['String']>;
   /** Default number of max downloads per digital content URL. */
-  defaultDigitalMaxDownloads?: InputMaybe<Scalars['Int']['input']>;
+  defaultDigitalMaxDownloads?: InputMaybe<Scalars['Int']>;
   /** Default number of days which digital content URL will be valid. */
-  defaultDigitalUrlValidDays?: InputMaybe<Scalars['Int']['input']>;
+  defaultDigitalUrlValidDays?: InputMaybe<Scalars['Int']>;
   /** Default email sender's address. */
-  defaultMailSenderAddress?: InputMaybe<Scalars['String']['input']>;
+  defaultMailSenderAddress?: InputMaybe<Scalars['String']>;
   /** Default email sender's name. */
-  defaultMailSenderName?: InputMaybe<Scalars['String']['input']>;
+  defaultMailSenderName?: InputMaybe<Scalars['String']>;
   /** Default weight unit. */
   defaultWeightUnit?: InputMaybe<WeightUnitsEnum>;
   /** SEO description. */
-  description?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']>;
   /**
    * Display prices with tax in store.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `taxConfigurationUpdate` mutation to configure this setting per channel or country.
    */
-  displayGrossPrices?: InputMaybe<Scalars['Boolean']['input']>;
+  displayGrossPrices?: InputMaybe<Scalars['Boolean']>;
   /**
    * Enable automatic account confirmation by email.
    *
    * Added in Saleor 3.14.
    */
-  enableAccountConfirmationByEmail?: InputMaybe<Scalars['Boolean']['input']>;
+  enableAccountConfirmationByEmail?: InputMaybe<Scalars['Boolean']>;
   /**
    * Enable ability to approve fulfillments which are unpaid.
    *
    * Added in Saleor 3.1.
    */
-  fulfillmentAllowUnpaid?: InputMaybe<Scalars['Boolean']['input']>;
+  fulfillmentAllowUnpaid?: InputMaybe<Scalars['Boolean']>;
   /**
    * Enable automatic approval of all new fulfillments.
    *
    * Added in Saleor 3.1.
    */
-  fulfillmentAutoApprove?: InputMaybe<Scalars['Boolean']['input']>;
+  fulfillmentAutoApprove?: InputMaybe<Scalars['Boolean']>;
   /** Header text. */
-  headerText?: InputMaybe<Scalars['String']['input']>;
+  headerText?: InputMaybe<Scalars['String']>;
   /**
    * Include taxes in prices.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use `taxConfigurationUpdate` mutation to configure this setting per channel or country.
    */
-  includeTaxesInPrices?: InputMaybe<Scalars['Boolean']['input']>;
+  includeTaxesInPrices?: InputMaybe<Scalars['Boolean']>;
   /**
    * Default number of maximum line quantity in single checkout. Minimum possible value is 1, default value is 50.
    *
    * Added in Saleor 3.1.
    */
-  limitQuantityPerCheckout?: InputMaybe<Scalars['Int']['input']>;
+  limitQuantityPerCheckout?: InputMaybe<Scalars['Int']>;
   /**
    * Shop public metadata.
    *
@@ -27418,15 +27416,15 @@ export type ShopSettingsInput = {
    *
    * Added in Saleor 3.1.
    */
-  reserveStockDurationAnonymousUser?: InputMaybe<Scalars['Int']['input']>;
+  reserveStockDurationAnonymousUser?: InputMaybe<Scalars['Int']>;
   /**
    * Default number of minutes stock will be reserved for authenticated checkout. Enter 0 or null to disable.
    *
    * Added in Saleor 3.1.
    */
-  reserveStockDurationAuthenticatedUser?: InputMaybe<Scalars['Int']['input']>;
+  reserveStockDurationAuthenticatedUser?: InputMaybe<Scalars['Int']>;
   /** This field is used as a default value for `ProductVariant.trackInventory`. */
-  trackInventoryByDefault?: InputMaybe<Scalars['Boolean']['input']>;
+  trackInventoryByDefault?: InputMaybe<Scalars['Boolean']>;
 };
 
 /**
@@ -27444,8 +27442,8 @@ export type ShopSettingsTranslate = {
 };
 
 export type ShopSettingsTranslationInput = {
-  description?: InputMaybe<Scalars['String']['input']>;
-  headerText?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']>;
+  headerText?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -27469,20 +27467,20 @@ export type ShopSettingsUpdate = {
 export type ShopTranslation = Node & {
   __typename?: 'ShopTranslation';
   /** Translated description of sale. */
-  description: Scalars['String']['output'];
+  description: Scalars['String'];
   /** Translated header text of sale. */
-  headerText: Scalars['String']['output'];
+  headerText: Scalars['String'];
   /** The ID of the shop translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
 };
 
 export type SiteDomainInput = {
   /** Domain name for shop. */
-  domain?: InputMaybe<Scalars['String']['input']>;
+  domain?: InputMaybe<Scalars['String']>;
   /** Shop site name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -27496,7 +27494,7 @@ export type SiteDomainInput = {
 export type StaffBulkDelete = {
   __typename?: 'StaffBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<StaffError>;
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   staffErrors: Array<StaffError>;
@@ -27523,15 +27521,15 @@ export type StaffCreate = {
 /** Fields required to create a staff user. */
 export type StaffCreateInput = {
   /** List of permission group IDs to which user should be assigned. */
-  addGroups?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addGroups?: InputMaybe<Array<Scalars['ID']>>;
   /** The unique email address of the user. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User account is active. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user metadata.
    *
@@ -27539,7 +27537,7 @@ export type StaffCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** A note about the user. */
-  note?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user private metadata.
    *
@@ -27547,7 +27545,7 @@ export type StaffCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of a view where users should be redirected to set the password. URL in RFC 1808 format. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -27558,7 +27556,7 @@ export type StaffCreateInput = {
 export type StaffCreated = Event & {
   __typename?: 'StaffCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -27566,7 +27564,7 @@ export type StaffCreated = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -27593,7 +27591,7 @@ export type StaffDelete = {
 export type StaffDeleted = Event & {
   __typename?: 'StaffDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -27601,7 +27599,7 @@ export type StaffDeleted = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type StaffError = {
@@ -27611,15 +27609,15 @@ export type StaffError = {
   /** The error code. */
   code: AccountErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** List of permission group IDs which cause the error. */
-  groups?: Maybe<Array<Scalars['ID']['output']>>;
+  groups?: Maybe<Array<Scalars['ID']>>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of permissions which causes the error. */
   permissions?: Maybe<Array<PermissionEnum>>;
   /** List of user IDs which causes the error. */
-  users?: Maybe<Array<Scalars['ID']['output']>>;
+  users?: Maybe<Array<Scalars['ID']>>;
 };
 
 /** Represents status of a staff account. */
@@ -27633,11 +27631,11 @@ export type StaffMemberStatus =
 export type StaffNotificationRecipient = Node & {
   __typename?: 'StaffNotificationRecipient';
   /** Determines if a notification active. */
-  active?: Maybe<Scalars['Boolean']['output']>;
+  active?: Maybe<Scalars['Boolean']>;
   /** Returns email address of a user subscribed to email notifications. */
-  email?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']>;
   /** The ID of the staff notification recipient. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Returns a user subscribed to email notifications. */
   user?: Maybe<User>;
 };
@@ -27670,11 +27668,11 @@ export type StaffNotificationRecipientDelete = {
 
 export type StaffNotificationRecipientInput = {
   /** Determines if a notification active. */
-  active?: InputMaybe<Scalars['Boolean']['input']>;
+  active?: InputMaybe<Scalars['Boolean']>;
   /** Email address of a user subscribed to email notifications. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** The ID of the user subscribed to email notifications.. */
-  user?: InputMaybe<Scalars['ID']['input']>;
+  user?: InputMaybe<Scalars['ID']>;
 };
 
 /**
@@ -27700,21 +27698,21 @@ export type StaffSetPasswordRequested = Event & {
   /** The channel data. */
   channel?: Maybe<Channel>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The URL to redirect the user after he accepts the request. */
-  redirectUrl?: Maybe<Scalars['String']['output']>;
+  redirectUrl?: Maybe<Scalars['String']>;
   /** Shop data. */
   shop?: Maybe<Shop>;
   /** The token required to confirm request. */
-  token?: Maybe<Scalars['String']['output']>;
+  token?: Maybe<Scalars['String']>;
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -27736,15 +27734,15 @@ export type StaffUpdate = {
 /** Fields required to update a staff user. */
 export type StaffUpdateInput = {
   /** List of permission group IDs to which user should be assigned. */
-  addGroups?: InputMaybe<Array<Scalars['ID']['input']>>;
+  addGroups?: InputMaybe<Array<Scalars['ID']>>;
   /** The unique email address of the user. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User account is active. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user metadata.
    *
@@ -27752,7 +27750,7 @@ export type StaffUpdateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** A note about the user. */
-  note?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user private metadata.
    *
@@ -27760,7 +27758,7 @@ export type StaffUpdateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** List of permission group IDs from which user should be unassigned. */
-  removeGroups?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeGroups?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -27771,7 +27769,7 @@ export type StaffUpdateInput = {
 export type StaffUpdated = Event & {
   __typename?: 'StaffUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -27779,12 +27777,12 @@ export type StaffUpdated = Event & {
   /** The user the event relates to. */
   user?: Maybe<User>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type StaffUserInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  search?: InputMaybe<Scalars['String']>;
   status?: InputMaybe<StaffMemberStatus>;
 };
 
@@ -27792,7 +27790,7 @@ export type StaffUserInput = {
 export type Stock = Node & {
   __typename?: 'Stock';
   /** The ID of stock. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Information about the product variant. */
   productVariant: ProductVariant;
   /**
@@ -27800,19 +27798,19 @@ export type Stock = Node & {
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
    */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /**
    * Quantity allocated for orders.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
    */
-  quantityAllocated: Scalars['Int']['output'];
+  quantityAllocated: Scalars['Int'];
   /**
    * Quantity reserved for checkouts.
    *
    * Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
    */
-  quantityReserved: Scalars['Int']['output'];
+  quantityReserved: Scalars['Int'];
   /** The warehouse associated with the stock. */
   warehouse: Warehouse;
 };
@@ -27844,7 +27842,7 @@ export type StockBulkResult = {
 export type StockBulkUpdate = {
   __typename?: 'StockBulkUpdate';
   /** Returns how many objects were updated. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<StockBulkUpdateError>;
   /** List of the updated stocks. */
   results: Array<StockBulkResult>;
@@ -27855,9 +27853,9 @@ export type StockBulkUpdateError = {
   /** The error code. */
   code: StockBulkUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type StockBulkUpdateErrorCode =
@@ -27868,15 +27866,15 @@ export type StockBulkUpdateErrorCode =
 
 export type StockBulkUpdateInput = {
   /** Quantity of items available for sell. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Variant external reference. */
-  variantExternalReference?: InputMaybe<Scalars['String']['input']>;
+  variantExternalReference?: InputMaybe<Scalars['String']>;
   /** Variant ID. */
-  variantId?: InputMaybe<Scalars['ID']['input']>;
+  variantId?: InputMaybe<Scalars['ID']>;
   /** Warehouse external reference. */
-  warehouseExternalReference?: InputMaybe<Scalars['String']['input']>;
+  warehouseExternalReference?: InputMaybe<Scalars['String']>;
   /** Warehouse ID. */
-  warehouseId?: InputMaybe<Scalars['ID']['input']>;
+  warehouseId?: InputMaybe<Scalars['ID']>;
 };
 
 export type StockCountableConnection = {
@@ -27885,13 +27883,13 @@ export type StockCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type StockCountableEdge = {
   __typename?: 'StockCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Stock;
 };
@@ -27901,9 +27899,9 @@ export type StockError = {
   /** The error code. */
   code: StockErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type StockErrorCode =
@@ -27915,15 +27913,15 @@ export type StockErrorCode =
   | 'UNIQUE';
 
 export type StockFilterInput = {
-  quantity?: InputMaybe<Scalars['Float']['input']>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  quantity?: InputMaybe<Scalars['Float']>;
+  search?: InputMaybe<Scalars['String']>;
 };
 
 export type StockInput = {
   /** Quantity of items available for sell. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Warehouse in which stock is located. */
-  warehouse: Scalars['ID']['input'];
+  warehouse: Scalars['ID'];
 };
 
 /**
@@ -27944,9 +27942,9 @@ export type StockSettingsInput = {
 
 export type StockUpdateInput = {
   /** Quantity of items available for sell. */
-  quantity: Scalars['Int']['input'];
+  quantity: Scalars['Int'];
   /** Stock. */
-  stock: Scalars['ID']['input'];
+  stock: Scalars['ID'];
 };
 
 /**
@@ -27982,18 +27980,18 @@ export type StoredPaymentMethod = {
   /** Stored credit card details if available. */
   creditCardInfo?: Maybe<CreditCard>;
   /** JSON data returned by Payment Provider app for this payment method. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** Payment gateway that stores this payment method. */
   gateway: PaymentGateway;
   /** Stored payment method ID. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Payment method name. Example: last 4 digits of credit card, obfuscated email, etc. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** ID of stored payment method used to make payment actions. Note: method ID is unique only within the payment gateway. */
-  paymentMethodId: Scalars['String']['output'];
+  paymentMethodId: Scalars['String'];
   supportedPaymentFlows?: Maybe<Array<TokenizedPaymentFlowEnum>>;
   /** Type of the payment method. Example: credit card, wallet, etc. */
-  type: Scalars['String']['output'];
+  type: Scalars['String'];
 };
 
 /**
@@ -28008,17 +28006,17 @@ export type StoredPaymentMethodDeleteRequested = Event & {
   /** Channel related to the requested delete action. */
   channel: Channel;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The ID of the payment method that should be deleted by the payment gateway. */
-  paymentMethodId: Scalars['String']['output'];
+  paymentMethodId: Scalars['String'];
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** The user for which the app should proceed with payment method delete request. */
   user: User;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -28070,9 +28068,9 @@ export type StoredPaymentMethodRequestDeleteResult =
  */
 export type StringFilterInput = {
   /** The value equal to. */
-  eq?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']>;
   /** The value included in. */
-  oneOf?: InputMaybe<Array<Scalars['String']['input']>>;
+  oneOf?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type Subscription = {
@@ -28207,77 +28205,77 @@ export type Subscription = {
 
 
 export type SubscriptionDraftOrderCreatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionDraftOrderDeletedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionDraftOrderUpdatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderBulkCreatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderCancelledArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderConfirmedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderCreatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderExpiredArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderFulfilledArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderFullyPaidArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderFullyRefundedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderMetadataUpdatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderPaidArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderRefundedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 export type SubscriptionOrderUpdatedArgs = {
-  channels?: InputMaybe<Array<Scalars['String']['input']>>;
+  channels?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type TaxCalculationStrategy =
@@ -28294,7 +28292,7 @@ export type TaxClass = Node & ObjectWithMetadata & {
   /** Country-specific tax rates for this tax class. */
   countries: Array<TaxClassCountryRate>;
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -28304,15 +28302,15 @@ export type TaxClass = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Name of the tax class. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -28322,13 +28320,13 @@ export type TaxClass = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
 };
 
 
@@ -28338,7 +28336,7 @@ export type TaxClass = Node & ObjectWithMetadata & {
  * Added in Saleor 3.9.
  */
 export type TaxClassMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -28348,7 +28346,7 @@ export type TaxClassMetafieldArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxClassMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -28358,7 +28356,7 @@ export type TaxClassMetafieldsArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxClassPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -28368,7 +28366,7 @@ export type TaxClassPrivateMetafieldArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxClassPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type TaxClassCountableConnection = {
@@ -28377,13 +28375,13 @@ export type TaxClassCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type TaxClassCountableEdge = {
   __typename?: 'TaxClassCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: TaxClass;
 };
@@ -28398,7 +28396,7 @@ export type TaxClassCountryRate = {
   /** Country in which this tax rate applies. */
   country: CountryDisplay;
   /** Tax rate value. */
-  rate: Scalars['Float']['output'];
+  rate: Scalars['Float'];
   /** Related tax class. */
   taxClass?: Maybe<TaxClass>;
 };
@@ -28421,11 +28419,11 @@ export type TaxClassCreateError = {
   /** The error code. */
   code: TaxClassCreateErrorCode;
   /** List of country codes for which the configuration is invalid. */
-  countryCodes: Array<Scalars['String']['output']>;
+  countryCodes: Array<Scalars['String']>;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxClassCreateErrorCode =
@@ -28437,7 +28435,7 @@ export type TaxClassCreateInput = {
   /** List of country-specific tax rates to create for this tax class. */
   createCountryRates?: InputMaybe<Array<CountryRateInput>>;
   /** Name of the tax class. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
 };
 
 /**
@@ -28458,9 +28456,9 @@ export type TaxClassDeleteError = {
   /** The error code. */
   code: TaxClassDeleteErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxClassDeleteErrorCode =
@@ -28470,15 +28468,15 @@ export type TaxClassDeleteErrorCode =
 
 export type TaxClassFilterInput = {
   countries?: InputMaybe<Array<CountryCode>>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
 };
 
 export type TaxClassRateInput = {
   /** Tax rate value. */
-  rate?: InputMaybe<Scalars['Float']['input']>;
+  rate?: InputMaybe<Scalars['Float']>;
   /** ID of a tax class for which to update the tax rate */
-  taxClassId?: InputMaybe<Scalars['ID']['input']>;
+  taxClassId?: InputMaybe<Scalars['ID']>;
 };
 
 export type TaxClassSortField =
@@ -28510,11 +28508,11 @@ export type TaxClassUpdateError = {
   /** The error code. */
   code: TaxClassUpdateErrorCode;
   /** List of country codes for which the configuration is invalid. */
-  countryCodes: Array<Scalars['String']['output']>;
+  countryCodes: Array<Scalars['String']>;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxClassUpdateErrorCode =
@@ -28525,7 +28523,7 @@ export type TaxClassUpdateErrorCode =
 
 export type TaxClassUpdateInput = {
   /** Name of the tax class. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** List of country codes for which to remove the tax class rates. Note: It removes all rates for given country code. */
   removeCountryRates?: InputMaybe<Array<CountryCode>>;
   /** List of country-specific tax rates to create or update for this tax class. */
@@ -28542,13 +28540,13 @@ export type TaxConfiguration = Node & ObjectWithMetadata & {
   /** A channel to which the tax configuration applies to. */
   channel: Channel;
   /** Determines whether taxes are charged in the given channel. */
-  chargeTaxes: Scalars['Boolean']['output'];
+  chargeTaxes: Scalars['Boolean'];
   /** List of country-specific exceptions in tax configuration. */
   countries: Array<TaxConfigurationPerCountry>;
   /** Determines whether displayed prices should include taxes. */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -28558,15 +28556,15 @@ export type TaxConfiguration = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Determines whether prices are entered with the tax included. */
-  pricesEnteredWithTax: Scalars['Boolean']['output'];
+  pricesEnteredWithTax: Scalars['Boolean'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -28576,19 +28574,19 @@ export type TaxConfiguration = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * The tax app `App.identifier` that will be used to calculate the taxes for the given channel. Empty value for `TAX_APP` set as `taxCalculationStrategy` means that Saleor will iterate over all installed tax apps. If multiple tax apps exist with provided tax app id use the `App` with newest `created` date. Will become mandatory in 4.0 for `TAX_APP` `taxCalculationStrategy`.
    *
    * Added in Saleor 3.19.
    */
-  taxAppId?: Maybe<Scalars['String']['output']>;
+  taxAppId?: Maybe<Scalars['String']>;
   /** The default strategy to use for tax calculation in the given channel. Taxes can be calculated either using user-defined flat rates or with a tax app. Empty value means that no method is selected and taxes are not calculated. */
   taxCalculationStrategy?: Maybe<TaxCalculationStrategy>;
 };
@@ -28600,7 +28598,7 @@ export type TaxConfiguration = Node & ObjectWithMetadata & {
  * Added in Saleor 3.9.
  */
 export type TaxConfigurationMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -28610,7 +28608,7 @@ export type TaxConfigurationMetafieldArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxConfigurationMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -28620,7 +28618,7 @@ export type TaxConfigurationMetafieldsArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxConfigurationPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -28630,7 +28628,7 @@ export type TaxConfigurationPrivateMetafieldArgs = {
  * Added in Saleor 3.9.
  */
 export type TaxConfigurationPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type TaxConfigurationCountableConnection = {
@@ -28639,19 +28637,19 @@ export type TaxConfigurationCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type TaxConfigurationCountableEdge = {
   __typename?: 'TaxConfigurationCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: TaxConfiguration;
 };
 
 export type TaxConfigurationFilterInput = {
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
 };
 
@@ -28663,34 +28661,34 @@ export type TaxConfigurationFilterInput = {
 export type TaxConfigurationPerCountry = {
   __typename?: 'TaxConfigurationPerCountry';
   /** Determines whether taxes are charged in this country. */
-  chargeTaxes: Scalars['Boolean']['output'];
+  chargeTaxes: Scalars['Boolean'];
   /** Country in which this configuration applies. */
   country: CountryDisplay;
   /** Determines whether displayed prices should include taxes for this country. */
-  displayGrossPrices: Scalars['Boolean']['output'];
+  displayGrossPrices: Scalars['Boolean'];
   /**
    * The tax app `App.identifier` that will be used to calculate the taxes for the given channel and country. If not provided, use the value from the channel's tax configuration.
    *
    * Added in Saleor 3.19.
    */
-  taxAppId?: Maybe<Scalars['String']['output']>;
+  taxAppId?: Maybe<Scalars['String']>;
   /** A country-specific strategy to use for tax calculation. Taxes can be calculated either using user-defined flat rates or with a tax app. If not provided, use the value from the channel's tax configuration. */
   taxCalculationStrategy?: Maybe<TaxCalculationStrategy>;
 };
 
 export type TaxConfigurationPerCountryInput = {
   /** Determines whether taxes are charged in this country. */
-  chargeTaxes: Scalars['Boolean']['input'];
+  chargeTaxes: Scalars['Boolean'];
   /** Country in which this configuration applies. */
   countryCode: CountryCode;
   /** Determines whether displayed prices should include taxes for this country. */
-  displayGrossPrices: Scalars['Boolean']['input'];
+  displayGrossPrices: Scalars['Boolean'];
   /**
    * The tax app `App.identifier` that will be used to calculate the taxes for the given channel and country. If not provided, use the value from the channel's tax configuration.
    *
    * Added in Saleor 3.19.
    */
-  taxAppId?: InputMaybe<Scalars['String']['input']>;
+  taxAppId?: InputMaybe<Scalars['String']>;
   /** A country-specific strategy to use for tax calculation. Taxes can be calculated either using user-defined flat rates or with a tax app. If not provided, use the value from the channel's tax configuration. */
   taxCalculationStrategy?: InputMaybe<TaxCalculationStrategy>;
 };
@@ -28713,11 +28711,11 @@ export type TaxConfigurationUpdateError = {
   /** The error code. */
   code: TaxConfigurationUpdateErrorCode;
   /** List of country codes for which the configuration is invalid. */
-  countryCodes: Array<Scalars['String']['output']>;
+  countryCodes: Array<Scalars['String']>;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxConfigurationUpdateErrorCode =
@@ -28728,11 +28726,11 @@ export type TaxConfigurationUpdateErrorCode =
 
 export type TaxConfigurationUpdateInput = {
   /** Determines whether taxes are charged in the given channel. */
-  chargeTaxes?: InputMaybe<Scalars['Boolean']['input']>;
+  chargeTaxes?: InputMaybe<Scalars['Boolean']>;
   /** Determines whether displayed prices should include taxes. */
-  displayGrossPrices?: InputMaybe<Scalars['Boolean']['input']>;
+  displayGrossPrices?: InputMaybe<Scalars['Boolean']>;
   /** Determines whether prices are entered with the tax included. */
-  pricesEnteredWithTax?: InputMaybe<Scalars['Boolean']['input']>;
+  pricesEnteredWithTax?: InputMaybe<Scalars['Boolean']>;
   /** List of country codes for which to remove the tax configuration. */
   removeCountriesConfiguration?: InputMaybe<Array<CountryCode>>;
   /**
@@ -28740,7 +28738,7 @@ export type TaxConfigurationUpdateInput = {
    *
    * Added in Saleor 3.19.
    */
-  taxAppId?: InputMaybe<Scalars['String']['input']>;
+  taxAppId?: InputMaybe<Scalars['String']>;
   /** The default strategy to use for tax calculation in the given channel. Taxes can be calculated either using user-defined flat rates or with a tax app. Empty value means that no method is selected and taxes are not calculated. */
   taxCalculationStrategy?: InputMaybe<TaxCalculationStrategy>;
   /** List of tax country configurations to create or update (identified by a country code). */
@@ -28779,9 +28777,9 @@ export type TaxCountryConfigurationDeleteError = {
   /** The error code. */
   code: TaxCountryConfigurationDeleteErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxCountryConfigurationDeleteErrorCode =
@@ -28808,11 +28806,11 @@ export type TaxCountryConfigurationUpdateError = {
   /** The error code. */
   code: TaxCountryConfigurationUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of tax class IDs for which the update failed. */
-  taxClassIds: Array<Scalars['String']['output']>;
+  taxClassIds: Array<Scalars['String']>;
 };
 
 export type TaxCountryConfigurationUpdateErrorCode =
@@ -28840,9 +28838,9 @@ export type TaxExemptionManageError = {
   /** The error code. */
   code: TaxExemptionManageErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TaxExemptionManageErrorCode =
@@ -28859,9 +28857,9 @@ export type TaxSourceObject = Checkout | Order;
 export type TaxType = {
   __typename?: 'TaxType';
   /** Description of the tax type. */
-  description?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']>;
   /** External tax code used to identify given tax group. */
-  taxCode?: Maybe<Scalars['String']['output']>;
+  taxCode?: Maybe<Scalars['String']>;
 };
 
 /** Taxable object. */
@@ -28871,13 +28869,13 @@ export type TaxableObject = {
   address?: Maybe<Address>;
   channel: Channel;
   /** The currency of the object. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
   /** List of discounts. */
   discounts: Array<TaxableObjectDiscount>;
   /** List of lines assigned to the object. */
   lines: Array<TaxableObjectLine>;
   /** Determines if prices contain entered tax.. */
-  pricesEnteredWithTax: Scalars['Boolean']['output'];
+  pricesEnteredWithTax: Scalars['Boolean'];
   /** The price of shipping method, includes shipping voucher discount if applied. */
   shippingPrice: Money;
   /** The source object related to this tax object. */
@@ -28890,7 +28888,7 @@ export type TaxableObjectDiscount = {
   /** The amount of the discount. */
   amount: Money;
   /** The name of the discount. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Indicates which part of the order the discount should affect: SUBTOTAL or SHIPPING. */
   type: TaxableObjectDiscountTypeEnum;
 };
@@ -28903,13 +28901,13 @@ export type TaxableObjectDiscountTypeEnum =
 export type TaxableObjectLine = {
   __typename?: 'TaxableObjectLine';
   /** Determines if taxes are being charged for the product. */
-  chargeTaxes: Scalars['Boolean']['output'];
+  chargeTaxes: Scalars['Boolean'];
   /** The product name. */
-  productName: Scalars['String']['output'];
+  productName: Scalars['String'];
   /** The product sku. */
-  productSku?: Maybe<Scalars['String']['output']>;
+  productSku?: Maybe<Scalars['String']>;
   /** Number of items. */
-  quantity: Scalars['Int']['output'];
+  quantity: Scalars['Int'];
   /** The source line related to this tax line. */
   sourceLine: TaxSourceLine;
   /** Price of the order line. The price includes catalogue promotions, specific product and applied once per order voucher discounts. The price does not include the entire order discount. */
@@ -28917,14 +28915,14 @@ export type TaxableObjectLine = {
   /** Price of the single item in the order line. The price includes catalogue promotions, specific product and applied once per order voucher discounts. The price does not include the entire order discount. */
   unitPrice: Money;
   /** The variant name. */
-  variantName: Scalars['String']['output'];
+  variantName: Scalars['String'];
 };
 
 /** Represents a monetary value with taxes. In cases where taxes were not applied, net and gross values will be equal. */
 export type TaxedMoney = {
   __typename?: 'TaxedMoney';
   /** Currency code. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
   /** Amount of money including taxes. */
   gross: Money;
   /** Amount of money without taxes. */
@@ -28935,9 +28933,9 @@ export type TaxedMoney = {
 
 export type TaxedMoneyInput = {
   /** Gross value of an item. */
-  gross: Scalars['PositiveDecimal']['input'];
+  gross: Scalars['PositiveDecimal'];
   /** Net value of an item. */
-  net: Scalars['PositiveDecimal']['input'];
+  net: Scalars['PositiveDecimal'];
 };
 
 /** Represents a range of monetary values. */
@@ -28961,9 +28959,9 @@ export type ThumbnailCreated = Event & {
    *
    * Added in Saleor 3.12.
    */
-  id?: Maybe<Scalars['ID']['output']>;
+  id?: Maybe<Scalars['ID']>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /**
@@ -28971,13 +28969,13 @@ export type ThumbnailCreated = Event & {
    *
    * Added in Saleor 3.12.
    */
-  mediaUrl?: Maybe<Scalars['String']['output']>;
+  mediaUrl?: Maybe<Scalars['String']>;
   /**
    * Object the thumbnail refers to.
    *
    * Added in Saleor 3.12.
    */
-  objectId?: Maybe<Scalars['ID']['output']>;
+  objectId?: Maybe<Scalars['ID']>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /**
@@ -28985,9 +28983,9 @@ export type ThumbnailCreated = Event & {
    *
    * Added in Saleor 3.12.
    */
-  url?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type ThumbnailFormatEnum =
@@ -28998,14 +28996,14 @@ export type ThumbnailFormatEnum =
 export type TimePeriod = {
   __typename?: 'TimePeriod';
   /** The length of the period. */
-  amount: Scalars['Int']['output'];
+  amount: Scalars['Int'];
   /** The type of the period. */
   type: TimePeriodTypeEnum;
 };
 
 export type TimePeriodInputType = {
   /** The length of the period. */
-  amount: Scalars['Int']['input'];
+  amount: Scalars['Int'];
   /** The type of the period. */
   type: TimePeriodTypeEnum;
 };
@@ -29032,21 +29030,21 @@ export type Transaction = Node & {
   /** Total amount of the transaction. */
   amount?: Maybe<Money>;
   /** Date and time at which transaction was created. */
-  created: Scalars['DateTime']['output'];
+  created: Scalars['DateTime'];
   /** Error associated with transaction, if any. */
-  error?: Maybe<Scalars['String']['output']>;
+  error?: Maybe<Scalars['String']>;
   /** Response returned by payment gateway. */
-  gatewayResponse: Scalars['JSONString']['output'];
+  gatewayResponse: Scalars['JSONString'];
   /** ID of the transaction. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Determines if the transaction was successful. */
-  isSuccess: Scalars['Boolean']['output'];
+  isSuccess: Scalars['Boolean'];
   /** Determines the type of transaction. */
   kind: TransactionKind;
   /** Determines the payment associated with a transaction. */
   payment: Payment;
   /** Unique token associated with a transaction. */
-  token: Scalars['String']['output'];
+  token: Scalars['String'];
 };
 
 export type TransactionAction = {
@@ -29054,13 +29052,13 @@ export type TransactionAction = {
   /** Determines the action type. */
   actionType: TransactionActionEnum;
   /** Transaction request amount. Null when action type is VOID. */
-  amount?: Maybe<Scalars['PositiveDecimal']['output']>;
+  amount?: Maybe<Scalars['PositiveDecimal']>;
   /**
    * Currency code.
    *
    * Added in Saleor 3.16.
    */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
 };
 
 /**
@@ -29088,7 +29086,7 @@ export type TransactionCancelationRequested = Event & {
   /** Requested action data. */
   action: TransactionAction;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -29096,7 +29094,7 @@ export type TransactionCancelationRequested = Event & {
   /** Look up a transaction. */
   transaction?: Maybe<TransactionItem>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -29111,7 +29109,7 @@ export type TransactionChargeRequested = Event & {
   /** Requested action data. */
   action: TransactionAction;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -29119,7 +29117,7 @@ export type TransactionChargeRequested = Event & {
   /** Look up a transaction. */
   transaction?: Maybe<TransactionItem>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -29142,9 +29140,9 @@ export type TransactionCreateError = {
   /** The error code. */
   code: TransactionCreateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionCreateErrorCode =
@@ -29175,13 +29173,13 @@ export type TransactionCreateInput = {
    *
    * Added in Saleor 3.13.
    */
-  externalUrl?: InputMaybe<Scalars['String']['input']>;
+  externalUrl?: InputMaybe<Scalars['String']>;
   /**
    * The message of the transaction.
    *
    * Added in Saleor 3.13.
    */
-  message?: InputMaybe<Scalars['String']['input']>;
+  message?: InputMaybe<Scalars['String']>;
   /** Payment public metadata. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /**
@@ -29189,7 +29187,7 @@ export type TransactionCreateInput = {
    *
    * Added in Saleor 3.13.
    */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Payment private metadata. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /**
@@ -29197,7 +29195,7 @@ export type TransactionCreateInput = {
    *
    * Added in Saleor 3.13.
    */
-  pspReference?: InputMaybe<Scalars['String']['input']>;
+  pspReference?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents transaction's event. */
@@ -29210,7 +29208,7 @@ export type TransactionEvent = Node & {
    */
   amount: Money;
   /** Date and time at which a transaction event was created. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /**
    * User or App that created the transaction event.
    *
@@ -29222,27 +29220,27 @@ export type TransactionEvent = Node & {
    *
    * Added in Saleor 3.13.
    */
-  externalUrl: Scalars['String']['output'];
+  externalUrl: Scalars['String'];
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Idempotency key assigned to the event.
    *
    * Added in Saleor 3.14.
    */
-  idempotencyKey?: Maybe<Scalars['String']['output']>;
+  idempotencyKey?: Maybe<Scalars['String']>;
   /**
    * Message related to the transaction's event.
    *
    * Added in Saleor 3.13.
    */
-  message: Scalars['String']['output'];
+  message: Scalars['String'];
   /**
    * PSP reference of transaction.
    *
    * Added in Saleor 3.13.
    */
-  pspReference: Scalars['String']['output'];
+  pspReference: Scalars['String'];
   /**
    * The type of action related to this event.
    *
@@ -29257,13 +29255,13 @@ export type TransactionEventInput = {
    *
    * Added in Saleor 3.13.
    */
-  message?: InputMaybe<Scalars['String']['input']>;
+  message?: InputMaybe<Scalars['String']>;
   /**
    * PSP Reference related to this action.
    *
    * Added in Saleor 3.13.
    */
-  pspReference?: InputMaybe<Scalars['String']['input']>;
+  pspReference?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -29283,7 +29281,7 @@ export type TransactionEventInput = {
 export type TransactionEventReport = {
   __typename?: 'TransactionEventReport';
   /** Defines if the reported event hasn't been processed earlier. */
-  alreadyProcessed?: Maybe<Scalars['Boolean']['output']>;
+  alreadyProcessed?: Maybe<Scalars['Boolean']>;
   errors: Array<TransactionEventReportError>;
   /** The transaction related to the reported event. */
   transaction?: Maybe<TransactionItem>;
@@ -29296,9 +29294,9 @@ export type TransactionEventReportError = {
   /** The error code. */
   code: TransactionEventReportErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionEventReportErrorCode =
@@ -29376,7 +29374,7 @@ export type TransactionFlowStrategyEnum =
 export type TransactionInitialize = {
   __typename?: 'TransactionInitialize';
   /** The JSON data required to finalize the payment. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors: Array<TransactionInitializeError>;
   /** The initialized transaction. */
   transaction?: Maybe<TransactionItem>;
@@ -29389,9 +29387,9 @@ export type TransactionInitializeError = {
   /** The error code. */
   code: TransactionInitializeErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionInitializeErrorCode =
@@ -29417,21 +29415,21 @@ export type TransactionInitializeSession = Event & {
    *
    * Added in Saleor 3.16.
    */
-  customerIpAddress?: Maybe<Scalars['String']['output']>;
+  customerIpAddress?: Maybe<Scalars['String']>;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /**
    * Idempotency key assigned to the transaction initialize.
    *
    * Added in Saleor 3.14.
    */
-  idempotencyKey: Scalars['String']['output'];
+  idempotencyKey: Scalars['String'];
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Merchant reference assigned to this payment. */
-  merchantReference: Scalars['String']['output'];
+  merchantReference: Scalars['String'];
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Checkout or order */
@@ -29439,7 +29437,7 @@ export type TransactionInitializeSession = Event & {
   /** Look up a transaction. */
   transaction: TransactionItem;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -29488,7 +29486,7 @@ export type TransactionItem = Node & ObjectWithMetadata & {
    */
   checkout?: Maybe<Checkout>;
   /** Date and time at which payment transaction was created. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /**
    * User or App that created the transaction.
    *
@@ -29502,15 +29500,15 @@ export type TransactionItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.13.
    */
-  externalUrl: Scalars['String']['output'];
+  externalUrl: Scalars['String'];
   /** The ID of the object. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /**
    * Message related to the transaction.
    *
    * Added in Saleor 3.13.
    */
-  message: Scalars['String']['output'];
+  message: Scalars['String'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -29520,21 +29518,21 @@ export type TransactionItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Date and time at which payment transaction was modified. */
-  modifiedAt: Scalars['DateTime']['output'];
+  modifiedAt: Scalars['DateTime'];
   /**
    * Name of the transaction.
    *
    * Added in Saleor 3.13.
    */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /**
    * The related order.
    *
@@ -29550,19 +29548,19 @@ export type TransactionItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * PSP reference of transaction.
    *
    * Added in Saleor 3.13.
    */
-  pspReference: Scalars['String']['output'];
+  pspReference: Scalars['String'];
   /**
    * Total amount of ongoing refund requests for the transaction.
    *
@@ -29576,7 +29574,7 @@ export type TransactionItem = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.14.
    */
-  token: Scalars['UUID']['output'];
+  token: Scalars['UUID'];
 };
 
 
@@ -29588,7 +29586,7 @@ export type TransactionItem = Node & ObjectWithMetadata & {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type TransactionItemMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -29600,7 +29598,7 @@ export type TransactionItemMetafieldArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type TransactionItemMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
@@ -29612,7 +29610,7 @@ export type TransactionItemMetafieldsArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type TransactionItemPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
@@ -29624,7 +29622,7 @@ export type TransactionItemPrivateMetafieldArgs = {
  * Note: this API is currently in Feature Preview and can be subject to changes at later point.
  */
 export type TransactionItemPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -29635,7 +29633,7 @@ export type TransactionItemPrivateMetafieldsArgs = {
 export type TransactionItemMetadataUpdated = Event & {
   __typename?: 'TransactionItemMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -29643,7 +29641,7 @@ export type TransactionItemMetadataUpdated = Event & {
   /** Look up a transaction. */
   transaction?: Maybe<TransactionItem>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type TransactionKind =
@@ -29668,7 +29666,7 @@ export type TransactionKind =
 export type TransactionProcess = {
   __typename?: 'TransactionProcess';
   /** The json data required to finalize the payment. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   errors: Array<TransactionProcessError>;
   /** The processed transaction. */
   transaction?: Maybe<TransactionItem>;
@@ -29680,9 +29678,9 @@ export type TransactionProcessAction = {
   __typename?: 'TransactionProcessAction';
   actionType: TransactionFlowStrategyEnum;
   /** Transaction amount to process. */
-  amount: Scalars['PositiveDecimal']['output'];
+  amount: Scalars['PositiveDecimal'];
   /** Currency of the amount. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
 };
 
 export type TransactionProcessError = {
@@ -29690,9 +29688,9 @@ export type TransactionProcessError = {
   /** The error code. */
   code: TransactionProcessErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionProcessErrorCode =
@@ -29720,15 +29718,15 @@ export type TransactionProcessSession = Event & {
    *
    * Added in Saleor 3.16.
    */
-  customerIpAddress?: Maybe<Scalars['String']['output']>;
+  customerIpAddress?: Maybe<Scalars['String']>;
   /** Payment gateway data in JSON format, received from storefront. */
-  data?: Maybe<Scalars['JSON']['output']>;
+  data?: Maybe<Scalars['JSON']>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** Merchant reference assigned to this payment. */
-  merchantReference: Scalars['String']['output'];
+  merchantReference: Scalars['String'];
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Checkout or order */
@@ -29736,7 +29734,7 @@ export type TransactionProcessSession = Event & {
   /** Look up a transaction. */
   transaction: TransactionItem;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -29759,7 +29757,7 @@ export type TransactionRefundRequested = Event & {
    */
   grantedRefund?: Maybe<OrderGrantedRefund>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -29767,7 +29765,7 @@ export type TransactionRefundRequested = Event & {
   /** Look up a transaction. */
   transaction?: Maybe<TransactionItem>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -29790,9 +29788,9 @@ export type TransactionRequestActionError = {
   /** The error code. */
   code: TransactionRequestActionErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionRequestActionErrorCode =
@@ -29821,9 +29819,9 @@ export type TransactionRequestRefundForGrantedRefundError = {
   /** The error code. */
   code: TransactionRequestRefundForGrantedRefundErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionRequestRefundForGrantedRefundErrorCode =
@@ -29855,9 +29853,9 @@ export type TransactionUpdateError = {
   /** The error code. */
   code: TransactionUpdateErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TransactionUpdateErrorCode =
@@ -29888,13 +29886,13 @@ export type TransactionUpdateInput = {
    *
    * Added in Saleor 3.13.
    */
-  externalUrl?: InputMaybe<Scalars['String']['input']>;
+  externalUrl?: InputMaybe<Scalars['String']>;
   /**
    * The message of the transaction.
    *
    * Added in Saleor 3.13.
    */
-  message?: InputMaybe<Scalars['String']['input']>;
+  message?: InputMaybe<Scalars['String']>;
   /** Payment public metadata. */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /**
@@ -29902,7 +29900,7 @@ export type TransactionUpdateInput = {
    *
    * Added in Saleor 3.13.
    */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Payment private metadata. */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /**
@@ -29910,7 +29908,7 @@ export type TransactionUpdateInput = {
    *
    * Added in Saleor 3.13.
    */
-  pspReference?: InputMaybe<Scalars['String']['input']>;
+  pspReference?: InputMaybe<Scalars['String']>;
 };
 
 export type TranslatableItem = AttributeTranslatableContent | AttributeValueTranslatableContent | CategoryTranslatableContent | CollectionTranslatableContent | MenuItemTranslatableContent | PageTranslatableContent | ProductTranslatableContent | ProductVariantTranslatableContent | PromotionRuleTranslatableContent | PromotionTranslatableContent | SaleTranslatableContent | ShippingMethodTranslatableContent | VoucherTranslatableContent;
@@ -29921,13 +29919,13 @@ export type TranslatableItemConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type TranslatableItemEdge = {
   __typename?: 'TranslatableItemEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: TranslatableItem;
 };
@@ -29955,7 +29953,7 @@ export type TranslatableKinds =
 export type TranslationCreated = Event & {
   __typename?: 'TranslationCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -29963,7 +29961,7 @@ export type TranslationCreated = Event & {
   /** The translation the event relates to. */
   translation?: Maybe<TranslationTypes>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type TranslationError = {
@@ -29971,9 +29969,9 @@ export type TranslationError = {
   /** The error code. */
   code: TranslationErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type TranslationErrorCode =
@@ -29988,10 +29986,10 @@ export type TranslationInput = {
    *
    * Rich text format. For reference see https://editorjs.io/
    */
-  description?: InputMaybe<Scalars['JSONString']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  seoDescription?: InputMaybe<Scalars['String']['input']>;
-  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSONString']>;
+  name?: InputMaybe<Scalars['String']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
 };
 
 export type TranslationTypes = AttributeTranslation | AttributeValueTranslation | CategoryTranslation | CollectionTranslation | MenuItemTranslation | PageTranslation | ProductTranslation | ProductVariantTranslation | PromotionRuleTranslation | PromotionTranslation | SaleTranslation | ShippingMethodTranslation | VoucherTranslation;
@@ -30004,7 +30002,7 @@ export type TranslationTypes = AttributeTranslation | AttributeValueTranslation 
 export type TranslationUpdated = Event & {
   __typename?: 'TranslationUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
@@ -30012,7 +30010,7 @@ export type TranslationUpdated = Event & {
   /** The translation the event relates to. */
   translation?: Maybe<TranslationTypes>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type UpdateInvoiceInput = {
@@ -30023,7 +30021,7 @@ export type UpdateInvoiceInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** Invoice number */
-  number?: InputMaybe<Scalars['String']['input']>;
+  number?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the invoice private metadata.
    *
@@ -30031,7 +30029,7 @@ export type UpdateInvoiceInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of an invoice to download. */
-  url?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 /** Updates metadata of an object. To use it, you need to have access to the modified object. */
@@ -30057,9 +30055,9 @@ export type UploadError = {
   /** The error code. */
   code: UploadErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type UploadErrorCode =
@@ -30086,12 +30084,12 @@ export type User = Node & ObjectWithMetadata & {
    */
   checkout?: Maybe<Checkout>;
   /** Returns the checkout ID's assigned to this user. */
-  checkoutIds?: Maybe<Array<Scalars['ID']['output']>>;
+  checkoutIds?: Maybe<Array<Scalars['ID']>>;
   /**
    * Returns the checkout UUID's assigned to this user.
    * @deprecated This field will be removed in Saleor 4.0. Use `checkoutIds` instead.
    */
-  checkoutTokens?: Maybe<Array<Scalars['UUID']['output']>>;
+  checkoutTokens?: Maybe<Array<Scalars['UUID']>>;
   /**
    * Returns checkouts assigned to this user.
    *
@@ -30099,7 +30097,7 @@ export type User = Node & ObjectWithMetadata & {
    */
   checkouts?: Maybe<CheckoutCountableConnection>;
   /** The data when the user create account. */
-  dateJoined: Scalars['DateTime']['output'];
+  dateJoined: Scalars['DateTime'];
   /** The default billing address of the user. */
   defaultBillingAddress?: Maybe<Address>;
   /** The default shipping address of the user. */
@@ -30107,7 +30105,7 @@ export type User = Node & ObjectWithMetadata & {
   /** List of user's permission groups which user can manage. */
   editableGroups?: Maybe<Array<Group>>;
   /** The email address of the user. */
-  email: Scalars['String']['output'];
+  email: Scalars['String'];
   /**
    * List of events associated with the user.
    *
@@ -30119,29 +30117,29 @@ export type User = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** The given name of the address. */
-  firstName: Scalars['String']['output'];
+  firstName: Scalars['String'];
   /** List of the user gift cards. */
   giftCards?: Maybe<GiftCardCountableConnection>;
   /** The ID of the user. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Determine if the user is active. */
-  isActive: Scalars['Boolean']['output'];
+  isActive: Scalars['Boolean'];
   /**
    * Determines if user has confirmed email.
    *
    * Added in Saleor 3.15.
    */
-  isConfirmed: Scalars['Boolean']['output'];
+  isConfirmed: Scalars['Boolean'];
   /** Determine if the user is a staff admin. */
-  isStaff: Scalars['Boolean']['output'];
+  isStaff: Scalars['Boolean'];
   /** User language code. */
   languageCode: LanguageCodeEnum;
   /** The date when the user last time log in to the system. */
-  lastLogin?: Maybe<Scalars['DateTime']['output']>;
+  lastLogin?: Maybe<Scalars['DateTime']>;
   /** The family name of the address. */
-  lastName: Scalars['String']['output'];
+  lastName: Scalars['String'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -30151,19 +30149,19 @@ export type User = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /**
    * A note about the customer.
    *
    * Requires one of the following permissions: MANAGE_USERS, MANAGE_STAFF.
    */
-  note?: Maybe<Scalars['String']['output']>;
+  note?: Maybe<Scalars['String']>;
   /** List of user's orders. Requires one of the following permissions: MANAGE_STAFF, OWNER. */
   orders?: Maybe<OrderCountableConnection>;
   /** List of user's permission groups. */
@@ -30177,13 +30175,13 @@ export type User = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * Determine if user have restricted access to channels. False if at least one user group has `restrictedAccessToChannels` set to False.
    *
@@ -30191,7 +30189,7 @@ export type User = Node & ObjectWithMetadata & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  restrictedAccessToChannels: Scalars['Boolean']['output'];
+  restrictedAccessToChannels: Scalars['Boolean'];
   /**
    * Returns a list of user's stored payment methods that can be used in provided channel. The field returns a list of stored payment methods by payment apps. When `amount` is not provided, 0 will be used as default value.
    *
@@ -30203,7 +30201,7 @@ export type User = Node & ObjectWithMetadata & {
   /** List of stored payment sources. The field returns a list of payment sources stored for payment plugins. */
   storedPaymentSources?: Maybe<Array<PaymentSource>>;
   /** The data when the user last update the account information. */
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTime'];
   /** List of user's permissions. */
   userPermissions?: Maybe<Array<UserPermission>>;
 };
@@ -30212,83 +30210,83 @@ export type User = Node & ObjectWithMetadata & {
 /** Represents user data. */
 export type UserAvatarArgs = {
   format?: InputMaybe<ThumbnailFormatEnum>;
-  size?: InputMaybe<Scalars['Int']['input']>;
+  size?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents user data. */
 export type UserCheckoutIdsArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 
 /** Represents user data. */
 export type UserCheckoutTokensArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 
 /** Represents user data. */
 export type UserCheckoutsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  channel?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  channel?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents user data. */
 export type UserGiftCardsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents user data. */
 export type UserMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents user data. */
 export type UserMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents user data. */
 export type UserOrdersArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents user data. */
 export type UserPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents user data. */
 export type UserPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents user data. */
 export type UserStoredPaymentMethodsArgs = {
-  channel: Scalars['String']['input'];
+  channel: Scalars['String'];
 };
 
 
 /** Represents user data. */
 export type UserStoredPaymentSourcesArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -30329,7 +30327,7 @@ export type UserBulkSetActive = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   accountErrors: Array<AccountError>;
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<AccountError>;
 };
 
@@ -30339,36 +30337,36 @@ export type UserCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type UserCountableEdge = {
   __typename?: 'UserCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: User;
 };
 
 export type UserCreateInput = {
   /** Slug of a channel which will be used for notify user. Optional when only one channel exists. */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Billing address of the customer. */
   defaultBillingAddress?: InputMaybe<AddressInput>;
   /** Shipping address of the customer. */
   defaultShippingAddress?: InputMaybe<AddressInput>;
   /** The unique email address of the user. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /**
    * External ID of the customer.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Given name. */
-  firstName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']>;
   /** User account is active. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /**
    * User account is confirmed.
    *
@@ -30378,11 +30376,11 @@ export type UserCreateInput = {
    *
    * The user will be always set as unconfirmed. The confirmation will take place when the user sets the password.
    */
-  isConfirmed?: InputMaybe<Scalars['Boolean']['input']>;
+  isConfirmed?: InputMaybe<Scalars['Boolean']>;
   /** User language code. */
   languageCode?: InputMaybe<LanguageCodeEnum>;
   /** Family name. */
-  lastName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user metadata.
    *
@@ -30390,7 +30388,7 @@ export type UserCreateInput = {
    */
   metadata?: InputMaybe<Array<MetadataInput>>;
   /** A note about the user. */
-  note?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']>;
   /**
    * Fields required to update the user private metadata.
    *
@@ -30398,7 +30396,7 @@ export type UserCreateInput = {
    */
   privateMetadata?: InputMaybe<Array<MetadataInput>>;
   /** URL of a view where users should be redirected to set the password. URL in RFC 1808 format. */
-  redirectUrl?: InputMaybe<Scalars['String']['input']>;
+  redirectUrl?: InputMaybe<Scalars['String']>;
 };
 
 export type UserOrApp = App | User;
@@ -30409,7 +30407,7 @@ export type UserPermission = {
   /** Internal code for permission. */
   code: PermissionEnum;
   /** Describe action(s) allowed to do by permission. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of user permission groups which contains this permission. */
   sourcePermissionGroups?: Maybe<Array<Group>>;
 };
@@ -30417,7 +30415,7 @@ export type UserPermission = {
 
 /** Represents user's permissions. */
 export type UserPermissionSourcePermissionGroupsArgs = {
-  userId: Scalars['ID']['input'];
+  userId: Scalars['ID'];
 };
 
 export type UserSortField =
@@ -30445,11 +30443,11 @@ export type UserSortingInput = {
 export type Vat = {
   __typename?: 'VAT';
   /** Country code. */
-  countryCode: Scalars['String']['output'];
+  countryCode: Scalars['String'];
   /** Country's VAT rate exceptions for specific types of goods. */
   reducedRates: Array<ReducedRate>;
   /** Standard VAT rate in percent. */
-  standardRate?: Maybe<Scalars['Float']['output']>;
+  standardRate?: Maybe<Scalars['Float']>;
 };
 
 export type VariantAttributeScope =
@@ -30496,7 +30494,7 @@ export type VariantPricingInfo = {
    */
   discountLocalCurrency?: Maybe<TaxedMoney>;
   /** Whether it is in sale or not. */
-  onSale?: Maybe<Scalars['Boolean']['output']>;
+  onSale?: Maybe<Scalars['Boolean']>;
   /** The price, with any discount subtracted. */
   price?: Maybe<TaxedMoney>;
   /**
@@ -30515,9 +30513,9 @@ export type VerifyToken = {
   accountErrors: Array<AccountError>;
   errors: Array<AccountError>;
   /** Determine if token is valid or not. */
-  isValid: Scalars['Boolean']['output'];
+  isValid: Scalars['Boolean'];
   /** JWT payload. */
-  payload?: Maybe<Scalars['GenericScalar']['output']>;
+  payload?: Maybe<Scalars['GenericScalar']>;
   /** User assigned to token. */
   user?: Maybe<User>;
 };
@@ -30541,9 +30539,9 @@ export type VolumeUnitsEnum =
 export type Voucher = Node & ObjectWithMetadata & {
   __typename?: 'Voucher';
   /** Determine if the voucher usage should be limited to one use per customer. */
-  applyOncePerCustomer: Scalars['Boolean']['output'];
+  applyOncePerCustomer: Scalars['Boolean'];
   /** Determine if the voucher should be applied once per order. If set to True, the voucher is applied to a single cheapest eligible product in checkout. */
-  applyOncePerOrder: Scalars['Boolean']['output'];
+  applyOncePerOrder: Scalars['Boolean'];
   /** List of categories this voucher applies to. */
   categories?: Maybe<CategoryCountableConnection>;
   /**
@@ -30553,7 +30551,7 @@ export type Voucher = Node & ObjectWithMetadata & {
    */
   channelListings?: Maybe<Array<VoucherChannelListing>>;
   /** The code of the voucher.This field will be removed in Saleor 4.0. */
-  code?: Maybe<Scalars['String']['output']>;
+  code?: Maybe<Scalars['String']>;
   /**
    * List of codes available for this voucher.
    *
@@ -30569,15 +30567,15 @@ export type Voucher = Node & ObjectWithMetadata & {
   /** List of countries available for the shipping voucher. */
   countries?: Maybe<Array<CountryDisplay>>;
   /** Currency code for voucher. */
-  currency?: Maybe<Scalars['String']['output']>;
+  currency?: Maybe<Scalars['String']>;
   /** Voucher value. */
-  discountValue?: Maybe<Scalars['Float']['output']>;
+  discountValue?: Maybe<Scalars['Float']>;
   /** Determines a type of discount for voucher - value or percentage */
   discountValueType: DiscountValueTypeEnum;
   /** The end date and time of voucher. */
-  endDate?: Maybe<Scalars['DateTime']['output']>;
+  endDate?: Maybe<Scalars['DateTime']>;
   /** The ID of the voucher. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -30587,21 +30585,21 @@ export type Voucher = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Determine minimum quantity of items for checkout. */
-  minCheckoutItemsQuantity?: Maybe<Scalars['Int']['output']>;
+  minCheckoutItemsQuantity?: Maybe<Scalars['Int']>;
   /** Minimum order value to apply voucher. */
   minSpent?: Maybe<Money>;
   /** The name of the voucher. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Determine if the voucher is available only for staff members. */
-  onlyForStaff: Scalars['Boolean']['output'];
+  onlyForStaff: Scalars['Boolean'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -30611,13 +30609,13 @@ export type Voucher = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /**
    * List of products this voucher applies to.
    *
@@ -30631,17 +30629,17 @@ export type Voucher = Node & ObjectWithMetadata & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  singleUse: Scalars['Boolean']['output'];
+  singleUse: Scalars['Boolean'];
   /** The start date and time of voucher. */
-  startDate: Scalars['DateTime']['output'];
+  startDate: Scalars['DateTime'];
   /** Returns translated voucher fields for the given language code. */
   translation?: Maybe<VoucherTranslation>;
   /** Determines a type of voucher. */
   type: VoucherTypeEnum;
   /** The number of times a voucher can be used. */
-  usageLimit?: Maybe<Scalars['Int']['output']>;
+  usageLimit?: Maybe<Scalars['Int']>;
   /** Usage count of the voucher. */
-  used: Scalars['Int']['output'];
+  used: Scalars['Int'];
   /**
    * List of product variants this voucher applies to.
    *
@@ -30655,61 +30653,61 @@ export type Voucher = Node & ObjectWithMetadata & {
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherCodesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherCollectionsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherPrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherPrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherProductsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -30721,10 +30719,10 @@ export type VoucherTranslationArgs = {
 
 /** Vouchers allow giving discounts to particular customers on categories, collections or specific products. They can be used during checkout by providing valid voucher codes. */
 export type VoucherVariantsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 /**
@@ -30755,7 +30753,7 @@ export type VoucherAddCatalogues = {
 export type VoucherBulkDelete = {
   __typename?: 'VoucherBulkDelete';
   /** Returns how many objects were affected. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   discountErrors: Array<DiscountError>;
   errors: Array<DiscountError>;
@@ -30767,29 +30765,29 @@ export type VoucherChannelListing = Node & {
   /** The channel in which voucher can be applied. */
   channel: Channel;
   /** Currency code for voucher in a channel. */
-  currency: Scalars['String']['output'];
+  currency: Scalars['String'];
   /** The value of the discount on voucher in a channel. */
-  discountValue: Scalars['Float']['output'];
+  discountValue: Scalars['Float'];
   /** The ID of channel listing. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Minimum order value for voucher to apply in channel. */
   minSpent?: Maybe<Money>;
 };
 
 export type VoucherChannelListingAddInput = {
   /** ID of a channel. */
-  channelId: Scalars['ID']['input'];
+  channelId: Scalars['ID'];
   /** Value of the voucher. */
-  discountValue?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  discountValue?: InputMaybe<Scalars['PositiveDecimal']>;
   /** Min purchase amount required to apply the voucher. */
-  minAmountSpent?: InputMaybe<Scalars['PositiveDecimal']['input']>;
+  minAmountSpent?: InputMaybe<Scalars['PositiveDecimal']>;
 };
 
 export type VoucherChannelListingInput = {
   /** List of channels to which the voucher should be assigned. */
   addChannels?: InputMaybe<Array<VoucherChannelListingAddInput>>;
   /** List of channels from which the voucher should be unassigned. */
-  removeChannels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  removeChannels?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -30819,15 +30817,15 @@ export type VoucherChannelListingUpdate = {
 export type VoucherCode = {
   __typename?: 'VoucherCode';
   /** Code to use the voucher. */
-  code?: Maybe<Scalars['String']['output']>;
+  code?: Maybe<Scalars['String']>;
   /** Date time of code creation. */
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime'];
   /** The ID of the voucher code. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Whether a code is active or not. */
-  isActive?: Maybe<Scalars['Boolean']['output']>;
+  isActive?: Maybe<Scalars['Boolean']>;
   /** Number of times a code has been used. */
-  used?: Maybe<Scalars['Int']['output']>;
+  used?: Maybe<Scalars['Int']>;
 };
 
 /**
@@ -30843,7 +30841,7 @@ export type VoucherCode = {
 export type VoucherCodeBulkDelete = {
   __typename?: 'VoucherCodeBulkDelete';
   /** Returns how many codes were deleted. */
-  count: Scalars['Int']['output'];
+  count: Scalars['Int'];
   errors: Array<VoucherCodeBulkDeleteError>;
 };
 
@@ -30852,11 +30850,11 @@ export type VoucherCodeBulkDeleteError = {
   /** The error code. */
   code: VoucherCodeBulkDeleteErrorCode;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  path?: Maybe<Scalars['String']['output']>;
+  path?: Maybe<Scalars['String']>;
   /** List of voucher codes which causes the error. */
-  voucherCodes?: Maybe<Array<Scalars['ID']['output']>>;
+  voucherCodes?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type VoucherCodeBulkDeleteErrorCode =
@@ -30870,13 +30868,13 @@ export type VoucherCodeCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type VoucherCodeCountableEdge = {
   __typename?: 'VoucherCodeCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: VoucherCode;
 };
@@ -30891,13 +30889,13 @@ export type VoucherCodeExportCompleted = Event & {
   /** The export file for voucher codes. */
   export?: Maybe<ExportFile>;
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -30908,13 +30906,13 @@ export type VoucherCodeExportCompleted = Event & {
 export type VoucherCodesCreated = Event & {
   __typename?: 'VoucherCodesCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher codes the event relates to. */
   voucherCodes?: Maybe<Array<VoucherCode>>;
 };
@@ -30927,13 +30925,13 @@ export type VoucherCodesCreated = Event & {
 export type VoucherCodesDeleted = Event & {
   __typename?: 'VoucherCodesDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher codes the event relates to. */
   voucherCodes?: Maybe<Array<VoucherCode>>;
 };
@@ -30944,13 +30942,13 @@ export type VoucherCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type VoucherCountableEdge = {
   __typename?: 'VoucherCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Voucher;
 };
@@ -30980,13 +30978,13 @@ export type VoucherCreate = {
 export type VoucherCreated = Event & {
   __typename?: 'VoucherCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher the event relates to. */
   voucher?: Maybe<Voucher>;
 };
@@ -30998,7 +30996,7 @@ export type VoucherCreated = Event & {
  * Added in Saleor 3.4.
  */
 export type VoucherCreatedVoucherArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -31025,13 +31023,13 @@ export type VoucherDelete = {
 export type VoucherDeleted = Event & {
   __typename?: 'VoucherDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher the event relates to. */
   voucher?: Maybe<Voucher>;
 };
@@ -31043,7 +31041,7 @@ export type VoucherDeleted = Event & {
  * Added in Saleor 3.4.
  */
 export type VoucherDeletedVoucherArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 export type VoucherDiscountType =
@@ -31053,9 +31051,9 @@ export type VoucherDiscountType =
 
 export type VoucherFilterInput = {
   discountType?: InputMaybe<Array<VoucherDiscountType>>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']>;
   started?: InputMaybe<DateTimeRangeInput>;
   status?: InputMaybe<Array<DiscountStatusEnum>>;
   timesUsed?: InputMaybe<IntRangeInput>;
@@ -31069,31 +31067,31 @@ export type VoucherInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  addCodes?: InputMaybe<Array<Scalars['String']['input']>>;
+  addCodes?: InputMaybe<Array<Scalars['String']>>;
   /** Voucher should be applied once per customer. */
-  applyOncePerCustomer?: InputMaybe<Scalars['Boolean']['input']>;
+  applyOncePerCustomer?: InputMaybe<Scalars['Boolean']>;
   /** Voucher should be applied to the cheapest item or entire order. */
-  applyOncePerOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  applyOncePerOrder?: InputMaybe<Scalars['Boolean']>;
   /** Categories discounted by the voucher. */
-  categories?: InputMaybe<Array<Scalars['ID']['input']>>;
+  categories?: InputMaybe<Array<Scalars['ID']>>;
   /** Code to use the voucher. This field will be removed in Saleor 4.0. Use `addCodes` instead. */
-  code?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']>;
   /** Collections discounted by the voucher. */
-  collections?: InputMaybe<Array<Scalars['ID']['input']>>;
+  collections?: InputMaybe<Array<Scalars['ID']>>;
   /** Country codes that can be used with the shipping voucher. */
-  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  countries?: InputMaybe<Array<Scalars['String']>>;
   /** Choices: fixed or percentage. */
   discountValueType?: InputMaybe<DiscountValueTypeEnum>;
   /** End date of the voucher in ISO 8601 format. */
-  endDate?: InputMaybe<Scalars['DateTime']['input']>;
+  endDate?: InputMaybe<Scalars['DateTime']>;
   /** Minimal quantity of checkout items required to apply the voucher. */
-  minCheckoutItemsQuantity?: InputMaybe<Scalars['Int']['input']>;
+  minCheckoutItemsQuantity?: InputMaybe<Scalars['Int']>;
   /** Voucher name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Voucher can be used only by staff user. */
-  onlyForStaff?: InputMaybe<Scalars['Boolean']['input']>;
+  onlyForStaff?: InputMaybe<Scalars['Boolean']>;
   /** Products discounted by the voucher. */
-  products?: InputMaybe<Array<Scalars['ID']['input']>>;
+  products?: InputMaybe<Array<Scalars['ID']>>;
   /**
    * When set to 'True', each voucher code can be used only once; otherwise, codes can be used multiple times depending on `usageLimit`.
    *
@@ -31103,19 +31101,19 @@ export type VoucherInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  singleUse?: InputMaybe<Scalars['Boolean']['input']>;
+  singleUse?: InputMaybe<Scalars['Boolean']>;
   /** Start date of the voucher in ISO 8601 format. */
-  startDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate?: InputMaybe<Scalars['DateTime']>;
   /** Voucher type: PRODUCT, CATEGORY SHIPPING or ENTIRE_ORDER. */
   type?: InputMaybe<VoucherTypeEnum>;
   /** Limit number of times this voucher can be used in total. */
-  usageLimit?: InputMaybe<Scalars['Int']['input']>;
+  usageLimit?: InputMaybe<Scalars['Int']>;
   /**
    * Variants discounted by the voucher.
    *
    * Added in Saleor 3.1.
    */
-  variants?: InputMaybe<Array<Scalars['ID']['input']>>;
+  variants?: InputMaybe<Array<Scalars['ID']>>;
 };
 
 /**
@@ -31126,13 +31124,13 @@ export type VoucherInput = {
 export type VoucherMetadataUpdated = Event & {
   __typename?: 'VoucherMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher the event relates to. */
   voucher?: Maybe<Voucher>;
 };
@@ -31144,7 +31142,7 @@ export type VoucherMetadataUpdated = Event & {
  * Added in Saleor 3.8.
  */
 export type VoucherMetadataUpdatedVoucherArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -31204,7 +31202,7 @@ export type VoucherSortingInput = {
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Use root-level channel argument instead.
    */
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
   /** Specifies the direction in which to sort vouchers. */
   direction: OrderDirection;
   /** Sort vouchers by the selected field. */
@@ -31215,9 +31213,9 @@ export type VoucherSortingInput = {
 export type VoucherTranslatableContent = Node & {
   __typename?: 'VoucherTranslatableContent';
   /** The ID of the voucher translatable content. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Voucher name to translate. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /** Returns translated voucher fields for the given language code. */
   translation?: Maybe<VoucherTranslation>;
   /**
@@ -31232,7 +31230,7 @@ export type VoucherTranslatableContent = Node & {
    *
    * Added in Saleor 3.14.
    */
-  voucherId: Scalars['ID']['output'];
+  voucherId: Scalars['ID'];
 };
 
 
@@ -31258,11 +31256,11 @@ export type VoucherTranslate = {
 export type VoucherTranslation = Node & {
   __typename?: 'VoucherTranslation';
   /** The ID of the voucher translation. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Translation language. */
   language: LanguageDisplay;
   /** Translated voucher name. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Represents the voucher fields to translate.
    *
@@ -31301,13 +31299,13 @@ export type VoucherUpdate = {
 export type VoucherUpdated = Event & {
   __typename?: 'VoucherUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The voucher the event relates to. */
   voucher?: Maybe<Voucher>;
 };
@@ -31319,7 +31317,7 @@ export type VoucherUpdated = Event & {
  * Added in Saleor 3.4.
  */
 export type VoucherUpdatedVoucherArgs = {
-  channel?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents warehouse. */
@@ -31337,19 +31335,19 @@ export type Warehouse = Node & ObjectWithMetadata & {
    * Warehouse company name.
    * @deprecated This field will be removed in Saleor 4.0. Use `Address.companyName` instead.
    */
-  companyName: Scalars['String']['output'];
+  companyName: Scalars['String'];
   /** Warehouse email. */
-  email: Scalars['String']['output'];
+  email: Scalars['String'];
   /**
    * External ID of this warehouse.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: Maybe<Scalars['String']['output']>;
+  externalReference?: Maybe<Scalars['String']>;
   /** The ID of the warehouse. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Determine if the warehouse is private. */
-  isPrivate: Scalars['Boolean']['output'];
+  isPrivate: Scalars['Boolean'];
   /** List of public metadata items. Can be accessed without permissions. */
   metadata: Array<MetadataItem>;
   /**
@@ -31359,15 +31357,15 @@ export type Warehouse = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  metafield?: Maybe<Scalars['String']['output']>;
+  metafield?: Maybe<Scalars['String']>;
   /**
    * Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  metafields?: Maybe<Scalars['Metadata']['output']>;
+  metafields?: Maybe<Scalars['Metadata']>;
   /** Warehouse name. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
   /** List of private metadata items. Requires staff permissions to access. */
   privateMetadata: Array<MetadataItem>;
   /**
@@ -31377,17 +31375,17 @@ export type Warehouse = Node & ObjectWithMetadata & {
    *
    * Added in Saleor 3.3.
    */
-  privateMetafield?: Maybe<Scalars['String']['output']>;
+  privateMetafield?: Maybe<Scalars['String']>;
   /**
    * Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
    *
    * Added in Saleor 3.3.
    */
-  privateMetafields?: Maybe<Scalars['Metadata']['output']>;
+  privateMetafields?: Maybe<Scalars['Metadata']>;
   /** Shipping zones supported by the warehouse. */
   shippingZones: ShippingZoneCountableConnection;
   /** Warehouse slug. */
-  slug: Scalars['String']['output'];
+  slug: Scalars['String'];
   /**
    * Stocks that belong to this warehouse.
    *
@@ -31401,43 +31399,43 @@ export type Warehouse = Node & ObjectWithMetadata & {
 
 /** Represents warehouse. */
 export type WarehouseMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents warehouse. */
 export type WarehouseMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents warehouse. */
 export type WarehousePrivateMetafieldArgs = {
-  key: Scalars['String']['input'];
+  key: Scalars['String'];
 };
 
 
 /** Represents warehouse. */
 export type WarehousePrivateMetafieldsArgs = {
-  keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  keys?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
 /** Represents warehouse. */
 export type WarehouseShippingZonesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
 /** Represents warehouse. */
 export type WarehouseStocksArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 export type WarehouseClickAndCollectOptionEnum =
@@ -31451,13 +31449,13 @@ export type WarehouseCountableConnection = {
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** A total count of items in the collection. */
-  totalCount?: Maybe<Scalars['Int']['output']>;
+  totalCount?: Maybe<Scalars['Int']>;
 };
 
 export type WarehouseCountableEdge = {
   __typename?: 'WarehouseCountableEdge';
   /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
+  cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Warehouse;
 };
@@ -31479,23 +31477,23 @@ export type WarehouseCreateInput = {
   /** Address of the warehouse. */
   address: AddressInput;
   /** The email address of the warehouse. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /**
    * External ID of the warehouse.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /** Warehouse name. */
-  name: Scalars['String']['input'];
+  name: Scalars['String'];
   /**
    * Shipping zones supported by the warehouse.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. Providing the zone ids will raise a ValidationError.
    */
-  shippingZones?: InputMaybe<Array<Scalars['ID']['input']>>;
+  shippingZones?: InputMaybe<Array<Scalars['ID']>>;
   /** Warehouse slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -31506,13 +31504,13 @@ export type WarehouseCreateInput = {
 export type WarehouseCreated = Event & {
   __typename?: 'WarehouseCreated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The warehouse the event relates to. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -31538,13 +31536,13 @@ export type WarehouseDelete = {
 export type WarehouseDeleted = Event & {
   __typename?: 'WarehouseDeleted';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The warehouse the event relates to. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -31554,11 +31552,11 @@ export type WarehouseError = {
   /** The error code. */
   code: WarehouseErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
   /** List of shipping zones IDs which causes the error. */
-  shippingZones?: Maybe<Array<Scalars['ID']['output']>>;
+  shippingZones?: Maybe<Array<Scalars['ID']>>;
 };
 
 export type WarehouseErrorCode =
@@ -31570,13 +31568,13 @@ export type WarehouseErrorCode =
   | 'UNIQUE';
 
 export type WarehouseFilterInput = {
-  channels?: InputMaybe<Array<Scalars['ID']['input']>>;
+  channels?: InputMaybe<Array<Scalars['ID']>>;
   clickAndCollectOption?: InputMaybe<WarehouseClickAndCollectOptionEnum>;
-  ids?: InputMaybe<Array<Scalars['ID']['input']>>;
-  isPrivate?: InputMaybe<Scalars['Boolean']['input']>;
+  ids?: InputMaybe<Array<Scalars['ID']>>;
+  isPrivate?: InputMaybe<Scalars['Boolean']>;
   metadata?: InputMaybe<Array<MetadataFilter>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  slugs?: InputMaybe<Array<Scalars['String']['input']>>;
+  search?: InputMaybe<Scalars['String']>;
+  slugs?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /**
@@ -31587,13 +31585,13 @@ export type WarehouseFilterInput = {
 export type WarehouseMetadataUpdated = Event & {
   __typename?: 'WarehouseMetadataUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The warehouse the event relates to. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -31658,23 +31656,23 @@ export type WarehouseUpdateInput = {
    */
   clickAndCollectOption?: InputMaybe<WarehouseClickAndCollectOptionEnum>;
   /** The email address of the warehouse. */
-  email?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']>;
   /**
    * External ID of the warehouse.
    *
    * Added in Saleor 3.10.
    */
-  externalReference?: InputMaybe<Scalars['String']['input']>;
+  externalReference?: InputMaybe<Scalars['String']>;
   /**
    * Visibility of warehouse stocks.
    *
    * Added in Saleor 3.1.
    */
-  isPrivate?: InputMaybe<Scalars['Boolean']['input']>;
+  isPrivate?: InputMaybe<Scalars['Boolean']>;
   /** Warehouse name. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /** Warehouse slug. */
-  slug?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -31685,13 +31683,13 @@ export type WarehouseUpdateInput = {
 export type WarehouseUpdated = Event & {
   __typename?: 'WarehouseUpdated';
   /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']['output']>;
+  issuedAt?: Maybe<Scalars['DateTime']>;
   /** The user or application that triggered the event. */
   issuingPrincipal?: Maybe<IssuingPrincipal>;
   /** The application receiving the webhook. */
   recipient?: Maybe<App>;
   /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']['output']>;
+  version?: Maybe<Scalars['String']>;
   /** The warehouse the event relates to. */
   warehouse?: Maybe<Warehouse>;
 };
@@ -31710,7 +31708,7 @@ export type Webhook = Node & {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  customHeaders?: Maybe<Scalars['JSONString']['output']>;
+  customHeaders?: Maybe<Scalars['JSONString']>;
   /** Event deliveries. */
   eventDeliveries?: Maybe<EventDeliveryCountableConnection>;
   /**
@@ -31719,32 +31717,32 @@ export type Webhook = Node & {
    */
   events: Array<WebhookEvent>;
   /** The ID of webhook. */
-  id: Scalars['ID']['output'];
+  id: Scalars['ID'];
   /** Informs if webhook is activated. */
-  isActive: Scalars['Boolean']['output'];
+  isActive: Scalars['Boolean'];
   /** The name of webhook. */
-  name?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']>;
   /**
    * Used to create a hash signature for each payload.
    * @deprecated This field will be removed in Saleor 4.0. As of Saleor 3.5, webhook payloads default to signing using a verifiable JWS.
    */
-  secretKey?: Maybe<Scalars['String']['output']>;
+  secretKey?: Maybe<Scalars['String']>;
   /** Used to define payloads for specific events. */
-  subscriptionQuery?: Maybe<Scalars['String']['output']>;
+  subscriptionQuery?: Maybe<Scalars['String']>;
   /** List of synchronous webhook events. */
   syncEvents: Array<WebhookEventSync>;
   /** Target URL for webhook. */
-  targetUrl: Scalars['String']['output'];
+  targetUrl: Scalars['String'];
 };
 
 
 /** Webhook. */
 export type WebhookEventDeliveriesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<EventDeliveryFilterInput>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
   sortBy?: InputMaybe<EventDeliverySortingInput>;
 };
 
@@ -31763,7 +31761,7 @@ export type WebhookCreate = {
 
 export type WebhookCreateInput = {
   /** ID of the app to which webhook belongs. */
-  app?: InputMaybe<Scalars['ID']['input']>;
+  app?: InputMaybe<Scalars['ID']>;
   /** The asynchronous events that webhook wants to subscribe. */
   asyncEvents?: InputMaybe<Array<WebhookEventTypeAsyncEnum>>;
   /**
@@ -31773,7 +31771,7 @@ export type WebhookCreateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  customHeaders?: InputMaybe<Scalars['JSONString']['input']>;
+  customHeaders?: InputMaybe<Scalars['JSONString']>;
   /**
    * The events that webhook wants to subscribe.
    *
@@ -31781,25 +31779,25 @@ export type WebhookCreateInput = {
    */
   events?: InputMaybe<Array<WebhookEventTypeEnum>>;
   /** Determine if webhook will be set active or not. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /** The name of the webhook. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Subscription query used to define a webhook payload.
    *
    * Added in Saleor 3.2.
    */
-  query?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']>;
   /**
    * The secret key used to create a hash signature with each payload.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. As of Saleor 3.5, webhook payloads default to signing using a verifiable JWS.
    */
-  secretKey?: InputMaybe<Scalars['String']['input']>;
+  secretKey?: InputMaybe<Scalars['String']>;
   /** The synchronous events that webhook wants to subscribe. */
   syncEvents?: InputMaybe<Array<WebhookEventTypeSyncEnum>>;
   /** The url to receive the payload. */
-  targetUrl?: InputMaybe<Scalars['String']['input']>;
+  targetUrl?: InputMaybe<Scalars['String']>;
 };
 
 /**
@@ -31828,7 +31826,7 @@ export type WebhookDryRun = {
   __typename?: 'WebhookDryRun';
   errors: Array<WebhookDryRunError>;
   /** JSON payload, that would be sent out to webhook's target URL. */
-  payload?: Maybe<Scalars['JSONString']['output']>;
+  payload?: Maybe<Scalars['JSONString']>;
 };
 
 export type WebhookDryRunError = {
@@ -31836,9 +31834,9 @@ export type WebhookDryRunError = {
   /** The error code. */
   code: WebhookDryRunErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type WebhookDryRunErrorCode =
@@ -31857,9 +31855,9 @@ export type WebhookError = {
   /** The error code. */
   code: WebhookErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type WebhookErrorCode =
@@ -31882,7 +31880,7 @@ export type WebhookEvent = {
   /** Internal name of the event type. */
   eventType: WebhookEventTypeEnum;
   /** Display name of the event. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 /** Asynchronous webhook event. */
@@ -31891,7 +31889,7 @@ export type WebhookEventAsync = {
   /** Internal name of the event type. */
   eventType: WebhookEventTypeAsyncEnum;
   /** Display name of the event. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 /** Synchronous webhook event. */
@@ -31900,7 +31898,7 @@ export type WebhookEventSync = {
   /** Internal name of the event type. */
   eventType: WebhookEventTypeSyncEnum;
   /** Display name of the event. */
-  name: Scalars['String']['output'];
+  name: Scalars['String'];
 };
 
 /** Enum determining type of webhook. */
@@ -32999,9 +32997,9 @@ export type WebhookTriggerError = {
   /** The error code. */
   code: WebhookTriggerErrorCode;
   /** Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field. */
-  field?: Maybe<Scalars['String']['output']>;
+  field?: Maybe<Scalars['String']>;
   /** The error message. */
-  message?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type WebhookTriggerErrorCode =
@@ -33031,7 +33029,7 @@ export type WebhookUpdate = {
 
 export type WebhookUpdateInput = {
   /** ID of the app to which webhook belongs. */
-  app?: InputMaybe<Scalars['ID']['input']>;
+  app?: InputMaybe<Scalars['ID']>;
   /** The asynchronous events that webhook wants to subscribe. */
   asyncEvents?: InputMaybe<Array<WebhookEventTypeAsyncEnum>>;
   /**
@@ -33041,7 +33039,7 @@ export type WebhookUpdateInput = {
    *
    * Note: this API is currently in Feature Preview and can be subject to changes at later point.
    */
-  customHeaders?: InputMaybe<Scalars['JSONString']['input']>;
+  customHeaders?: InputMaybe<Scalars['JSONString']>;
   /**
    * The events that webhook wants to subscribe.
    *
@@ -33049,25 +33047,25 @@ export type WebhookUpdateInput = {
    */
   events?: InputMaybe<Array<WebhookEventTypeEnum>>;
   /** Determine if webhook will be set active or not. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
   /** The new name of the webhook. */
-  name?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']>;
   /**
    * Subscription query used to define a webhook payload.
    *
    * Added in Saleor 3.2.
    */
-  query?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']>;
   /**
    * Use to create a hash signature with each payload.
    *
    * DEPRECATED: this field will be removed in Saleor 4.0. As of Saleor 3.5, webhook payloads default to signing using a verifiable JWS.
    */
-  secretKey?: InputMaybe<Scalars['String']['input']>;
+  secretKey?: InputMaybe<Scalars['String']>;
   /** The synchronous events that webhook wants to subscribe. */
   syncEvents?: InputMaybe<Array<WebhookEventTypeSyncEnum>>;
   /** The url to receive the payload. */
-  targetUrl?: InputMaybe<Scalars['String']['input']>;
+  targetUrl?: InputMaybe<Scalars['String']>;
 };
 
 /** Represents weight value in a specific weight unit. */
@@ -33076,7 +33074,7 @@ export type Weight = {
   /** Weight unit. */
   unit: WeightUnitsEnum;
   /** Weight value. Returns a value with maximal three decimal places */
-  value: Scalars['Float']['output'];
+  value: Scalars['Float'];
 };
 
 export type WeightUnitsEnum =
@@ -33092,7 +33090,7 @@ export type _Entity = Address | App | Category | Collection | Group | Order | Pa
 /** _Service manifest as defined by Federation spec. */
 export type _Service = {
   __typename?: '_Service';
-  sdl?: Maybe<Scalars['String']['output']>;
+  sdl?: Maybe<Scalars['String']>;
 };
 
 export type OrderCreatedWebhookPayloadFragment = { __typename?: 'OrderCreated', order?: { __typename?: 'Order', userEmail?: string | null, id: string, number: string, user?: { __typename?: 'User', email: string, firstName: string, lastName: string } | null } | null };

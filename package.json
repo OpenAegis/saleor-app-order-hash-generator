@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@deno/vite-plugin": "^1.0.2",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@saleor/app-sdk": "0.0.0-pr-20250109150409"
   },

@@ -11,13 +11,17 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    react(),
+    react({
+ jsxRuntime: 'automatic', // Ensures React's automatic JSX runtime is used
+      include: '**/*.tsx',
+    }),
     deno(),
   ],
-  optimizeDeps: {
-    include: ["react/jsx-runtime"],
-  },
+  // optimizeDeps: {
+  //   include: ["react/jsx-runtime"],
+  // },
   build: {
     outDir: "../server/dist",
+    emptyOutDir: true
   },
 });

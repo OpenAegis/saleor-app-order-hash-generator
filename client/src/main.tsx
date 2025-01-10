@@ -1,6 +1,3 @@
-/** @jsx react-jsx */
-/** @jsxImportSource react */
-
 /** Saleor app dashboard must be rendered client-side
  * since Saleor Dashboard will send data in runtime
  * to our client app

@@ -1,6 +1,3 @@
-/** @jsx react-jsx */
-/** @jsxImportSource react */
-
 import { useAppBridge } from "@saleor/app-sdk/app-bridge";
 
 export const AppPage = () => {
