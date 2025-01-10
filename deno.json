@@ -1,7 +1,7 @@
 {
   "imports": {
     "hono": "jsr:@hono/hono@^4.6.16",
-    "@saleor/app-sdk": "npm:@saleor/app-sdk@0.0.0-pr-20250109150409",
+    "@saleor/app-sdk": "npm:@saleor/app-sdk@0.0.0-pr-20250110173426",
     "@types/react": "npm:@types/react@^18.3.12",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.2",
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
