@@ -120,6 +120,8 @@ You can deploy this app using any platform that supports Deno:
       - **Install step**: `deno install`
       - **Build step**: `deno task build`
       - **Entry Point**: `server/main.tsx`
+      - **Env variables**:
+        - `APL`: `deno`
 
 ![](./docs/deploy-config.png)
    
