@@ -126,7 +126,7 @@ You can deploy this app using any platform that supports Deno:
 2. **Self-hosted Deployment**:
    - Run on your server:
      ```bash
-     deno run --allow-net --allow-env --unstable-kv ./server/main.tsx
+     deno task server:start
      ```
 
 3. **Docker Deployment** (optional):
