@@ -1,3 +1,6 @@
+/** @jsx react-jsx */
+/** @jsxImportSource react */
+
 import { useAppBridge } from "@saleor/app-sdk/app-bridge";
 
 export const AppPage = () => {
@@ -11,10 +14,8 @@ export const AppPage = () => {
           {JSON.stringify(appBridgeState, null, 2)}
         </code>
       </main>
-    )
+    );
   }
 
-  return (
-    <p>Loading...</p>
-  )
-}
+  return <p>Loading...</p>;
+};

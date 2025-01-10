@@ -1,19 +1,36 @@
 {
   "imports": {
     "hono": "jsr:@hono/hono@^4.6.16",
-    "@saleor/app-sdk": "npm:@saleor/app-sdk",
-    "@graphql-typed-document-node/core": "npm:@graphql-typed-document-node/core"
+    "@saleor/app-sdk": "npm:@saleor/app-sdk@0.0.0-pr-20250109150409",
+    "@graphql-typed-document-node/core": "npm:@graphql-typed-document-node/core",
+    "@types/react": "npm:@types/react@^18.3.12",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.2",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "react-router-dom": "npm:react-router-dom@^6.28.0",
+    "vite": "npm:vite@^5.4.11"
   },
   "tasks": {
-    "start": "APL=deno deno run --allow-net --allow-env --unstable-kv src/main.tsx",
+    "dev": "deno run -A --node-modules-dir=auto npm:vite",
+    "build": "deno run -A --node-modules-dir=auto npm:vite build",
+    "server:start": "deno run -A --node-modules-dir --unstable-kv --env-file=.env --watch ./server/main.tsx",
+    "serve": "deno task build && deno task server:start",
     "fetch-schema": "curl https://raw.githubusercontent.com/saleor/saleor/3.20/saleor/graphql/schema.graphql > graphql/schema.graphql",
-    "generate": "graphql-codegen"
+    "generate": "deno run -A --node-modules-dir=auto npm:graphql-codegen"
   },
   "compilerOptions": {
+    "types": [
+      "react",
+      "react-dom",
+      "@types/react"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "deno.ns"
+    ],
     "jsx": "precompile",
     "jsxImportSource": "hono/jsx"
-  },
-  "exclude": [
-    "client"
-  ]
+  }
 }
