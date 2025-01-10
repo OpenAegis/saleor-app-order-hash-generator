@@ -2,27 +2,20 @@
   "imports": {
     "hono": "jsr:@hono/hono@^4.6.16",
     "@saleor/app-sdk": "npm:@saleor/app-sdk@0.0.0-pr-20250109150409",
-    "@graphql-typed-document-node/core": "npm:@graphql-typed-document-node/core",
     "@types/react": "npm:@types/react@^18.3.12",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.2",
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
     "react": "npm:react@^18.3.1",
     "react-dom": "npm:react-dom@^18.3.1",
     "react-router-dom": "npm:react-router-dom@^6.28.0",
-    "vite": "npm:vite@^5.4.11",
-    "@graphql-codegen/cli": "npm:@graphql-codegen/cli@3.3.1",
-    "@graphql-codegen/introspection": "npm:@graphql-codegen/introspection@3.0.1",
-    "@graphql-codegen/typed-document-node": "npm:@graphql-codegen/typed-document-node@4.0.1",
-    "@graphql-codegen/typescript": "npm:@graphql-codegen/typescript@3.0.4",
-    "@graphql-codegen/typescript-operations": "npm:@graphql-codegen/typescript-operations@3.0.4",
-    "@graphql-codegen/urql-introspection": "npm:@graphql-codegen/urql-introspection@2.2.1"
-
+    "vite": "npm:vite@^5.4.11"
   },
   "tasks": {
     "dev": "deno run -A --node-modules-dir=auto npm:vite",
     "build": "deno run -A --node-modules-dir=auto npm:vite build",
     "server:start": "deno run -A --node-modules-dir --unstable-kv --env-file=.env --watch ./server/main.tsx",
-    "serve": "deno task build && deno task server:start"
+    "serve": "deno task build && deno task server:start",
+    "generate": "graphql-codegen-esm"
   },
   "compilerOptions": {
     "types": [
@@ -37,20 +30,7 @@
       "deno.unstable"
     ],
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  },
-   "overrides": {
-    "./client/*": {
-      "compilerOptions": {
-        "jsx": "react-jsx",
-        "jsxImportSource": "react"
-      }
-    },
-    "./server/*": {
-      "compilerOptions": {
-        "jsx": "precompile",
-        "jsxImportSource": "hono/jsx"
-      }
-    }
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
   }
 }

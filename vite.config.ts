@@ -7,21 +7,16 @@ import "react-dom";
 
 export default defineConfig({
   root: "./client",
-  server: {
-    port: 3000,
-  },
+  server: {},
   plugins: [
-    react({
- jsxRuntime: 'automatic', // Ensures React's automatic JSX runtime is used
-      include: '**/*.tsx',
-    }),
+    react(),
     deno(),
   ],
-  // optimizeDeps: {
-  //   include: ["react/jsx-runtime"],
-  // },
+  optimizeDeps: {
+    include: ["react/jsx-runtime"],
+  },
   build: {
     outDir: "../server/dist",
-    emptyOutDir: true
+    emptyOutDir: true,
   },
 });

@@ -9,7 +9,6 @@
 
 import { AppBridge, AppBridgeProvider } from "@saleor/app-sdk/app-bridge";
 import { AppPage } from "./page.tsx";
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 const appBridgeInstance = typeof window !== "undefined"
@@ -27,7 +26,5 @@ const App = () => {
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <App />,
 );

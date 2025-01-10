@@ -1,3 +1,5 @@
+/** @jsxImportSource hono/jsx */
+
 import { Hono } from "hono";
 import apiRoutes from "./api/index.ts";
 import { serveStatic } from "hono/deno";

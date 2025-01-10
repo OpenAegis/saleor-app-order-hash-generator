@@ -1,8 +1,5 @@
 # Saleor App Hono Deno Example
 
-> [!CAUTION]
-> This template is a work in progress
-
 A lightweight Saleor app template leveraging Hono's ultrafast routing capabilities (under 14kB) and Deno for deployment.
 
 ## Demo
@@ -44,24 +41,33 @@ This template provides a foundation for building Saleor apps using the Hono fram
    ```bash
    git clone https://github.com/your-repo/saleor-app-hono-deno-template.git
    cd saleor-app-hono-deno-template
-   pnpm i
+   deno install
    ```
 
 2. Fetch the Saleor GraphQL schema:
+
+> [!NOTE]
+> This command has to be run using npm or pnpm because it tries to get Saleor schema version from package.json
+
    ```bash
    pnpm run fetch-schema
    ```
 
 3. Generate TypeScript types from the schema:
    ```bash
-   pnpm run generate
+   deno task generate
    ```
 
 ## Development
 
-Start the development server:
+Build React client used in Saleor Dashboard:
 ```bash
-deno task start
+deno task build
+```
+
+Start the app:
+```bash
+deno task server:start
 ```
 
 The app will be available at `http://localhost:3000`.
