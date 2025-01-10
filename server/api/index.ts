@@ -44,6 +44,8 @@ app.get(
       console.log("header", key, value);
     });
 
+    console.log(request);
+
     return c.json({
       host,
       host2,
