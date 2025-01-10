@@ -1,4 +1,4 @@
-import { Context, Hono, Next } from "hono";
+import { Hono } from "hono";
 import apiRoutes from "./api/index.ts";
 import { serveStatic } from "hono/deno";
 

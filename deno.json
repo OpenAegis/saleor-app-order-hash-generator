@@ -28,7 +28,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "deno.ns"
+      "deno.ns",
+      "deno.unstable"
     ],
     "jsx": "precompile",
     "jsxImportSource": "hono/jsx"
