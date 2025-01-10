@@ -46,6 +46,10 @@ app.get(
 
     console.log(request);
 
+    console.log(c.env);
+
+    console.log("URL", request.url);
+
     return c.json({
       host,
       host2,
