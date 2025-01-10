@@ -32,6 +32,7 @@ app.get(
           protocols,
           protocol,
           baseUrlRaw,
+          headers: JSON.stringify(request.headers.entries()),
         },
       );
 
