@@ -1,5 +1,11 @@
 /** @jsxImportSource hono/jsx */
 
+/** This needs to be done because Hono uses it's own JSX import source
+/* and project configuration is set-up for React for client side code
+/* currently Deno doesn't support overrides for different directories:
+/* https://github.com/denoland/deno/issues/20614
+ * */
+
 import { Hono } from "hono";
 import apiRoutes from "./api/index.ts";
 import { serveStatic } from "hono/deno";
