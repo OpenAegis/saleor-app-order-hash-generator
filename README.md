@@ -116,6 +116,12 @@ You can deploy this app using any platform that supports Deno:
 1. **Deno Deploy**:
    - Push your code to a GitHub repository.
    - Connect your repository to [Deno Deploy](https://deno.com/deploy).
+   - Use following settings when setting up project:
+      - **Install step**: `deno install`
+      - **Build step**: `deno task build`
+      - **Entry Point**: `server/main.tsx`
+
+![](./docs/deploy-config.png)
    
 2. **Self-hosted Deployment**:
    - Run on your server:
