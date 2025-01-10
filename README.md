@@ -80,25 +80,24 @@ This template provides a foundation for building Saleor apps using the Hono fram
 
 ## Development
 
-### Building the Frontend SPA
-
-The SPA is built using Vite. To build it:
+You can run the project using:
 
 ```bash
-deno task build
+deno task serve
 ```
 
-This will generate static files in the `server/dist/` directory.
+it does 2 things:
+1. Builds the frontend SPA using Vite (`deno task build`) to `server/dist` directory
+2. Starts the Deno server in watch mode (`deno task server:start`)
 
-### Running the Server
+After running the task app will be available at `http://localhost:3000` and will reload on each change in server code.
 
-Start the server with:
-
-```bash
-deno task server:start
-```
-
-The app will be available at `http://localhost:3000`.
+> ![WARN]
+> Server will not reload after changes in `client` code, for that you need to run command
+>
+> ```bash
+> deno task build
+> ```
 
 ## Configuration
 
@@ -132,7 +131,7 @@ You can deploy this app using any platform that supports Deno:
 2. **Self-hosted Deployment**:
    - Run on your server:
      ```bash
-     deno task server:start
+     deno run --allow-net --allow-read --allow-env --unstable-kv server/main.tsx
      ```
 
 3. **Docker Deployment** (optional):
