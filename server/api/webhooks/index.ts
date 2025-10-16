@@ -110,7 +110,9 @@ app.post("/order-created", async (c) => {
                   code
                 }
                 item {
-                  id
+                  ... on Node {
+                    id
+                  }
                 }
               }
             }
@@ -131,8 +133,10 @@ app.post("/order-created", async (c) => {
         console.error("GraphQL errors:", result.errors);
       } else if (result.data?.updateMetadata?.errors?.length > 0) {
         console.error("Metadata update errors:", result.data.updateMetadata.errors);
-      } else {
+      } else if (result.data?.updateMetadata?.item) {
         console.log(`Successfully updated order metadata with hash: ${orderHash}`);
+      } else {
+        console.log(`Update metadata response received, hash: ${orderHash}`);
       }
     } catch (error) {
       console.error("Error updating order metadata:", error);

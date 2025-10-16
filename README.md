@@ -7,7 +7,7 @@ A lightweight Saleor app that generates unique hash values for orders and provid
 - **Name**: Saleor Order Hash Generator
 - **ID**: saleor.app.order-hash-generator
 - **Version**: 1.0.0
-- **Author**: OpenAegis
+- **Author**: Your Company Name
 - **Permissions**: MANAGE_ORDERS
 - **Description**: Generates unique hash values for Saleor orders and provides API to query order status by hash
 - **Data Privacy**: This app generates and stores unique hash identifiers for orders. No personal data is stored.
@@ -61,6 +61,22 @@ To ensure hash uniqueness and prevent collisions, the app implements several str
 6. **Retry Mechanism**: Attempts to generate a unique hash up to 10 times if a collision is detected
 
 ## Troubleshooting
+
+### GraphQL Errors
+
+If you see GraphQL errors like:
+```
+Cannot query field "id" on type "ObjectWithMetadata"
+```
+
+This is typically caused by incorrect GraphQL field references. The app has been updated to use inline fragments to properly access the item ID:
+```graphql
+item {
+  ... on Node {
+    id
+  }
+}
+```
 
 ### Failed to generate unique hash
 
