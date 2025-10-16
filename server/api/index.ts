@@ -329,10 +329,6 @@ app.get("/order-status/:hash/metadata", async (c) => {
                   key
                   value
                 }
-                privateMetadata {
-                  key
-                  value
-                }
                 created
                 updatedAt
                 userEmail

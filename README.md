@@ -184,12 +184,6 @@ Example response:
         "value": "custom_value"
       }
     ],
-    "privateMetadata": [
-      {
-        "key": "internal_note",
-        "value": "This is an internal note"
-      }
-    ],
     "created": "2023-01-01T00:00:00Z",
     "updatedAt": "2023-01-01T00:00:00Z",
     "userEmail": "customer@example.com"
