@@ -1,32 +1,65 @@
-# Saleor App Hono Deno Example
+# Saleor App Order Hash Generator
 
-A lightweight Saleor app template leveraging Hono's ultrafast routing capabilities (under 14kB) and Deno for runtime and deployment.
+A lightweight Saleor app that generates unique hash values for orders and provides an API to query order status by hash.
 
-> [!CAUTION]
-> This example uses unreleased features of `@saleor/app-sdk`
+## Features
 
-## Demo
+This app extends the basic Saleor app template with the following features:
 
-Explore the live demo at [saleor-app-hono-deno.deno.dev](https://saleor-app-hono-deno.deno.dev/).
-
-## Overview
-
-This template provides a foundation for building Saleor apps using the Hono framework and Deno, featuring:
-
-- **Backend**: Hono-powered API routes for Saleor integration.
-- **Frontend**: A Single Page Application (SPA) built with React, served at the `/app` route, and rendered within the Saleor Dashboard.
-- **Storage**: Deno KV as the Auth Persistence Layer (APL).
+1. **Order Hash Generation**: Automatically generates a unique cryptographic hash for each new order
+2. **Metadata Storage**: Stores the hash in the order's metadata in Saleor
+3. **Database Persistence**: Uses Turso database to maintain a mapping between order IDs and hashes
+4. **Order Status API**: Provides an endpoint to query order status using the generated hash
 
 ## How It Works
 
-1. **Frontend SPA**: 
-   - The SPA is built using Vite and React. It is located in the `client/` directory.
-   - The built files are output to the `server/dist/` directory.
-   - The SPA is served at the `/app` route by Hono and displayed within the Saleor Dashboard after installing the app.
+1. When a new order is created in Saleor, the app receives a webhook notification
+2. The app generates a unique cryptographic hash for the order
+3. The hash is stored in the order's metadata in Saleor
+4. The mapping between order ID and hash is stored in a Turso database
+5. Users can query order status by making a GET request to `/api/order-status/{hash}`
 
-2. **Backend API**:
-   - Hono serves as the backend framework, providing routes for API endpoints, webhooks, and static assets.
-   - The backend handles app registration with Saleor, webhook processing, and authentication using a custom Deno KV-based APL implementation.
+## Additional Configuration
+
+### Environment Variables
+
+In addition to the standard environment variables, you need to configure:
+
+- `TURSO_DATABASE_URL`: The URL of your Turso database
+- `TURSO_AUTH_TOKEN`: The authentication token for your Turso database
+
+### Turso Database Setup
+
+1. Create a Turso database at [Turso](https://turso.tech/)
+2. Get your database URL and authentication token
+3. Add these values to your `.env` file
+
+## API Endpoints
+
+### Query Order Status by Hash
+
+```
+GET /api/order-status/{hash}
+```
+
+Returns information about the order associated with the provided hash.
+
+Example response:
+```json
+{
+  "hash": "abcdef123456...",
+  "orderId": "T3JkZXI6MQ==",
+  "status": "found",
+  "message": "Order found successfully"
+}
+```
+
+## Usage
+
+After installing the app in your Saleor instance:
+
+1. New orders will automatically receive a unique hash in their metadata
+2. Use the `/api/order-status/{hash}` endpoint to query order information by hash
 
 ## Project Structure
 
@@ -38,6 +71,9 @@ This template provides a foundation for building Saleor apps using the Hono fram
 │   ├── main.tsx      # Entry point for the server
 │   ├── deno-kv-apl.ts # Deno KV-based APL implementation
 │   └── api/          # API routes and webhooks
+│       ├── index.ts   # Main API routes
+│       ├── utils.ts   # Utility functions
+│       └── webhooks/  # Webhook handlers
 ├── graphql/          # GraphQL schema and queries
 ├── generated/        # Generated GraphQL types
 ├── deno.json         # Deno configuration and tasks
@@ -48,13 +84,14 @@ This template provides a foundation for building Saleor apps using the Hono fram
 
 - [Deno](https://deno.land/) (latest version recommended)
 - A running Saleor instance
+- A Turso database account
 
 ## Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/witoszekdev/saleor-app-hono-deno-template.git
-   cd saleor-app-hono-deno-template
+   cd saleor-app-order-hash-generator
    ```
 
 2. Install dependencies:
@@ -62,7 +99,14 @@ This template provides a foundation for building Saleor apps using the Hono fram
    deno install
    ```
 
-3. Fetch the Saleor GraphQL schema:
+3. Configure environment variables in `.env`:
+   ```env
+   APL=deno
+   TURSO_DATABASE_URL=your_turso_database_url
+   TURSO_AUTH_TOKEN=your_turso_auth_token
+   ```
+
+4. Fetch the Saleor GraphQL schema:
 
 > [!NOTE]
 > This command has to be run either through `pnpm` or `npm` because it relies on specific package.json feature for getting Saleor schema version
@@ -73,7 +117,7 @@ This template provides a foundation for building Saleor apps using the Hono fram
    npm run fetch-schema
    ```
 
-4. Generate TypeScript types from the schema:
+5. Generate TypeScript types from the schema:
    ```bash
    deno task generate
    ```
@@ -106,6 +150,8 @@ After running the task app will be available at `http://localhost:3000` and will
 Set up environment variables as needed:
 
 - `APL`: Set to `deno` to use Deno KV-based APL.
+- `TURSO_DATABASE_URL`: Your Turso database URL
+- `TURSO_AUTH_TOKEN`: Your Turso authentication token
 - Other sensitive data like API keys should be managed securely using Deno's environment management.
 
 ### Customizing Routes
@@ -125,6 +171,8 @@ You can deploy this app using any platform that supports Deno:
       - **Entry Point**: `server/main.tsx`
       - **Env variables**:
         - `APL`: `deno`
+        - `TURSO_DATABASE_URL`: your_turso_database_url
+        - `TURSO_AUTH_TOKEN`: your_turso_auth_token
 
 ![](./docs/deploy-config.png)
    

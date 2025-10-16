@@ -8,8 +8,10 @@
     "react": "npm:react@^18.3.1",
     "react-dom": "npm:react-dom@^18.3.1",
     "react-router-dom": "npm:react-router-dom@^6.28.0",
-    "vite": "npm:vite@^5.4.11"
+    "vite": "npm:vite@^5.4.11",
+    "@libsql/client": "npm:@libsql/client@^0.14.0"
   },
+  "nodeModulesDir": "auto",
   "tasks": {
     "dev": "deno run -A --node-modules-dir=auto npm:vite",
     "build": "deno run -A --node-modules-dir=auto npm:vite build",
