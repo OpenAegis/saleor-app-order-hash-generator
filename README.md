@@ -139,6 +139,10 @@ In addition to the standard environment variables, you need to configure:
    TURSO_AUTH_TOKEN=your_auth_token_here
    ```
 
+4. Verify the database connection:
+   - Check the application logs for "Database initialized successfully" messages
+   - Use the diagnostic endpoint `GET /api/diagnostics/all-hashes` to verify data is being stored
+
 ## API Endpoints
 
 ### Query Order Status by Hash
@@ -168,6 +172,12 @@ POST /api/admin/init-database
 Manually initialize the database schema.
 
 ```
+GET /api/admin/test-database
+```
+
+Test the database connection.
+
+```
 POST /api/admin/cleanup-duplicates
 ```
 
@@ -180,6 +190,18 @@ GET /api/diagnostics/duplicate-hashes
 ```
 
 Check for duplicate hashes in the database.
+
+```
+GET /api/diagnostics/all-hashes
+```
+
+Get all stored hashes in the database (limited to 100 most recent).
+
+```
+POST /api/admin/cleanup-duplicates
+```
+
+Clean up duplicate hashes (keeps the first occurrence).
 
 ## Usage
 

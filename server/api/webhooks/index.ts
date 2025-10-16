@@ -77,14 +77,16 @@ app.post("/order-created", async (c) => {
     // Store the hash mapping in Turso database
     try {
       // Insert the order hash mapping (table is already created at startup)
-      await turso.execute({
+      console.log(`Attempting to store hash mapping for order ${payload.order.id} with hash ${orderHash}`);
+      
+      const result = await turso.execute({
         sql: "INSERT INTO order_hashes (order_id, order_hash) VALUES (?, ?)",
         args: [payload.order.id, orderHash]
       });
       
-      console.log(`Stored hash mapping for order ${payload.order.id}`);
+      console.log(`Successfully stored hash mapping for order ${payload.order.id}. Rows affected: ${result.rowsAffected}`);
     } catch (error) {
-      console.error("Error storing hash in database:", error);
+      console.error(`Error storing hash in database for order ${payload.order.id}:`, error);
       // We don't return an error here because we want to update the order metadata even if DB storage fails
     }
 
@@ -128,6 +130,7 @@ app.post("/order-created", async (c) => {
       });
 
       const result = await response.json();
+      console.log(`GraphQL response for order ${payload.order.id}:`, JSON.stringify(result, null, 2));
       
       if (result.errors) {
         console.error("GraphQL errors:", result.errors);

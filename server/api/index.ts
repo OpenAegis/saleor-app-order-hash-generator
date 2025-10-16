@@ -57,6 +57,27 @@ app.post("/admin/init-database", async (c) => {
   }
 });
 
+// Add endpoint to test database connection
+app.get("/admin/test-database", async (c) => {
+  try {
+    const turso = initTursoClient();
+    
+    // Test the connection by querying the database
+    const result = await turso.execute("SELECT 1 as test");
+    
+    return c.json({
+      message: "Database connection successful",
+      result: result.rows
+    });
+  } catch (error) {
+    console.error("Database connection test failed:", error);
+    return c.json({ 
+      error: "Database connection failed",
+      details: (error as Error).message
+    }, 500);
+  }
+});
+
 // Add endpoint to query order status by hash
 app.get("/order-status/:hash", async (c) => {
   const hash = c.req.param("hash");
@@ -133,6 +154,29 @@ app.get("/diagnostics/duplicate-hashes", async (c) => {
     });
   } catch (error) {
     console.error("Error running diagnostics:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
+// Add endpoint to get all stored hashes (diagnostic tool)
+app.get("/diagnostics/all-hashes", async (c) => {
+  try {
+    const turso = initTursoClient();
+    
+    // Get all stored hashes
+    const result = await turso.execute(`
+      SELECT order_id, order_hash, created_at
+      FROM order_hashes
+      ORDER BY created_at DESC
+      LIMIT 100
+    `);
+    
+    return c.json({
+      hashes: result.rows,
+      status: "success"
+    });
+  } catch (error) {
+    console.error("Error fetching hashes:", error);
     return c.json({ error: "Internal server error" }, 500);
   }
 });
