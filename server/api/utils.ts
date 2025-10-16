@@ -37,14 +37,15 @@ export function generateOrderHash(): string {
 
 /**
  * Initialize Turso database client
- * @returns Turso database client
+ * @returns Turso database client or null if not configured
  */
 export function initTursoClient() {
   const url = Deno.env.get("TURSO_DATABASE_URL");
   const authToken = Deno.env.get("TURSO_AUTH_TOKEN");
   
-  if (!url || !authToken) {
-    throw new Error("TURSO_DATABASE_URL and TURSO_AUTH_TOKEN must be set in environment variables");
+  // If not configured, return null instead of throwing an error
+  if (!url || !authToken || url === "your_turso_database_url_here") {
+    return null;
   }
   
   return createClient({
@@ -61,6 +62,12 @@ export async function initializeDatabase() {
   try {
     const turso = initTursoClient();
     
+    // If turso is null, the database is not configured
+    if (!turso) {
+      console.warn("Turso database not configured, skipping initialization");
+      return false;
+    }
+    
     // Create table with unique constraints
     await turso.execute(`
       CREATE TABLE IF NOT EXISTS order_hashes (
@@ -76,6 +83,42 @@ export async function initializeDatabase() {
     return true;
   } catch (error) {
     console.error("Error initializing database:", error);
+    return false;
+  }
+}
+
+/**
+ * Update the database schema to ensure it has the required columns
+ * @returns Promise that resolves when the database is updated
+ */
+export async function updateDatabaseSchema() {
+  try {
+    const turso = initTursoClient();
+    
+    // If turso is null, the database is not configured
+    if (!turso) {
+      console.warn("Turso database not configured, skipping schema update");
+      return false;
+    }
+    
+    // Check if saleor_api_url column exists
+    try {
+      await turso.execute(`
+        ALTER TABLE order_hashes 
+        ADD COLUMN saleor_api_url TEXT NOT NULL DEFAULT ''
+      `);
+      console.log("Added saleor_api_url column to order_hashes table");
+    } catch (error) {
+      // Column might already exist, which is fine
+      if (!(error as Error).message.includes("duplicate column name")) {
+        console.warn("Warning while adding saleor_api_url column:", error);
+      }
+    }
+    
+    console.log("Database schema updated successfully");
+    return true;
+  } catch (error) {
+    console.error("Error updating database schema:", error);
     return false;
   }
 }

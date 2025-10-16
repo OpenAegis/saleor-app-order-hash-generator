@@ -6,7 +6,7 @@ import { Hono } from "hono";
 import { saleorApp } from "../saleor-app.ts";
 import webhookRotues from "./webhooks/index.ts";
 import { orderCreatedWebhook } from "./webhooks/order-created.ts";
-import { unpackHonoRequest, initTursoClient, initializeDatabase } from "./utils.ts";
+import { unpackHonoRequest, initTursoClient, initializeDatabase, updateDatabaseSchema } from "./utils.ts";
 
 const app = new Hono();
 
@@ -57,10 +57,32 @@ app.post("/admin/init-database", async (c) => {
   }
 });
 
+// Add endpoint to manually update database schema
+app.post("/admin/update-database-schema", async (c) => {
+  try {
+    const success = await updateDatabaseSchema();
+    if (success) {
+      return c.json({ message: "Database schema updated successfully" });
+    } else {
+      return c.json({ error: "Failed to update database schema" }, 500);
+    }
+  } catch (error) {
+    console.error("Error updating database schema:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
 // Add endpoint to test database connection
 app.get("/admin/test-database", async (c) => {
   try {
     const turso = initTursoClient();
+    
+    // If turso is null, the database is not configured
+    if (!turso) {
+      return c.json({ 
+        error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+      }, 500);
+    }
     
     // Test the connection by querying the database
     const result = await turso.execute("SELECT 1 as test");
@@ -86,14 +108,44 @@ app.get("/order-status/:hash", async (c) => {
     return c.json({ error: "Hash parameter is required" }, 400);
   }
   
+  // Check if database is configured
+  const turso = initTursoClient();
+  if (!turso) {
+    return c.json({ 
+      error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+    }, 500);
+  }
+  
   try {
     // Get order ID and Saleor API URL from Turso database using the hash
-    const turso = initTursoClient();
-    
-    const dbResult = await turso.execute({
-      sql: "SELECT order_id, saleor_api_url FROM order_hashes WHERE order_hash = ?",
-      args: [hash]
-    });
+    let dbResult;
+    try {
+      dbResult = await turso.execute({
+        sql: "SELECT order_id, saleor_api_url FROM order_hashes WHERE order_hash = ?",
+        args: [hash]
+      });
+    } catch (error) {
+      // If the column doesn't exist, try without it
+      if ((error as Error).message.includes("no such column")) {
+        console.warn("saleor_api_url column not found, trying without it");
+        dbResult = await turso.execute({
+          sql: "SELECT order_id FROM order_hashes WHERE order_hash = ?",
+          args: [hash]
+        });
+        
+        // If we found a result, we need to handle it differently
+        if (dbResult.rows && dbResult.rows.length > 0) {
+          const orderId = dbResult.rows[0][0] as string;
+          return c.json({
+            hash,
+            orderId,
+            status: "found"
+          });
+        }
+      } else {
+        throw error;
+      }
+    }
     
     if (!dbResult.rows || dbResult.rows.length === 0) {
       return c.json({ error: "Order not found for the provided hash" }, 404);
@@ -203,10 +255,16 @@ app.get("/order-status/:hash/metadata", async (c) => {
     return c.json({ error: "Hash parameter is required" }, 400);
   }
   
+  // Check if database is configured
+  const turso = initTursoClient();
+  if (!turso) {
+    return c.json({ 
+      error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+    }, 500);
+  }
+  
   try {
     // Get order ID and Saleor API URL from Turso database using the hash
-    const turso = initTursoClient();
-    
     const dbResult = await turso.execute({
       sql: "SELECT order_id, saleor_api_url FROM order_hashes WHERE order_hash = ?",
       args: [hash]
@@ -324,10 +382,47 @@ app.get("/order-status/:hash/metadata", async (c) => {
   }
 });
 
+// Add endpoint to get all stored hashes (diagnostic tool)
+app.get("/diagnostics/all-hashes", async (c) => {
+  try {
+    const turso = initTursoClient();
+    
+    // If turso is null, the database is not configured
+    if (!turso) {
+      return c.json({ 
+        error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+      }, 500);
+    }
+    
+    // Get all stored hashes
+    const result = await turso.execute(`
+      SELECT order_id, order_hash, saleor_api_url, created_at
+      FROM order_hashes
+      ORDER BY created_at DESC
+      LIMIT 100
+    `);
+    
+    return c.json({
+      hashes: result.rows,
+      status: "success"
+    });
+  } catch (error) {
+    console.error("Error fetching hashes:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
 // Add endpoint to check for duplicate hashes (diagnostic tool)
 app.get("/diagnostics/duplicate-hashes", async (c) => {
   try {
     const turso = initTursoClient();
+    
+    // If turso is null, the database is not configured
+    if (!turso) {
+      return c.json({ 
+        error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+      }, 500);
+    }
     
     // Check for duplicate hashes
     const duplicates = await turso.execute(`
@@ -362,33 +457,17 @@ app.get("/diagnostics/duplicate-hashes", async (c) => {
   }
 });
 
-// Add endpoint to get all stored hashes (diagnostic tool)
-app.get("/diagnostics/all-hashes", async (c) => {
-  try {
-    const turso = initTursoClient();
-    
-    // Get all stored hashes
-    const result = await turso.execute(`
-      SELECT order_id, order_hash, saleor_api_url, created_at
-      FROM order_hashes
-      ORDER BY created_at DESC
-      LIMIT 100
-    `);
-    
-    return c.json({
-      hashes: result.rows,
-      status: "success"
-    });
-  } catch (error) {
-    console.error("Error fetching hashes:", error);
-    return c.json({ error: "Internal server error" }, 500);
-  }
-});
-
 // Add endpoint to clean up duplicate hashes (admin tool)
 app.post("/admin/cleanup-duplicates", async (c) => {
   try {
     const turso = initTursoClient();
+    
+    // If turso is null, the database is not configured
+    if (!turso) {
+      return c.json({ 
+        error: "Database not configured. Please set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env file" 
+      }, 500);
+    }
     
     // Find and remove duplicate hashes, keeping only the first one
     const duplicates = await turso.execute(`

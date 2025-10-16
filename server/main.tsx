@@ -9,17 +9,26 @@
 import { Hono } from "hono";
 import apiRoutes from "./api/index.ts";
 import { serveStatic } from "hono/deno";
-import { initializeDatabase } from "./api/utils.ts";
+import { initializeDatabase, updateDatabaseSchema } from "./api/utils.ts";
 
 const app = new Hono();
 
 // Initialize database on startup
 console.log("Initializing database...");
-initializeDatabase().then((success) => {
-  if (success) {
+Promise.all([
+  initializeDatabase(),
+  updateDatabaseSchema()
+]).then(([initSuccess, updateSuccess]) => {
+  if (initSuccess) {
     console.log("Database initialized successfully");
   } else {
     console.error("Failed to initialize database");
+  }
+  
+  if (updateSuccess) {
+    console.log("Database schema updated successfully");
+  } else {
+    console.error("Failed to update database schema");
   }
 });
 
