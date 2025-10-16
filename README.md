@@ -2,6 +2,16 @@
 
 A lightweight Saleor app that generates unique hash values for orders and provides an API to query order status by hash.
 
+## App Manifest Information
+
+- **Name**: Saleor Order Hash Generator
+- **ID**: saleor.app.order-hash-generator
+- **Version**: 1.0.0
+- **Author**: OpenAegis
+- **Permissions**: MANAGE_ORDERS
+- **Description**: Generates unique hash values for Saleor orders and provides API to query order status by hash
+- **Data Privacy**: This app generates and stores unique hash identifiers for orders. No personal data is stored.
+
 ## Features
 
 This app extends the basic Saleor app template with the following features:

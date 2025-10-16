@@ -15,19 +15,21 @@ app.get(
   unpackHonoRequest(createManifestHandler({
     async manifestFactory({ appBaseUrl }) {
       return {
-        name: "Saleor App Template",
+        name: "Saleor Order Hash Generator",
         tokenTargetUrl: `${appBaseUrl}/api/register`,
         appUrl: `${appBaseUrl}/app`,
         permissions: [
           "MANAGE_ORDERS",
         ],
-        id: "saleor.app.hono-deno",
-        version: "0.0.1",
+        id: "saleor.app.order-hash-generator",
+        version: "1.0.0",
         webhooks: [
           orderCreatedWebhook.getWebhookManifest(appBaseUrl),
         ],
         extensions: [],
-        author: "Jonatan Witoszek",
+        author: "OpenAegis",
+        about: "Generates unique hash values for Saleor orders and provides API to query order status by hash",
+        dataPrivacy: "This app generates and stores unique hash identifiers for orders. No personal data is stored.",
       };
     },
   })),

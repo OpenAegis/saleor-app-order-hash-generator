@@ -1,15 +1,16 @@
 {
-  "name": "saleor-app-hono-deno-template",
-  "version": "0.0.1",
+  "name": "saleor-app-order-hash-generator",
+  "version": "1.0.0",
+  "description": "A Saleor app that generates unique hash values for orders and provides API to query order status by hash",
   "scripts": {
     "fetch-schema": "curl https://raw.githubusercontent.com/saleor/saleor/${npm_package_saleor_schemaVersion}/saleor/graphql/schema.graphql > graphql/schema.graphql"
   },
   "saleor": {
     "schemaVersion": "3.20"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["saleor", "app", "order", "hash", "generator"],
+  "author": "Your Company Name",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",

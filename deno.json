@@ -1,4 +1,6 @@
 {
+  "name": "saleor-app-order-hash-generator",
+  "version": "1.0.0",
   "imports": {
     "hono": "jsr:@hono/hono@^4.6.16",
     "@saleor/app-sdk": "npm:@saleor/app-sdk@0.0.0-pr-20250110173426",
