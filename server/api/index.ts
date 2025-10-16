@@ -334,7 +334,7 @@ app.get("/order-status/:hash/metadata", async (c) => {
                   value
                 }
                 created
-                updated
+                updatedAt
                 userEmail
               }
             }
