@@ -37,7 +37,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "open-aegis-saleor-app-67"
+          project: "ohg"
           entrypoint: "server/main.tsx"
           root: ""
           
