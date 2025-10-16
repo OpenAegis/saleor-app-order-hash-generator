@@ -21,14 +21,15 @@ This app extends the basic Saleor app template with the following features:
 3. **Database Persistence**: Uses Turso database to maintain a mapping between order IDs and hashes
 4. **Order Status API**: Provides an endpoint to query order status using the generated hash
 5. **Collision Prevention**: Implements multiple layers of protection against hash collisions
+6. **Saleor API URL Storage**: Stores the Saleor API URL in the database for data tracing
 
 ## How It Works
 
 1. When a new order is created in Saleor, the app receives a webhook notification
-2. The app generates a unique cryptographic hash for the order
+2. The app generates a unique cryptographic hash for the order (without including the Saleor API URL in the hash)
 3. The hash is checked against existing hashes in the database to prevent collisions
-4. The hash is stored in the order's metadata in Saleor
-5. The mapping between order ID and hash is stored in a Turso database
+4. The hash and Saleor API URL are stored in the Turso database
+5. The hash is stored in the order's metadata in Saleor
 6. Users can query order status by making a GET request to `/api/order-status/{hash}`
 
 ## Database Initialization
@@ -40,6 +41,7 @@ CREATE TABLE IF NOT EXISTS order_hashes (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   order_id TEXT UNIQUE NOT NULL,
   order_hash TEXT UNIQUE NOT NULL,
+  saleor_api_url TEXT NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 ```
@@ -196,12 +198,6 @@ GET /api/diagnostics/all-hashes
 ```
 
 Get all stored hashes in the database (limited to 100 most recent).
-
-```
-POST /api/admin/cleanup-duplicates
-```
-
-Clean up duplicate hashes (keeps the first occurrence).
 
 ## Usage
 

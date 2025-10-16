@@ -43,6 +43,7 @@ app.post("/order-created", async (c) => {
     let attempts = 0;
     const maxAttempts = 10; // Increased from 5 to 10
     const turso = initTursoClient();
+    const saleorApiUrl = authData?.saleorApiUrl || '';
     
     while (attempts < maxAttempts) {
       const newHash = generateOrderHash();
@@ -80,8 +81,8 @@ app.post("/order-created", async (c) => {
       console.log(`Attempting to store hash mapping for order ${payload.order.id} with hash ${orderHash}`);
       
       const result = await turso.execute({
-        sql: "INSERT INTO order_hashes (order_id, order_hash) VALUES (?, ?)",
-        args: [payload.order.id, orderHash]
+        sql: "INSERT INTO order_hashes (order_id, order_hash, saleor_api_url) VALUES (?, ?, ?)",
+        args: [payload.order.id, orderHash, saleorApiUrl]
       });
       
       console.log(`Successfully stored hash mapping for order ${payload.order.id}. Rows affected: ${result.rowsAffected}`);

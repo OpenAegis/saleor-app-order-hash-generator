@@ -67,6 +67,7 @@ export async function initializeDatabase() {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         order_id TEXT UNIQUE NOT NULL,
         order_hash TEXT UNIQUE NOT NULL,
+        saleor_api_url TEXT NOT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `);

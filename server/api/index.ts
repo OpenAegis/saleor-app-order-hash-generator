@@ -165,7 +165,7 @@ app.get("/diagnostics/all-hashes", async (c) => {
     
     // Get all stored hashes
     const result = await turso.execute(`
-      SELECT order_id, order_hash, created_at
+      SELECT order_id, order_hash, saleor_api_url, created_at
       FROM order_hashes
       ORDER BY created_at DESC
       LIMIT 100
