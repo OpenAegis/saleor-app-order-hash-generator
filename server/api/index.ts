@@ -61,6 +61,12 @@ app.get("/order-status/:hash", async (c) => {
       return c.json({ error: "Order not found for the provided hash" }, 404);
     }
     
+    // Handle potential duplicate hashes (should not happen with our constraints, but just in case)
+    if (result.rows.length > 1) {
+      console.warn(`Multiple orders found for hash: ${hash}`);
+      // Return the first one, but log the issue
+    }
+    
     const orderId = result.rows[0][0]; // order_id is the first column
     
     // Return order status information

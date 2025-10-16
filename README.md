@@ -10,14 +10,26 @@ This app extends the basic Saleor app template with the following features:
 2. **Metadata Storage**: Stores the hash in the order's metadata in Saleor
 3. **Database Persistence**: Uses Turso database to maintain a mapping between order IDs and hashes
 4. **Order Status API**: Provides an endpoint to query order status using the generated hash
+5. **Collision Prevention**: Implements multiple layers of protection against hash collisions
 
 ## How It Works
 
 1. When a new order is created in Saleor, the app receives a webhook notification
 2. The app generates a unique cryptographic hash for the order
-3. The hash is stored in the order's metadata in Saleor
-4. The mapping between order ID and hash is stored in a Turso database
-5. Users can query order status by making a GET request to `/api/order-status/{hash}`
+3. The hash is checked against existing hashes in the database to prevent collisions
+4. The hash is stored in the order's metadata in Saleor
+5. The mapping between order ID and hash is stored in a Turso database
+6. Users can query order status by making a GET request to `/api/order-status/{hash}`
+
+## Collision Prevention
+
+To ensure hash uniqueness and prevent collisions, the app implements several strategies:
+
+1. **Cryptographically Secure Generation**: Uses the Web Crypto API to generate 256-bit random values
+2. **Timestamp Enhancement**: Adds a timestamp component to the hash for additional uniqueness
+3. **Database-Level Constraints**: Enforces UNIQUE constraints on the order_hash column in the database
+4. **Application-Level Checking**: Verifies hash uniqueness against existing entries before insertion
+5. **Retry Mechanism**: Attempts to generate a unique hash up to 5 times if a collision is detected
 
 ## Additional Configuration
 

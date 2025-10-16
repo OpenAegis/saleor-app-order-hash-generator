@@ -19,12 +19,17 @@ export function unpackHonoRequest(
  * @returns A unique hash string
  */
 export function generateOrderHash(): string {
-  // Generate a random 32-byte array
+  // Generate a random 32-byte array (256 bits)
   const array = new Uint8Array(32);
   crypto.getRandomValues(array);
   
   // Convert to hex string
-  return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+  const hash = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+  
+  // Add timestamp for additional uniqueness
+  const timestamp = Date.now().toString(36);
+  
+  return `${hash}${timestamp}`;
 }
 
 /**

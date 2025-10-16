@@ -38,15 +38,44 @@ app.post("/order-created", async (c) => {
       return new Response("Order ID missing", { status: 400 });
     }
 
-    // Generate a unique hash for the order
-    const orderHash = generateOrderHash();
-    console.log(`Generated hash for order ${payload.order.id}: ${orderHash}`);
+    // Generate a unique hash for the order with collision prevention
+    let orderHash: string | null = null;
+    let attempts = 0;
+    const maxAttempts = 5;
+    const turso = initTursoClient();
+    
+    while (attempts < maxAttempts) {
+      const newHash = generateOrderHash();
+      console.log(`Generated hash for order ${payload.order.id}: ${newHash}`);
+      
+      try {
+        // Check if hash already exists in database
+        const existing = await turso.execute({
+          sql: "SELECT COUNT(*) as count FROM order_hashes WHERE order_hash = ?",
+          args: [newHash]
+        });
+        
+        if (existing.rows?.[0]?.[0] === 0) {
+          // Hash is unique, we can proceed
+          orderHash = newHash;
+          break;
+        }
+      } catch (error) {
+        console.error("Error checking hash uniqueness:", error);
+      }
+      
+      attempts++;
+      console.log(`Hash collision detected, attempt ${attempts} of ${maxAttempts}`);
+    }
+    
+    if (!orderHash) {
+      console.error("Failed to generate unique hash after maximum attempts");
+      return new Response("Failed to generate unique hash", { status: 500 });
+    }
 
     // Store the hash mapping in Turso database
     try {
-      const turso = initTursoClient();
-      
-      // Create table if it doesn't exist
+      // Create table if it doesn't exist with unique constraints
       await turso.execute(`
         CREATE TABLE IF NOT EXISTS order_hashes (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
