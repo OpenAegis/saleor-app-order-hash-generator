@@ -196,6 +196,8 @@ app.get("/order-status/:hash", async (c) => {
                 id
                 status
                 number
+                paymentStatus
+                isPaid
               }
             }
           `,
@@ -225,12 +227,14 @@ app.get("/order-status/:hash", async (c) => {
         }, 404);
       }
       
-      // Return order status
+      // Return order status including payment status
       return c.json({
         hash,
         orderId,
         status: result.data.order.status,
-        orderNumber: result.data.order.number
+        orderNumber: result.data.order.number,
+        paymentStatus: result.data.order.paymentStatus,
+        isPaid: result.data.order.isPaid
       });
     } catch (fetchError) {
       console.error("Error fetching order status from Saleor:", fetchError);
@@ -319,6 +323,8 @@ app.get("/order-status/:hash/metadata", async (c) => {
                 id
                 number
                 status
+                paymentStatus
+                isPaid
                 metadata {
                   key
                   value
@@ -364,8 +370,7 @@ app.get("/order-status/:hash/metadata", async (c) => {
         hash,
         orderId,
         order: result.data.order,
-        status: "found",
-        message: "Order with metadata found successfully"
+        status: "found"
       });
     } catch (fetchError) {
       console.error("Error fetching order metadata from Saleor:", fetchError);

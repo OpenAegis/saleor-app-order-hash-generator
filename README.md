@@ -143,15 +143,17 @@ You can deploy this app using any platform that supports Deno:
 GET /api/order-status/{hash}
 ```
 
-Returns the actual status of the order associated with the provided hash.
+Returns the actual status and payment status of the order associated with the provided hash.
 
 Example response:
-```
+```json
 {
   "hash": "abcdef123456...",
   "orderId": "T3JkZXI6MQ==",
   "status": "FULFILLED",
-  "orderNumber": "12345"
+  "orderNumber": "12345",
+  "paymentStatus": "FULLY_CHARGED",
+  "isPaid": true
 }
 ```
 
@@ -170,6 +172,8 @@ Example response:
     "id": "T3JkZXI6MQ==",
     "number": "12345",
     "status": "FULFILLED",
+    "paymentStatus": "FULLY_CHARGED",
+    "isPaid": true,
     "metadata": [
       {
         "key": "order_hash",
@@ -190,8 +194,7 @@ Example response:
     "updated": "2023-01-01T00:00:00Z",
     "userEmail": "customer@example.com"
   },
-  "status": "found",
-  "message": "Order with metadata found successfully"
+  "status": "found"
 }
 ```
 
