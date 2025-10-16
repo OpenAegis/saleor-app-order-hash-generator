@@ -21,15 +21,70 @@ This app extends the basic Saleor app template with the following features:
 5. The mapping between order ID and hash is stored in a Turso database
 6. Users can query order status by making a GET request to `/api/order-status/{hash}`
 
+## Database Initialization
+
+The application automatically initializes the required database schema on startup. The database table `order_hashes` is created with the following structure:
+
+```sql
+CREATE TABLE IF NOT EXISTS order_hashes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  order_id TEXT UNIQUE NOT NULL,
+  order_hash TEXT UNIQUE NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+```
+
+If you need to manually initialize or reinitialize the database, you can use the admin endpoint:
+```
+POST /api/admin/init-database
+```
+
 ## Collision Prevention
 
 To ensure hash uniqueness and prevent collisions, the app implements several strategies:
 
 1. **Cryptographically Secure Generation**: Uses the Web Crypto API to generate 256-bit random values
 2. **Timestamp Enhancement**: Adds a timestamp component to the hash for additional uniqueness
-3. **Database-Level Constraints**: Enforces UNIQUE constraints on the order_hash column in the database
-4. **Application-Level Checking**: Verifies hash uniqueness against existing entries before insertion
-5. **Retry Mechanism**: Attempts to generate a unique hash up to 5 times if a collision is detected
+3. **Random Component**: Adds an additional random component for even more uniqueness
+4. **Database-Level Constraints**: Enforces UNIQUE constraints on the order_hash column in the database
+5. **Application-Level Checking**: Verifies hash uniqueness against existing entries before insertion
+6. **Retry Mechanism**: Attempts to generate a unique hash up to 10 times if a collision is detected
+
+## Troubleshooting
+
+### Failed to generate unique hash
+
+If you see "Failed to generate unique hash" errors in your webhook deliveries, this could be due to:
+
+1. **High volume of orders**: If you're processing many orders simultaneously, the retry mechanism may need more attempts
+2. **Database issues**: Problems with the Turso database connection may prevent proper hash uniqueness checking
+3. **System entropy issues**: In rare cases, the system may have insufficient entropy for generating random values
+
+#### Solutions:
+
+1. **Increase retry attempts**: The app is configured with 10 retry attempts by default
+2. **Check database connectivity**: Ensure your Turso database credentials are correct
+3. **Use diagnostic endpoints**: 
+   - `GET /api/diagnostics/duplicate-hashes` - Check for duplicate hashes in the database
+   - `POST /api/admin/cleanup-duplicates` - Clean up duplicate hashes (if any)
+
+### Webhook Delivery Failures
+
+If webhooks are failing repeatedly:
+
+1. Check the application logs for specific error messages
+2. Verify that the Turso database is accessible
+3. Ensure the Saleor API credentials are valid
+4. Check that the app has the required permissions (MANAGE_ORDERS)
+
+### Database Issues
+
+If you suspect database issues:
+
+1. **Check database initialization**: The app automatically initializes the database on startup
+2. **Manual initialization**: Use `POST /api/admin/init-database` to manually initialize the database
+3. **Check for duplicates**: Use `GET /api/diagnostics/duplicate-hashes` to check for duplicate entries
+4. **Clean up duplicates**: Use `POST /api/admin/cleanup-duplicates` to remove duplicate entries
 
 ## Additional Configuration
 
@@ -43,8 +98,20 @@ In addition to the standard environment variables, you need to configure:
 ### Turso Database Setup
 
 1. Create a Turso database at [Turso](https://turso.tech/)
-2. Get your database URL and authentication token
-3. Add these values to your `.env` file
+   - Sign up for a free account
+   - Create a new database
+   - Note the database URL and authentication token
+
+2. Get your database URL and authentication token:
+   - After creating your database, Turso will provide you with:
+     - Database URL (e.g., `libsql://your-database-name.turso.io`)
+     - Authentication token (a long string starting with `eyJhb...`)
+
+3. Add these values to your `.env` file:
+   ```env
+   TURSO_DATABASE_URL=libsql://your-database-name.turso.io
+   TURSO_AUTH_TOKEN=your_auth_token_here
+   ```
 
 ## API Endpoints
 
@@ -65,6 +132,28 @@ Example response:
   "message": "Order found successfully"
 }
 ```
+
+### Administrative Endpoints
+
+```
+POST /api/admin/init-database
+```
+
+Manually initialize the database schema.
+
+```
+POST /api/admin/cleanup-duplicates
+```
+
+Clean up duplicate hashes (keeps the first occurrence).
+
+### Diagnostic Endpoints
+
+```
+GET /api/diagnostics/duplicate-hashes
+```
+
+Check for duplicate hashes in the database.
 
 ## Usage
 

@@ -6,7 +6,7 @@ import { Hono } from "hono";
 import { saleorApp } from "../saleor-app.ts";
 import webhookRotues from "./webhooks/index.ts";
 import { orderCreatedWebhook } from "./webhooks/order-created.ts";
-import { unpackHonoRequest, initTursoClient } from "./utils.ts";
+import { unpackHonoRequest, initTursoClient, initializeDatabase } from "./utils.ts";
 
 const app = new Hono();
 
@@ -39,6 +39,21 @@ app.post(
     apl: saleorApp.apl,
   })),
 );
+
+// Add endpoint to manually initialize database
+app.post("/admin/init-database", async (c) => {
+  try {
+    const success = await initializeDatabase();
+    if (success) {
+      return c.json({ message: "Database initialized successfully" });
+    } else {
+      return c.json({ error: "Failed to initialize database" }, 500);
+    }
+  } catch (error) {
+    console.error("Error initializing database:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
 
 // Add endpoint to query order status by hash
 app.get("/order-status/:hash", async (c) => {
@@ -78,6 +93,69 @@ app.get("/order-status/:hash", async (c) => {
     });
   } catch (error) {
     console.error("Error querying order status:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
+// Add endpoint to check for duplicate hashes (diagnostic tool)
+app.get("/diagnostics/duplicate-hashes", async (c) => {
+  try {
+    const turso = initTursoClient();
+    
+    // Check for duplicate hashes
+    const duplicates = await turso.execute(`
+      SELECT order_hash, COUNT(*) as count 
+      FROM order_hashes 
+      GROUP BY order_hash 
+      HAVING COUNT(*) > 1
+    `);
+    
+    // Check for duplicate order IDs
+    const duplicateOrders = await turso.execute(`
+      SELECT order_id, COUNT(*) as count 
+      FROM order_hashes 
+      GROUP BY order_id 
+      HAVING COUNT(*) > 1
+    `);
+    
+    // Get total count
+    const total = await turso.execute(`
+      SELECT COUNT(*) as total FROM order_hashes
+    `);
+    
+    return c.json({
+      total: total.rows?.[0]?.[0] || 0,
+      duplicateHashes: duplicates.rows,
+      duplicateOrders: duplicateOrders.rows,
+      status: "success"
+    });
+  } catch (error) {
+    console.error("Error running diagnostics:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
+// Add endpoint to clean up duplicate hashes (admin tool)
+app.post("/admin/cleanup-duplicates", async (c) => {
+  try {
+    const turso = initTursoClient();
+    
+    // Find and remove duplicate hashes, keeping only the first one
+    const duplicates = await turso.execute(`
+      DELETE FROM order_hashes 
+      WHERE id NOT IN (
+        SELECT MIN(id) 
+        FROM order_hashes 
+        GROUP BY order_hash
+      )
+    `);
+    
+    return c.json({
+      message: "Duplicate hashes cleaned up",
+      rowsAffected: duplicates.rowsAffected
+    });
+  } catch (error) {
+    console.error("Error cleaning up duplicates:", error);
     return c.json({ error: "Internal server error" }, 500);
   }
 });

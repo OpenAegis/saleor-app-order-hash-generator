@@ -41,7 +41,7 @@ app.post("/order-created", async (c) => {
     // Generate a unique hash for the order with collision prevention
     let orderHash: string | null = null;
     let attempts = 0;
-    const maxAttempts = 5;
+    const maxAttempts = 10; // Increased from 5 to 10
     const turso = initTursoClient();
     
     while (attempts < maxAttempts) {
@@ -69,23 +69,14 @@ app.post("/order-created", async (c) => {
     }
     
     if (!orderHash) {
-      console.error("Failed to generate unique hash after maximum attempts");
-      return new Response("Failed to generate unique hash", { status: 500 });
+      console.error(`Failed to generate unique hash after ${maxAttempts} attempts for order ${payload.order.id}`);
+      // Return success response to prevent webhook retries, but log the error
+      return new Response("Accepted - Hash generation failed", { status: 200 });
     }
 
     // Store the hash mapping in Turso database
     try {
-      // Create table if it doesn't exist with unique constraints
-      await turso.execute(`
-        CREATE TABLE IF NOT EXISTS order_hashes (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          order_id TEXT UNIQUE NOT NULL,
-          order_hash TEXT UNIQUE NOT NULL,
-          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
-      `);
-      
-      // Insert the order hash mapping
+      // Insert the order hash mapping (table is already created at startup)
       await turso.execute({
         sql: "INSERT INTO order_hashes (order_id, order_hash) VALUES (?, ?)",
         args: [payload.order.id, orderHash]
@@ -94,7 +85,7 @@ app.post("/order-created", async (c) => {
       console.log(`Stored hash mapping for order ${payload.order.id}`);
     } catch (error) {
       console.error("Error storing hash in database:", error);
-      // We don't return an error here because we still want to update the order metadata
+      // We don't return an error here because we want to update the order metadata even if DB storage fails
     }
 
     // Update the order metadata with the hash

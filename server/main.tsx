@@ -9,8 +9,19 @@
 import { Hono } from "hono";
 import apiRoutes from "./api/index.ts";
 import { serveStatic } from "hono/deno";
+import { initializeDatabase } from "./api/utils.ts";
 
 const app = new Hono();
+
+// Initialize database on startup
+console.log("Initializing database...");
+initializeDatabase().then((success) => {
+  if (success) {
+    console.log("Database initialized successfully");
+  } else {
+    console.error("Failed to initialize database");
+  }
+});
 
 const getBaseUrl = (url: string) => {
   const parsedUrl = new URL(url);

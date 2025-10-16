@@ -29,7 +29,10 @@ export function generateOrderHash(): string {
   // Add timestamp for additional uniqueness
   const timestamp = Date.now().toString(36);
   
-  return `${hash}${timestamp}`;
+  // Add random component for even more uniqueness
+  const random = Math.floor(Math.random() * 1000000).toString(36);
+  
+  return `${hash}${timestamp}${random}`;
 }
 
 /**
@@ -48,4 +51,30 @@ export function initTursoClient() {
     url,
     authToken,
   });
+}
+
+/**
+ * Initialize the database schema
+ * @returns Promise that resolves when the database is initialized
+ */
+export async function initializeDatabase() {
+  try {
+    const turso = initTursoClient();
+    
+    // Create table with unique constraints
+    await turso.execute(`
+      CREATE TABLE IF NOT EXISTS order_hashes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        order_id TEXT UNIQUE NOT NULL,
+        order_hash TEXT UNIQUE NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    console.log("Database initialized successfully");
+    return true;
+  } catch (error) {
+    console.error("Error initializing database:", error);
+    return false;
+  }
 }
