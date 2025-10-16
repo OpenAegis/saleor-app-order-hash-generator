@@ -87,35 +87,239 @@ app.get("/order-status/:hash", async (c) => {
   }
   
   try {
-    // Get order ID from Turso database using the hash
+    // Get order ID and Saleor API URL from Turso database using the hash
     const turso = initTursoClient();
     
-    const result = await turso.execute({
-      sql: "SELECT order_id FROM order_hashes WHERE order_hash = ?",
+    const dbResult = await turso.execute({
+      sql: "SELECT order_id, saleor_api_url FROM order_hashes WHERE order_hash = ?",
       args: [hash]
     });
     
-    if (!result.rows || result.rows.length === 0) {
+    if (!dbResult.rows || dbResult.rows.length === 0) {
       return c.json({ error: "Order not found for the provided hash" }, 404);
     }
     
-    // Handle potential duplicate hashes (should not happen with our constraints, but just in case)
-    if (result.rows.length > 1) {
-      console.warn(`Multiple orders found for hash: ${hash}`);
-      // Return the first one, but log the issue
+    const orderId = dbResult.rows[0][0] as string;
+    const saleorApiUrl = dbResult.rows[0][1] as string;
+    
+    // If we don't have the Saleor API URL, we can't fetch status
+    if (!saleorApiUrl) {
+      return c.json({ 
+        error: "Saleor API URL not found in database", 
+        hash,
+        orderId
+      }, 400);
     }
     
-    const orderId = result.rows[0][0]; // order_id is the first column
+    // Try to get auth data for this Saleor instance
+    let authToken = null;
+    try {
+      const authData = await saleorApp.apl.get(saleorApiUrl);
+      authToken = authData?.token;
+    } catch (authError) {
+      console.warn("Could not retrieve auth data for Saleor API URL:", saleorApiUrl);
+    }
     
-    // Return order status information
-    return c.json({
-      hash,
-      orderId,
-      status: "found",
-      message: "Order found successfully"
-    });
+    // If we don't have an auth token, we can't fetch status
+    if (!authToken) {
+      return c.json({ 
+        error: "Authentication token not available for this Saleor instance", 
+        hash,
+        orderId
+      }, 401);
+    }
+    
+    // Fetch order status from Saleor
+    try {
+      const response = await fetch(saleorApiUrl as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({
+          query: `
+            query GetOrderStatus($id: ID!) {
+              order(id: $id) {
+                id
+                status
+                number
+              }
+            }
+          `,
+          variables: {
+            id: orderId
+          }
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (result.errors) {
+        console.error("GraphQL errors:", result.errors);
+        return c.json({ 
+          error: "Failed to fetch order status", 
+          graphqlErrors: result.errors,
+          hash,
+          orderId
+        }, 500);
+      }
+      
+      if (!result.data?.order) {
+        return c.json({ 
+          error: "Order not found in Saleor", 
+          hash,
+          orderId
+        }, 404);
+      }
+      
+      // Return order status
+      return c.json({
+        hash,
+        orderId,
+        status: result.data.order.status,
+        orderNumber: result.data.order.number
+      });
+    } catch (fetchError) {
+      console.error("Error fetching order status from Saleor:", fetchError);
+      return c.json({ 
+        error: "Failed to connect to Saleor API", 
+        details: (fetchError as Error).message,
+        hash,
+        orderId
+      }, 500);
+    }
   } catch (error) {
     console.error("Error querying order status:", error);
+    return c.json({ error: "Internal server error" }, 500);
+  }
+});
+
+// Add endpoint to query order status with full metadata by hash
+app.get("/order-status/:hash/metadata", async (c) => {
+  const hash = c.req.param("hash");
+  
+  if (!hash) {
+    return c.json({ error: "Hash parameter is required" }, 400);
+  }
+  
+  try {
+    // Get order ID and Saleor API URL from Turso database using the hash
+    const turso = initTursoClient();
+    
+    const dbResult = await turso.execute({
+      sql: "SELECT order_id, saleor_api_url FROM order_hashes WHERE order_hash = ?",
+      args: [hash]
+    });
+    
+    if (!dbResult.rows || dbResult.rows.length === 0) {
+      return c.json({ error: "Order not found for the provided hash" }, 404);
+    }
+    
+    const orderId = dbResult.rows[0][0] as string;
+    const saleorApiUrl = dbResult.rows[0][1] as string;
+    
+    // If we don't have the Saleor API URL, we can't fetch metadata
+    if (!saleorApiUrl) {
+      return c.json({ 
+        error: "Saleor API URL not found in database", 
+        hash,
+        orderId
+      }, 400);
+    }
+    
+    // Try to get auth data for this Saleor instance
+    let authToken = null;
+    try {
+      const authData = await saleorApp.apl.get(saleorApiUrl);
+      authToken = authData?.token;
+    } catch (authError) {
+      console.warn("Could not retrieve auth data for Saleor API URL:", saleorApiUrl);
+    }
+    
+    // If we don't have an auth token, we can't fetch metadata
+    if (!authToken) {
+      return c.json({ 
+        error: "Authentication token not available for this Saleor instance", 
+        hash,
+        orderId
+      }, 401);
+    }
+    
+    // Fetch full order metadata from Saleor
+    try {
+      const response = await fetch(saleorApiUrl as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({
+          query: `
+            query GetOrderMetadata($id: ID!) {
+              order(id: $id) {
+                id
+                number
+                status
+                metadata {
+                  key
+                  value
+                }
+                privateMetadata {
+                  key
+                  value
+                }
+                created
+                updated
+                userEmail
+              }
+            }
+          `,
+          variables: {
+            id: orderId
+          }
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (result.errors) {
+        console.error("GraphQL errors:", result.errors);
+        return c.json({ 
+          error: "Failed to fetch order metadata", 
+          graphqlErrors: result.errors,
+          hash,
+          orderId
+        }, 500);
+      }
+      
+      if (!result.data?.order) {
+        return c.json({ 
+          error: "Order not found in Saleor", 
+          hash,
+          orderId
+        }, 404);
+      }
+      
+      // Return order with full metadata (without Saleor API URL)
+      return c.json({
+        hash,
+        orderId,
+        order: result.data.order,
+        status: "found",
+        message: "Order with metadata found successfully"
+      });
+    } catch (fetchError) {
+      console.error("Error fetching order metadata from Saleor:", fetchError);
+      return c.json({ 
+        error: "Failed to connect to Saleor API", 
+        details: (fetchError as Error).message,
+        hash,
+        orderId
+      }, 500);
+    }
+  } catch (error) {
+    console.error("Error querying order status with metadata:", error);
     return c.json({ error: "Internal server error" }, 500);
   }
 });
